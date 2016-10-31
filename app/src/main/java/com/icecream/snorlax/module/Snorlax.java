@@ -26,6 +26,7 @@ import com.icecream.snorlax.module.feature.FeatureHelper;
 import com.icecream.snorlax.module.feature.broadcast.Broadcast;
 import com.icecream.snorlax.module.feature.capture.Capture;
 import com.icecream.snorlax.module.feature.encounter.Encounter;
+import com.icecream.snorlax.module.feature.lure.Lure;
 import com.icecream.snorlax.module.feature.mitm.Mitm;
 import com.icecream.snorlax.module.feature.mock.Mock;
 import com.icecream.snorlax.module.feature.rename.Rename;
@@ -55,6 +56,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	Broadcast mBroadcast;
 	@Inject
 	SafetyNet mSafetyNet;
+	@Inject
+	Lure mLure;
 
 	private XSharedPreferences mXSharedPreferences;
 
@@ -90,7 +93,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mCapture,
 					mEncounter,
 					mRename,
-					mBroadcast
+					mBroadcast,
+					mLure
 				);
 			}
 		});
@@ -104,7 +108,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mCapture,
 					mEncounter,
 					mRename,
-					mBroadcast
+					mBroadcast,
+					mLure
 				);
 			}
 		});
