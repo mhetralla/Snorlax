@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
 	<bool name="preference_general_mock_enable">true</bool>
+	<bool name="preference_general_log_traffic_enable">false</bool>
 	<bool name="preference_encounter_notification_enable">true</bool>
 	<bool name="preference_encounter_dismiss_notification_enable">true</bool>
 	<bool name="preference_lure_enable">true</bool>

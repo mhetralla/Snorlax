@@ -39,6 +39,10 @@
 	<string name="preference_general_mock_enable_title">Enable mock location</string>
 	<string name="preference_general_mock_enable_summary">Prevent detection of mocking locations apps</string>
 
+	<string name="preference_general_log_traffic_enable_key">general_log_traffic_key</string>
+	<string name="preference_general_log_traffic_enable_title">Enable traffic logging</string>
+	<string name="preference_general_log_traffic_enable_summary">Log traffic on disk</string>
+
 	<string name="preference_encounter_notification">Encounter Notifications</string>
 	<string name="preference_encounter_notification_enable_key">encounter_notification_key</string>
 	<string name="preference_encounter_notification_enable_title">Enable encounter notifications</string>

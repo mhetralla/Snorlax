@@ -31,6 +31,7 @@ import com.icecream.snorlax.module.feature.mitm.Mitm;
 import com.icecream.snorlax.module.feature.mock.Mock;
 import com.icecream.snorlax.module.feature.rename.Rename;
 import com.icecream.snorlax.module.feature.safetynet.SafetyNet;
+import com.icecream.snorlax.module.feature.traffic.Traffic;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.IXposedHookZygoteInit;
@@ -58,6 +59,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	SafetyNet mSafetyNet;
 	@Inject
 	Lure mLure;
+	@Inject
+	Traffic mTraffic;
 
 	private XSharedPreferences mXSharedPreferences;
 
@@ -94,7 +97,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mEncounter,
 					mRename,
 					mBroadcast,
-					mLure
+					mLure,
+					mTraffic
 				);
 			}
 		});
@@ -109,7 +113,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mEncounter,
 					mRename,
 					mBroadcast,
-					mLure
+					mLure,
+					mTraffic
 				);
 			}
 		});

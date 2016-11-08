@@ -14,6 +14,13 @@
 			android:title="@string/preference_general_mock_enable_title"
 			/>
 
+		<SwitchPreference
+			android:defaultValue="@bool/preference_general_log_traffic_enable"
+			android:key="@string/preference_general_log_traffic_enable_key"
+			android:summary="@string/preference_general_log_traffic_enable_summary"
+			android:title="@string/preference_general_log_traffic_enable_title"
+			/>
+
 	</PreferenceCategory>
 
 	<PreferenceCategory
