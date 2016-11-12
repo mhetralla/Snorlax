@@ -40,8 +40,11 @@ final class TrafficPreferences {
 
 	boolean isEnabled() {
 		mPreferences.reload();
-		final boolean expected = getPreferenceDefaultValue();
-		return expected == getPreference(expected);
+		return getPreference(getPreferenceDefaultValue());
+	}
+
+	public Resources getmResources() {
+		return mResources;
 	}
 
 	private boolean getPreferenceDefaultValue() {

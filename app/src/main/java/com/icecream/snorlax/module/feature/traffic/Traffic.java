@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -20,6 +21,7 @@ import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
 import com.icecream.snorlax.module.feature.Feature;
 import com.icecream.snorlax.module.feature.mitm.MitmRelay;
 import com.icecream.snorlax.module.util.Log;
+import com.icecream.snorlax.module.util.Storage;
 
 import POGOProtos.Networking.Requests.RequestOuterClass.Request;
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
@@ -30,19 +32,22 @@ import rx.Subscription;
  * Log Pokemon Go traffic datas
  */
 public class Traffic implements Feature {
-	private final static DateFormat DATE_FORMAT = new SimpleDateFormat("yyMMddHHmmssSS");
+	private final static DateFormat DATE_FORMAT = new SimpleDateFormat("yyMMddHHmmssSS", Locale.US);
 
 	private final MitmRelay mMitmRelay;
 	private final TrafficPreferences mTrafficPreferences;
 	private final Context mContext;
 
 	private Subscription mSubscription;
+	private File mTrafficDirectory;
 
 	@Inject
 	public Traffic(@PokemonGo Context context, TrafficPreferences trafficPreferences, MitmRelay mitmRelay) {
 		this.mMitmRelay = mitmRelay;
 		this.mTrafficPreferences = trafficPreferences;
 		this.mContext = context;
+
+		this.mTrafficDirectory = new File(Storage.getPublicDirectory(trafficPreferences.getmResources()), "traffic");
 	}
 
 	@Override
@@ -57,7 +62,7 @@ public class Traffic implements Feature {
 				}
 
 				final List<Request> requests = envelope.getRequest().getRequestsList();
-				final List<TypedResponse> responses = new LinkedList<TypedResponse>();
+				final List<TypedResponse> responses = new LinkedList<>();
 				for (int i = 0; i < requests.size(); i++) {
 					final RequestType requestType = requests.get(i).getRequestType();
 					final ByteString datas = envelope.getResponse().getReturns(i);
@@ -76,8 +81,20 @@ public class Traffic implements Feature {
 	}
 
 	private void logResponse(final TypedResponse response) {
-		final String dateFormat = DATE_FORMAT.format(Calendar.getInstance().getTime());
-		final File logFile = new File(mContext.getFilesDir(), "traffic/" + dateFormat + "." + response.index + "." + response.requestType + ".log");
+		if (!Storage.isExternalStorageWritable(mContext)) {
+			return;
+		}
+
+		final String logFileName = DATE_FORMAT.format(Calendar.getInstance().getTime()) + "." + response.index + "." + response.requestType + ".log";
+		final File logFile = new File(mTrafficDirectory, logFileName);
+
+		if (!mTrafficDirectory.exists()) {
+			final boolean mkdirResult = mTrafficDirectory.mkdirs();
+			if (!mkdirResult) {
+				Log.d("Failed to create directory : " + mTrafficDirectory.getAbsolutePath());
+				return;
+			}
+		}
 
 		try {
 			final FileChannel wChannel = new FileOutputStream(logFile, true).getChannel();
@@ -89,9 +106,9 @@ public class Traffic implements Feature {
 	}
 
 	private class TypedResponse {
-		public final int index;
-		public final RequestType requestType;
-		public final ByteString datas;
+		final int index;
+		final RequestType requestType;
+		final ByteString datas;
 
 		private TypedResponse(final int index, final RequestType requestType, final ByteString datas) {
 			this.index = index;
