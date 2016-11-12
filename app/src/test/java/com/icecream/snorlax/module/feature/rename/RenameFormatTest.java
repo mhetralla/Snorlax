@@ -159,6 +159,24 @@ public class RenameFormatTest {
 		mExpected = "Snorlax 6.7%,1/1/1,8.5";
 		setRenameFormat("%NICK% %IV%%,%ATT%/%DEF%/%STA%,%LVL%");
 	}
+
+	@Test
+	public void testStartDelimiter2() throws Exception {
+		mExpected = "Snorlax";
+		setRenameFormat("℅NICK%");
+	}
+
+	@Test
+	public void testEndDelimiter2() throws Exception {
+		mExpected = "Snorlax";
+		setRenameFormat("%NICK℅");
+	}
+
+	@Test
+	public void testDelimiter2() throws Exception {
+		mExpected = "Snorlax";
+		setRenameFormat("℅NICK℅");
+	}
 	//endregion
 
 	//region Nick
@@ -558,7 +576,6 @@ public class RenameFormatTest {
 	//endregion
 
 	//region Type
-
 	@Test
 	public void testType1() throws Exception {
 		mExpected = "Normal";

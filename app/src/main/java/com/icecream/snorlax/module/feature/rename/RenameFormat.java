@@ -37,6 +37,9 @@ import static java.lang.Integer.parseInt;
 @Singleton
 final class RenameFormat {
 
+	private static final Character DELIMITER_1 = '%';
+	private static final Character DELIMITER_2 = '℅';
+
 	private static final String BASE_NICK = "NICK";
 	private static final String BASE_LVL = "LVL";
 	private static final String BASE_IV = "IV";
@@ -69,28 +72,33 @@ final class RenameFormat {
 		StringBuilder builder = new StringBuilder();
 
 		for (int i = 0, len = format.length(); i < len; ) {
-			int nextPercent = format.indexOf('%', i + 1);
-			if (format.charAt(i) != '%') {
-				final int end = (nextPercent == -1) ? len : nextPercent;
+			int nextDelimiter1 = format.indexOf(DELIMITER_1, i + 1);
+			int nextDelimiter2 = format.indexOf(DELIMITER_2, i + 1);
+			int nextDelimiter = nextDelimiter1 == -1 ? nextDelimiter2
+				: nextDelimiter2 == -1 ? nextDelimiter1
+				: Math.min(nextDelimiter1, nextDelimiter2);
+
+			if (format.charAt(i) != DELIMITER_1 && format.charAt(i) != DELIMITER_2) {
+				final int end = (nextDelimiter == -1) ? len : nextDelimiter;
 
 				builder.append(format.substring(i, end));
 				i = end;
 			}
-			else if (nextPercent == -1) {
+			else if (nextDelimiter == -1) {
 				builder.append(format.substring(i));
 				i = len;
 			}
-			else if (format.substring(i + 1, nextPercent).contains(" ")) {
-				builder.append(format.substring(i, nextPercent));
-				i = nextPercent;
+			else if (format.substring(i + 1, nextDelimiter).contains(" ")) {
+				builder.append(format.substring(i, nextDelimiter));
+				i = nextDelimiter;
 			}
-			else if (format.substring(i, nextPercent).length() < 3) {
-				builder.append(format.substring(i, nextPercent));
-				i = nextPercent;
+			else if (format.substring(i, nextDelimiter).length() < 3) {
+				builder.append(format.substring(i, nextDelimiter));
+				i = nextDelimiter;
 			}
 			else {
-				builder.append(processFormat(pokemon, format.substring(i + 1, nextPercent)));
-				i = nextPercent + 1;
+				builder.append(processFormat(pokemon, format.substring(i + 1, nextDelimiter)));
+				i = nextDelimiter + 1;
 			}
 		}
 
@@ -147,7 +155,7 @@ final class RenameFormat {
 			processed = processStamina(target, pokemon.getStamina());
 		}
 
-		return Strings.isNullOrEmpty(processed) ? "%" + command + "%" : processed;
+		return Strings.isNullOrEmpty(processed) ? DELIMITER_1 + command + DELIMITER_1 : processed;
 	}
 
 	@Nullable
