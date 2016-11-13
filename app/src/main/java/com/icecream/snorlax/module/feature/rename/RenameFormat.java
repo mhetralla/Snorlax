@@ -347,9 +347,15 @@ final class RenameFormat {
 	private String processCP(String target, Pokemon pokemon) {
 		if (target.equals(BASE_CP)) {
 			return Decimals.format(pokemon.getCp(), 2, 4, 0, 0);
-		}
-		if (target.equals(BASE_CPL)) {
-			return Decimals.format(pokemon.getLastEvolutionCp(), 2, 4, 0, 0);
+		} else if (target.equals(BASE_CPL)) {
+			final int cp = pokemon.getLastEvolutionCp();
+			if (cp == Pokemon.ERROR_LAST_EVOL_CP_MULTI) {
+				return "?";
+			} else if (cp == Pokemon.ERROR_LAST_EVOL_CP_NO_EVOL) {
+				return "-";
+			}
+
+			return Decimals.format(cp, 2, 4, 0, 0);
 		}
 		return null;
 	}

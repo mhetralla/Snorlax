@@ -144,13 +144,16 @@ public final class PokemonMeta {
 
 		mChildrenId = new ArrayList<>();
 		for (PokemonId pokemonId : PokemonId.values()) {
-			if (pokemonId == PokemonId.UNRECOGNIZED || pokemonId == PokemonId.MISSINGNO) {
+			final PokemonMeta pokemonMeta = PokemonMetaRegistry.getMeta(pokemonId);
+			if (pokemonMeta == null) {
 				continue;
 			}
 
-			if (PokemonMetaRegistry.getMeta(pokemonId).mParentId == mId) {
-				mChildrenId.add(pokemonId);
+			if (pokemonMeta.mParentId != mId) {
+				continue;
 			}
+
+			mChildrenId.add(pokemonId);
 		}
 
 		if (mChildrenId.isEmpty()) {

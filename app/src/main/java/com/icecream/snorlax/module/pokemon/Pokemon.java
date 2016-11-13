@@ -23,6 +23,8 @@ import static POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
 
 @SuppressWarnings({"unused", "FieldCanBeLocal", "WeakerAccess"})
 public final class Pokemon {
+	public static final int ERROR_LAST_EVOL_CP_NO_EVOL = -1;
+	public static final int ERROR_LAST_EVOL_CP_MULTI = -2;
 
 	private final String[] mNames;
 	private final PokemonData mPokemonData;
@@ -92,14 +94,14 @@ public final class Pokemon {
 			}
 
 			if (childrenId.size() > 1) {
-				return -2;
+				return ERROR_LAST_EVOL_CP_MULTI;
 			}
 
 			pokemonId = childrenId.get(0);
 		}
 
 		if (pokemonId == currentPokemonId) {
-			return -1;
+			return ERROR_LAST_EVOL_CP_NO_EVOL;
 		}
 
 		final PokemonMeta pokemonMeta = PokemonMetaRegistry.getMeta(pokemonId);
