@@ -54,6 +54,8 @@ final class RenameFormat {
 	private static final String BASE_MVP2 = "MVP2";
 	private static final String BASE_TYP1 = "TYP1";
 	private static final String BASE_TYP2 = "TYP2";
+	private static final String BASE_CP = "CP";
+	private static final String BASE_CPL = "CPL";
 
 	private final PokemonFactory mPokemonFactory;
 	private final RenamePreferences mRenamePreferences;
@@ -146,13 +148,16 @@ final class RenameFormat {
 			processed = processIv(target, pokemon.getIv() * 100);
 		}
 		else if (target.startsWith(BASE_ATT)) {
-			processed = processAttack(target, pokemon.getAttack());
+			processed = processAttack(target, pokemon.getIVAttack());
 		}
 		else if (target.startsWith(BASE_DEF)) {
-			processed = processDefense(target, pokemon.getDefense());
+			processed = processDefense(target, pokemon.getIVDefense());
 		}
 		else if (target.startsWith(BASE_STA)) {
-			processed = processStamina(target, pokemon.getStamina());
+			processed = processStamina(target, pokemon.getIVStamina());
+		}
+		else if (target.startsWith(BASE_CP)) {
+			processed = processCP(target, pokemon);
 		}
 
 		return Strings.isNullOrEmpty(processed) ? DELIMITER_1 + command + DELIMITER_1 : processed;
@@ -334,6 +339,17 @@ final class RenameFormat {
 		}
 		if (target.equals(BASE_STA.concat("H"))) {
 			return Integer.toHexString(stamina).toUpperCase(Locale.getDefault());
+		}
+		return null;
+	}
+
+	@Nullable
+	private String processCP(String target, Pokemon pokemon) {
+		if (target.equals(BASE_CP)) {
+			return Decimals.format(pokemon.getCp(), 2, 4, 0, 0);
+		}
+		if (target.equals(BASE_CPL)) {
+			return Decimals.format(pokemon.getLastEvolutionCp(), 2, 4, 0, 0);
 		}
 		return null;
 	}

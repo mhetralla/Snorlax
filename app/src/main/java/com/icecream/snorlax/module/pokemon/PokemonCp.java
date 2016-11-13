@@ -100,4 +100,12 @@ final class PokemonCp {
 		0.787473608513275,
 		0.790300011634827
 	};
+
+	public static int computeCP(final int attack, final int defence, final int stamina, final double cpMultiplier) {
+		final double attackRatio = attack * cpMultiplier;
+		final double defenceRatio = defence * cpMultiplier;
+		final double staminaRatio = stamina * cpMultiplier;
+
+		return Math.max(10, (int) Math.floor(attackRatio * Math.sqrt(defenceRatio) * Math.sqrt(staminaRatio) / 10));
+	}
 }

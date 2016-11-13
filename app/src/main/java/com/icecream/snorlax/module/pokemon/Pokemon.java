@@ -16,7 +16,10 @@
 
 package com.icecream.snorlax.module.pokemon;
 
+import java.util.List;
+
 import static POGOProtos.Data.PokemonDataOuterClass.PokemonData;
+import static POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
 
 @SuppressWarnings({"unused", "FieldCanBeLocal", "WeakerAccess"})
 public final class Pokemon {
@@ -47,23 +50,65 @@ public final class Pokemon {
 	}
 
 	public double getIv() {
-		return ((double) (getAttack() + getDefense() + getStamina())) / 45.0;
+		return ((double) (getIVAttack() + getIVDefense() + getIVStamina())) / 45.0;
 	}
 
-	public int getAttack() {
+	public int getBaseAttack() {
+		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getBaseAttack();
+	}
+
+	public int getIVAttack() {
 		return mPokemonData.getIndividualAttack();
 	}
 
-	public int getDefense() {
+	public int getBaseDefence() {
+		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getBaseDefense();
+	}
+
+	public int getIVDefense() {
 		return mPokemonData.getIndividualDefense();
 	}
 
-	public int getStamina() {
+	public int getBaseStamina() {
+		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getBaseStamina();
+	}
+
+	public int getIVStamina() {
 		return mPokemonData.getIndividualStamina();
 	}
 
 	public int getCp() {
 		return mPokemonData.getCp();
+	}
+
+	public int getLastEvolutionCp() {
+		final PokemonId currentPokemonId = mPokemonData.getPokemonId();
+		PokemonId pokemonId = currentPokemonId;
+		while (true) {
+			final PokemonMeta pokemonMeta = PokemonMetaRegistry.getMeta(pokemonId);
+			final List<PokemonId> childrenId = pokemonMeta.getChildrenId();
+			if (childrenId.contains(PokemonId.UNRECOGNIZED)) {
+				break;
+			}
+
+			if (childrenId.size() > 1) {
+				return -2;
+			}
+
+			pokemonId = childrenId.get(0);
+		}
+
+		if (pokemonId == currentPokemonId) {
+			return -1;
+		}
+
+		final PokemonMeta pokemonMeta = PokemonMetaRegistry.getMeta(pokemonId);
+		return PokemonCp.computeCP(
+			pokemonMeta.getBaseAttack() + getIVAttack(),
+			pokemonMeta.getBaseDefense() + getIVDefense(),
+			pokemonMeta.getBaseStamina() + getIVStamina(),
+			mPokemonData.getCpMultiplier() + mPokemonData.getAdditionalCpMultiplier()
+		);
 	}
 
 	public int getHp() {

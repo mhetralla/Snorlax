@@ -85,9 +85,11 @@ public class RenameFormatTest {
 
 		Mockito.doReturn(POKEMON_NAME).when(mPokemon).getName();
 		Mockito.doReturn(POKEMON_LEVEL).when(mPokemon).getLevel();
-		Mockito.doReturn(POKEMON_ATTACK).when(mPokemon).getAttack();
-		Mockito.doReturn(POKEMON_DEFENSE).when(mPokemon).getDefense();
-		Mockito.doReturn(POKEMON_STAMINA).when(mPokemon).getStamina();
+		Mockito.doReturn(POKEMON_ATTACK).when(mPokemon).getIVAttack();
+		Mockito.doReturn(POKEMON_DEFENSE).when(mPokemon).getIVDefense();
+		Mockito.doReturn(POKEMON_STAMINA).when(mPokemon).getIVStamina();
+		Mockito.doReturn(50).when(mPokemon).getCp();
+		Mockito.doReturn(100).when(mPokemon).getLastEvolutionCp();
 		Mockito.doCallRealMethod().when(mPokemon).getIv();
 
 		Mockito.doReturn(mPokemonMoveMeta).when(mPokemon).getMoveFast();
@@ -350,7 +352,7 @@ public class RenameFormatTest {
 
 	@Test
 	public void testAttackTwoDigits() throws Exception {
-		Mockito.doReturn(10).when(mPokemon).getAttack();
+		Mockito.doReturn(10).when(mPokemon).getIVAttack();
 
 		mExpected = "10";
 		setRenameFormat("%ATT%");
@@ -364,7 +366,7 @@ public class RenameFormatTest {
 
 	@Test
 	public void testAttackHex() throws Exception {
-		Mockito.doReturn(15).when(mPokemon).getAttack();
+		Mockito.doReturn(15).when(mPokemon).getIVAttack();
 
 		mExpected = "F";
 		setRenameFormat("%ATTH%");
@@ -386,7 +388,7 @@ public class RenameFormatTest {
 
 	@Test
 	public void testDefenseTwoDigits() throws Exception {
-		Mockito.doReturn(10).when(mPokemon).getDefense();
+		Mockito.doReturn(10).when(mPokemon).getIVDefense();
 
 		mExpected = "10";
 		setRenameFormat("%DEF%");
@@ -400,7 +402,7 @@ public class RenameFormatTest {
 
 	@Test
 	public void testDefenseHex() throws Exception {
-		Mockito.doReturn(15).when(mPokemon).getDefense();
+		Mockito.doReturn(15).when(mPokemon).getIVDefense();
 
 		mExpected = "F";
 		setRenameFormat("%DEFH%");
@@ -422,7 +424,7 @@ public class RenameFormatTest {
 
 	@Test
 	public void testStaminaTwoDigits() throws Exception {
-		Mockito.doReturn(10).when(mPokemon).getStamina();
+		Mockito.doReturn(10).when(mPokemon).getIVStamina();
 
 		mExpected = "10";
 		setRenameFormat("%STA%");
@@ -436,7 +438,7 @@ public class RenameFormatTest {
 
 	@Test
 	public void testStaminaHex() throws Exception {
-		Mockito.doReturn(15).when(mPokemon).getStamina();
+		Mockito.doReturn(15).when(mPokemon).getIVStamina();
 
 		mExpected = "F";
 		setRenameFormat("%STAH%");
@@ -622,6 +624,20 @@ public class RenameFormatTest {
 	public void testTypeTruncateWrongFormat() throws Exception {
 		mExpected = "%TYP1.1a%";
 		setRenameFormat("%TYP1.1a%");
+	}
+	//endregion
+
+	//region Cp
+	@Test
+	public void testCP() throws Exception {
+		mExpected = "50";
+		setRenameFormat("%CP%");
+	}
+
+	@Test
+	public void testCPLast() throws Exception {
+		mExpected = "100";
+		setRenameFormat("%CPL%");
 	}
 	//endregion
 }

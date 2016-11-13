@@ -112,6 +112,7 @@ final class PokemonMetaRegistry {
 		PokemonMeta metap;
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0001_POKEMON_BULBASAUR");
+		metap.setId(PokemonId.BULBASAUR);
 		metap.setFamily(PokemonFamilyId.FAMILY_BULBASAUR);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.POISON);
@@ -155,6 +156,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0002_POKEMON_IVYSAUR");
+		metap.setId(PokemonId.IVYSAUR);
 		metap.setFamily(PokemonFamilyId.FAMILY_BULBASAUR);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.POISON);
@@ -199,6 +201,7 @@ final class PokemonMetaRegistry {
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0003_POKEMON_VENUSAUR");
 		metap.setFamily(PokemonFamilyId.FAMILY_BULBASAUR);
+		metap.setId(PokemonId.VENUSAUR);
 		metap.setPokemonClass(PokemonClass.EPIC);
 		metap.setType2(PokemonType.POISON);
 		metap.setPokedexHeightM(2);
@@ -241,6 +244,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0004_POKEMON_CHARMANDER");
+		metap.setId(PokemonId.CHARMANDER);
 		metap.setFamily(PokemonFamilyId.FAMILY_CHARMANDER);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -284,6 +288,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0005_POKEMON_CHARMELEON");
+		metap.setId(PokemonId.CHARMELEON);
 		metap.setFamily(PokemonFamilyId.FAMILY_CHARMANDER);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -327,6 +332,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0006_POKEMON_CHARIZARD");
+		metap.setId(PokemonId.CHARIZARD);
 		metap.setFamily(PokemonFamilyId.FAMILY_CHARMANDER);
 		metap.setPokemonClass(PokemonClass.EPIC);
 		metap.setType2(PokemonType.FLYING);
@@ -370,6 +376,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0007_POKEMON_SQUIRTLE");
+		metap.setId(PokemonId.SQUIRTLE);
 		metap.setFamily(PokemonFamilyId.FAMILY_SQUIRTLE);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -413,6 +420,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0008_POKEMON_WARTORTLE");
+		metap.setId(PokemonId.WARTORTLE);
 		metap.setFamily(PokemonFamilyId.FAMILY_SQUIRTLE);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -456,6 +464,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0009_POKEMON_BLASTOISE");
+		metap.setId(PokemonId.BLASTOISE);
 		metap.setFamily(PokemonFamilyId.FAMILY_SQUIRTLE);
 		metap.setPokemonClass(PokemonClass.EPIC);
 		metap.setType2(PokemonType.NONE);
@@ -499,6 +508,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0010_POKEMON_CATERPIE");
+		metap.setId(PokemonId.CATERPIE);
 		metap.setFamily(PokemonFamilyId.FAMILY_CATERPIE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -540,6 +550,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0011_POKEMON_METAPOD");
+		metap.setId(PokemonId.METAPOD);
 		metap.setFamily(PokemonFamilyId.FAMILY_CATERPIE);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -581,6 +592,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0012_POKEMON_BUTTERFREE");
+		metap.setId(PokemonId.BUTTERFREE);
 		metap.setFamily(PokemonFamilyId.FAMILY_CATERPIE);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.FLYING);
@@ -624,6 +636,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0013_POKEMON_WEEDLE");
+		metap.setId(PokemonId.WEEDLE);
 		metap.setFamily(PokemonFamilyId.FAMILY_WEEDLE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.POISON);
@@ -665,6 +678,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0014_POKEMON_KAKUNA");
+		metap.setId(PokemonId.KAKUNA);
 		metap.setFamily(PokemonFamilyId.FAMILY_WEEDLE);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.POISON);
@@ -706,6 +720,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0015_POKEMON_BEEDRILL");
+		metap.setId(PokemonId.BEEDRILL);
 		metap.setFamily(PokemonFamilyId.FAMILY_WEEDLE);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.POISON);
@@ -749,6 +764,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0016_POKEMON_PIDGEY");
+		metap.setId(PokemonId.PIDGEY);
 		metap.setFamily(PokemonFamilyId.FAMILY_PIDGEY);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.FLYING);
@@ -792,6 +808,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0017_POKEMON_PIDGEOTTO");
+		metap.setId(PokemonId.PIDGEOTTO);
 		metap.setFamily(PokemonFamilyId.FAMILY_PIDGEY);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.FLYING);
@@ -835,6 +852,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0018_POKEMON_PIDGEOT");
+		metap.setId(PokemonId.PIDGEOT);
 		metap.setFamily(PokemonFamilyId.FAMILY_PIDGEY);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.FLYING);
@@ -878,6 +896,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0019_POKEMON_RATTATA");
+		metap.setId(PokemonId.RATTATA);
 		metap.setFamily(PokemonFamilyId.FAMILY_RATTATA);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -921,6 +940,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0020_POKEMON_RATICATE");
+		metap.setId(PokemonId.RATICATE);
 		metap.setFamily(PokemonFamilyId.FAMILY_RATTATA);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -964,6 +984,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0021_POKEMON_SPEAROW");
+		metap.setId(PokemonId.SPEAROW);
 		metap.setFamily(PokemonFamilyId.FAMILY_SPEAROW);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.FLYING);
@@ -1007,6 +1028,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0022_POKEMON_FEAROW");
+		metap.setId(PokemonId.FEAROW);
 		metap.setFamily(PokemonFamilyId.FAMILY_SPEAROW);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.FLYING);
@@ -1050,6 +1072,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0023_POKEMON_EKANS");
+		metap.setId(PokemonId.EKANS);
 		metap.setFamily(PokemonFamilyId.FAMILY_EKANS);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1093,6 +1116,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0024_POKEMON_ARBOK");
+		metap.setId(PokemonId.ARBOK);
 		metap.setFamily(PokemonFamilyId.FAMILY_EKANS);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1136,6 +1160,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0025_POKEMON_PIKACHU");
+		metap.setId(PokemonId.PIKACHU);
 		metap.setFamily(PokemonFamilyId.FAMILY_PIKACHU);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1179,6 +1204,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0026_POKEMON_RAICHU");
+		metap.setId(PokemonId.RAICHU);
 		metap.setFamily(PokemonFamilyId.FAMILY_PIKACHU);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.NONE);
@@ -1222,6 +1248,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0027_POKEMON_SANDSHREW");
+		metap.setId(PokemonId.SANDSHREW);
 		metap.setFamily(PokemonFamilyId.FAMILY_SANDSHREW);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1265,6 +1292,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0028_POKEMON_SANDSLASH");
+		metap.setId(PokemonId.SANDSLASH);
 		metap.setFamily(PokemonFamilyId.FAMILY_SANDSHREW);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1308,6 +1336,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0029_POKEMON_NIDORAN");
+		metap.setId(PokemonId.NIDORAN_FEMALE);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_FEMALE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1351,6 +1380,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0030_POKEMON_NIDORINA");
+		metap.setId(PokemonId.NIDORINA);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_FEMALE);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1394,6 +1424,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0031_POKEMON_NIDOQUEEN");
+		metap.setId(PokemonId.NIDOQUEEN);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_FEMALE);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.GROUND);
@@ -1437,6 +1468,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0032_POKEMON_NIDORAN");
+		metap.setId(PokemonId.NIDORAN_MALE);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_MALE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1480,6 +1512,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0033_POKEMON_NIDORINO");
+		metap.setId(PokemonId.NIDORINO);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_MALE);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1523,6 +1556,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0034_POKEMON_NIDOKING");
+		metap.setId(PokemonId.NIDOKING);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_MALE);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.GROUND);
@@ -1566,6 +1600,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0035_POKEMON_CLEFAIRY");
+		metap.setId(PokemonId.CLEFAIRY);
 		metap.setFamily(PokemonFamilyId.FAMILY_CLEFAIRY);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1609,6 +1644,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0036_POKEMON_CLEFABLE");
+		metap.setId(PokemonId.CLEFABLE);
 		metap.setFamily(PokemonFamilyId.FAMILY_CLEFAIRY);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -1652,6 +1688,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0037_POKEMON_VULPIX");
+		metap.setId(PokemonId.VULPIX);
 		metap.setFamily(PokemonFamilyId.FAMILY_VULPIX);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1695,6 +1732,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0038_POKEMON_NINETALES");
+		metap.setId(PokemonId.NINETALES);
 		metap.setFamily(PokemonFamilyId.FAMILY_VULPIX);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -1738,6 +1776,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0039_POKEMON_JIGGLYPUFF");
+		metap.setId(PokemonId.JIGGLYPUFF);
 		metap.setFamily(PokemonFamilyId.FAMILY_JIGGLYPUFF);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.FAIRY);
@@ -1781,6 +1820,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0040_POKEMON_WIGGLYTUFF");
+		metap.setId(PokemonId.WIGGLYTUFF);
 		metap.setFamily(PokemonFamilyId.FAMILY_JIGGLYPUFF);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.FAIRY);
@@ -1824,6 +1864,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0041_POKEMON_ZUBAT");
+		metap.setId(PokemonId.ZUBAT);
 		metap.setFamily(PokemonFamilyId.FAMILY_ZUBAT);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.FLYING);
@@ -1867,6 +1908,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0042_POKEMON_GOLBAT");
+		metap.setId(PokemonId.GOLBAT);
 		metap.setFamily(PokemonFamilyId.FAMILY_ZUBAT);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.FLYING);
@@ -1910,6 +1952,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0043_POKEMON_ODDISH");
+		metap.setId(PokemonId.ODDISH);
 		metap.setFamily(PokemonFamilyId.FAMILY_ODDISH);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.POISON);
@@ -1953,6 +1996,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0044_POKEMON_GLOOM");
+		metap.setId(PokemonId.GLOOM);
 		metap.setFamily(PokemonFamilyId.FAMILY_ODDISH);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.POISON);
@@ -1996,6 +2040,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0045_POKEMON_VILEPLUME");
+		metap.setId(PokemonId.VILEPLUME);
 		metap.setFamily(PokemonFamilyId.FAMILY_ODDISH);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.POISON);
@@ -2039,6 +2084,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0046_POKEMON_PARAS");
+		metap.setId(PokemonId.PARAS);
 		metap.setFamily(PokemonFamilyId.FAMILY_PARAS);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.GRASS);
@@ -2082,6 +2128,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0047_POKEMON_PARASECT");
+		metap.setId(PokemonId.PARASECT);
 		metap.setFamily(PokemonFamilyId.FAMILY_PARAS);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.GRASS);
@@ -2125,6 +2172,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0048_POKEMON_VENONAT");
+		metap.setId(PokemonId.VENONAT);
 		metap.setFamily(PokemonFamilyId.FAMILY_VENONAT);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.POISON);
@@ -2168,6 +2216,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0049_POKEMON_VENOMOTH");
+		metap.setId(PokemonId.VENOMOTH);
 		metap.setFamily(PokemonFamilyId.FAMILY_VENONAT);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.POISON);
@@ -2211,6 +2260,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0050_POKEMON_DIGLETT");
+		metap.setId(PokemonId.DIGLETT);
 		metap.setFamily(PokemonFamilyId.FAMILY_DIGLETT);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2254,6 +2304,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0051_POKEMON_DUGTRIO");
+		metap.setId(PokemonId.DUGTRIO);
 		metap.setFamily(PokemonFamilyId.FAMILY_DIGLETT);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2297,6 +2348,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0052_POKEMON_MEOWTH");
+		metap.setId(PokemonId.MEOWTH);
 		metap.setFamily(PokemonFamilyId.FAMILY_MEOWTH);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2340,6 +2392,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0053_POKEMON_PERSIAN");
+		metap.setId(PokemonId.PERSIAN);
 		metap.setFamily(PokemonFamilyId.FAMILY_MEOWTH);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2383,6 +2436,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0054_POKEMON_PSYDUCK");
+		metap.setId(PokemonId.PSYDUCK);
 		metap.setFamily(PokemonFamilyId.FAMILY_PSYDUCK);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2426,6 +2480,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0055_POKEMON_GOLDUCK");
+		metap.setId(PokemonId.GOLDUCK);
 		metap.setFamily(PokemonFamilyId.FAMILY_PSYDUCK);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2469,6 +2524,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0056_POKEMON_MANKEY");
+		metap.setId(PokemonId.MANKEY);
 		metap.setFamily(PokemonFamilyId.FAMILY_MANKEY);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2512,6 +2568,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0057_POKEMON_PRIMEAPE");
+		metap.setId(PokemonId.PRIMEAPE);
 		metap.setFamily(PokemonFamilyId.FAMILY_MANKEY);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2555,6 +2612,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0058_POKEMON_GROWLITHE");
+		metap.setId(PokemonId.GROWLITHE);
 		metap.setFamily(PokemonFamilyId.FAMILY_GROWLITHE);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2598,6 +2656,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0059_POKEMON_ARCANINE");
+		metap.setId(PokemonId.ARCANINE);
 		metap.setFamily(PokemonFamilyId.FAMILY_GROWLITHE);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -2641,6 +2700,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0060_POKEMON_POLIWAG");
+		metap.setId(PokemonId.POLIWAG);
 		metap.setFamily(PokemonFamilyId.FAMILY_POLIWAG);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2684,6 +2744,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0061_POKEMON_POLIWHIRL");
+		metap.setId(PokemonId.POLIWHIRL);
 		metap.setFamily(PokemonFamilyId.FAMILY_POLIWAG);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2727,6 +2788,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0062_POKEMON_POLIWRATH");
+		metap.setId(PokemonId.POLIWRATH);
 		metap.setFamily(PokemonFamilyId.FAMILY_POLIWAG);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.FIGHTING);
@@ -2770,6 +2832,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0063_POKEMON_ABRA");
+		metap.setId(PokemonId.ABRA);
 		metap.setFamily(PokemonFamilyId.FAMILY_ABRA);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2812,6 +2875,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0064_POKEMON_KADABRA");
+		metap.setId(PokemonId.KADABRA);
 		metap.setFamily(PokemonFamilyId.FAMILY_ABRA);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2855,6 +2919,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0065_POKEMON_ALAKAZAM");
+		metap.setId(PokemonId.ALAKAZAM);
 		metap.setFamily(PokemonFamilyId.FAMILY_ABRA);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.NONE);
@@ -2898,6 +2963,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0066_POKEMON_MACHOP");
+		metap.setId(PokemonId.MACHOP);
 		metap.setFamily(PokemonFamilyId.FAMILY_MACHOP);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2941,6 +3007,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0067_POKEMON_MACHOKE");
+		metap.setId(PokemonId.MACHOKE);
 		metap.setFamily(PokemonFamilyId.FAMILY_MACHOP);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -2984,6 +3051,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0068_POKEMON_MACHAMP");
+		metap.setId(PokemonId.MACHAMP);
 		metap.setFamily(PokemonFamilyId.FAMILY_MACHOP);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -3027,6 +3095,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0069_POKEMON_BELLSPROUT");
+		metap.setId(PokemonId.BELLSPROUT);
 		metap.setFamily(PokemonFamilyId.FAMILY_BELLSPROUT);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.POISON);
@@ -3070,6 +3139,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0070_POKEMON_WEEPINBELL");
+		metap.setId(PokemonId.WEEPINBELL);
 		metap.setFamily(PokemonFamilyId.FAMILY_BELLSPROUT);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.POISON);
@@ -3113,6 +3183,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0071_POKEMON_VICTREEBEL");
+		metap.setId(PokemonId.VICTREEBEL);
 		metap.setFamily(PokemonFamilyId.FAMILY_BELLSPROUT);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.POISON);
@@ -3156,6 +3227,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0072_POKEMON_TENTACOOL");
+		metap.setId(PokemonId.TENTACOOL);
 		metap.setFamily(PokemonFamilyId.FAMILY_TENTACOOL);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.POISON);
@@ -3199,6 +3271,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0073_POKEMON_TENTACRUEL");
+		metap.setId(PokemonId.TENTACRUEL);
 		metap.setFamily(PokemonFamilyId.FAMILY_TENTACOOL);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.POISON);
@@ -3242,6 +3315,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0074_POKEMON_GEODUDE");
+		metap.setId(PokemonId.GEODUDE);
 		metap.setFamily(PokemonFamilyId.FAMILY_GEODUDE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.GROUND);
@@ -3285,6 +3359,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0075_POKEMON_GRAVELER");
+		metap.setId(PokemonId.GRAVELER);
 		metap.setFamily(PokemonFamilyId.FAMILY_GEODUDE);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.GROUND);
@@ -3328,6 +3403,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0076_POKEMON_GOLEM");
+		metap.setId(PokemonId.GOLEM);
 		metap.setFamily(PokemonFamilyId.FAMILY_GEODUDE);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.GROUND);
@@ -3371,6 +3447,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0077_POKEMON_PONYTA");
+		metap.setId(PokemonId.PONYTA);
 		metap.setFamily(PokemonFamilyId.FAMILY_PONYTA);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -3414,6 +3491,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0078_POKEMON_RAPIDASH");
+		metap.setId(PokemonId.RAPIDASH);
 		metap.setFamily(PokemonFamilyId.FAMILY_PONYTA);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -3457,6 +3535,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0079_POKEMON_SLOWPOKE");
+		metap.setId(PokemonId.SLOWPOKE);
 		metap.setFamily(PokemonFamilyId.FAMILY_SLOWPOKE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.PSYCHIC);
@@ -3500,6 +3579,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0080_POKEMON_SLOWBRO");
+		metap.setId(PokemonId.SLOWBRO);
 		metap.setFamily(PokemonFamilyId.FAMILY_SLOWPOKE);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.PSYCHIC);
@@ -3543,6 +3623,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0081_POKEMON_MAGNEMITE");
+		metap.setId(PokemonId.MAGNEMITE);
 		metap.setFamily(PokemonFamilyId.FAMILY_MAGNEMITE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.STEEL);
@@ -3586,6 +3667,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0082_POKEMON_MAGNETON");
+		metap.setId(PokemonId.MAGNETON);
 		metap.setFamily(PokemonFamilyId.FAMILY_MAGNEMITE);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.STEEL);
@@ -3629,6 +3711,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0083_POKEMON_FARFETCHD");
+		metap.setId(PokemonId.FARFETCHD);
 		metap.setFamily(PokemonFamilyId.FAMILY_FARFETCHD);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.FLYING);
@@ -3672,6 +3755,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0084_POKEMON_DODUO");
+		metap.setId(PokemonId.DODUO);
 		metap.setFamily(PokemonFamilyId.FAMILY_DODUO);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.FLYING);
@@ -3715,6 +3799,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0085_POKEMON_DODRIO");
+		metap.setId(PokemonId.DODRIO);
 		metap.setFamily(PokemonFamilyId.FAMILY_DODUO);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.FLYING);
@@ -3758,6 +3843,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0086_POKEMON_SEEL");
+		metap.setId(PokemonId.SEEL);
 		metap.setFamily(PokemonFamilyId.FAMILY_SEEL);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -3801,6 +3887,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0087_POKEMON_DEWGONG");
+		metap.setId(PokemonId.DEWGONG);
 		metap.setFamily(PokemonFamilyId.FAMILY_SEEL);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.ICE);
@@ -3844,6 +3931,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0088_POKEMON_GRIMER");
+		metap.setId(PokemonId.GRIMER);
 		metap.setFamily(PokemonFamilyId.FAMILY_GRIMER);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -3887,6 +3975,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0089_POKEMON_MUK");
+		metap.setId(PokemonId.MUK);
 		metap.setFamily(PokemonFamilyId.FAMILY_GRIMER);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -3930,6 +4019,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0090_POKEMON_SHELLDER");
+		metap.setId(PokemonId.SHELLDER);
 		metap.setFamily(PokemonFamilyId.FAMILY_SHELLDER);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -3973,6 +4063,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0091_POKEMON_CLOYSTER");
+		metap.setId(PokemonId.CLOYSTER);
 		metap.setFamily(PokemonFamilyId.FAMILY_SHELLDER);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.ICE);
@@ -4016,6 +4107,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0092_POKEMON_GASTLY");
+		metap.setId(PokemonId.GASTLY);
 		metap.setFamily(PokemonFamilyId.FAMILY_GASTLY);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.POISON);
@@ -4059,6 +4151,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0093_POKEMON_HAUNTER");
+		metap.setId(PokemonId.HAUNTER);
 		metap.setFamily(PokemonFamilyId.FAMILY_GASTLY);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.POISON);
@@ -4102,6 +4195,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0094_POKEMON_GENGAR");
+		metap.setId(PokemonId.GENGAR);
 		metap.setFamily(PokemonFamilyId.FAMILY_GASTLY);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.POISON);
@@ -4145,6 +4239,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0095_POKEMON_ONIX");
+		metap.setId(PokemonId.ONIX);
 		metap.setFamily(PokemonFamilyId.FAMILY_ONIX);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.GROUND);
@@ -4188,6 +4283,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0096_POKEMON_DROWZEE");
+		metap.setId(PokemonId.DROWZEE);
 		metap.setFamily(PokemonFamilyId.FAMILY_DROWZEE);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4231,6 +4327,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0097_POKEMON_HYPNO");
+		metap.setId(PokemonId.HYPNO);
 		metap.setFamily(PokemonFamilyId.FAMILY_DROWZEE);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4274,6 +4371,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0098_POKEMON_KRABBY");
+		metap.setId(PokemonId.KRABBY);
 		metap.setFamily(PokemonFamilyId.FAMILY_KRABBY);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4317,6 +4415,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0099_POKEMON_KINGLER");
+		metap.setId(PokemonId.KINGLER);
 		metap.setFamily(PokemonFamilyId.FAMILY_KRABBY);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -4360,6 +4459,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0100_POKEMON_VOLTORB");
+		metap.setId(PokemonId.VOLTORB);
 		metap.setFamily(PokemonFamilyId.FAMILY_VOLTORB);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4403,6 +4503,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0101_POKEMON_ELECTRODE");
+		metap.setId(PokemonId.ELECTRODE);
 		metap.setFamily(PokemonFamilyId.FAMILY_VOLTORB);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4446,6 +4547,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0102_POKEMON_EXEGGCUTE");
+		metap.setId(PokemonId.EXEGGCUTE);
 		metap.setFamily(PokemonFamilyId.FAMILY_EXEGGCUTE);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.PSYCHIC);
@@ -4488,6 +4590,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0103_POKEMON_EXEGGUTOR");
+		metap.setId(PokemonId.EXEGGUTOR);
 		metap.setFamily(PokemonFamilyId.FAMILY_EXEGGCUTE);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.PSYCHIC);
@@ -4531,6 +4634,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0104_POKEMON_CUBONE");
+		metap.setId(PokemonId.CUBONE);
 		metap.setFamily(PokemonFamilyId.FAMILY_CUBONE);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4574,6 +4678,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0105_POKEMON_MAROWAK");
+		metap.setId(PokemonId.MAROWAK);
 		metap.setFamily(PokemonFamilyId.FAMILY_CUBONE);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -4617,6 +4722,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0106_POKEMON_HITMONLEE");
+		metap.setId(PokemonId.HITMONLEE);
 		metap.setFamily(PokemonFamilyId.FAMILY_HITMONLEE);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4660,6 +4766,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0107_POKEMON_HITMONCHAN");
+		metap.setId(PokemonId.HITMONCHAN);
 		metap.setFamily(PokemonFamilyId.FAMILY_HITMONCHAN);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4704,6 +4811,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0108_POKEMON_LICKITUNG");
+		metap.setId(PokemonId.LICKITUNG);
 		metap.setFamily(PokemonFamilyId.FAMILY_LICKITUNG);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4747,6 +4855,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0109_POKEMON_KOFFING");
+		metap.setId(PokemonId.KOFFING);
 		metap.setFamily(PokemonFamilyId.FAMILY_KOFFING);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4790,6 +4899,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0110_POKEMON_WEEZING");
+		metap.setId(PokemonId.WEEZING);
 		metap.setFamily(PokemonFamilyId.FAMILY_KOFFING);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4833,6 +4943,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0111_POKEMON_RHYHORN");
+		metap.setId(PokemonId.RHYHORN);
 		metap.setFamily(PokemonFamilyId.FAMILY_RHYHORN);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.ROCK);
@@ -4876,6 +4987,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0112_POKEMON_RHYDON");
+		metap.setId(PokemonId.RHYDON);
 		metap.setFamily(PokemonFamilyId.FAMILY_RHYHORN);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.ROCK);
@@ -4919,6 +5031,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0113_POKEMON_CHANSEY");
+		metap.setId(PokemonId.CHANSEY);
 		metap.setFamily(PokemonFamilyId.FAMILY_CHANSEY);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -4962,6 +5075,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0114_POKEMON_TANGELA");
+		metap.setId(PokemonId.TANGELA);
 		metap.setFamily(PokemonFamilyId.FAMILY_TANGELA);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -5004,6 +5118,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0115_POKEMON_KANGASKHAN");
+		metap.setId(PokemonId.KANGASKHAN);
 		metap.setFamily(PokemonFamilyId.FAMILY_KANGASKHAN);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.NONE);
@@ -5047,6 +5162,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0116_POKEMON_HORSEA");
+		metap.setId(PokemonId.HORSEA);
 		metap.setFamily(PokemonFamilyId.FAMILY_HORSEA);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -5090,6 +5206,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0117_POKEMON_SEADRA");
+		metap.setId(PokemonId.SEADRA);
 		metap.setFamily(PokemonFamilyId.FAMILY_HORSEA);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -5133,6 +5250,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0118_POKEMON_GOLDEEN");
+		metap.setId(PokemonId.GOLDEEN);
 		metap.setFamily(PokemonFamilyId.FAMILY_GOLDEEN);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -5176,6 +5294,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0119_POKEMON_SEAKING");
+		metap.setId(PokemonId.SEAKING);
 		metap.setFamily(PokemonFamilyId.FAMILY_GOLDEEN);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -5219,6 +5338,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0120_POKEMON_STARYU");
+		metap.setId(PokemonId.STARYU);
 		metap.setFamily(PokemonFamilyId.FAMILY_STARYU);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -5262,6 +5382,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0121_POKEMON_STARMIE");
+		metap.setId(PokemonId.STARMIE);
 		metap.setFamily(PokemonFamilyId.FAMILY_STARYU);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.PSYCHIC);
@@ -5305,6 +5426,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0122_POKEMON_MR_MIME");
+		metap.setId(PokemonId.MR_MIME);
 		metap.setFamily(PokemonFamilyId.FAMILY_MR_MIME);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.FAIRY);
@@ -5348,6 +5470,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0123_POKEMON_SCYTHER");
+		metap.setId(PokemonId.SCYTHER);
 		metap.setFamily(PokemonFamilyId.FAMILY_SCYTHER);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.FLYING);
@@ -5391,6 +5514,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0124_POKEMON_JYNX");
+		metap.setId(PokemonId.JYNX);
 		metap.setFamily(PokemonFamilyId.FAMILY_JYNX);
 		metap.setPokemonClass(PokemonClass.COMMON);
 		metap.setType2(PokemonType.PSYCHIC);
@@ -5434,6 +5558,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0125_POKEMON_ELECTABUZZ");
+		metap.setId(PokemonId.ELECTABUZZ);
 		metap.setFamily(PokemonFamilyId.FAMILY_ELECTABUZZ);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -5477,6 +5602,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0126_POKEMON_MAGMAR");
+		metap.setId(PokemonId.MAGMAR);
 		metap.setFamily(PokemonFamilyId.FAMILY_MAGMAR);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -5520,6 +5646,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0127_POKEMON_PINSIR");
+		metap.setId(PokemonId.PINSIR);
 		metap.setFamily(PokemonFamilyId.FAMILY_PINSIR);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -5563,6 +5690,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0128_POKEMON_TAUROS");
+		metap.setId(PokemonId.TAUROS);
 		metap.setFamily(PokemonFamilyId.FAMILY_TAUROS);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -5606,6 +5734,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0129_POKEMON_MAGIKARP");
+		metap.setId(PokemonId.MAGIKARP);
 		metap.setFamily(PokemonFamilyId.FAMILY_MAGIKARP);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -5646,6 +5775,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0130_POKEMON_GYARADOS");
+		metap.setId(PokemonId.GYARADOS);
 		metap.setFamily(PokemonFamilyId.FAMILY_MAGIKARP);
 		metap.setPokemonClass(PokemonClass.EPIC);
 		metap.setType2(PokemonType.FLYING);
@@ -5689,6 +5819,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0131_POKEMON_LAPRAS");
+		metap.setId(PokemonId.LAPRAS);
 		metap.setFamily(PokemonFamilyId.FAMILY_LAPRAS);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.ICE);
@@ -5732,6 +5863,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0132_POKEMON_DITTO");
+		metap.setId(PokemonId.DITTO);
 		metap.setFamily(PokemonFamilyId.FAMILY_DITTO);
 		metap.setPokemonClass(PokemonClass.EPIC);
 		metap.setType2(PokemonType.NONE);
@@ -5772,6 +5904,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0133_POKEMON_EEVEE");
+		metap.setId(PokemonId.EEVEE);
 		metap.setFamily(PokemonFamilyId.FAMILY_EEVEE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
 		metap.setType2(PokemonType.NONE);
@@ -5815,6 +5948,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0134_POKEMON_VAPOREON");
+		metap.setId(PokemonId.VAPOREON);
 		metap.setFamily(PokemonFamilyId.FAMILY_EEVEE);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -5857,6 +5991,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0135_POKEMON_JOLTEON");
+		metap.setId(PokemonId.JOLTEON);
 		metap.setFamily(PokemonFamilyId.FAMILY_EEVEE);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -5899,6 +6034,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0136_POKEMON_FLAREON");
+		metap.setId(PokemonId.FLAREON);
 		metap.setFamily(PokemonFamilyId.FAMILY_EEVEE);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -5941,6 +6077,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0137_POKEMON_PORYGON");
+		metap.setId(PokemonId.PORYGON);
 		metap.setFamily(PokemonFamilyId.FAMILY_PORYGON);
 		metap.setPokemonClass(PokemonClass.EPIC);
 		metap.setType2(PokemonType.NONE);
@@ -5984,6 +6121,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0138_POKEMON_OMANYTE");
+		metap.setId(PokemonId.OMANYTE);
 		metap.setFamily(PokemonFamilyId.FAMILY_OMANYTE);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.WATER);
@@ -6027,6 +6165,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0139_POKEMON_OMASTAR");
+		metap.setId(PokemonId.OMASTAR);
 		metap.setFamily(PokemonFamilyId.FAMILY_OMANYTE);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.WATER);
@@ -6070,6 +6209,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0140_POKEMON_KABUTO");
+		metap.setId(PokemonId.KABUTO);
 		metap.setFamily(PokemonFamilyId.FAMILY_KABUTO);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.WATER);
@@ -6113,6 +6253,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0141_POKEMON_KABUTOPS");
+		metap.setId(PokemonId.KABUTOPS);
 		metap.setFamily(PokemonFamilyId.FAMILY_KABUTO);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.WATER);
@@ -6156,6 +6297,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0142_POKEMON_AERODACTYL");
+		metap.setId(PokemonId.AERODACTYL);
 		metap.setFamily(PokemonFamilyId.FAMILY_AERODACTYL);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
 		metap.setType2(PokemonType.FLYING);
@@ -6199,6 +6341,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0143_POKEMON_SNORLAX");
+		metap.setId(PokemonId.SNORLAX);
 		metap.setFamily(PokemonFamilyId.FAMILY_SNORLAX);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -6242,6 +6385,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0144_POKEMON_ARTICUNO");
+		metap.setId(PokemonId.ARTICUNO);
 		metap.setFamily(PokemonFamilyId.FAMILY_ARTICUNO);
 		metap.setPokemonClass(PokemonClass.LEGENDARY);
 		metap.setType2(PokemonType.FLYING);
@@ -6284,6 +6428,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0145_POKEMON_ZAPDOS");
+		metap.setId(PokemonId.ZAPDOS);
 		metap.setFamily(PokemonFamilyId.FAMILY_ZAPDOS);
 		metap.setPokemonClass(PokemonClass.LEGENDARY);
 		metap.setType2(PokemonType.FLYING);
@@ -6326,6 +6471,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0146_POKEMON_MOLTRES");
+		metap.setId(PokemonId.MOLTRES);
 		metap.setFamily(PokemonFamilyId.FAMILY_MOLTRES);
 		metap.setPokemonClass(PokemonClass.LEGENDARY);
 		metap.setType2(PokemonType.FLYING);
@@ -6368,6 +6514,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0147_POKEMON_DRATINI");
+		metap.setId(PokemonId.DRATINI);
 		metap.setFamily(PokemonFamilyId.FAMILY_DRATINI);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
 		metap.setType2(PokemonType.NONE);
@@ -6410,6 +6557,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0148_POKEMON_DRAGONAIR");
+		metap.setId(PokemonId.DRAGONAIR);
 		metap.setFamily(PokemonFamilyId.FAMILY_DRATINI);
 		metap.setPokemonClass(PokemonClass.RARE);
 		metap.setType2(PokemonType.NONE);
@@ -6452,6 +6600,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0149_POKEMON_DRAGONITE");
+		metap.setId(PokemonId.DRAGONITE);
 		metap.setFamily(PokemonFamilyId.FAMILY_DRATINI);
 		metap.setPokemonClass(PokemonClass.EPIC);
 		metap.setType2(PokemonType.FLYING);
@@ -6495,6 +6644,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0150_POKEMON_MEWTWO");
+		metap.setId(PokemonId.MEWTWO);
 		metap.setFamily(PokemonFamilyId.FAMILY_MEWTWO);
 		metap.setPokemonClass(PokemonClass.LEGENDARY);
 		metap.setType2(PokemonType.NONE);
@@ -6538,6 +6688,7 @@ final class PokemonMetaRegistry {
 
 		metap = new PokemonMeta();
 		metap.setTemplateId(" V0151_POKEMON_MEW");
+		metap.setId(PokemonId.MEW);
 		metap.setFamily(PokemonFamilyId.FAMILY_MEWTWO);
 		metap.setPokemonClass(PokemonClass.MYTHIC);
 		metap.setType2(PokemonType.NONE);

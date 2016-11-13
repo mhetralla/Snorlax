@@ -16,6 +16,9 @@
 
 package com.icecream.snorlax.module.pokemon;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +35,9 @@ public final class PokemonMeta {
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private String mTemplateId;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private PokemonId mId;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private PokemonFamilyId mFamily;
@@ -128,6 +134,31 @@ public final class PokemonMeta {
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private int mNumber;
+
+	private List<PokemonId> mChildrenId;
+
+	List<PokemonId> getChildrenId() {
+		if (mChildrenId != null) {
+			return mChildrenId;
+		}
+
+		mChildrenId = new ArrayList<>();
+		for (PokemonId pokemonId : PokemonId.values()) {
+			if (pokemonId == PokemonId.UNRECOGNIZED || pokemonId == PokemonId.MISSINGNO) {
+				continue;
+			}
+
+			if (PokemonMetaRegistry.getMeta(pokemonId).mParentId == mId) {
+				mChildrenId.add(pokemonId);
+			}
+		}
+
+		if (mChildrenId.isEmpty()) {
+			mChildrenId.add(PokemonId.UNRECOGNIZED);
+		}
+
+		return mChildrenId;
+	}
 
 	PokemonMeta() {
 	}
