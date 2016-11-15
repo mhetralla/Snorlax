@@ -5,11 +5,26 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
 
 Features:
 - Prevent PokemonGo from detecting GPS is being spoofed (similar to Mock Mock Locations)
-- Show pokemon stats on the inventory with custom formats
-- Show pokemon stats as a system notification when you encounter them: IV's, HP, CP, level, moves, catch probability
-- Show catch results: Success, missed, flee, etc.
+- Replace pokemons name with custom formats ([details](https://github.com/igoticecream/Snorlax/wiki/Custom-formats)) :
+  - Nickname
+  - Level
+  - Type
+  - Moves (name, type, power)
+  - IV (%, attack, defence, stamina)
+  - HP (current, max)
+  - CP (current, evolution)
+  - <img src="https://cloud.githubusercontent.com/assets/498613/20310033/ad7431c4-ab4a-11e6-9ad2-e0c84b9f9b5a.png" width="300px">
+- Show pokemon stats as a system notification when you encounter them :
+  - <img src="https://cloud.githubusercontent.com/assets/498613/20303466/cacd9338-ab2b-11e6-90bf-301930b47bd6.png" width="300px">
+- Show catch results (Success, Missed, Flee) as soon as you throw your pokeball
+- Show lure's remaining time
+  - <img src="https://cloud.githubusercontent.com/assets/498613/20309733/6732152e-ab49-11e6-9f8c-a7276da34080.png" width="300px">
 
-Check out the [Wiki page](https://github.com/igoticecream/Snorlax/wiki/Custom-formats) to learn how to use custom formats.
+Dev features:
+- Broadcast intent with nearby pokemon informations
+- Log network traffic (use Protobuf's ```protoc``` to decode it)
+
+
 
 ## Libraries and tools
 - Android's support libraries
