@@ -3,7 +3,7 @@ Check pokemons stats. [Available through Xposed repository](http://repo.xposed.i
   
 This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) on Pokémon Go's communications with the server, and allows us to add extra features to the game.
 
-Features:
+### Features:
 - Prevent PokemonGo from detecting GPS is being spoofed (similar to Mock Mock Locations)
 - Replace pokemons name with custom formats ([details](https://github.com/igoticecream/Snorlax/wiki/Custom-formats)) :
   - Nickname
@@ -20,8 +20,8 @@ Features:
 - Show lure's remaining time
   - <img src="https://cloud.githubusercontent.com/assets/498613/20309733/6732152e-ab49-11e6-9f8c-a7276da34080.png" width="300px">
 
-Dev features:
-- Broadcast intent with nearby pokemon informations
+### Dev features:
+- Broadcast [Intent](https://developer.android.com/reference/android/content/Intent.html) with nearby pokemon informations
 - Log network traffic (use Protobuf's ```protoc``` to decode it)
 
 
