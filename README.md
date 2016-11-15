@@ -15,7 +15,8 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
   - CP (current, evolution)
   - <img src="https://cloud.githubusercontent.com/assets/498613/20310033/ad7431c4-ab4a-11e6-9ad2-e0c84b9f9b5a.png" width="300px">
 - Show pokemon stats as a system notification when you encounter them :
-  - <img src="https://cloud.githubusercontent.com/assets/498613/20303466/cacd9338-ab2b-11e6-90bf-301930b47bd6.png" width="300px">
+  - <img src="https://cloud.githubusercontent.com/assets/498613/20327949/bf40e2c2-ab8f-11e6-81c9-4a250243d647.png" width="300px">
+  - <img src="https://cloud.githubusercontent.com/assets/498613/20327954/c40ca502-ab8f-11e6-9d92-1e0d40027221.png" width="300px">
 - Show catch results (Success, Missed, Flee) as soon as you throw your pokeball
 - Show lure's remaining time
   - <img src="https://cloud.githubusercontent.com/assets/498613/20309733/6732152e-ab49-11e6-9f8c-a7276da34080.png" width="300px">
