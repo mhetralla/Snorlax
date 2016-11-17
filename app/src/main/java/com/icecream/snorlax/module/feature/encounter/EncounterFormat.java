@@ -4,16 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import android.graphics.Typeface;
 import android.support.v4.util.Pair;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 
 public class EncounterFormat {
 	private static final Character SYMBOL_DELIMITER_START = '{';
 	private static final Character SYMBOL_DELIMITER_END = '}';
 
-	static Spannable replaceSymbolSpannable(final String text, final Map<String, Pair<String, Integer>> symbols) {
+	static Spannable bold(final String text) {
+		Spannable spannable = new SpannableString(text);
+		spannable.setSpan(new StyleSpan(Typeface.BOLD), 0, spannable.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+
+		return spannable;
+	}
+
+	static Spannable format(final String text, final Map<String, Pair<String, Integer>> symbols) {
 		final List<ColorPos> colorPositions = new ArrayList<>();
 		final String formattedText = replaceSymbol(text, symbols, colorPositions);
 

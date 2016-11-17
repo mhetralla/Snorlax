@@ -29,16 +29,12 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.app.NotificationCompat;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.StyleSpan;
 import android.view.View;
 
 import com.icecream.snorlax.R;
@@ -78,7 +74,7 @@ final class EncounterNotification {
 			: pokemonNumber == PokemonId.MAGIKARP_VALUE && weightRatio > 1.25 ? MODIFIER.FISHERMAN
 			: MODIFIER.NO);
 
-		final Map<String, Pair<String, Integer>> symbolReplacementTable = getSymbolReplacementTable();
+		final Map<String, Pair<String, Integer>> symbols = getSymbolReplacementTable();
 		new Handler(Looper.getMainLooper()).post(() -> {
 			Notification notification = new NotificationCompat.Builder(mContext)
 				.setSmallIcon(R.drawable.ic_pokeball)
@@ -91,16 +87,16 @@ final class EncounterNotification {
 					getLargeIconHeight(),
 					false
 				))
-				.setContentTitle(mContext.getString(R.string.notification_title, pokemonName, cp, level))
-				.setContentText(EncounterFormat.replaceSymbolSpannable(mContext.getString(R.string.notification_content, iv, attack, defense, stamina, pokeRate, greatRate, ultraRate, fleeRate), symbolReplacementTable))
+				.setContentTitle(EncounterFormat.format(mContext.getString(R.string.notification_title, pokemonName, cp, level), symbols))
+				.setContentText(EncounterFormat.format(mContext.getString(R.string.notification_content, iv, attack, defense, stamina, pokeRate, greatRate, ultraRate, fleeRate), symbols))
 				.setStyle(new NotificationCompat.InboxStyle()
-					.addLine(mContext.getString(R.string.notification_categoty_stats_content_iv, iv, attack, defense, stamina))
-					.addLine(mContext.getString(R.string.notification_categoty_stats_content_hp, hp))
-					.addLine(getBoldSpannable(mContext.getString(R.string.notification_categoty_moves_title)))
-					.addLine(mContext.getString(R.string.notification_categoty_moves_fast, move1, move1Type, move1Power))
-					.addLine(mContext.getString(R.string.notification_categoty_moves_charge, move2, move2Type, move2Power))
-					.addLine(getBoldSpannable(mContext.getString(R.string.notification_categoty_catch_title)))
-					.addLine(EncounterFormat.replaceSymbolSpannable(mContext.getString(R.string.notification_categoty_catch_content, pokeRate, greatRate, ultraRate), symbolReplacementTable))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_stats_content_iv, iv, attack, defense, stamina), symbols))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_stats_content_hp, hp, fleeRate), symbols))
+					.addLine(EncounterFormat.bold(mContext.getString(R.string.notification_categoty_moves_title)))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_moves_fast, move1, move1Type, move1Power), symbols))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_moves_charge, move2, move2Type, move2Power), symbols))
+					.addLine(EncounterFormat.bold(mContext.getString(R.string.notification_categoty_catch_title)))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_catch_content, pokeRate, greatRate, ultraRate), symbols))
 					.setSummaryText(getFooter(type1, type2, pokemonClass))
 				)
 				.setColor(ContextCompat.getColor(mContext, R.color.red_700))
@@ -122,6 +118,8 @@ final class EncounterNotification {
 		symbolTable.put(mContext.getString(R.string.notification_symbol_greatball_key), new Pair<>(mContext.getString(R.string.notification_symbol_greatball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_greatball_color)));
 		symbolTable.put(mContext.getString(R.string.notification_symbol_ultraball_key), new Pair<>(mContext.getString(R.string.notification_symbol_ultraball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_ultraball_color)));
 		symbolTable.put(mContext.getString(R.string.notification_symbol_fly_key), new Pair<>(mContext.getString(R.string.notification_symbol_fly_value), ContextCompat.getColor(mContext, R.color.notification_symbol_fly_color)));
+		symbolTable.put(mContext.getString(R.string.notification_symbol_iv_key), new Pair<>(mContext.getString(R.string.notification_symbol_iv_value), ContextCompat.getColor(mContext, R.color.notification_symbol_iv_color)));
+		symbolTable.put(mContext.getString(R.string.notification_symbol_hp_key), new Pair<>(mContext.getString(R.string.notification_symbol_hp_value), ContextCompat.getColor(mContext, R.color.notification_symbol_hp_color)));
 
 		return symbolTable;
 	}
@@ -137,12 +135,6 @@ final class EncounterNotification {
 
 	private int getLargeIconHeight() {
 		return mResources.getDimensionPixelSize(android.R.dimen.notification_large_icon_height);
-	}
-
-	private Spannable getBoldSpannable(String text) {
-		Spannable spannable = new SpannableString(text);
-		spannable.setSpan(new StyleSpan(Typeface.BOLD), 0, spannable.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-		return spannable;
 	}
 
 	@SuppressWarnings("StringBufferReplaceableByString")
