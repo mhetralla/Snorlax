@@ -16,7 +16,9 @@
 
 package com.icecream.snorlax.module.feature.encounter;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -32,10 +34,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.app.NotificationCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.view.View;
 
@@ -51,10 +53,6 @@ import POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
 final class EncounterNotification {
 
 	private static final int NOTIFICATION_ID = 1000;
-	private static final int COLOR_POKEBALL = 0xFFF44336;
-	private static final int COLOR_GREATBALL = 0xFF3F51B5;
-	private static final int COLOR_ULTRABALL = 0xFFFFC107;
-	private static final int[] COLORS = new int[]{COLOR_POKEBALL, COLOR_GREATBALL, COLOR_ULTRABALL};
 
 	private final Context mContext;
 	private final Resources mResources;
@@ -80,7 +78,7 @@ final class EncounterNotification {
 			: pokemonNumber == PokemonId.MAGIKARP_VALUE && weightRatio > 1.25 ? MODIFIER.FISHERMAN
 			: MODIFIER.NO);
 
-		final Character pokeballSymbol = mContext.getString(R.string.notification_pokeball).charAt(0);
+		final Map<String, Pair<String, Integer>> symbolReplacementTable = getSymbolReplacementTable();
 		new Handler(Looper.getMainLooper()).post(() -> {
 			Notification notification = new NotificationCompat.Builder(mContext)
 				.setSmallIcon(R.drawable.ic_pokeball)
@@ -94,7 +92,7 @@ final class EncounterNotification {
 					false
 				))
 				.setContentTitle(mContext.getString(R.string.notification_title, pokemonName, cp, level))
-				.setContentText(getColoredPokeballSpannable(mContext.getString(R.string.notification_content, iv, attack, defense, stamina, pokeballSymbol, pokeRate, greatRate, ultraRate), pokeballSymbol))
+				.setContentText(EncounterFormat.replaceSymbolSpannable(mContext.getString(R.string.notification_content, iv, attack, defense, stamina, pokeRate, greatRate, ultraRate), symbolReplacementTable))
 				.setStyle(new NotificationCompat.InboxStyle()
 					.addLine(mContext.getString(R.string.notification_categoty_stats_content_iv, iv, attack, defense, stamina))
 					.addLine(mContext.getString(R.string.notification_categoty_stats_content_hp, hp))
@@ -102,7 +100,7 @@ final class EncounterNotification {
 					.addLine(mContext.getString(R.string.notification_categoty_moves_fast, move1, move1Type, move1Power))
 					.addLine(mContext.getString(R.string.notification_categoty_moves_charge, move2, move2Type, move2Power))
 					.addLine(getBoldSpannable(mContext.getString(R.string.notification_categoty_catch_title)))
-					.addLine(mContext.getString(R.string.notification_categoty_catch_content, pokeRate, greatRate, ultraRate))
+					.addLine(EncounterFormat.replaceSymbolSpannable(mContext.getString(R.string.notification_categoty_catch_content, pokeRate, greatRate, ultraRate), symbolReplacementTable))
 					.setSummaryText(getFooter(type1, type2, pokemonClass))
 				)
 				.setColor(ContextCompat.getColor(mContext, R.color.red_700))
@@ -116,6 +114,15 @@ final class EncounterNotification {
 
 			mNotificationManager.notify(NOTIFICATION_ID, notification);
 		});
+	}
+
+	private Map<String, Pair<String, Integer>> getSymbolReplacementTable() {
+		final Map<String, Pair<String, Integer>> symbolTable = new HashMap<>();
+		symbolTable.put(mContext.getString(R.string.notification_symbol_pokeball_key), new Pair<>(mContext.getString(R.string.notification_symbol_pokeball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_pokeball_color)));
+		symbolTable.put(mContext.getString(R.string.notification_symbol_greatball_key), new Pair<>(mContext.getString(R.string.notification_symbol_greatball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_greatball_color)));
+		symbolTable.put(mContext.getString(R.string.notification_symbol_ultraball_key), new Pair<>(mContext.getString(R.string.notification_symbol_ultraball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_ultraball_color)));
+
+		return symbolTable;
 	}
 
 	@DrawableRes
@@ -134,21 +141,6 @@ final class EncounterNotification {
 	private Spannable getBoldSpannable(String text) {
 		Spannable spannable = new SpannableString(text);
 		spannable.setSpan(new StyleSpan(Typeface.BOLD), 0, spannable.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-		return spannable;
-	}
-
-	private Spannable getColoredPokeballSpannable(final String text, final Character pokeball) {
-		final Spannable spannable = new SpannableString(text);
-
-		for (int i = 0, indexPokeball = -1; true; i++) {
-			indexPokeball = text.indexOf(pokeball, indexPokeball + 1);
-			if (indexPokeball == -1 || i >= COLORS.length) {
-				break;
-			}
-
-			spannable.setSpan(new ForegroundColorSpan(COLORS[i]), indexPokeball, indexPokeball + 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-		}
-
 		return spannable;
 	}
 
