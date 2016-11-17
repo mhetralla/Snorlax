@@ -117,7 +117,7 @@ final class EncounterNotification {
 		symbolTable.put(mContext.getString(R.string.notification_symbol_pokeball_key), new Pair<>(mContext.getString(R.string.notification_symbol_pokeball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_pokeball_color)));
 		symbolTable.put(mContext.getString(R.string.notification_symbol_greatball_key), new Pair<>(mContext.getString(R.string.notification_symbol_greatball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_greatball_color)));
 		symbolTable.put(mContext.getString(R.string.notification_symbol_ultraball_key), new Pair<>(mContext.getString(R.string.notification_symbol_ultraball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_ultraball_color)));
-		symbolTable.put(mContext.getString(R.string.notification_symbol_fly_key), new Pair<>(mContext.getString(R.string.notification_symbol_fly_value), ContextCompat.getColor(mContext, R.color.notification_symbol_fly_color)));
+		symbolTable.put(mContext.getString(R.string.notification_symbol_flee_key), new Pair<>(mContext.getString(R.string.notification_symbol_flee_value), ContextCompat.getColor(mContext, R.color.notification_symbol_flee_color)));
 		symbolTable.put(mContext.getString(R.string.notification_symbol_iv_key), new Pair<>(mContext.getString(R.string.notification_symbol_iv_value), ContextCompat.getColor(mContext, R.color.notification_symbol_iv_color)));
 		symbolTable.put(mContext.getString(R.string.notification_symbol_hp_key), new Pair<>(mContext.getString(R.string.notification_symbol_hp_value), ContextCompat.getColor(mContext, R.color.notification_symbol_hp_color)));
 
