@@ -160,4 +160,8 @@ public final class Pokemon {
 	public double getHeight() {
 		return mPokemonData.getHeightM();
 	}
+
+	public double getFleeRate() {
+		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getBaseFleeRate();
+	}
 }

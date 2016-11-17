@@ -70,7 +70,7 @@ final class EncounterNotification {
 	}
 
 	@SuppressWarnings("deprecation")
-	void show(int pokemonNumber, String pokemonName, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, String move1, String move1Type, int move1Power, String move2, String move2Type, int move2Power, double pokeRate, double greatRate, double ultraRate, String type1, String type2, String pokemonClass) {
+	void show(int pokemonNumber, String pokemonName, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, String move1, String move1Type, int move1Power, String move2, String move2Type, int move2Power, double fleeRate, double pokeRate, double greatRate, double ultraRate, String type1, String type2, String pokemonClass) {
 		final double weightRatio = weight / baseWeight;
 		final double heightRatio = height / baseHeight;
 		final MODIFIER resourceModifier = (pokemonNumber == PokemonId.PIKACHU_VALUE ? MODIFIER.FAN
@@ -92,7 +92,7 @@ final class EncounterNotification {
 					false
 				))
 				.setContentTitle(mContext.getString(R.string.notification_title, pokemonName, cp, level))
-				.setContentText(EncounterFormat.replaceSymbolSpannable(mContext.getString(R.string.notification_content, iv, attack, defense, stamina, pokeRate, greatRate, ultraRate), symbolReplacementTable))
+				.setContentText(EncounterFormat.replaceSymbolSpannable(mContext.getString(R.string.notification_content, iv, attack, defense, stamina, pokeRate, greatRate, ultraRate, fleeRate), symbolReplacementTable))
 				.setStyle(new NotificationCompat.InboxStyle()
 					.addLine(mContext.getString(R.string.notification_categoty_stats_content_iv, iv, attack, defense, stamina))
 					.addLine(mContext.getString(R.string.notification_categoty_stats_content_hp, hp))
@@ -121,6 +121,7 @@ final class EncounterNotification {
 		symbolTable.put(mContext.getString(R.string.notification_symbol_pokeball_key), new Pair<>(mContext.getString(R.string.notification_symbol_pokeball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_pokeball_color)));
 		symbolTable.put(mContext.getString(R.string.notification_symbol_greatball_key), new Pair<>(mContext.getString(R.string.notification_symbol_greatball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_greatball_color)));
 		symbolTable.put(mContext.getString(R.string.notification_symbol_ultraball_key), new Pair<>(mContext.getString(R.string.notification_symbol_ultraball_value), ContextCompat.getColor(mContext, R.color.notification_symbol_ultraball_color)));
+		symbolTable.put(mContext.getString(R.string.notification_symbol_fly_key), new Pair<>(mContext.getString(R.string.notification_symbol_fly_value), ContextCompat.getColor(mContext, R.color.notification_symbol_fly_color)));
 
 		return symbolTable;
 	}

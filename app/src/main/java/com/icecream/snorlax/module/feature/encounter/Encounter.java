@@ -188,6 +188,7 @@ public final class Encounter implements Feature {
 			pokemon.getMoveCharge().toString(),
 			pokemon.getMoveCharge().getType().toString(),
 			pokemon.getMoveCharge().getPower(),
+			pokemon.getFleeRate() * 100,
 			probability.getPokeball(),
 			probability.getGreatball(),
 			probability.getUltraball(),
