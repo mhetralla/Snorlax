@@ -533,6 +533,12 @@ public class RenameFormatTest {
 	}
 
 	@Test
+	public void testMoveTypeTruncateLength2() throws Exception {
+		mExpected = "Py";
+		setRenameFormat("%MVT1.2%");
+	}
+
+	@Test
 	public void testMoveTypeTruncateIncompleteFormat() throws Exception {
 		mExpected = "%MVT1.%";
 		setRenameFormat("%MVT1.%");
@@ -612,6 +618,12 @@ public class RenameFormatTest {
 	public void testTypeTruncateAboveLength() throws Exception {
 		mExpected = "Normal";
 		setRenameFormat("%TYP1.30%");
+	}
+
+	@Test
+	public void testTypeTruncateLength2() throws Exception {
+		mExpected = "Nr";
+		setRenameFormat("%TYP1.2%");
 	}
 
 	@Test

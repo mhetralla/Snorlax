@@ -203,13 +203,17 @@ final class RenameFormat {
 	private String processMoveType(String target, PokemonType type) {
 		final int length = target.length();
 		final int dot = target.indexOf('.') + 1;
+		final String typeName = type.toString();
 
 		if (length == BASE_MVT1.length() || length == BASE_MVT2.length()) {
-			return type.toString();
+			return typeName;
 		}
 		else if (dot > 0 && length > dot) {
 			try {
-				return Strings.truncateAt(type.toString(), parseInt(target.substring(dot)));
+				final int truncateLength = parseInt(target.substring(dot));
+				final String typeNameFormatted = (truncateLength == 2) ? typeName.charAt(0) + typeName.substring(2) : typeName;
+
+				return Strings.truncateAt(typeNameFormatted, truncateLength);
 			}
 			catch (NumberFormatException ignored) {
 			}
@@ -232,13 +236,17 @@ final class RenameFormat {
 	private String processType(String target, PokemonType type) {
 		final int length = target.length();
 		final int dot = target.indexOf('.') + 1;
+		final String typeName = type.toString();
 
 		if (length == BASE_MVT1.length() || length == BASE_MVT2.length()) {
-			return type.toString();
+			return typeName;
 		}
 		else if (dot > 0 && length > dot) {
 			try {
-				return Strings.truncateAt(type.toString(), parseInt(target.substring(dot)));
+				final int truncateLength = parseInt(target.substring(dot));
+				final String typeNameFormatted = (truncateLength == 2) ? typeName.charAt(0) + typeName.substring(2) : typeName;
+
+				return Strings.truncateAt(typeNameFormatted, truncateLength);
 			}
 			catch (NumberFormatException ignored) {
 			}
