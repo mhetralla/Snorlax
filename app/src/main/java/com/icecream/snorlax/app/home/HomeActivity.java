@@ -58,7 +58,6 @@ public class HomeActivity extends AppCompatActivity {
 
 	private Unbinder mUnbinder;
 	private AlertDialog mAboutDialog;
-	private AlertDialog mFormatInfoDialog;
 	private AlertDialog mDonationDialog;
 
 	@Override
@@ -79,8 +78,7 @@ public class HomeActivity extends AppCompatActivity {
 				.map(intent -> {
 					if (intent != null) {
 						return Snackbar.make(mFab, R.string.error_xposed_disabled, Snackbar.LENGTH_LONG).setAction(R.string.enable, v -> startActivity(intent));
-					}
-					else {
+					} else {
 						return Snackbar.make(mFab, R.string.error_xposed_missing, Snackbar.LENGTH_LONG);
 					}
 				})
@@ -166,9 +164,6 @@ public class HomeActivity extends AppCompatActivity {
 			case R.id.about:
 				mAboutDialog = HomeDialog.showAbout(this);
 				return true;
-			case R.id.format_info:
-				mFormatInfoDialog = HomeDialog.showFormatInfo(this);
-				return true;
 			case R.id.donation:
 				mDonationDialog = HomeDialog.showDonation(this);
 				return true;
@@ -180,6 +175,6 @@ public class HomeActivity extends AppCompatActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		HomeDialog.dismiss(mFormatInfoDialog, mAboutDialog, mDonationDialog);
+		HomeDialog.dismiss(mAboutDialog, mDonationDialog);
 	}
 }

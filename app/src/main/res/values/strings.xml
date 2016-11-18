@@ -91,6 +91,8 @@
 	<string name="preference_rename_format_enable_default">%IVP.0% %ATT%/%DEF%/%STA% %LVL%</string>
 	<string name="preference_rename_format_enable_dialog_title">Enter a format</string>
 
+	<string name="preference_edittext_help">Info</string>
+
 	<string name="preference_catch_notification">Catch Notifications</string>
 	<string name="preference_catch_notification_enable_key">catch_notification_key</string>
 	<string name="preference_catch_notification_enable_title">Enable catch notifications</string>

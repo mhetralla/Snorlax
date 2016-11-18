@@ -68,16 +68,6 @@ final class HomeDialog {
 			.show();
 	}
 
-	@SuppressLint("InflateParams")
-	static AlertDialog showFormatInfo(Context context) {
-		return new AlertDialog.Builder(context)
-			.setTitle(R.string.format_info)
-			.setView(LayoutInflater.from(context).inflate(R.layout.dialog_format, null, false))
-			.setPositiveButton(android.R.string.ok, null)
-			.setCancelable(true)
-			.show();
-	}
-
 	static void dismiss(AlertDialog... dialogs) {
 		Observable
 			.from(dialogs)
