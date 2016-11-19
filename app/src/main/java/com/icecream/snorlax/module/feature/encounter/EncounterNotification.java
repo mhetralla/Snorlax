@@ -88,7 +88,7 @@ final class EncounterNotification {
 					false
 				))
 				.setContentTitle(EncounterFormat.format(mContext.getString(R.string.notification_title, pokemonName, cp, level), symbols))
-				.setContentText(EncounterFormat.format(mContext.getString(R.string.notification_content, iv, attack, defense, stamina, pokeRate, greatRate, ultraRate, fleeRate), symbols))
+				.setContentText(EncounterFormat.format(mContext.getString(R.string.notification_content, iv, fleeRate, pokeRate, greatRate, ultraRate), symbols))
 				.setStyle(new NotificationCompat.InboxStyle()
 					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_stats_content_iv, iv, attack, defense, stamina), symbols))
 					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_stats_content_hp, hp, fleeRate), symbols))

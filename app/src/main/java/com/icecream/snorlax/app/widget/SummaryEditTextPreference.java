@@ -23,7 +23,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.EditTextPreference;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 
 import com.icecream.snorlax.R;
@@ -73,17 +72,14 @@ public class SummaryEditTextPreference extends EditTextPreference {
 		}
 
 		buttonHelp.setClickable(true);
-		buttonHelp.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(final View view) {
-				final Context context = getContext();
-				new AlertDialog.Builder(context)
-					.setTitle(R.string.format_info)
-					.setView(LayoutInflater.from(context).inflate(R.layout.dialog_format, null, false))
-					.setPositiveButton(android.R.string.ok, null)
-					.setCancelable(true)
-					.show();
-			}
+		buttonHelp.setOnClickListener(view -> {
+			final Context context = getContext();
+			new AlertDialog.Builder(context)
+				.setTitle(R.string.format_info)
+				.setView(View.inflate(context, R.layout.dialog_format, null))
+				.setPositiveButton(android.R.string.ok, null)
+				.setCancelable(true)
+				.show();
 		});
 	}
 }
