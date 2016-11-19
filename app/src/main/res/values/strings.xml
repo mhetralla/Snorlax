@@ -91,6 +91,45 @@
 	<string name="preference_rename_format_enable_default">%IVP.0% %ATT%/%DEF%/%STA% %LVL%</string>
 	<string name="preference_rename_format_enable_dialog_title">Enter a format</string>
 
+	<string name="preference_rename_format_nick" formatted="false"><b>%NICK%</b> : Shows pokemon full name.\n<tt>%NICK% -> Snorlax</tt></string>
+	<string name="preference_rename_format_nick." formatted="false"><b>%NICK.#%</b> : Trims pokemon name by #.\n<tt>%NICK.3% -> Sno</tt></string>
+	<string name="preference_rename_format_lvl" formatted="false"><b>%LVL%</b> : Shows pokemon level with one decimal.\n<tt>%LVL% -> 2.5</tt></string>
+	<string name="preference_rename_format_lvl." formatted="false"><b>%LVL.#%</b> : Round up and trims pokemon level by # decimals.\n<tt>%LVL.0% -> 3\n%LVL.2% -> 2.50</tt></string>
+	<string name="preference_rename_format_lvlp" formatted="false"><b>%LVLP%</b> : Same as %LVL% but add leading zeros.\n<tt>%LVLP% -> 02.5</tt></string>
+	<string name="preference_rename_format_lvlp." formatted="false"><b>%LVLP.#%</b> : Same as %LVL.#% but add leading zeros.\n<tt>%LVLP.0% -> 03\n%LVLP.2% -> 02.50</tt></string>
+	<string name="preference_rename_format_iv" formatted="false"><b>%IV%</b> : Shows pokemon iv with one decimal.\n<tt>%IV% -> 6.7</tt></string>
+	<string name="preference_rename_format_iv." formatted="false"><b>%IV.#%</b> : Round up and trims pokemon iv by # decimals.\n<tt>%IV.0% -> 7\n%IV.2% -> 6.67</tt></string>
+	<string name="preference_rename_format_ivp" formatted="false"><b>%IVP%</b> : Same as %IV% but add leading zeros.\n<tt>%IVP% -> 006.7</tt></string>
+	<string name="preference_rename_format_ivp." formatted="false"><b>%IVP.#%</b> : Same as %IV.#% but add leading zeros.\n<tt>%IVP.0% -> 007\n%IVP.2% -> 006.67</tt></string>
+	<string name="preference_rename_format_att" formatted="false"><b>%ATT%</b> : Shows pokemon attack.\n<tt>%ATT% -> 1</tt></string>
+	<string name="preference_rename_format_attp" formatted="false"><b>%ATTP%</b> : Shows pokemon attack with leading zero.\n<tt>%ATTP% -> 01</tt></string>
+	<string name="preference_rename_format_atth" formatted="false"><b>%ATTH%</b> : Shows pokemon attack with hexadecimal format.\n<tt>%ATTH% (15) -> F</tt></string>
+	<string name="preference_rename_format_def" formatted="false"><b>%DEF%</b> : Shows pokemon defense.\n<tt>%DEF% -> 1</tt></string>
+	<string name="preference_rename_format_defp" formatted="false"><b>%DEFP%</b> : Shows pokemon defense with leading zero.\n<tt>%DEFP% -> 01</tt></string>
+	<string name="preference_rename_format_defh" formatted="false"><b>%DEFH%</b> : Shows pokemon defense with hexadecimal format.\n<tt>%DEFH% (15) -> F</tt></string>
+	<string name="preference_rename_format_sta" formatted="false"><b>%STA%</b> : Shows pokemon stamina.\n<tt>%STA% -> 1</tt></string>
+	<string name="preference_rename_format_stap" formatted="false"><b>%STAP%</b> : Shows pokemon stamina with leading zero.\n<tt>%STAP% -> 01</tt></string>
+	<string name="preference_rename_format_stah" formatted="false"><b>%STAH%</b> : Shows pokemon stamina with hexadecimal format.\n<tt>%STAH% (15) -> F</tt></string>
+	<string name="preference_rename_format_cp" formatted="false"><b>%CP%</b> : Shows pokemon CP.\n<tt>%CP% -> 1750</tt></string>
+	<string name="preference_rename_format_cpl" formatted="false"><b>%CPL%</b> : Shows pokemon CP if evolved to the last stage. Return \'?\' if multiple evolutions are possibles.\n<tt>%CPL% -> 2300\n%CPL% -> ?</tt></string>
+	<string name="preference_rename_format_mv1" formatted="false"><b>%MV1%</b> : Shows pokemon fast attack.\n<tt>%MV1% -> Zen Headbutt</tt></string>
+	<string name="preference_rename_format_mv2" formatted="false"><b>%MV2%</b> : Shows pokemon charge attack.\n<tt>%MV2% -> Seed bomb</tt></string>
+	<string name="preference_rename_format_mv1." formatted="false"><b>%MV1.#%</b> : Trims pokemon fast attack by #.\n<tt>%MV1.3% -> Zen</tt></string>
+	<string name="preference_rename_format_mv2." formatted="false"><b>%MV2.#%</b> : Trims pokemon charge attack by #.\n<tt>%MV2.3% -> See</tt></string>
+	<string name="preference_rename_format_mvt1" formatted="false"><b>%MVT1%</b> : Shows pokemon fast attack type.\n<tt>%MVT1% -> Psychic</tt></string>
+	<string name="preference_rename_format_mvt2" formatted="false"><b>%MVT2%</b> : Shows pokemon charge attack type.\n<tt>%MVT2% -> Grass</tt></string>
+	<string name="preference_rename_format_mvt1." formatted="false"><b>%MVT1.#%</b> : Trims pokemon fast attack type by #.\n<tt>%MVT1.3% -> Psy</tt></string>
+	<string name="preference_rename_format_mvt2." formatted="false"><b>%MVT2.#%</b> : Trims pokemon charge attack type by #.\n<tt>%MVT2.3% -> Gra</tt></string>
+	<string name="preference_rename_format_mvp1" formatted="false"><b>%MVP1%</b> : Shows pokemon fast attack power.\n<tt>%MVP1% -> 12</tt></string>
+	<string name="preference_rename_format_mvp2" formatted="false"><b>%MVP2%</b> : Shows pokemon charge attack power.\n<tt>%MVP2% -> 40</tt></string>
+	<string name="preference_rename_format_mvp1p" formatted="false"><b>%MVP1P%</b> : Shows pokemon fast attack power with leading zero.\n<tt>%MVP1P% -> 012</tt></string>
+	<string name="preference_rename_format_mvp2p" formatted="false"><b>%MVP2P%</b> : Shows pokemon charge attack power with leading zero.\n<tt>%MVP2P% -> 040</tt></string>
+	<string name="preference_rename_format_typ1" formatted="false"><b>%TYP1%</b> : Shows pokemon first type.\n<tt>%TYP1% -> Normal</tt></string>
+	<string name="preference_rename_format_typ2" formatted="false"><b>%TYP2%</b> : Shows pokemon second type.\n<tt>%TYP2% -> Electric</tt></string>
+	<string name="preference_rename_format_typ1." formatted="false"><b>%TYP1.#%</b> : Trims pokemon first type by #.\n<tt>%TYP1.3% -> Nor</tt></string>
+	<string name="preference_rename_format_typ2." formatted="false"><b>%TYP2.#%</b> : Trims pokemon second type by #.\n<tt>%TYP2.3% -> Ele</tt></string>
+	<string name="preference_rename_format_note" formatted="false">Note: Snorlax wont format other that the above commands. This means that you could add a \'%\' next to the Iv like this:\n<tt>%IV%% -> 6.7%</tt></string>
+
 	<string name="preference_edittext_help">Info</string>
 
 	<string name="preference_catch_notification">Catch Notifications</string>
