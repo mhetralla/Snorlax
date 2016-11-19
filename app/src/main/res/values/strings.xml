@@ -112,7 +112,7 @@
 	<string name="preference_rename_format_stap" formatted="false"><b>%STAP%</b> : Shows pokemon stamina with leading zero.\n<tt>%STAP% -> 01</tt></string>
 	<string name="preference_rename_format_stah" formatted="false"><b>%STAH%</b> : Shows pokemon stamina with hexadecimal format.\n<tt>%STAH% (15) -> F</tt></string>
 	<string name="preference_rename_format_cp" formatted="false"><b>%CP%</b> : Shows pokemon CP.\n<tt>%CP% -> 1750</tt></string>
-	<string name="preference_rename_format_cpl" formatted="false"><b>%CPL%</b> : Shows pokemon CP if evolved to the last stage. Return \'?\' if multiple evolutions are possibles.\n<tt>%CPL% -> 2300\n%CPL% -> ?</tt></string>
+	<string name="preference_rename_format_cpl" formatted="false"><b>%CPL%</b> : Shows pokemon CP if evolved to the last stage. Return ‘?’ if multiple evolutions are possibles.\n<tt>%CPL% (Weedle) -> 2300\n%CPL% (Kakuna) -> 2300\n%CPL% (Beedrill) -> -\n%CPL% (Eevee) -> ?</tt></string>
 	<string name="preference_rename_format_mv1" formatted="false"><b>%MV1%</b> : Shows pokemon fast attack.\n<tt>%MV1% -> Zen Headbutt</tt></string>
 	<string name="preference_rename_format_mv2" formatted="false"><b>%MV2%</b> : Shows pokemon charge attack.\n<tt>%MV2% -> Seed bomb</tt></string>
 	<string name="preference_rename_format_mv1." formatted="false"><b>%MV1.#%</b> : Trims pokemon fast attack by #.\n<tt>%MV1.3% -> Zen</tt></string>
@@ -129,7 +129,7 @@
 	<string name="preference_rename_format_typ2" formatted="false"><b>%TYP2%</b> : Shows pokemon second type.\n<tt>%TYP2% -> Electric</tt></string>
 	<string name="preference_rename_format_typ1." formatted="false"><b>%TYP1.#%</b> : Trims pokemon first type by #.\n<tt>%TYP1.3% -> Nor</tt></string>
 	<string name="preference_rename_format_typ2." formatted="false"><b>%TYP2.#%</b> : Trims pokemon second type by #.\n<tt>%TYP2.3% -> Ele</tt></string>
-	<string name="preference_rename_format_note" formatted="false">Note: Snorlax wont format other that the above commands. This means that you could add a \'%\' next to the Iv like this:\n<tt>%IV%% -> 6.7%</tt></string>
+	<string name="preference_rename_format_note" formatted="false">Note: Snorlax wont format other that the above commands. This means that you could add a ‘%’ next to the Iv like this:\n<tt>%IV%% -> 6.7%</tt></string>
 
 	<string name="preference_edittext_help">Info</string>
 
