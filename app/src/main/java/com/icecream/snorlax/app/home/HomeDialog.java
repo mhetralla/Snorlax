@@ -39,7 +39,7 @@ final class HomeDialog {
 		return new AlertDialog.Builder(context, R.style.Snorlax_Dialog)
 			.setTitle(R.string.donation)
 			.setView(LayoutInflater.from(context).inflate(R.layout.dialog_donation, null, false))
-			.setPositiveButton("Paypal", (dialog, which) -> context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9PPGNDJEC33E"))))
+			.setPositiveButton("Paypal", (dialog, which) -> context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.donation_url)))))
 			.setCancelable(true)
 			.show();
 	}

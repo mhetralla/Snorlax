@@ -8,13 +8,14 @@
 	<string name="format_info">Format Info</string>
 
 	<string name="donation">Donation</string>
-	<string name="donation_info">I hope you are liking Snorlax!\n\nIf you do, you can support this project to keep coming with new features by buying me a cup of coffee (so i can code by night) or a BigMac at McDonalds. Click the button below and thanks you!</string>
+	<string name="donation_info">I hope you are liking Snorlax!\n\nIf you do, you can support this project to keep coming with new features by buying me a cup of coffee (so i can code by night) or a BigMac at McDonalds. Click the button below and thanks you (look at the end of the README file)!</string>
+	<string name="donation_url">https://github.com/alucas/Snorlax#donation</string>
 
 	<string name="about_version">Version %1$s</string>
-	<string name="about_author">By igoticecream (igoticecream@gmail.com)</string>
+	<string name="about_author">By igoticecream (igoticecream@gmail.com)\nForked by alucas (antoine.lucas.33@gmail.com)</string>
 	<string name="about_github">This project is open source under the Apache 2.0 license. If you like this module, an star to this repo on my Github will help me a lot.</string>
 	<string name="about_thanks">Special thanks for the github users chuparCh0pper for his PoGoIV_xposed project and ELynx for the method used to MITM PokemonGo communication.</string>
-	<string name="about_repository">https://github.com/igoticecream/Snorlax</string>
+	<string name="about_repository">https://github.com/alucas/Snorlax</string>
 
 	<string name="error_readable">Cannot make preference world readable</string>
 	<string name="error_xposed_disabled">Snorlax module is not enabled</string>
