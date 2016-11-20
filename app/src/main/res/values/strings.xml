@@ -150,7 +150,7 @@
 
 	<string name="preference_advanced_log">Log</string>
 	<string name="preference_advanced_log_traffic_enable_key">advanced_log_traffic_key</string>
-	<string name="preference_advanced_log_traffic_enable_title">Enable traffic logging</string>
-	<string name="preference_advanced_log_traffic_enable_summary">Log traffic on disk</string>
+	<string name="preference_advanced_log_traffic_enable_title">Log network traffic</string>
+	<string name="preference_advanced_log_traffic_enable_summary"></string>
 
 </resources>
