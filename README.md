@@ -1,4 +1,4 @@
-# Snorlax [![Build Status](https://travis-ci.org/igoticecream/Snorlax.svg?branch=master)](https://travis-ci.org/igoticecream/Snorlax) [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://github.com/alucas/Snorlax/blob/dev/README.md#donation)
+# Snorlax [![Build Status](https://travis-ci.org/alucas/Snorlax.svg?branch=master)](https://travis-ci.org/alucas/Snorlax) [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://github.com/alucas/Snorlax#donation)
 Check pokemons stats. [Available through Xposed repository](http://repo.xposed.info/module/com.icecream.snorlax)
   
 This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) on Pokémon Go's communications with the server, and allows us to add extra features to the game.
@@ -48,7 +48,7 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
 ## Build source
 Clone the repository (you must have Git installed)
 ```
-git clone https://github.com/igoticecream/Snorlax.git
+git clone https://github.com/alucas/Snorlax.git
 cd .\Snorlax\
 git submodule update --init
 ```
