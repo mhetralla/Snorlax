@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import android.content.Context;
 
 import com.google.protobuf.ByteString;
+import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
 import com.icecream.snorlax.module.feature.Feature;
@@ -23,7 +24,9 @@ import com.icecream.snorlax.module.feature.mitm.MitmRelay;
 import com.icecream.snorlax.module.util.Log;
 import com.icecream.snorlax.module.util.Storage;
 
-import POGOProtos.Networking.Requests.RequestOuterClass.Request;
+import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope;
+import POGOProtos.Networking.Envelopes.ResponseEnvelopeOuterClass.ResponseEnvelope;
+import POGOProtos.Networking.Platform.PlatformRequestTypeOuterClass.PlatformRequestType;
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import rx.Observable;
 import rx.Subscription;
@@ -32,7 +35,8 @@ import rx.Subscription;
  * Log Pokemon Go traffic datas
  */
 public class Traffic implements Feature {
-	private final static DateFormat DATE_FORMAT = new SimpleDateFormat("yyMMddHHmmssSS", Locale.US);
+	private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyMMddHHmmssSS", Locale.US);
+	private static final String FILE_EXTENSION = ".log";
 
 	private final MitmRelay mMitmRelay;
 	private final TrafficPreferences mTrafficPreferences;
@@ -42,7 +46,7 @@ public class Traffic implements Feature {
 	private File mTrafficDirectory;
 
 	@Inject
-	public Traffic(@PokemonGo Context context, TrafficPreferences trafficPreferences, MitmRelay mitmRelay) {
+	Traffic(@PokemonGo Context context, TrafficPreferences trafficPreferences, MitmRelay mitmRelay) {
 		this.mMitmRelay = mitmRelay;
 		this.mTrafficPreferences = trafficPreferences;
 		this.mContext = context;
@@ -61,18 +65,43 @@ public class Traffic implements Feature {
 					return Observable.empty();
 				}
 
-				final List<Request> requests = envelope.getRequest().getRequestsList();
-				final List<TypedResponse> responses = new LinkedList<>();
-				for (int i = 0; i < requests.size(); i++) {
-					final RequestType requestType = requests.get(i).getRequestType();
-					final ByteString datas = envelope.getResponse().getReturns(i);
+				final RequestEnvelope envelopeRequest = envelope.getRequest();
+				final ResponseEnvelope envelopeResponse = envelope.getResponse();
 
-					responses.add(new TypedResponse(i, requestType, datas));
+				final List<DataContainer> responses = new LinkedList<>();
+
+				responses.add(new DataContainer(TYPE.ENVELOPE_REQUEST, envelopeRequest.toByteString()));
+				responses.add(new DataContainer(TYPE.ENVELOPE_RESPONSE, envelopeResponse.toByteString()));
+
+				final int nbPlatformRequest = envelopeRequest.getPlatformRequestsCount();
+				for (int i = 0; i < nbPlatformRequest; i++) {
+					final PlatformRequestType platformRequestType = envelopeRequest.getPlatformRequests(i).getType();
+					final ByteString platformRequestData = envelopeRequest.getPlatformRequests(i).getRequestMessage();
+
+					responses.add(new DataContainer(TYPE.PLATFORM_REQUEST, i, platformRequestType.toString(), platformRequestData));
+				}
+
+				final int nbPlatformResponse = envelopeResponse.getPlatformReturnsCount();
+				for (int i = 0; i < nbPlatformResponse; i++) {
+					final PlatformRequestType platformResponseType = envelopeResponse.getPlatformReturns(i).getType();
+					final ByteString platformResponseData = envelopeResponse.getPlatformReturns(i).getResponse();
+
+					responses.add(new DataContainer(TYPE.PLATFORM_RESPONSE, i, platformResponseType.toString(), platformResponseData));
+				}
+
+				final int nbRequest = envelopeRequest.getRequestsCount();
+				for (int i = 0; i < nbRequest; i++) {
+					final RequestType requestType = envelopeRequest.getRequests(i).getRequestType();
+					final ByteString requestData = envelopeRequest.getRequests(i).getRequestMessage();
+					final ByteString responseData = envelopeResponse.getReturns(i);
+
+					responses.add(new DataContainer(TYPE.REQUEST, i, requestType.toString(), requestData));
+					responses.add(new DataContainer(TYPE.RESPONSE, i, requestType.toString(), responseData));
 				}
 
 				return Observable.from(responses);
 			})
-			.subscribe(this::logResponse, Log::e);
+			.subscribe(this::logData, Log::e);
 	}
 
 	@Override
@@ -80,13 +109,10 @@ public class Traffic implements Feature {
 		RxFuncitons.unsubscribe(mSubscription);
 	}
 
-	private void logResponse(final TypedResponse response) {
+	private void logData(final DataContainer dataContainer) {
 		if (!Storage.isExternalStorageWritable(mContext)) {
 			return;
 		}
-
-		final String logFileName = DATE_FORMAT.format(Calendar.getInstance().getTime()) + "." + response.index + "." + response.requestType + ".log";
-		final File logFile = new File(mTrafficDirectory, logFileName);
 
 		if (!mTrafficDirectory.exists()) {
 			final boolean mkdirResult = mTrafficDirectory.mkdirs();
@@ -96,24 +122,60 @@ public class Traffic implements Feature {
 			}
 		}
 
-		try {
-			final FileChannel wChannel = new FileOutputStream(logFile, true).getChannel();
-			wChannel.write(response.datas.asReadOnlyByteBuffer());
-			wChannel.close();
+		final String formattedDate = DATE_FORMAT.format(Calendar.getInstance().getTime());
+		final String logFileName = getFileName(formattedDate, dataContainer);
+
+		final File logFile = new File(mTrafficDirectory, logFileName);
+
+		try (FileOutputStream fos = new FileOutputStream(logFile, true);
+			 FileChannel channel = fos.getChannel()
+		) {
+			channel.write(dataContainer.data.asReadOnlyByteBuffer());
 		} catch (IOException e) {
 			Log.e(e);
 		}
 	}
 
-	private class TypedResponse {
-		final int index;
-		final RequestType requestType;
-		final ByteString datas;
+	private String getFileName(final String formattedDate, final DataContainer dataContainer) {
+		switch (dataContainer.type) {
+			case ENVELOPE_REQUEST:
+			case ENVELOPE_RESPONSE:
+				return formattedDate + Strings.DOT + dataContainer.type.name() + FILE_EXTENSION;
+			case PLATFORM_REQUEST:
+			case PLATFORM_RESPONSE:
+			case REQUEST:
+			case RESPONSE:
+				return formattedDate + Strings.DOT + dataContainer.type.name() + Strings.DOT + dataContainer.index + Strings.DOT + dataContainer.dataType + Strings.DOT + FILE_EXTENSION;
+			default:
+		}
 
-		private TypedResponse(final int index, final RequestType requestType, final ByteString datas) {
+		return Strings.EMPTY;
+	}
+
+	private enum TYPE {
+		ENVELOPE_REQUEST,
+		ENVELOPE_RESPONSE,
+		PLATFORM_REQUEST,
+		PLATFORM_RESPONSE,
+		REQUEST,
+		RESPONSE
+	}
+
+	private class DataContainer {
+		final TYPE type;
+		final int index;
+		final String dataType;
+		final ByteString data;
+
+		private DataContainer(final TYPE type, final int index, final String dataType, final ByteString data) {
+			this.type = type;
 			this.index = index;
-			this.requestType = requestType;
-			this.datas = datas;
+			this.dataType = dataType;
+			this.data = data;
+		}
+
+		private DataContainer(final TYPE type, final ByteString data) {
+			this(type, 0, null, data);
 		}
 	}
 }
