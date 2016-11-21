@@ -36,7 +36,7 @@ import rx.Subscription;
  */
 public class Traffic implements Feature {
 	private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyMMddHHmmssSS", Locale.US);
-	private static final String FILE_EXTENSION = ".log";
+	private static final String FILE_EXTENSION = "log";
 
 	private final MitmRelay mMitmRelay;
 	private final TrafficPreferences mTrafficPreferences;
