@@ -31,109 +31,129 @@ import static POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
 @Accessors(prefix = "m")
 @SuppressWarnings({"unused", "FieldCanBeLocal", "WeakerAccess"})
 public final class PokemonMeta {
-
+	/* IDs */
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private String mTemplateId;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
+	private String mUniqueId;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private int mNumber;
+
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
 	private PokemonId mId;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private PokemonId mParentId;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private PokemonFamilyId mFamily;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private PokemonClass mPokemonClass;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private PokemonType mType2;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mPokedexHeightM;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mHeightStdDev;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private int mBaseStamina;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mCylRadiusM;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mBaseFleeRate;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private int mBaseAttack;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mDiskRadiusM;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mCollisionRadiusM;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mPokedexWeightKg;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private MovementType mMovementType;
+
+	/* Type */
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private PokemonType mType1;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
-	private double mCollisionHeadRadiusM;
+	private PokemonType mType2;
+
+	/* Height - Weight */
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
-	private double mMovementTimerS;
+	private double mPokedexHeightM;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
-	private double mJumpTimeS;
+	private double mPokedexWeightKg;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
-	private double mModelScale;
+	private double mHeightStdDev;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
-	private String mUniqueId;
+	private double mWeightStdDev;
+
+	/* IV */
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private int mBaseAttack;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private int mBaseDefense;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
-	private int mAttackTimerS;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mWeightStdDev;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mCylHeightM;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private int mCandyToEvolve;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mCollisionHeightM;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mShoulderModeScale;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mBaseCaptureRate;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private PokemonId mParentId;
-	@Getter
-	@Setter(AccessLevel.PACKAGE)
-	private double mCylGroundM;
+	private int mBaseStamina;
+
+	/* Moves */
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private PokemonMove[] mQuickMoves;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private PokemonMove[] mCinematicMoves;
+
+	/* Capture Rate - Flee Rate */
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
-	private int mNumber;
+	private double mBaseCaptureRate;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mBaseFleeRate;
+
+	/* Capture */
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mCylGroundM;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mCylHeightM;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mCylRadiusM;
+
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mCollisionHeightM;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mCollisionRadiusM;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mCollisionHeadRadiusM;
+
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mDiskRadiusM;
+
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private MovementType mMovementType;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mMovementTimerS;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private int mAttackTimerS;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mJumpTimeS;
+
+	/* Rendering */
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mModelScale;
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private double mShoulderModeScale;
+
+	/* Others */
+	@Getter
+	@Setter(AccessLevel.PACKAGE)
+	private int mCandyToEvolve;
 
 	private List<PokemonId> mChildrenId;
 
@@ -143,7 +163,7 @@ public final class PokemonMeta {
 		}
 
 		mChildrenId = new ArrayList<>();
-		for (PokemonId pokemonId : PokemonId.values()) {
+		for (final PokemonId pokemonId : PokemonId.values()) {
 			final PokemonMeta pokemonMeta = PokemonMetaRegistry.getMeta(pokemonId);
 			if (pokemonMeta == null) {
 				continue;
@@ -164,5 +184,54 @@ public final class PokemonMeta {
 	}
 
 	PokemonMeta() {
+	}
+
+	PokemonMeta(String templateId, String uniqueId, int number, PokemonId id, PokemonId parentId, PokemonFamilyId family, PokemonClass pokemonClass, PokemonType type1, PokemonType type2, double pokedexHeightM, double pokedexWeightKg, double heightStdDev, double weightStdDev, int baseAttack, int baseDefense, int baseStamina, PokemonMove[] quickMoves, PokemonMove[] cinematicMoves, double baseCaptureRate, double baseFleeRate, double cylGroundM, double cylHeightM, double cylRadiusM, double collisionHeightM, double collisionRadiusM, double collisionHeadRadiusM, double diskRadiusM, MovementType movementType, double movementTimerS, int attackTimerS, double jumpTimeS, double modelScale, double shoulderModeScale, int candyToEvolve) {
+		this.mTemplateId = templateId;
+		this.mUniqueId = uniqueId;
+		this.mNumber = number;
+
+		this.mId = id;
+		this.mParentId = parentId;
+		this.mFamily = family;
+		this.mPokemonClass = pokemonClass;
+
+		this.mType1 = type1;
+		this.mType2 = type2;
+
+		this.mPokedexHeightM = pokedexHeightM;
+		this.mPokedexWeightKg = pokedexWeightKg;
+		this.mHeightStdDev = heightStdDev;
+		this.mWeightStdDev = weightStdDev;
+
+		this.mBaseAttack = baseAttack;
+		this.mBaseDefense = baseDefense;
+		this.mBaseStamina = baseStamina;
+
+		this.mQuickMoves = quickMoves;
+		this.mCinematicMoves = cinematicMoves;
+
+		this.mBaseCaptureRate = baseCaptureRate;
+		this.mBaseFleeRate = baseFleeRate;
+
+		this.mCylGroundM = cylGroundM;
+		this.mCylHeightM = cylHeightM;
+		this.mCylRadiusM = cylRadiusM;
+
+		this.mCollisionHeightM = collisionHeightM;
+		this.mCollisionRadiusM = collisionRadiusM;
+		this.mCollisionHeadRadiusM = collisionHeadRadiusM;
+
+		this.mDiskRadiusM = diskRadiusM;
+
+		this.mMovementType = movementType;
+		this.mMovementTimerS = movementTimerS;
+		this.mAttackTimerS = attackTimerS;
+		this.mJumpTimeS = jumpTimeS;
+
+		this.mModelScale = modelScale;
+		this.mShoulderModeScale = shoulderModeScale;
+
+		this.mCandyToEvolve = candyToEvolve;
 	}
 }
