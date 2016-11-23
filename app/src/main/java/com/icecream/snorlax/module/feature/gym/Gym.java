@@ -1,19 +1,21 @@
 package com.icecream.snorlax.module.feature.gym;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import android.content.Context;
-import android.support.v4.util.Pair;
+import android.util.Pair;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.icecream.snorlax.common.Strings;
-import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
 import com.icecream.snorlax.module.feature.Feature;
 import com.icecream.snorlax.module.feature.mitm.MitmRelay;
+import com.icecream.snorlax.module.feature.mitm.MitmUtil;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
 import com.icecream.snorlax.module.util.Log;
 
@@ -21,23 +23,25 @@ import POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import POGOProtos.Inventory.InventoryDeltaOuterClass.InventoryDelta;
 import POGOProtos.Inventory.InventoryItemDataOuterClass.InventoryItemData;
 import POGOProtos.Inventory.InventoryItemOuterClass.InventoryItem;
-import POGOProtos.Networking.Requests.RequestOuterClass.Request;
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import POGOProtos.Networking.Responses.GetInventoryResponseOuterClass.GetInventoryResponse;
 import rx.Observable;
-import rx.Subscription;
 
+@Singleton
 public class Gym implements Feature {
 	private final Context mContext;
 	private final MitmRelay mMitmRelay;
+	private final GymConfiguration mGymConfiguration;
 	private final PokemonFactory mPokemonFactory;
 
-	private Subscription mSubscription;
+	private Observable<Pair<ACTION, Pair<Long, String>>> mObservable;
 
 	@Inject
-	public Gym(@PokemonGo final Context context, final MitmRelay mitmRelay, final PokemonFactory pokemonFactory) {
+	public Gym(@PokemonGo final Context context, final MitmRelay mitmRelay, final GymConfiguration gymConfiguration, final PokemonFactory pokemonFactory) {
+		Log.d("[GYM] New instance");
 		mContext = context;
 		mMitmRelay = mitmRelay;
+		mGymConfiguration = gymConfiguration;
 		mPokemonFactory = pokemonFactory;
 	}
 
@@ -45,50 +49,43 @@ public class Gym implements Feature {
 	public void subscribe() throws Exception {
 		unsubscribe();
 
-		GymConfiguration.clearPokemonInGym(mContext);
-		GymConfiguration.initPokemonInGym(mContext);
-
-		mSubscription = mMitmRelay
+		mObservable = mMitmRelay
 			.getObservable()
-			.flatMap(envelope -> {
-				final List<Request> requests = envelope.getRequest().getRequestsList();
+			.flatMap(MitmUtil.filterResponse(RequestType.GET_INVENTORY))
+			.flatMap(pair -> getPokemons(pair.second))
+			.flatMap(this::getGymAction)
+		;
 
-				for (int i = 0; i < requests.size(); i++) {
-					final RequestType requestType = requests.get(i).getRequestType();
-
-					if (requestType != RequestType.GET_INVENTORY) {
-						continue;
-					}
-
-					return Observable.just(new Pair<>(requestType, envelope.getResponse().getReturns(i)));
-				}
-
-				return Observable.empty();
-			})
-			.subscribe(pair -> onGetInventoryBytes(pair.second), Log::e);
+		mGymConfiguration.subscribe(this);
 	}
 
 	@Override
 	public void unsubscribe() throws Exception {
-		RxFuncitons.unsubscribe(mSubscription);
+		mGymConfiguration.unsubscribe();
 	}
 
-	@SuppressWarnings("unused")
-	private void onGetInventoryBytes(final ByteString bytes) {
+	public Observable<Pair<ACTION, Pair<Long, String>>> getObservable() {
+		return mObservable;
+	}
+
+	private Observable<PokemonData> getPokemons(final ByteString bytes) {
 		try {
-			onGetInventory(GetInventoryResponse.parseFrom(bytes));
+			return getPokemons(GetInventoryResponse.parseFrom(bytes));
 		} catch (InvalidProtocolBufferException | NullPointerException e) {
 			Log.d("GetInventoryResponse failed: %s", e.getMessage());
 			Log.e(e);
 		}
+
+		return Observable.empty();
 	}
 
-	private void onGetInventory(final GetInventoryResponse response) {
+	private Observable<PokemonData> getPokemons(final GetInventoryResponse response) {
 		final InventoryDelta inventoryDelta = response.getInventoryDelta();
 		if (inventoryDelta == null) {
-			return;
+			return Observable.empty();
 		}
 
+		final List<PokemonData> pokemons = new ArrayList<>();
 		for (final InventoryItem inventoryItem : inventoryDelta.getInventoryItemsList()) {
 			final InventoryItemData itemData = inventoryItem.getInventoryItemData();
 			if (itemData == null) {
@@ -100,17 +97,30 @@ public class Gym implements Feature {
 				continue;
 			}
 
-			final long pokemonUID = pokemonData.getId();
-			if (pokemonUID == 0) {
-				continue;
-			}
-
-			final String deployedFortId = pokemonData.getDeployedFortId();
-			if (Strings.isNullOrEmpty(deployedFortId) && GymConfiguration.wasPokemonInGym(pokemonUID)) {
-				GymConfiguration.removePokemonInGym(mContext, pokemonUID);
-			} else if (!Strings.isNullOrEmpty(deployedFortId)) {
-				GymConfiguration.savePokemonInGym(mContext, pokemonUID, deployedFortId);
-			}
+			pokemons.add(pokemonData);
 		}
+
+		return Observable.from(pokemons);
+	}
+
+	private Observable<Pair<ACTION, Pair<Long, String>>> getGymAction(final PokemonData pokemonData) {
+		final long pokemonUID = pokemonData.getId();
+		if (pokemonUID == 0) {
+			return Observable.empty();
+		}
+
+		final String deployedFortId = pokemonData.getDeployedFortId();
+		if (Strings.isNullOrEmpty(deployedFortId) && mGymConfiguration.wasPokemonInGym(pokemonUID)) {
+			return Observable.just(new Pair<>(ACTION.POKEMON_REMOVE, new Pair<>(pokemonUID, deployedFortId)));
+		} else if (!Strings.isNullOrEmpty(deployedFortId) && !mGymConfiguration.wasPokemonInGym(pokemonUID)) {
+			return Observable.just(new Pair<>(ACTION.POKEMON_ADD, new Pair<>(pokemonUID, deployedFortId)));
+		}
+
+		return Observable.empty();
+	}
+
+	enum ACTION {
+		POKEMON_ADD,
+		POKEMON_REMOVE
 	}
 }
