@@ -23,6 +23,7 @@ import com.icecream.snorlax.module.context.snorlax.SnorlaxContextModule;
 
 import dagger.Component;
 
+@FunctionalInterface
 @Singleton
 @Component(modules = {
 	SnorlaxModule.class,

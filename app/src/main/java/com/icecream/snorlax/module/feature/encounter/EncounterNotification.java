@@ -31,7 +31,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.app.NotificationCompat;
@@ -39,17 +38,17 @@ import android.view.View;
 
 import com.icecream.snorlax.R;
 import com.icecream.snorlax.common.Strings;
+import com.icecream.snorlax.module.NotificationId;
 import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
 import com.icecream.snorlax.module.context.snorlax.Snorlax;
 import com.icecream.snorlax.module.pokemon.PokemonType;
+import com.icecream.snorlax.module.util.Resource;
+import com.icecream.snorlax.module.util.Resource.MODIFIER;
 
 import POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
 
 @Singleton
 final class EncounterNotification {
-
-	private static final int NOTIFICATION_ID = 1000;
-
 	private final Context mContext;
 	private final Resources mResources;
 	private final NotificationManager mNotificationManager;
@@ -62,7 +61,7 @@ final class EncounterNotification {
 	}
 
 	void cancel() {
-		mNotificationManager.cancel(NOTIFICATION_ID);
+		mNotificationManager.cancel(NotificationId.ID_ENCOUNTER);
 	}
 
 	@SuppressWarnings("deprecation")
@@ -81,10 +80,10 @@ final class EncounterNotification {
 				.setLargeIcon(Bitmap.createScaledBitmap(
 					BitmapFactory.decodeResource(
 						mResources,
-						getPokemonResourceId(pokemonNumber, resourceModifier)
+						Resource.getPokemonResourceId(mContext, mResources, pokemonNumber, resourceModifier)
 					),
-					getLargeIconWidth(),
-					getLargeIconHeight(),
+					Resource.getLargeIconWidth(mResources),
+					Resource.getLargeIconHeight(mResources),
 					false
 				))
 				.setContentTitle(EncounterFormat.format(mContext.getString(R.string.notification_title, pokemonName, cp, level), symbols))
@@ -108,7 +107,7 @@ final class EncounterNotification {
 
 			hideIcon(notification);
 
-			mNotificationManager.notify(NOTIFICATION_ID, notification);
+			mNotificationManager.notify(NotificationId.ID_ENCOUNTER, notification);
 		});
 	}
 
@@ -122,19 +121,6 @@ final class EncounterNotification {
 		symbolTable.put(mContext.getString(R.string.notification_symbol_hp_key), new Pair<>(mContext.getString(R.string.notification_symbol_hp_value), ContextCompat.getColor(mContext, R.color.notification_symbol_hp_color)));
 
 		return symbolTable;
-	}
-
-	@DrawableRes
-	private int getPokemonResourceId(int pokemonNumber, MODIFIER modifier) {
-		return mResources.getIdentifier("pokemon_" + Strings.padStart(String.valueOf(pokemonNumber), 3, '0') + modifier, "drawable", mContext.getPackageName());
-	}
-
-	private int getLargeIconWidth() {
-		return mResources.getDimensionPixelSize(android.R.dimen.notification_large_icon_width);
-	}
-
-	private int getLargeIconHeight() {
-		return mResources.getDimensionPixelSize(android.R.dimen.notification_large_icon_height);
 	}
 
 	@SuppressWarnings("StringBufferReplaceableByString")
@@ -157,24 +143,6 @@ final class EncounterNotification {
 			if (notification.bigContentView != null) {
 				notification.bigContentView.setViewVisibility(iconId, View.INVISIBLE);
 			}
-		}
-	}
-
-	private enum MODIFIER {
-		NO(""),
-		FISHERMAN("_fisherman"),
-		YOUNGSTER("_youngster"),
-		FAN("_fan");
-
-		private final String name;
-
-		MODIFIER(final String name) {
-			this.name = name;
-		}
-
-		@Override
-		public String toString() {
-			return name;
 		}
 	}
 }

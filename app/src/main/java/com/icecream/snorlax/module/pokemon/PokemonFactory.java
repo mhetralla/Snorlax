@@ -20,6 +20,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
 
 import com.icecream.snorlax.R;
 import com.icecream.snorlax.module.context.snorlax.Snorlax;
@@ -38,13 +39,12 @@ public final class PokemonFactory {
 		mNames = resources.getStringArray(R.array.pokemon);
 	}
 
-	public Pokemon with(PokemonData pokemonData) throws NullPointerException, IllegalArgumentException {
-		if (pokemonData == null) {
-			throw new NullPointerException("PokemonData cannot be null");
+	public Pokemon with(@NonNull PokemonData pokemonData) {
+		final PokemonId pokemonId = pokemonData.getPokemonId();
+		if (pokemonId == null || pokemonId.equals(PokemonId.MISSINGNO) || pokemonId.equals(PokemonId.UNRECOGNIZED)) {
+			return null;
 		}
-		if (pokemonData.getPokemonId().equals(PokemonId.MISSINGNO) || pokemonData.getPokemonId().equals(PokemonId.UNRECOGNIZED)) {
-			throw new IllegalArgumentException("Unrecognized Pokemon Id");
-		}
+
 		return new Pokemon(pokemonData, mNames);
 	}
 }
