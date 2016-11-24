@@ -64,9 +64,9 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	@Inject
 	Traffic mTraffic;
 	@Inject
-	Eject mEject;
-	@Inject
 	Gym mGym;
+	@Inject
+	Eject mEject;
 
 	private XSharedPreferences mXSharedPreferences;
 
@@ -105,8 +105,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mBroadcast,
 					mLure,
 					mTraffic,
-					mEject,
-					mGym
+					mGym,
+					mEject
 				);
 			}
 		});
@@ -123,8 +123,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mBroadcast,
 					mLure,
 					mTraffic,
-					mEject,
-					mGym
+					mGym,
+					mEject
 				);
 			}
 		});
