@@ -30,11 +30,8 @@ public class GymConfiguration {
 
 	@Inject
 	public GymConfiguration(@PokemonGo final Context context) {
-		Log.d("[GYM Configuration] New instance");
-
 		this.mContext = context;
 
-		this.clearPokemonInGym(mContext);
 		this.mPokemonsInGym = loadPokemonInGym(mContext);
 	}
 
@@ -67,6 +64,7 @@ public class GymConfiguration {
 		for (final Map.Entry<String, ?> pokemonEntry : pokemonsInGymRaw.entrySet()) {
 			try {
 				pokemonsInGym.put(Long.decode(pokemonEntry.getKey()), (String) pokemonEntry.getValue());
+				Log.d(LOG_PREFIX + "Load : " + pokemonEntry.getKey() + ", " + pokemonEntry.getValue());
 			} catch (NumberFormatException e) {
 				Log.e(e);
 			}
