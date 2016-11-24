@@ -25,6 +25,12 @@ public class Eject implements Feature {
 	@Override
 	public void subscribe() throws Exception {
 		unsubscribe();
+
+		mGym.getObservable()
+			.filter(pair -> pair.first == Gym.ACTION.POKEMON_REMOVE)
+			.subscribe(pair -> {
+				mEjectNotification.show(25, "Snorlax"); // TODO
+			});
 	}
 
 	@Override
