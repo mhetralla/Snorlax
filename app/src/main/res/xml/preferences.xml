@@ -85,7 +85,7 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory
-		android:title="@string/preference_lure_category">
+		android:title="@string/preference_lure">
 
 		<SwitchPreference
 			android:defaultValue="@bool/preference_lure_enable"
@@ -96,4 +96,15 @@
 
 	</PreferenceCategory>
 
+	<PreferenceCategory
+		android:title="@string/preference_gym">
+
+		<SwitchPreference
+			android:defaultValue="@bool/preference_gymeject_notification_default"
+			android:key="@string/preference_gymeject_notification_enable_key"
+			android:summary="@string/preference_gymeject_notification_enable_summary"
+			android:title="@string/preference_gymeject_notification_enable_title"
+			/>
+
+	</PreferenceCategory>
 </PreferenceScreen>

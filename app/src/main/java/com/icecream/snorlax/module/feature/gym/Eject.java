@@ -4,11 +4,16 @@ import javax.inject.Inject;
 
 import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.feature.Feature;
+import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
+import com.icecream.snorlax.module.util.Log;
 
 import rx.Subscription;
 
 public class Eject implements Feature {
+	private static final String LOG_PREFIX = "[" + Eject.class.getSimpleName() + "] ";
+
+	private final EjectPreferences mEjectPreferences;
 	private final Gym mGym;
 	private final EjectNotification mEjectNotification;
 	private final PokemonFactory mPokemonFactory;
@@ -16,7 +21,8 @@ public class Eject implements Feature {
 	private Subscription mSubscription;
 
 	@Inject
-	public Eject(final Gym gym, final EjectNotification ejectNotification, final PokemonFactory pokemonFactory) {
+	public Eject(final EjectPreferences ejectPreferences, final Gym gym, final EjectNotification ejectNotification, final PokemonFactory pokemonFactory) {
+		mEjectPreferences = ejectPreferences;
 		mGym = gym;
 		mEjectNotification = ejectNotification;
 		mPokemonFactory = pokemonFactory;
@@ -26,10 +32,20 @@ public class Eject implements Feature {
 	public void subscribe() throws Exception {
 		unsubscribe();
 
-		mGym.getObservable()
+		mSubscription = mGym
+			.getObservable()
+			.compose(mEjectPreferences.isEnabled())
 			.filter(pair -> pair.first == Gym.ACTION.POKEMON_REMOVE)
 			.subscribe(pair -> {
-				mEjectNotification.show(25, "Snorlax"); // TODO
+				final Pokemon pokemon = mPokemonFactory.with(pair.second.first);
+				if (pokemon == null) {
+					Log.d(LOG_PREFIX + "Pokemon conversion failed");
+					return;
+				}
+
+				mEjectNotification.show(
+					pokemon.getNumber(),
+					pokemon.getName());
 			});
 	}
 

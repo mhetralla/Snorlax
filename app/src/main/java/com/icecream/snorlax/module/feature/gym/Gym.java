@@ -16,12 +16,16 @@ import com.icecream.snorlax.module.feature.mitm.MitmRelay;
 import com.icecream.snorlax.module.feature.mitm.MitmUtil;
 import com.icecream.snorlax.module.util.Log;
 
+import POGOProtos.Data.Gym.GymMembershipOuterClass.GymMembership;
+import POGOProtos.Data.Gym.GymStateOuterClass.GymState;
 import POGOProtos.Data.PokemonDataOuterClass.PokemonData;
+import POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
 import POGOProtos.Inventory.InventoryDeltaOuterClass.InventoryDelta;
 import POGOProtos.Inventory.InventoryItemDataOuterClass.InventoryItemData;
 import POGOProtos.Inventory.InventoryItemOuterClass.InventoryItem;
 import POGOProtos.Networking.Requests.Messages.FortDeployPokemonMessageOuterClass.FortDeployPokemonMessage;
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
+import POGOProtos.Networking.Responses.FortDeployPokemonResponseOuterClass.FortDeployPokemonResponse;
 import POGOProtos.Networking.Responses.GetInventoryResponseOuterClass.GetInventoryResponse;
 import rx.Observable;
 
@@ -30,14 +34,14 @@ public class Gym implements Feature {
 	private static final String LOG_PREFIX = "[" + Gym.class.getSimpleName() + "] ";
 
 	private final MitmRelay mMitmRelay;
-	private final GymConfiguration mGymConfiguration;
+	private final GymPersistence mGymPersistence;
 
-	private Observable<Pair<ACTION, Pair<Long, String>>> mObservable;
+	private Observable<Pair<ACTION, Pair<PokemonData, String>>> mObservable;
 
 	@Inject
-	public Gym(final MitmRelay mitmRelay, final GymConfiguration gymConfiguration) {
+	public Gym(final MitmRelay mitmRelay, final GymPersistence gymPersistence) {
 		mMitmRelay = mitmRelay;
-		mGymConfiguration = gymConfiguration;
+		mGymPersistence = gymPersistence;
 	}
 
 	@Override
@@ -49,25 +53,26 @@ public class Gym implements Feature {
 			.flatMap(MitmUtil.filterResponse(RequestType.GET_INVENTORY, RequestType.FORT_DEPLOY_POKEMON))
 			.flatMap(this::getPokemonsData)
 			.flatMap(this::getGymAction)
+			.share()
 		;
 
-		mGymConfiguration.subscribe(this);
+		mGymPersistence.subscribe(this);
 	}
 
 	@Override
 	public void unsubscribe() throws Exception {
-		mGymConfiguration.unsubscribe();
+		mGymPersistence.unsubscribe();
 	}
 
-	public Observable<Pair<ACTION, Pair<Long, String>>> getObservable() {
+	public Observable<Pair<ACTION, Pair<PokemonData, String>>> getObservable() {
 		return mObservable;
 	}
 
-	private Observable<Pair<Long, String>> getPokemonsData(final MitmMessages messages) {
+	private Observable<Pair<PokemonData, String>> getPokemonsData(final MitmMessages messages) {
 		switch (messages.requestType) {
 			case FORT_DEPLOY_POKEMON:
 				try {
-					return getPokemonsData(FortDeployPokemonMessage.parseFrom(messages.request));
+					return getPokemonsData(FortDeployPokemonMessage.parseFrom(messages.request), FortDeployPokemonResponse.parseFrom(messages.response));
 				} catch (InvalidProtocolBufferException | NullPointerException e) {
 					Log.d("FortDeployPokemonMessage / FortDeployPokemonResponse failed: %s", e.getMessage());
 					Log.e(e);
@@ -88,18 +93,39 @@ public class Gym implements Feature {
 		return Observable.empty();
 	}
 
-	private Observable<Pair<Long, String>> getPokemonsData(final FortDeployPokemonMessage request) {
+	private Observable<Pair<PokemonData, String>> getPokemonsData(final FortDeployPokemonMessage request, final FortDeployPokemonResponse response) {
 		Log.d(LOG_PREFIX + "Pokemon deploy : " + request.getPokemonId());
-		return Observable.just(new Pair<>(request.getPokemonId(), request.getFortId()));
+
+		final GymState gymState = response.getGymState();
+		if (gymState == null) {
+			Log.d(LOG_PREFIX + "Item Data not found");
+			return Observable.empty();
+		}
+
+		for (GymMembership membership : gymState.getMembershipsList()) {
+			final PokemonData pokemonData = membership.getPokemonData();
+			if (pokemonData == null) {
+				Log.d(LOG_PREFIX + "Pokemon Data not found");
+				continue;
+			}
+
+			if (pokemonData.getId() != request.getPokemonId()) {
+				continue;
+			}
+
+			return Observable.just(new Pair<>(pokemonData, request.getFortId()));
+		}
+
+		return Observable.empty();
 	}
 
-	private Observable<Pair<Long, String>> getPokemonsData(final GetInventoryResponse response) {
+	private Observable<Pair<PokemonData, String>> getPokemonsData(final GetInventoryResponse response) {
 		final InventoryDelta inventoryDelta = response.getInventoryDelta();
 		if (inventoryDelta == null) {
 			return Observable.empty();
 		}
 
-		final List<Pair<Long, String>> pokemons = new ArrayList<>();
+		final List<Pair<PokemonData, String>> pokemons = new ArrayList<>();
 		for (final InventoryItem inventoryItem : inventoryDelta.getInventoryItemsList()) {
 			final InventoryItemData itemData = inventoryItem.getInventoryItemData();
 			if (itemData == null) {
@@ -113,24 +139,25 @@ public class Gym implements Feature {
 				continue;
 			}
 
-			Log.d(LOG_PREFIX + "Pokemon : " + pokemonData.getPokemonId());
-			pokemons.add(new Pair<>(pokemonData.getId(), pokemonData.getDeployedFortId()));
+			if (pokemonData.getPokemonId() == PokemonId.UNRECOGNIZED || pokemonData.getPokemonId() == PokemonId.MISSINGNO) {
+				continue;
+			}
+
+			pokemons.add(new Pair<>(pokemonData, pokemonData.getDeployedFortId()));
 		}
 
 		return Observable.from(pokemons);
 	}
 
-	private Observable<Pair<ACTION, Pair<Long, String>>> getGymAction(final Pair<Long, String> pokemonData) {
-		final long pokemonUID = pokemonData.first;
-		if (pokemonUID == 0) {
-			return Observable.empty();
-		}
+	@SuppressWarnings("unused")
+	private Observable<Pair<ACTION, Pair<PokemonData, String>>> getGymAction(final Pair<PokemonData, String> pokemonInfo) {
+		final PokemonData pokemonData = pokemonInfo.first;
+		final String deployedFortId = pokemonInfo.second;
 
-		final String deployedFortId = pokemonData.second;
-		if (Strings.isNullOrEmpty(deployedFortId) && mGymConfiguration.wasPokemonInGym(pokemonUID)) {
-			return Observable.just(new Pair<>(ACTION.POKEMON_REMOVE, new Pair<>(pokemonUID, deployedFortId)));
-		} else if (!Strings.isNullOrEmpty(deployedFortId) && !mGymConfiguration.wasPokemonInGym(pokemonUID)) {
-			return Observable.just(new Pair<>(ACTION.POKEMON_ADD, new Pair<>(pokemonUID, deployedFortId)));
+		if (Strings.isNullOrEmpty(deployedFortId) && mGymPersistence.wasPokemonInGym(pokemonData.getId())) {
+			return Observable.just(new Pair<>(ACTION.POKEMON_REMOVE, new Pair<>(pokemonData, deployedFortId)));
+		} else if (!Strings.isNullOrEmpty(deployedFortId) && !mGymPersistence.wasPokemonInGym(pokemonData.getId())) {
+			return Observable.just(new Pair<>(ACTION.POKEMON_ADD, new Pair<>(pokemonData, deployedFortId)));
 		}
 
 		return Observable.empty();

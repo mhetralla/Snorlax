@@ -15,11 +15,12 @@ import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
 import com.icecream.snorlax.module.util.Log;
 
+import POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import rx.Subscription;
 
 @Singleton
-public class GymConfiguration {
-	private static final String LOG_PREFIX = "[" + GymConfiguration.class.getSimpleName() + "] ";
+public class GymPersistence {
+	private static final String LOG_PREFIX = "[" + GymPersistence.class.getSimpleName() + "] ";
 
 	private static final String PREF_POKEMON_IN_GYM = "pokemonInGym";
 
@@ -29,23 +30,25 @@ public class GymConfiguration {
 	private Subscription mSubscription;
 
 	@Inject
-	public GymConfiguration(@PokemonGo final Context context) {
+	public GymPersistence(@PokemonGo final Context context) {
 		this.mContext = context;
 
 		this.mPokemonsInGym = loadPokemonInGym(mContext);
 	}
 
-	public void subscribe(final Gym fym) throws Exception {
+	public void subscribe(final Gym fym) {
 		mSubscription = fym
 			.getObservable()
 			.subscribe(pair -> {
-				final Pair<Long, String> pokemon = pair.second;
+				final Pair<PokemonData, String> pokemonInfo = pair.second;
+				final PokemonData pokemon = pokemonInfo.first;
+				final String gymId = pokemonInfo.second;
 				switch (pair.first) {
 					case POKEMON_ADD:
-						savePokemonInGym(mContext, pokemon.first, pokemon.second);
+						savePokemonInGym(mContext, pokemon.getId(), gymId);
 						break;
 					case POKEMON_REMOVE:
-						removePokemonInGym(mContext, pokemon.first);
+						removePokemonInGym(mContext, pokemon.getId());
 						break;
 					default:
 						break;
@@ -53,7 +56,7 @@ public class GymConfiguration {
 			});
 	}
 
-	public void unsubscribe() throws Exception {
+	public void unsubscribe() {
 		RxFuncitons.unsubscribe(mSubscription);
 	}
 
@@ -71,15 +74,6 @@ public class GymConfiguration {
 		}
 
 		return pokemonsInGym;
-	}
-
-	private void clearPokemonInGym(final Context context) {
-		mPokemonsInGym.clear();
-
-		final SharedPreferences settings = context.getSharedPreferences(PREF_POKEMON_IN_GYM, 0);
-		final SharedPreferences.Editor editor = settings.edit();
-		editor.clear();
-		editor.apply();
 	}
 
 	private void savePokemonInGym(final Context context, final long pokemonUID, final String gymID) {
