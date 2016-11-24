@@ -1,4 +1,5 @@
-# Snorlax [![Build Status](https://travis-ci.org/alucas/Snorlax.svg?branch=master)](https://travis-ci.org/alucas/Snorlax) [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://github.com/alucas/Snorlax#donation)
+# Snorlax [![Build Status](https://travis-ci.org/alucas/Snorlax.svg?branch=master)](https://travis-ci.org/alucas/Snorlax) [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://github.com/alucas/Snorlax#donation) [![Github All Releases](https://img.shields.io/github/downloads/alucas/snorlax/total.svg)](https://github.com/alucas/Snorlax/releases) [![Github Releases](https://img.shields.io/github/downloads/alucas/snorlax/latest/total.svg)](https://github.com/alucas/Snorlax/releases/latest) [![GitHub release](https://img.shields.io/github/release/alucas/snorlax.svg)](https://github.com/alucas/Snorlax/releases/latest)
+
 Check pokemons stats. [Available through Xposed repository](http://repo.xposed.info/module/com.icecream.snorlax)
   
 This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) on Pokémon Go's communications with the server, and allows us to add extra features to the game.
@@ -86,7 +87,7 @@ I hope you are liking Snorlax!
 
 If you do, you can support this project to keep coming with new features by buying me a cup of coffee (so i can code by night) or a BigMac at McDonalds. Click the link below and thanks you!
 
-[Donate (igoticecream)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9PPGNDJEC33E)
+[Donate (igoticecream)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9PPGNDJEC33E) - Original dev (no longer active)
 
 [Donate (alucas)](https://www.paypal.me/antoinelucas)
 
