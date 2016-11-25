@@ -16,6 +16,9 @@
 
 package com.icecream.snorlax.module.feature.rename;
 
+import java.text.DecimalFormat;
+import java.util.Locale;
+
 import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
 import com.icecream.snorlax.module.pokemon.PokemonMoveMeta;
@@ -154,13 +157,13 @@ public class RenameFormatTest {
 
 	@Test
 	public void testSomeCommandCombined() throws Exception {
-		mExpected = POKEMON_NAME.substring(0, 3) + " 006.7 1/1/1 8.5";
+		mExpected = POKEMON_NAME.substring(0, 3) + " 00" + DecimalFormat.getInstance().format(6.7) + " 1/1/1 " + DecimalFormat.getInstance().format(8.5);
 		setRenameFormat("%NAME.3% %IVP.1% %ATT%/%DEF%/%STA% %LVL%");
 	}
 
 	@Test
 	public void testSomeOthersCommandCombined() throws Exception {
-		mExpected = POKEMON_NAME + " 6.7%,1/1/1,8.5";
+		mExpected = POKEMON_NAME + " " + DecimalFormat.getInstance().format(6.7) + "%,1/1/1," + DecimalFormat.getInstance().format(8.5);
 		setRenameFormat("%NAME% %IV%%,%ATT%/%DEF%/%STA%,%LVL%");
 	}
 
@@ -226,7 +229,7 @@ public class RenameFormatTest {
 	//region Level
 	@Test
 	public void testLevel() throws Exception {
-		mExpected = "8.5";
+		mExpected = DecimalFormat.getInstance().format(8.5);
 		setRenameFormat("%LVL%");
 	}
 
@@ -238,13 +241,13 @@ public class RenameFormatTest {
 
 	@Test
 	public void testLevelOneDecimal() throws Exception {
-		mExpected = "8.5";
+		mExpected = DecimalFormat.getInstance().format(8.5);
 		setRenameFormat("%LVL.1%");
 	}
 
 	@Test
 	public void testLevelMoreDecimal() throws Exception {
-		mExpected = "8.500";
+		mExpected = DecimalFormat.getInstance().format(8.5) + "00";
 		setRenameFormat("%LVL.3%");
 	}
 
@@ -256,7 +259,7 @@ public class RenameFormatTest {
 
 	@Test
 	public void testLevelWithPadding() throws Exception {
-		mExpected = "08.5";
+		mExpected = "0" + DecimalFormat.getInstance().format(8.5);
 		setRenameFormat("%LVLP%");
 	}
 
@@ -268,13 +271,13 @@ public class RenameFormatTest {
 
 	@Test
 	public void testLevelWithPaddingOneDecimal() throws Exception {
-		mExpected = "08.5";
+		mExpected = "0" + DecimalFormat.getInstance().format(8.5);
 		setRenameFormat("%LVLP.1%");
 	}
 
 	@Test
 	public void testLevelWithPaddingMoreDecimal() throws Exception {
-		mExpected = "08.500";
+		mExpected = "0" + DecimalFormat.getInstance().format(8.5) + "00";
 		setRenameFormat("%LVLP.3%");
 	}
 
@@ -288,7 +291,7 @@ public class RenameFormatTest {
 	//region Iv
 	@Test
 	public void testIv() throws Exception {
-		mExpected = "6.7";
+		mExpected = DecimalFormat.getInstance().format(6.7);
 		setRenameFormat("%IV%");
 	}
 
@@ -300,13 +303,13 @@ public class RenameFormatTest {
 
 	@Test
 	public void testIvOneDecimal() throws Exception {
-		mExpected = "6.7";
+		mExpected = DecimalFormat.getInstance().format(6.7);
 		setRenameFormat("%IV.1%");
 	}
 
 	@Test
 	public void testIvMoreDecimal() throws Exception {
-		mExpected = "6.667";
+		mExpected = DecimalFormat.getInstance().format(6.667);
 		setRenameFormat("%IV.3%");
 	}
 
@@ -318,25 +321,25 @@ public class RenameFormatTest {
 
 	@Test
 	public void testIvWithPadding() throws Exception {
-		mExpected = "006.7";
+		mExpected = "00" + DecimalFormat.getInstance().format(6.7);
 		setRenameFormat("%IVP%");
 	}
 
 	@Test
 	public void testIvWithPaddingNoDecimal() throws Exception {
-		mExpected = "007";
+		mExpected = "007" ;
 		setRenameFormat("%IVP.0%");
 	}
 
 	@Test
 	public void testIvWithPaddingOneDecimal() throws Exception {
-		mExpected = "006.7";
+		mExpected = "00" + DecimalFormat.getInstance().format(6.7);
 		setRenameFormat("%IVP.1%");
 	}
 
 	@Test
 	public void testIvWithPaddingMoreDecimal() throws Exception {
-		mExpected = "006.667";
+		mExpected = "00" + DecimalFormat.getInstance().format(6.667);
 		setRenameFormat("%IVP.3%");
 	}
 
