@@ -140,7 +140,7 @@ public class Traffic implements Feature {
 		switch (dataContainer.type) {
 			case ENVELOPE_REQUEST:
 			case ENVELOPE_RESPONSE:
-				return formattedDate + Strings.DOT + dataContainer.type.name() + FILE_EXTENSION;
+				return formattedDate + Strings.DOT + dataContainer.type.name() + Strings.DOT + FILE_EXTENSION;
 			case PLATFORM_REQUEST:
 			case PLATFORM_RESPONSE:
 			case REQUEST:
