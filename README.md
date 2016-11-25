@@ -21,6 +21,8 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
 - Show catch results (Success, Missed, Flee) as soon as you throw your pokeball
 - Show lure's remaining time
   - <img src="https://cloud.githubusercontent.com/assets/498613/20309733/6732152e-ab49-11e6-9f8c-a7276da34080.png" width="300px">
+- Show notification when a pokemon is ejected from a Gym :
+  - <img src="https://cloud.githubusercontent.com/assets/498613/20635417/0c035084-b35d-11e6-9fa4-346331dae766.png" width="300px">
 
 ### Dev features:
 - Broadcast [Intent](https://developer.android.com/reference/android/content/Intent.html) with nearby pokemon informations
