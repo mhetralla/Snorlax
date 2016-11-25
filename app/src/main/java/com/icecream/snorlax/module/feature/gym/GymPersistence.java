@@ -38,7 +38,6 @@ public class GymPersistence implements Feature {
 		gymManager.initPokemonInGym(loadPokemonInGym(mContext));
 	}
 
-	@Inject
 	public void subscribe() {
 		mSubscription = mGym
 			.getObservable()

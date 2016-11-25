@@ -62,7 +62,7 @@ final class EjectNotification {
 
 	private Notification createNotification(final int pokemonNumber, final String pokemonName) {
 		return new NotificationCompat.Builder(mContext)
-			.setSmallIcon(R.drawable.ic_pokeball)
+			.setSmallIcon(R.drawable.ic_eject)
 			.setLargeIcon(Bitmap.createScaledBitmap(
 				BitmapFactory.decodeResource(
 					mResources,
