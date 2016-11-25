@@ -121,6 +121,10 @@ public final class Pokemon {
 		return mNames[getNumber() - 1];
 	}
 
+	public String getNickname() {
+		return mPokemonData.getNickname();
+	}
+
 	public int getNumber() {
 		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getNumber();
 	}

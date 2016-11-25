@@ -33,6 +33,26 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:padding="8dp"
+			android:text="@string/preference_rename_format_name"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:textIsSelectable="true"
+			tools:ignore="HardcodedText"
+			/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
+			android:text="@string/preference_rename_format_name."
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:textIsSelectable="true"
+			tools:ignore="HardcodedText"
+			/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
 			android:text="@string/preference_rename_format_nick"
 			android:textAppearance="?android:attr/textAppearanceSmall"
 			android:textIsSelectable="true"

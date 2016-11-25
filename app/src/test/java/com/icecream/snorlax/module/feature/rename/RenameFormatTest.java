@@ -50,6 +50,7 @@ import static POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
 public class RenameFormatTest {
 
 	private static final String POKEMON_NAME = "Snorlax";
+	private static final String POKEMON_NICKNAME = "Snacks";
 	private static final float POKEMON_LEVEL = 8.5f;
 	private static final int POKEMON_ATTACK = 1;
 	private static final int POKEMON_DEFENSE = 1;
@@ -84,6 +85,7 @@ public class RenameFormatTest {
 		Mockito.doCallRealMethod().when(mPokemonMoveMeta).toString();
 
 		Mockito.doReturn(POKEMON_NAME).when(mPokemon).getName();
+		Mockito.doReturn(POKEMON_NICKNAME).when(mPokemon).getNickname();
 		Mockito.doReturn(POKEMON_LEVEL).when(mPokemon).getLevel();
 		Mockito.doReturn(POKEMON_ATTACK).when(mPokemon).getIVAttack();
 		Mockito.doReturn(POKEMON_DEFENSE).when(mPokemon).getIVDefense();
@@ -116,7 +118,7 @@ public class RenameFormatTest {
 	@Test
 	public void testCommandCompleteFormat() throws Exception {
 		mExpected = POKEMON_NAME;
-		setRenameFormat("%NICK%");
+		setRenameFormat("%NAME%");
 	}
 
 	private void setRenameFormat(String format) {
@@ -128,20 +130,20 @@ public class RenameFormatTest {
 
 	@Test
 	public void testCommandIncompleteFormat() throws Exception {
-		mExpected = "%NICK";
-		setRenameFormat("%NICK");
+		mExpected = "%NAME";
+		setRenameFormat("%NAME");
 	}
 
 	@Test
 	public void testCommandFormatWithPlainText() throws Exception {
-		setRenameFormat("Plain Text %NICK%");
+		setRenameFormat("Plain Text %NAME%");
 		mExpected = "Plain Text " + POKEMON_NAME;
 	}
 
 	@Test
 	public void testCommandFormatWithSpaces() throws Exception {
-		setRenameFormat("%NICK %NICK%");
-		mExpected = "%NICK " + POKEMON_NAME;
+		setRenameFormat("%NAME %NAME%");
+		mExpected = "%NAME " + POKEMON_NAME;
 	}
 
 	@Test
@@ -152,64 +154,72 @@ public class RenameFormatTest {
 
 	@Test
 	public void testSomeCommandCombined() throws Exception {
-		mExpected = "Sno 006.7 1/1/1 8.5";
-		setRenameFormat("%NICK.3% %IVP.1% %ATT%/%DEF%/%STA% %LVL%");
+		mExpected = POKEMON_NAME.substring(0, 3) + " 006.7 1/1/1 8.5";
+		setRenameFormat("%NAME.3% %IVP.1% %ATT%/%DEF%/%STA% %LVL%");
 	}
 
 	@Test
 	public void testSomeOthersCommandCombined() throws Exception {
-		mExpected = "Snorlax 6.7%,1/1/1,8.5";
-		setRenameFormat("%NICK% %IV%%,%ATT%/%DEF%/%STA%,%LVL%");
+		mExpected = POKEMON_NAME + " 6.7%,1/1/1,8.5";
+		setRenameFormat("%NAME% %IV%%,%ATT%/%DEF%/%STA%,%LVL%");
 	}
 
 	@Test
 	public void testStartDelimiter2() throws Exception {
-		mExpected = "Snorlax";
-		setRenameFormat("℅NICK%");
+		mExpected = POKEMON_NAME;
+		setRenameFormat("℅NAME%");
 	}
 
 	@Test
 	public void testEndDelimiter2() throws Exception {
-		mExpected = "Snorlax";
-		setRenameFormat("%NICK℅");
+		mExpected = POKEMON_NAME;
+		setRenameFormat("%NAME℅");
 	}
 
 	@Test
 	public void testDelimiter2() throws Exception {
-		mExpected = "Snorlax";
-		setRenameFormat("℅NICK℅");
+		mExpected = POKEMON_NAME;
+		setRenameFormat("℅NAME℅");
 	}
 	//endregion
 
-	//region Nick
+	//region Name
 	@Test
-	public void testNicknameTruncateBelowLength() throws Exception {
+	public void testNameTruncateBelowLength() throws Exception {
 		mExpected = POKEMON_NAME.substring(0, 3);
-		setRenameFormat("%NICK.3%");
+		setRenameFormat("%NAME.3%");
+	}
+	//endregion
+
+	//region Nickname
+	@Test
+	public void testNickname() throws Exception {
+		mExpected = POKEMON_NICKNAME;
+		setRenameFormat("%NICK%");
 	}
 
 	@Test
-	public void testNicknameTruncateExactLength() throws Exception {
+	public void testNameTruncateExactLength() throws Exception {
 		mExpected = POKEMON_NAME;
-		setRenameFormat("%NICK.7%");
+		setRenameFormat("%NAME.7%");
 	}
 
 	@Test
-	public void testNicknameTruncateAboveLength() throws Exception {
-		mExpected= POKEMON_NAME;
-		setRenameFormat("%NICK.30%");
+	public void testNameTruncateAboveLength() throws Exception {
+		mExpected = POKEMON_NAME;
+		setRenameFormat("%NAME.30%");
 	}
 
 	@Test
-	public void testNicknameTruncateIncompleteFormat() throws Exception {
-		mExpected = "%NICK.%";
-		setRenameFormat("%NICK.%");
+	public void testNameTruncateIncompleteFormat() throws Exception {
+		mExpected = "%NAME.%";
+		setRenameFormat("%NAME.%");
 	}
 
 	@Test
-	public void testNicknameTruncateWrongFormat() throws Exception {
-		mExpected = "%NICK.1a%";
-		setRenameFormat("%NICK.1a%");
+	public void testNameTruncateWrongFormat() throws Exception {
+		mExpected = "%NAME.1a%";
+		setRenameFormat("%NAME.1a%");
 	}
 	//endregion
 

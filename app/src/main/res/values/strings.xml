@@ -96,8 +96,10 @@
 	<string name="preference_rename_format_enable_default">%IVP.0% %ATT%/%DEF%/%STA% %LVL%</string>
 	<string name="preference_rename_format_enable_dialog_title">Enter a format</string>
 
-	<string name="preference_rename_format_nick" formatted="false"><b>%NICK%</b> : Shows pokemon full name.\n<tt>%NICK% -> Snorlax</tt></string>
-	<string name="preference_rename_format_nick." formatted="false"><b>%NICK.#%</b> : Trims pokemon name by #.\n<tt>%NICK.3% -> Sno</tt></string>
+	<string name="preference_rename_format_name" formatted="false"><b>%NAME%</b> : Shows pokemon full name.\n<tt>%NAME% -> Snorlax</tt></string>
+	<string name="preference_rename_format_name." formatted="false"><b>%NAME.#%</b> : Trims pokemon name by #.\n<tt>%NAME.3% -> Sno</tt></string>
+	<string name="preference_rename_format_nick" formatted="false"><b>%NICK%</b> : Shows pokemon nickname if present, or pokemon name\n<tt>%NICK% -> Rainer\n%NICK% (no nickname) -> Vaporeon</tt></string>
+	<string name="preference_rename_format_nick." formatted="false"><b>%NICK.#%</b> : Shows pokemon nickname if present, or trimmed pokemon name.\n<tt>%NICK.3% -> Rainer\n%NICK.3% (no nickname) -> Vap</tt></string>
 	<string name="preference_rename_format_lvl" formatted="false"><b>%LVL%</b> : Shows pokemon level with one decimal.\n<tt>%LVL% -> 2.5</tt></string>
 	<string name="preference_rename_format_lvl." formatted="false"><b>%LVL.#%</b> : Round up and trims pokemon level by # decimals.\n<tt>%LVL.0% -> 3\n%LVL.2% -> 2.50</tt></string>
 	<string name="preference_rename_format_lvlp" formatted="false"><b>%LVLP%</b> : Same as %LVL% but add leading zeros.\n<tt>%LVLP% -> 02.5</tt></string>

@@ -40,6 +40,7 @@ final class RenameFormat {
 	private static final Character DELIMITER_1 = '%';
 	private static final Character DELIMITER_2 = '℅';
 
+	private static final String BASE_NAME = "NAME";
 	private static final String BASE_NICK = "NICK";
 	private static final String BASE_LVL = "LVL";
 	private static final String BASE_IV = "IV";
@@ -112,8 +113,11 @@ final class RenameFormat {
 
 		String processed = null;
 
-		if (target.startsWith(BASE_NICK)) {
-			processed = processNick(target, pokemon.getName());
+		if (target.startsWith(BASE_NAME)) {
+			processed = processName(target, pokemon.getName());
+		}
+		else if (target.startsWith(BASE_NICK)) {
+			processed = processNick(target, pokemon.getName(), pokemon.getNickname());
 		}
 		else if (target.startsWith(BASE_MV1)) {
 			processed = processMove(target, pokemon.getMoveFast());
@@ -164,21 +168,26 @@ final class RenameFormat {
 	}
 
 	@Nullable
-	private String processNick(String target, String nick) {
+	private String processName(String target, String name) {
 		final int length = target.length();
 		final int dot = target.indexOf('.') + 1;
 
-		if (length == BASE_NICK.length()) {
-			return nick;
+		if (length == BASE_NAME.length()) {
+			return name;
 		}
 		else if (dot > 0 && length > dot) {
 			try {
-				return Strings.truncateAt(nick, parseInt(target.substring(dot)));
+				return Strings.truncateAt(name, parseInt(target.substring(dot)));
 			}
 			catch (NumberFormatException ignored) {
 			}
 		}
 		return null;
+	}
+
+	@Nullable
+	private String processNick(String target, String name, String nick) {
+		return Strings.isNullOrEmpty(nick) ? processName(target.replace(BASE_NICK, BASE_NAME), name) : nick;
 	}
 
 	@Nullable
