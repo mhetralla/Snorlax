@@ -28,6 +28,7 @@ import com.icecream.snorlax.module.feature.capture.Capture;
 import com.icecream.snorlax.module.feature.encounter.Encounter;
 import com.icecream.snorlax.module.feature.gym.Eject;
 import com.icecream.snorlax.module.feature.gym.Gym;
+import com.icecream.snorlax.module.feature.gym.GymPersistence;
 import com.icecream.snorlax.module.feature.lure.Lure;
 import com.icecream.snorlax.module.feature.mitm.Mitm;
 import com.icecream.snorlax.module.feature.mock.Mock;
@@ -65,6 +66,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	Traffic mTraffic;
 	@Inject
 	Gym mGym;
+	@Inject
+	GymPersistence mGymPersistence;
 	@Inject
 	Eject mEject;
 
@@ -106,6 +109,7 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mLure,
 					mTraffic,
 					mGym,
+					mGymPersistence,
 					mEject
 				);
 			}

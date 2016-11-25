@@ -10,34 +10,37 @@ import android.content.SharedPreferences;
 import android.util.LongSparseArray;
 import android.util.Pair;
 
-import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
+import com.icecream.snorlax.module.feature.Feature;
 import com.icecream.snorlax.module.util.Log;
 
 import POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import rx.Subscription;
 
 @Singleton
-public class GymPersistence {
+public class GymPersistence implements Feature {
 	private static final String LOG_PREFIX = "[" + GymPersistence.class.getSimpleName() + "] ";
-
 	private static final String PREF_POKEMON_IN_GYM = "pokemonInGym";
 
 	private final Context mContext;
-	private final LongSparseArray<String> mPokemonsInGym;
+	private final Gym mGym;
+	private final GymManager mGymManager;
 
 	private Subscription mSubscription;
 
 	@Inject
-	public GymPersistence(@PokemonGo final Context context) {
+	public GymPersistence(@PokemonGo final Context context, final Gym gym, final GymManager gymManager) {
 		this.mContext = context;
+		this.mGym = gym;
+		this.mGymManager = gymManager;
 
-		this.mPokemonsInGym = loadPokemonInGym(mContext);
+		gymManager.initPokemonInGym(loadPokemonInGym(mContext));
 	}
 
-	public void subscribe(final Gym fym) {
-		mSubscription = fym
+	@Inject
+	public void subscribe() {
+		mSubscription = mGym
 			.getObservable()
 			.subscribe(pair -> {
 				final Pair<PokemonData, String> pokemonInfo = pair.second;
@@ -62,7 +65,7 @@ public class GymPersistence {
 
 	private LongSparseArray<String> loadPokemonInGym(final Context context) {
 		final SharedPreferences settings = context.getSharedPreferences(PREF_POKEMON_IN_GYM, 0);
-		final LongSparseArray<String> pokemonsInGym = new LongSparseArray();
+		final LongSparseArray<String> pokemonsInGym = new LongSparseArray<>();
 		final Map<String, ?> pokemonsInGymRaw = settings.getAll();
 		for (final Map.Entry<String, ?> pokemonEntry : pokemonsInGymRaw.entrySet()) {
 			try {
@@ -84,7 +87,7 @@ public class GymPersistence {
 		editor.putString(String.valueOf(pokemonUID), gymID);
 		editor.apply();
 
-		mPokemonsInGym.put(pokemonUID, gymID);
+		mGymManager.savePokemonInGym(pokemonUID, gymID);
 	}
 
 	private void removePokemonInGym(final Context context, final long pokemonUID) {
@@ -95,10 +98,6 @@ public class GymPersistence {
 		editor.remove(String.valueOf(pokemonUID));
 		editor.apply();
 
-		mPokemonsInGym.remove(pokemonUID);
-	}
-
-	public boolean wasPokemonInGym(final long pokemonUID) {
-		return !Strings.isNullOrEmpty(mPokemonsInGym.get(pokemonUID));
+		mGymManager.removePokemonInGym(pokemonUID);
 	}
 }

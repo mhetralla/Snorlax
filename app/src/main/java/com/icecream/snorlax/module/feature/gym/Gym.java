@@ -34,14 +34,14 @@ public class Gym implements Feature {
 	private static final String LOG_PREFIX = "[" + Gym.class.getSimpleName() + "] ";
 
 	private final MitmRelay mMitmRelay;
-	private final GymPersistence mGymPersistence;
+	private final GymManager mGymManager;
 
 	private Observable<Pair<ACTION, Pair<PokemonData, String>>> mObservable;
 
 	@Inject
-	public Gym(final MitmRelay mitmRelay, final GymPersistence gymPersistence) {
+	public Gym(final MitmRelay mitmRelay, final GymManager gymManager) {
 		mMitmRelay = mitmRelay;
-		mGymPersistence = gymPersistence;
+		mGymManager = gymManager;
 	}
 
 	@Override
@@ -55,13 +55,10 @@ public class Gym implements Feature {
 			.flatMap(this::getGymAction)
 			.share()
 		;
-
-		mGymPersistence.subscribe(this);
 	}
 
 	@Override
 	public void unsubscribe() throws Exception {
-		mGymPersistence.unsubscribe();
 	}
 
 	public Observable<Pair<ACTION, Pair<PokemonData, String>>> getObservable() {
@@ -154,9 +151,9 @@ public class Gym implements Feature {
 		final PokemonData pokemonData = pokemonInfo.first;
 		final String deployedFortId = pokemonInfo.second;
 
-		if (Strings.isNullOrEmpty(deployedFortId) && mGymPersistence.wasPokemonInGym(pokemonData.getId())) {
+		if (Strings.isNullOrEmpty(deployedFortId) && mGymManager.wasPokemonInGym(pokemonData.getId())) {
 			return Observable.just(new Pair<>(ACTION.POKEMON_REMOVE, new Pair<>(pokemonData, deployedFortId)));
-		} else if (!Strings.isNullOrEmpty(deployedFortId) && !mGymPersistence.wasPokemonInGym(pokemonData.getId())) {
+		} else if (!Strings.isNullOrEmpty(deployedFortId) && !mGymManager.wasPokemonInGym(pokemonData.getId())) {
 			return Observable.just(new Pair<>(ACTION.POKEMON_ADD, new Pair<>(pokemonData, deployedFortId)));
 		}
 
