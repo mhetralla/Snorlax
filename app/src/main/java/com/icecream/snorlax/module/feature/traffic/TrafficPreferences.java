@@ -25,6 +25,7 @@ import com.icecream.snorlax.R;
 import com.icecream.snorlax.module.context.snorlax.Snorlax;
 
 import de.robv.android.xposed.XSharedPreferences;
+import rx.Observable;
 
 @Singleton
 final class TrafficPreferences {
@@ -38,13 +39,10 @@ final class TrafficPreferences {
 		mPreferences = preferences;
 	}
 
-	boolean isEnabled() {
-		mPreferences.reload();
-		return getPreference(getPreferenceDefaultValue());
-	}
-
-	public Resources getmResources() {
-		return mResources;
+	<T> Observable.Transformer<T, T> isEnabled() {
+		return observable -> observable
+			.doOnNext(t -> mPreferences.reload())
+			.filter(t -> getPreference(getPreferenceDefaultValue()));
 	}
 
 	private boolean getPreferenceDefaultValue() {

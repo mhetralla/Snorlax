@@ -14,11 +14,13 @@ import java.util.Locale;
 import javax.inject.Inject;
 
 import android.content.Context;
+import android.content.res.Resources;
 
 import com.google.protobuf.ByteString;
 import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
+import com.icecream.snorlax.module.context.snorlax.Snorlax;
 import com.icecream.snorlax.module.feature.Feature;
 import com.icecream.snorlax.module.feature.mitm.MitmRelay;
 import com.icecream.snorlax.module.util.Log;
@@ -32,26 +34,26 @@ import rx.Observable;
 import rx.Subscription;
 
 /**
- * Log Pokemon Go traffic datas
+ * Log Pokemon Go network traffic
  */
 public class Traffic implements Feature {
 	private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyMMddHHmmssSS", Locale.US);
 	private static final String FILE_EXTENSION = "log";
 
-	private final MitmRelay mMitmRelay;
-	private final TrafficPreferences mTrafficPreferences;
 	private final Context mContext;
+	private final TrafficPreferences mTrafficPreferences;
+	private final MitmRelay mMitmRelay;
 
 	private Subscription mSubscription;
 	private File mTrafficDirectory;
 
 	@Inject
-	Traffic(@PokemonGo Context context, TrafficPreferences trafficPreferences, MitmRelay mitmRelay) {
-		this.mMitmRelay = mitmRelay;
-		this.mTrafficPreferences = trafficPreferences;
+	Traffic(@PokemonGo Context context, @Snorlax Resources resources, TrafficPreferences trafficPreferences, MitmRelay mitmRelay) {
 		this.mContext = context;
+		this.mTrafficPreferences = trafficPreferences;
+		this.mMitmRelay = mitmRelay;
 
-		this.mTrafficDirectory = new File(Storage.getPublicDirectory(trafficPreferences.getmResources()), "traffic");
+		this.mTrafficDirectory = new File(Storage.getPublicDirectory(resources), "traffic");
 	}
 
 	@Override
@@ -60,11 +62,8 @@ public class Traffic implements Feature {
 
 		mSubscription = mMitmRelay
 			.getObservable()
+			.compose(mTrafficPreferences.isEnabled())
 			.flatMap(envelope -> {
-				if (!mTrafficPreferences.isEnabled()) {
-					return Observable.empty();
-				}
-
 				final RequestEnvelope envelopeRequest = envelope.getRequest();
 				final ResponseEnvelope envelopeResponse = envelope.getResponse();
 
@@ -109,6 +108,7 @@ public class Traffic implements Feature {
 		RxFuncitons.unsubscribe(mSubscription);
 	}
 
+	@SuppressWarnings("unused")
 	private void logData(final DataContainer dataContainer) {
 		if (!Storage.isExternalStorageWritable(mContext)) {
 			return;
