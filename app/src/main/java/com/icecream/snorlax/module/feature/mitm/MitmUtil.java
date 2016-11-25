@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.icecream.snorlax.module.util.Log;
 
-import POGOProtos.Networking.Requests.RequestOuterClass;
+import POGOProtos.Networking.Requests.RequestOuterClass.Request;
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import rx.Observable;
 import rx.functions.Func1;
@@ -16,7 +16,7 @@ public class MitmUtil {
 	public static Func1<MitmEnvelope, Observable<MitmMessages>> filterResponse(final RequestType... types) {
 		final List<RequestType> typeList = Arrays.asList(types);
 		return envelope -> {
-			final List<RequestOuterClass.Request> requests = envelope.getRequest().getRequestsList();
+			final List<Request> requests = envelope.getRequest().getRequestsList();
 			if (requests.size() != envelope.getResponse().getReturnsCount()) {
 				Log.d(LOG_PREFIX + " :  Not the same number of Requests and Responses");
 				return Observable.empty();

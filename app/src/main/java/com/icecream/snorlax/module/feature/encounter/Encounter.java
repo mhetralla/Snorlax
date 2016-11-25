@@ -16,12 +16,8 @@
 
 package com.icecream.snorlax.module.feature.encounter;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
-import android.support.v4.util.Pair;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -30,6 +26,7 @@ import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.feature.Feature;
 import com.icecream.snorlax.module.feature.capture.CaptureEvent;
 import com.icecream.snorlax.module.feature.mitm.MitmRelay;
+import com.icecream.snorlax.module.feature.mitm.MitmUtil;
 import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
 import com.icecream.snorlax.module.pokemon.probability.PokemonProbability;
@@ -37,12 +34,10 @@ import com.icecream.snorlax.module.pokemon.probability.PokemonProbabilityFactory
 import com.icecream.snorlax.module.util.Log;
 
 import POGOProtos.Networking.Responses.CatchPokemonResponseOuterClass.CatchPokemonResponse.CatchStatus;
-import rx.Observable;
 import rx.Subscription;
 
 import static POGOProtos.Data.Capture.CaptureProbabilityOuterClass.CaptureProbability;
 import static POGOProtos.Data.PokemonDataOuterClass.PokemonData;
-import static POGOProtos.Networking.Requests.RequestOuterClass.Request;
 import static POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import static POGOProtos.Networking.Responses.DiskEncounterResponseOuterClass.DiskEncounterResponse;
 import static POGOProtos.Networking.Responses.EncounterResponseOuterClass.EncounterResponse;
@@ -50,6 +45,7 @@ import static POGOProtos.Networking.Responses.IncenseEncounterResponseOuterClass
 
 @Singleton
 public final class Encounter implements Feature {
+	private static final String LOG_PREFIX = "[" + Encounter.class.getCanonicalName() + "]";
 
 	private final MitmRelay mMitmRelay;
 	private final PokemonFactory mPokemonFactory;
@@ -78,33 +74,17 @@ public final class Encounter implements Feature {
 		mSubscription = mMitmRelay
 			.getObservable()
 			.compose(mEncounterPreferences.isEnabled())
-			.flatMap(envelope -> {
-				List<Request> requests = envelope.getRequest().getRequestsList();
-
-				for (int i = 0; i < requests.size(); i++) {
-					RequestType type = requests.get(i).getRequestType();
-
-					switch (type) {
-						case ENCOUNTER:
-						case DISK_ENCOUNTER:
-						case INCENSE_ENCOUNTER:
-							return Observable.just(new Pair<>(type, envelope.getResponse().getReturns(i)));
-						default:
-							break;
-					}
-				}
-				return Observable.empty();
-			})
-			.subscribe(pair -> {
-				switch (pair.first) {
+			.flatMap(MitmUtil.filterResponse(RequestType.ENCOUNTER, RequestType.DISK_ENCOUNTER, RequestType.INCENSE_ENCOUNTER))
+			.subscribe(messages -> {
+				switch (messages.requestType) {
 					case ENCOUNTER:
-						onWildEncounter(pair.second);
+						onWildEncounter(messages.response);
 						break;
 					case DISK_ENCOUNTER:
-						onDiskEncounter(pair.second);
+						onDiskEncounter(messages.response);
 						break;
 					case INCENSE_ENCOUNTER:
-						onIncenseEncounter(pair.second);
+						onIncenseEncounter(messages.response);
 						break;
 					default:
 						break;
@@ -123,13 +103,11 @@ public final class Encounter implements Feature {
 		try {
 			EncounterResponse response = EncounterResponse.parseFrom(bytes);
 			onEncounter(response.getWildPokemon().getPokemonData(), response.getCaptureProbability());
-		}
-		catch (InvalidProtocolBufferException | NullPointerException e) {
+		} catch (InvalidProtocolBufferException | NullPointerException e) {
 			Log.d("EncounterResponse failed: %s", e.getMessage());
 			Log.e(e);
-		}
-		catch (IllegalArgumentException e) {
-			Log.d("Cannot process IncenseEncounterResponse: %s", e.getMessage());
+		} catch (IllegalArgumentException e) {
+			Log.d("Cannot process WildEncounterResponse: %s", e.getMessage());
 			Log.e(e);
 		}
 	}
@@ -138,13 +116,11 @@ public final class Encounter implements Feature {
 		try {
 			DiskEncounterResponse response = DiskEncounterResponse.parseFrom(bytes);
 			onEncounter(response.getPokemonData(), response.getCaptureProbability());
-		}
-		catch (InvalidProtocolBufferException | NullPointerException e) {
+		} catch (InvalidProtocolBufferException | NullPointerException e) {
 			Log.d("DiskEncounterResponse failed: %s", e.getMessage());
 			Log.e(e);
-		}
-		catch (IllegalArgumentException e) {
-			Log.d("Cannot process IncenseEncounterResponse: %s", e.getMessage());
+		} catch (IllegalArgumentException e) {
+			Log.d("Cannot process DiskEncounterResponse: %s", e.getMessage());
 			Log.e(e);
 		}
 	}
@@ -153,19 +129,22 @@ public final class Encounter implements Feature {
 		try {
 			IncenseEncounterResponse response = IncenseEncounterResponse.parseFrom(bytes);
 			onEncounter(response.getPokemonData(), response.getCaptureProbability());
-		}
-		catch (InvalidProtocolBufferException | NullPointerException e) {
+		} catch (InvalidProtocolBufferException | NullPointerException e) {
 			Log.d("IncenseEncounterResponse failed: %s", e.getMessage());
 			Log.e(e);
-		}
-		catch (IllegalArgumentException e) {
+		} catch (IllegalArgumentException e) {
 			Log.d("Cannot process IncenseEncounterResponse: %s", e.getMessage());
 			Log.e(e);
 		}
 	}
 
-	private void onEncounter(PokemonData pokemonData, CaptureProbability captureProbability) throws NullPointerException, IllegalArgumentException {
+	private void onEncounter(PokemonData pokemonData, CaptureProbability captureProbability) {
 		Pokemon pokemon = mPokemonFactory.with(pokemonData);
+		if (pokemon == null) {
+			Log.d(LOG_PREFIX + "Failed to create Pokemon from PokemonData");
+			return;
+		}
+
 		PokemonProbability probability = mPokemonProbabilityFactory.with(captureProbability);
 
 		mEncounterNotification.show(

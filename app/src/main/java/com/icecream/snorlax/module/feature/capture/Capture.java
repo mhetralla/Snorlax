@@ -16,7 +16,6 @@
 
 package com.icecream.snorlax.module.feature.capture;
 
-import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -27,14 +26,13 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.icecream.snorlax.common.rx.RxBus;
 import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.feature.Feature;
+import com.icecream.snorlax.module.feature.mitm.MitmMessages;
 import com.icecream.snorlax.module.feature.mitm.MitmRelay;
+import com.icecream.snorlax.module.feature.mitm.MitmUtil;
 import com.icecream.snorlax.module.util.Log;
 
-import POGOProtos.Networking.Requests.RequestTypeOuterClass;
-import rx.Observable;
 import rx.Subscription;
 
-import static POGOProtos.Networking.Requests.RequestOuterClass.Request;
 import static POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import static POGOProtos.Networking.Responses.CatchPokemonResponseOuterClass.CatchPokemonResponse;
 
@@ -56,7 +54,9 @@ public final class Capture implements Feature {
 		mRxBus = rxBus;
 	}
 
-	private void onCapture(ByteString bytes) {
+	private void onCapture(final MitmMessages messages) {
+		final ByteString bytes = messages.response;
+
 		try {
 			CatchPokemonResponse response = CatchPokemonResponse.parseFrom(bytes);
 
@@ -66,8 +66,7 @@ public final class Capture implements Feature {
 				mCaptureNotification.show(formatCapture(response.getStatus().name()));
 			}
 			mRxBus.post(new CaptureEvent(status));
-		}
-		catch (InvalidProtocolBufferException e) {
+		} catch (InvalidProtocolBufferException e) {
 			Log.d("CatchPokemonResponse failed: %s" + e.getMessage());
 			Log.e(e);
 		}
@@ -90,18 +89,7 @@ public final class Capture implements Feature {
 
 		mSubscription = mMitmRelay
 			.getObservable()
-			.flatMap(envelope -> {
-				List<Request> requests = envelope.getRequest().getRequestsList();
-
-				for (int i = 0; i < requests.size(); i++) {
-					RequestTypeOuterClass.RequestType type = requests.get(i).getRequestType();
-
-					if (type == RequestType.CATCH_POKEMON) {
-						return Observable.just(envelope.getResponse().getReturns(i));
-					}
-				}
-				return Observable.empty();
-			})
+			.flatMap(MitmUtil.filterResponse(RequestType.CATCH_POKEMON))
 			.subscribe(this::onCapture, Log::e);
 	}
 

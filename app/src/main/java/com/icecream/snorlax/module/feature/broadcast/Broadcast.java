@@ -28,6 +28,7 @@ import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.feature.Feature;
 import com.icecream.snorlax.module.feature.mitm.MitmEnvelope;
 import com.icecream.snorlax.module.feature.mitm.MitmRelay;
+import com.icecream.snorlax.module.feature.mitm.MitmUtil;
 import com.icecream.snorlax.module.util.Log;
 
 import POGOProtos.Enums.PokemonIdOuterClass;
@@ -36,7 +37,6 @@ import rx.Subscription;
 
 import static POGOProtos.Map.Fort.FortDataOuterClass.FortData;
 import static POGOProtos.Map.MapCellOuterClass.MapCell;
-import static POGOProtos.Networking.Requests.RequestOuterClass.Request;
 import static POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import static POGOProtos.Networking.Responses.GetMapObjectsResponseOuterClass.GetMapObjectsResponse;
 
@@ -72,17 +72,8 @@ public final class Broadcast implements Feature {
 
 	private Observable.Transformer<MitmEnvelope, GetMapObjectsResponse> getMapObjectResponse() {
 		return observable -> observable
-			.flatMap(envelope -> {
-				List<Request> requests = envelope.getRequest().getRequestsList();
-
-				for (int i = 0; i < requests.size(); i++) {
-					if (requests.get(i).getRequestType() == RequestType.GET_MAP_OBJECTS) {
-						return Observable.just(envelope.getResponse().getReturns(i));
-					}
-				}
-				return Observable.empty();
-			})
-			.flatMap(bytes -> Observable.fromCallable(() -> getMapObjectResponse(bytes)))
+			.flatMap(MitmUtil.filterResponse(RequestType.GET_MAP_OBJECTS))
+			.flatMap(messages -> Observable.fromCallable(() -> getMapObjectResponse(messages.response)))
 			.doOnError(Log::e)
 			.onErrorResumeNext(throwable -> Observable.empty());
 	}
