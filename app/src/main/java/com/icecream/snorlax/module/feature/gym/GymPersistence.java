@@ -38,6 +38,7 @@ public class GymPersistence implements Feature {
 		gymManager.initPokemonInGym(loadPokemonInGym(mContext));
 	}
 
+	@Override
 	public void subscribe() {
 		mSubscription = mGym
 			.getObservable()
@@ -58,6 +59,7 @@ public class GymPersistence implements Feature {
 			});
 	}
 
+	@Override
 	public void unsubscribe() {
 		RxFuncitons.unsubscribe(mSubscription);
 	}
