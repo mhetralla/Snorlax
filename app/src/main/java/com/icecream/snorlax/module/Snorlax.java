@@ -47,9 +47,11 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 
 	@Inject
-	Mock mMock;
+	SafetyNet mSafetyNet;
 	@Inject
 	Mitm mMitm;
+	@Inject
+	Mock mMock;
 	@Inject
 	Capture mCapture;
 	@Inject
@@ -58,8 +60,6 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	Rename mRename;
 	@Inject
 	Broadcast mBroadcast;
-	@Inject
-	SafetyNet mSafetyNet;
 	@Inject
 	Lure mLure;
 	@Inject
