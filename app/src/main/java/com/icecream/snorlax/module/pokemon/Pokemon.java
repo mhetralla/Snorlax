@@ -18,8 +18,10 @@ package com.icecream.snorlax.module.pokemon;
 
 import java.util.List;
 
+import POGOProtos.Enums.PokemonRarityOuterClass.PokemonRarity;
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
 import POGOProtos.Settings.Master.MoveSettingsOuterClass.MoveSettings;
+import POGOProtos.Settings.Master.PokemonSettingsOuterClass.PokemonSettings;
 
 import static POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import static POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
@@ -59,7 +61,7 @@ public final class Pokemon {
 	}
 
 	public int getBaseAttack() {
-		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getBaseAttack();
+		return PokemonSettingsRegistry.getSettings(mPokemonData.getPokemonId()).getStats().getBaseAttack();
 	}
 
 	public int getIVAttack() {
@@ -67,7 +69,7 @@ public final class Pokemon {
 	}
 
 	public int getBaseDefence() {
-		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getBaseDefense();
+		return PokemonSettingsRegistry.getSettings(mPokemonData.getPokemonId()).getStats().getBaseDefense();
 	}
 
 	public int getIVDefense() {
@@ -75,7 +77,7 @@ public final class Pokemon {
 	}
 
 	public int getBaseStamina() {
-		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getBaseStamina();
+		return PokemonSettingsRegistry.getSettings(mPokemonData.getPokemonId()).getStats().getBaseStamina();
 	}
 
 	public int getIVStamina() {
@@ -88,30 +90,30 @@ public final class Pokemon {
 
 	public int getLastEvolutionCp() {
 		final PokemonId currentPokemonId = mPokemonData.getPokemonId();
-		PokemonId pokemonId = currentPokemonId;
+		PokemonId evolutionId = currentPokemonId;
 		while (true) {
-			final PokemonMeta pokemonMeta = PokemonMetaRegistry.getMeta(pokemonId);
-			final List<PokemonId> childrenId = pokemonMeta.getChildrenId();
-			if (childrenId.contains(PokemonId.UNRECOGNIZED)) {
+			final PokemonSettings pokemonSettings = PokemonSettingsRegistry.getSettings(evolutionId);
+			final List<PokemonId> evolutionsId = pokemonSettings.getEvolutionIdsList();
+			if (evolutionsId == null || evolutionsId.isEmpty()) {
 				break;
 			}
 
-			if (childrenId.size() > 1) {
+			if (evolutionsId.size() > 1) {
 				return ERROR_LAST_EVOL_CP_MULTI;
 			}
 
-			pokemonId = childrenId.get(0);
+			evolutionId = evolutionsId.get(0);
 		}
 
-		if (pokemonId == currentPokemonId) {
+		if (evolutionId == currentPokemonId) {
 			return ERROR_LAST_EVOL_CP_NO_EVOL;
 		}
 
-		final PokemonMeta pokemonMeta = PokemonMetaRegistry.getMeta(pokemonId);
+		final PokemonSettings pokemonSettings = PokemonSettingsRegistry.getSettings(evolutionId);
 		return PokemonCp.computeCP(
-			pokemonMeta.getBaseAttack() + getIVAttack(),
-			pokemonMeta.getBaseDefense() + getIVDefense(),
-			pokemonMeta.getBaseStamina() + getIVStamina(),
+			pokemonSettings.getStats().getBaseAttack() + getIVAttack(),
+			pokemonSettings.getStats().getBaseDefense() + getIVDefense(),
+			pokemonSettings.getStats().getBaseStamina() + getIVStamina(),
 			mPokemonData.getCpMultiplier() + mPokemonData.getAdditionalCpMultiplier()
 		);
 	}
@@ -129,7 +131,7 @@ public final class Pokemon {
 	}
 
 	public int getNumber() {
-		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getNumber();
+		return mPokemonData.getPokemonId().getNumber();
 	}
 
 	public MoveSettings getMoveFast() {
@@ -141,19 +143,19 @@ public final class Pokemon {
 	}
 
 	public PokemonType getType1() {
-		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getType1();
+		return PokemonSettingsRegistry.getSettings(mPokemonData.getPokemonId()).getType();
 	}
 
 	public PokemonType getType2() {
-		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getType2();
+		return PokemonSettingsRegistry.getSettings(mPokemonData.getPokemonId()).getType2();
 	}
 
-	public PokemonClass getPokemonClass() {
-		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getPokemonClass();
+	public PokemonRarity getPokemonClass() {
+		return PokemonSettingsRegistry.getSettings(mPokemonData.getPokemonId()).getRarity();
 	}
 
 	public double getBaseWeight() {
-		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getPokedexWeightKg();
+		return PokemonSettingsRegistry.getSettings(mPokemonData.getPokemonId()).getPokedexWeightKg();
 	}
 
 	public double getWeight() {
@@ -161,7 +163,7 @@ public final class Pokemon {
 	}
 
 	public double getBaseHeight() {
-		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getPokedexHeightM();
+		return PokemonSettingsRegistry.getSettings(mPokemonData.getPokemonId()).getPokedexHeightM();
 	}
 
 	public double getHeight() {
@@ -169,6 +171,6 @@ public final class Pokemon {
 	}
 
 	public double getFleeRate() {
-		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getBaseFleeRate();
+		return PokemonSettingsRegistry.getSettings(mPokemonData.getPokemonId()).getEncounter().getBaseFleeRate();
 	}
 }

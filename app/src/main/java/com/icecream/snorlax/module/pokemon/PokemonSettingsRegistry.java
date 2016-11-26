@@ -16,22 +16,25 @@
 
 package com.icecream.snorlax.module.pokemon;
 
-import com.icecream.snorlax.common.Strings;
+import java.util.EnumMap;
+
+import POGOProtos.Settings.Master.PokemonSettingsOuterClass.PokemonSettings;
+
+import static POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
 
 @SuppressWarnings({"unused", "FieldCanBeLocal", "WeakerAccess"})
-public enum PokemonClass {
-	NONE,
-	VERY_COMMON,
-	COMMON,
-	UNCOMMON,
-	RARE,
-	VERY_RARE,
-	EPIC,
-	LEGENDARY,
-	MYTHIC;
+public final class PokemonSettingsRegistry {
+	private static EnumMap<PokemonId, PokemonSettings> sSettings = new EnumMap<>(PokemonId.class);
 
-	@Override
-	public String toString() {
-		return Strings.capitalize(name().split("_"));
+	private PokemonSettingsRegistry() {
+		throw new AssertionError("No instances");
+	}
+
+	public static void registerPokemonSetting(final PokemonSettings pokemonSettings) {
+		sSettings.put(pokemonSettings.getPokemonId(), pokemonSettings);
+	}
+
+	static PokemonSettings getSettings(PokemonId id) {
+		return sSettings.get(id);
 	}
 }

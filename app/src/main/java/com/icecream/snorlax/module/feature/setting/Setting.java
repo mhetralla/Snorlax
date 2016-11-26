@@ -23,6 +23,7 @@ import com.icecream.snorlax.module.feature.mitm.MitmMessages;
 import com.icecream.snorlax.module.feature.mitm.MitmRelay;
 import com.icecream.snorlax.module.feature.mitm.MitmUtil;
 import com.icecream.snorlax.module.pokemon.MoveSettingsRegistry;
+import com.icecream.snorlax.module.pokemon.PokemonSettingsRegistry;
 import com.icecream.snorlax.module.util.Log;
 
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
@@ -150,7 +151,11 @@ public class Setting implements Feature {
 	private void decodeItemTemplate(final DownloadItemTemplatesResponse response) {
 		for (final ItemTemplate itemTemplate : response.getItemTemplatesList()) {
 			if (itemTemplate.hasMoveSettings()) {
-				MoveSettingsRegistry.decodeMoveSetting(itemTemplate.getMoveSettings());
+				MoveSettingsRegistry.registerMoveSetting(itemTemplate.getMoveSettings());
+			}
+
+			if (itemTemplate.hasPokemonSettings()) {
+				PokemonSettingsRegistry.registerPokemonSetting(itemTemplate.getPokemonSettings());
 			}
 		}
 	}

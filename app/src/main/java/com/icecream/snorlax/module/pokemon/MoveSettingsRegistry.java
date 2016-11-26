@@ -37,7 +37,7 @@ public final class MoveSettingsRegistry {
 		return sMeta.get(id);
 	}
 
-	public static void decodeMoveSetting(final MoveSettings moveSettings) {
+	public static void registerMoveSetting(final MoveSettings moveSettings) {
 		Log.d("Register move " + moveSettings.getMovementId());
 		sMeta.put(moveSettings.getMovementId(), moveSettings);
 	}

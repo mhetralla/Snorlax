@@ -2,6 +2,7 @@ package com.icecream.snorlax.module.pokemon;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import com.icecream.snorlax.common.Strings;
 
@@ -21,7 +22,7 @@ public class PokemonFormat {
 		final int typeStringLastIndex = typeString.lastIndexOf('_');
 		final String typeName = typeStringLastIndex != -1 ? typeString.substring(typeStringLastIndex + 1) : typeString;
 
-		return Strings.capitalize(typeName.toLowerCase());
+		return Strings.capitalize(typeName.toLowerCase(Locale.US));
 	}
 
 	public static String formatMove(PokemonMove move) {
