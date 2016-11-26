@@ -213,7 +213,7 @@ final class RenameFormat {
 	private String processMoveType(String target, PokemonType type) {
 		final int length = target.length();
 		final int dot = target.indexOf('.') + 1;
-		final String typeName = type.toString();
+		final String typeName = formatType(type);
 
 		if (length == BASE_MVT1.length() || length == BASE_MVT2.length()) {
 			return typeName;
@@ -246,7 +246,7 @@ final class RenameFormat {
 	private String processType(String target, PokemonType type) {
 		final int length = target.length();
 		final int dot = target.indexOf('.') + 1;
-		final String typeName = type.toString();
+		final String typeName = formatType(type);
 
 		if (length == BASE_MVT1.length() || length == BASE_MVT2.length()) {
 			return typeName;
@@ -376,5 +376,13 @@ final class RenameFormat {
 			return Decimals.format(cp, 2, 4, 0, 0);
 		}
 		return null;
+	}
+
+	private String formatType(PokemonType type) {
+		final String typeString = type.toString();
+		final int typeStringLastIndex = typeString.lastIndexOf('_');
+		final String typeName = typeStringLastIndex != -1 ? typeString.substring(typeStringLastIndex + 1) : typeString;
+
+		return typeName.charAt(0) + typeName.substring(1).toLowerCase();
 	}
 }

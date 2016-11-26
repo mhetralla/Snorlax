@@ -82,7 +82,7 @@ public class RenameFormatTest {
 		// Given
 		Mockito.doReturn(mPokemon).when(mPokemonFactory).with(mProto);
 
-		Mockito.doReturn(5).when(mPokemonMoveMeta).getPower();
+		Mockito.doReturn(5f).when(mPokemonMoveMeta).getPower();
 		Mockito.doReturn(PokemonType.POKEMON_TYPE_PSYCHIC).when(mPokemonMoveMeta).getType();
 		Mockito.doReturn(PokemonMove.ZEN_HEADBUTT_FAST).when(mPokemonMoveMeta).getMove();
 		Mockito.doCallRealMethod().when(mPokemonMoveMeta).toString();
