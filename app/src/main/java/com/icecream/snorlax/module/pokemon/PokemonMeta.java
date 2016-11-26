@@ -19,6 +19,7 @@ package com.icecream.snorlax.module.pokemon;
 import java.util.ArrayList;
 import java.util.List;
 
+import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;

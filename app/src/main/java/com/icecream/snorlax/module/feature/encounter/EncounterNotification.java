@@ -41,11 +41,11 @@ import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.module.NotificationId;
 import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
 import com.icecream.snorlax.module.context.snorlax.Snorlax;
-import com.icecream.snorlax.module.pokemon.PokemonType;
 import com.icecream.snorlax.module.util.Resource;
 import com.icecream.snorlax.module.util.Resource.MODIFIER;
 
 import POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
+import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
 
 @Singleton
 final class EncounterNotification {
@@ -65,7 +65,7 @@ final class EncounterNotification {
 	}
 
 	@SuppressWarnings("deprecation")
-	void show(int pokemonNumber, String pokemonName, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, String move1, String move1Type, int move1Power, String move2, String move2Type, int move2Power, double fleeRate, double pokeRate, double greatRate, double ultraRate, String type1, String type2, String pokemonClass) {
+	void show(int pokemonNumber, String pokemonName, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, String move1, String move1Type, float move1Power, String move2, String move2Type, float move2Power, double fleeRate, double pokeRate, double greatRate, double ultraRate, String type1, String type2, String pokemonClass) {
 		final double weightRatio = weight / baseWeight;
 		final double heightRatio = height / baseHeight;
 		final MODIFIER resourceModifier = (pokemonNumber == PokemonId.PIKACHU_VALUE ? MODIFIER.FAN
@@ -127,7 +127,7 @@ final class EncounterNotification {
 	private String getFooter(String type1, String type2, String pokemonClass) {
 		return new StringBuilder()
 			.append(type1)
-			.append(type2.equalsIgnoreCase(PokemonType.NONE.toString()) ? Strings.EMPTY : String.format(Locale.US, "/%s", type2))
+			.append(type2.equalsIgnoreCase(PokemonType.POKEMON_TYPE_NONE.toString()) ? Strings.EMPTY : String.format(Locale.US, "/%s", type2))
 			.append(" - ")
 			.append(pokemonClass)
 			.toString();

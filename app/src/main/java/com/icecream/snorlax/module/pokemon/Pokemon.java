@@ -18,6 +18,8 @@ package com.icecream.snorlax.module.pokemon;
 
 import java.util.List;
 
+import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
+
 import static POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import static POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
 

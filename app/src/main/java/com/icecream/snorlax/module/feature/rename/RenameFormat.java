@@ -29,7 +29,8 @@ import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
 import com.icecream.snorlax.module.pokemon.PokemonMoveMeta;
-import com.icecream.snorlax.module.pokemon.PokemonType;
+
+import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
 
 import static POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import static java.lang.Integer.parseInt;
@@ -231,7 +232,7 @@ final class RenameFormat {
 	}
 
 	@Nullable
-	private String processMovePower(String target, int power) {
+	private String processMovePower(String target, float power) {
 		if (target.equals(BASE_MVP1) || target.equals(BASE_MVP2)) {
 			return Decimals.format(power, 1, 3, 0, 0);
 		}

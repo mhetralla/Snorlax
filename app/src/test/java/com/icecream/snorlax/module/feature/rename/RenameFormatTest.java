@@ -17,12 +17,10 @@
 package com.icecream.snorlax.module.feature.rename;
 
 import java.text.DecimalFormat;
-import java.util.Locale;
 
 import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
 import com.icecream.snorlax.module.pokemon.PokemonMoveMeta;
-import com.icecream.snorlax.module.pokemon.PokemonType;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -37,6 +35,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+
+import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
 
 import static POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import static POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
@@ -83,7 +83,7 @@ public class RenameFormatTest {
 		Mockito.doReturn(mPokemon).when(mPokemonFactory).with(mProto);
 
 		Mockito.doReturn(5).when(mPokemonMoveMeta).getPower();
-		Mockito.doReturn(PokemonType.PSYCHIC).when(mPokemonMoveMeta).getType();
+		Mockito.doReturn(PokemonType.POKEMON_TYPE_PSYCHIC).when(mPokemonMoveMeta).getType();
 		Mockito.doReturn(PokemonMove.ZEN_HEADBUTT_FAST).when(mPokemonMoveMeta).getMove();
 		Mockito.doCallRealMethod().when(mPokemonMoveMeta).toString();
 
@@ -100,8 +100,8 @@ public class RenameFormatTest {
 		Mockito.doReturn(mPokemonMoveMeta).when(mPokemon).getMoveFast();
 		Mockito.doReturn(mPokemonMoveMeta).when(mPokemon).getMoveCharge();
 
-		Mockito.doReturn(PokemonType.NORMAL).when(mPokemon).getType1();
-		Mockito.doReturn(PokemonType.NONE).when(mPokemon).getType2();
+		Mockito.doReturn(PokemonType.POKEMON_TYPE_NORMAL).when(mPokemon).getType1();
+		Mockito.doReturn(PokemonType.POKEMON_TYPE_NONE).when(mPokemon).getType2();
 	}
 
 	@After
@@ -327,7 +327,7 @@ public class RenameFormatTest {
 
 	@Test
 	public void testIvWithPaddingNoDecimal() throws Exception {
-		mExpected = "007" ;
+		mExpected = "007";
 		setRenameFormat("%IVP.0%");
 	}
 

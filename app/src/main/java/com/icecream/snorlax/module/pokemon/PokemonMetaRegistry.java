@@ -18,6 +18,8 @@ package com.icecream.snorlax.module.pokemon;
 
 import java.util.EnumMap;
 
+import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
+
 import static POGOProtos.Enums.PokemonFamilyIdOuterClass.PokemonFamilyId;
 import static POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
 import static POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
@@ -115,7 +117,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.BULBASAUR);
 		metap.setFamily(PokemonFamilyId.FAMILY_BULBASAUR);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(0.7);
 		metap.setHeightStdDev(0.0875);
 		metap.setBaseStamina(90);
@@ -126,7 +128,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.3815);
 		metap.setPokedexWeightKg(6.9);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.2725);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1.15);
@@ -159,7 +161,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.IVYSAUR);
 		metap.setFamily(PokemonFamilyId.FAMILY_BULBASAUR);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(120);
@@ -170,7 +172,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.31875);
 		metap.setPokedexWeightKg(13);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.255);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1.5);
@@ -203,7 +205,7 @@ final class PokemonMetaRegistry {
 		metap.setFamily(PokemonFamilyId.FAMILY_BULBASAUR);
 		metap.setId(PokemonId.VENUSAUR);
 		metap.setPokemonClass(PokemonClass.EPIC);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(2);
 		metap.setHeightStdDev(0.25);
 		metap.setBaseStamina(160);
@@ -214,7 +216,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.759);
 		metap.setPokedexWeightKg(100);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.3795);
 		metap.setMovementTimerS(11);
 		metap.setJumpTimeS(1.25);
@@ -247,7 +249,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.CHARMANDER);
 		metap.setFamily(PokemonFamilyId.FAMILY_CHARMANDER);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.6);
 		metap.setHeightStdDev(0.075);
 		metap.setBaseStamina(78);
@@ -258,7 +260,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.15625);
 		metap.setPokedexWeightKg(8.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.15625);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(1.25);
@@ -291,7 +293,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.CHARMELEON);
 		metap.setFamily(PokemonFamilyId.FAMILY_CHARMANDER);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.1);
 		metap.setHeightStdDev(0.1375);
 		metap.setBaseStamina(116);
@@ -302,7 +304,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2575);
 		metap.setPokedexWeightKg(19);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.23175);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1);
@@ -335,7 +337,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.CHARIZARD);
 		metap.setFamily(PokemonFamilyId.FAMILY_CHARMANDER);
 		metap.setPokemonClass(PokemonClass.EPIC);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.7);
 		metap.setHeightStdDev(0.2125);
 		metap.setBaseStamina(156);
@@ -346,7 +348,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.405);
 		metap.setPokedexWeightKg(90.5);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.2025);
 		metap.setMovementTimerS(11);
 		metap.setJumpTimeS(1);
@@ -379,7 +381,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SQUIRTLE);
 		metap.setFamily(PokemonFamilyId.FAMILY_SQUIRTLE);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.5);
 		metap.setHeightStdDev(0.0625);
 		metap.setBaseStamina(88);
@@ -390,7 +392,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2295);
 		metap.setPokedexWeightKg(9);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.19125);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -423,7 +425,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.WARTORTLE);
 		metap.setFamily(PokemonFamilyId.FAMILY_SQUIRTLE);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(118);
@@ -434,7 +436,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.25);
 		metap.setPokedexWeightKg(22.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.1875);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1.25);
@@ -467,7 +469,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.BLASTOISE);
 		metap.setFamily(PokemonFamilyId.FAMILY_SQUIRTLE);
 		metap.setPokemonClass(PokemonClass.EPIC);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.6);
 		metap.setHeightStdDev(0.2);
 		metap.setBaseStamina(158);
@@ -478,7 +480,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.564);
 		metap.setPokedexWeightKg(85.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.282);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1.25);
@@ -511,7 +513,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.CATERPIE);
 		metap.setFamily(PokemonFamilyId.FAMILY_CATERPIE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.3);
 		metap.setHeightStdDev(0.0375);
 		metap.setBaseStamina(90);
@@ -522,7 +524,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.102);
 		metap.setPokedexWeightKg(2.9);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.153);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(0);
@@ -553,7 +555,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.METAPOD);
 		metap.setFamily(PokemonFamilyId.FAMILY_CATERPIE);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.7);
 		metap.setHeightStdDev(0.0875);
 		metap.setBaseStamina(100);
@@ -564,7 +566,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.117);
 		metap.setPokedexWeightKg(9.9);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.1755);
 		metap.setMovementTimerS(3600);
 		metap.setJumpTimeS(1);
@@ -595,7 +597,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.BUTTERFREE);
 		metap.setFamily(PokemonFamilyId.FAMILY_CATERPIE);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.1);
 		metap.setHeightStdDev(0.1375);
 		metap.setBaseStamina(120);
@@ -606,7 +608,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.1665);
 		metap.setPokedexWeightKg(32);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.1776);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1);
@@ -639,7 +641,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.WEEDLE);
 		metap.setFamily(PokemonFamilyId.FAMILY_WEEDLE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(0.3);
 		metap.setHeightStdDev(0.0375);
 		metap.setBaseStamina(80);
@@ -650,7 +652,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.1045);
 		metap.setPokedexWeightKg(3.2);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.15675);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1.25);
@@ -681,7 +683,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.KAKUNA);
 		metap.setFamily(PokemonFamilyId.FAMILY_WEEDLE);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(0.6);
 		metap.setHeightStdDev(0.075);
 		metap.setBaseStamina(90);
@@ -692,7 +694,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.25);
 		metap.setPokedexWeightKg(10);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.125);
 		metap.setMovementTimerS(3600);
 		metap.setJumpTimeS(0);
@@ -723,7 +725,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.BEEDRILL);
 		metap.setFamily(PokemonFamilyId.FAMILY_WEEDLE);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(130);
@@ -734,7 +736,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.308);
 		metap.setPokedexWeightKg(29.5);
 		metap.setMovementType(MovementType.ELECTRIC);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.231);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1);
@@ -767,7 +769,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PIDGEY);
 		metap.setFamily(PokemonFamilyId.FAMILY_PIDGEY);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(0.3);
 		metap.setHeightStdDev(0.0375);
 		metap.setBaseStamina(80);
@@ -778,7 +780,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.1344);
 		metap.setPokedexWeightKg(1.8);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.126);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1.4);
@@ -811,7 +813,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PIDGEOTTO);
 		metap.setFamily(PokemonFamilyId.FAMILY_PIDGEY);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.1);
 		metap.setHeightStdDev(0.1375);
 		metap.setBaseStamina(126);
@@ -822,7 +824,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.316);
 		metap.setPokedexWeightKg(30);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.237);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -855,7 +857,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PIDGEOT);
 		metap.setFamily(PokemonFamilyId.FAMILY_PIDGEY);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.5);
 		metap.setHeightStdDev(0.1875);
 		metap.setBaseStamina(166);
@@ -866,7 +868,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.36);
 		metap.setPokedexWeightKg(39.5);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.216);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1);
@@ -899,7 +901,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.RATTATA);
 		metap.setFamily(PokemonFamilyId.FAMILY_RATTATA);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.3);
 		metap.setHeightStdDev(0.0375);
 		metap.setBaseStamina(60);
@@ -910,7 +912,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.189);
 		metap.setPokedexWeightKg(3.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.126);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(0.9);
@@ -943,7 +945,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.RATICATE);
 		metap.setFamily(PokemonFamilyId.FAMILY_RATTATA);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.7);
 		metap.setHeightStdDev(0.0875);
 		metap.setBaseStamina(110);
@@ -954,7 +956,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2925);
 		metap.setPokedexWeightKg(18.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.26325);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1);
@@ -987,7 +989,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SPEAROW);
 		metap.setFamily(PokemonFamilyId.FAMILY_SPEAROW);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(0.3);
 		metap.setHeightStdDev(0.0375);
 		metap.setBaseStamina(80);
@@ -998,7 +1000,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.148);
 		metap.setPokedexWeightKg(2);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.148);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1.25);
@@ -1031,7 +1033,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.FEAROW);
 		metap.setFamily(PokemonFamilyId.FAMILY_SPEAROW);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.2);
 		metap.setHeightStdDev(0.15);
 		metap.setBaseStamina(130);
@@ -1042,7 +1044,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.252);
 		metap.setPokedexWeightKg(38);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.126);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -1075,7 +1077,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.EKANS);
 		metap.setFamily(PokemonFamilyId.FAMILY_EKANS);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(2);
 		metap.setHeightStdDev(0.25);
 		metap.setBaseStamina(70);
@@ -1086,7 +1088,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2595);
 		metap.setPokedexWeightKg(6.9);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.1384);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(1.25);
@@ -1119,7 +1121,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ARBOK);
 		metap.setFamily(PokemonFamilyId.FAMILY_EKANS);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(3.5);
 		metap.setHeightStdDev(0.4375);
 		metap.setBaseStamina(120);
@@ -1130,7 +1132,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.41);
 		metap.setPokedexWeightKg(65);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.164);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1);
@@ -1163,7 +1165,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PIKACHU);
 		metap.setFamily(PokemonFamilyId.FAMILY_PIKACHU);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.4);
 		metap.setHeightStdDev(0.05);
 		metap.setBaseStamina(70);
@@ -1174,7 +1176,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.185);
 		metap.setPokedexWeightKg(6);
 		metap.setMovementType(MovementType.NORMAL);
-		metap.setType1(PokemonType.ELECTRIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metap.setCollisionHeadRadiusM(0.185);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -1207,7 +1209,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.RAICHU);
 		metap.setFamily(PokemonFamilyId.FAMILY_PIKACHU);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.8);
 		metap.setHeightStdDev(0.1);
 		metap.setBaseStamina(120);
@@ -1218,7 +1220,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.27);
 		metap.setPokedexWeightKg(30);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ELECTRIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metap.setCollisionHeadRadiusM(0.216);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1.25);
@@ -1251,7 +1253,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SANDSHREW);
 		metap.setFamily(PokemonFamilyId.FAMILY_SANDSHREW);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.6);
 		metap.setHeightStdDev(0.075);
 		metap.setBaseStamina(100);
@@ -1262,7 +1264,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.258);
 		metap.setPokedexWeightKg(12);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GROUND);
+		metap.setType1(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setCollisionHeadRadiusM(0.1935);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -1295,7 +1297,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SANDSLASH);
 		metap.setFamily(PokemonFamilyId.FAMILY_SANDSHREW);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(150);
@@ -1306,7 +1308,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.35);
 		metap.setPokedexWeightKg(29.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GROUND);
+		metap.setType1(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setCollisionHeadRadiusM(0.35);
 		metap.setMovementTimerS(11);
 		metap.setJumpTimeS(1);
@@ -1339,7 +1341,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.NIDORAN_FEMALE);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_FEMALE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.4);
 		metap.setHeightStdDev(0.05);
 		metap.setBaseStamina(110);
@@ -1350,7 +1352,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.185);
 		metap.setPokedexWeightKg(7);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.185);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(1.25);
@@ -1383,7 +1385,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.NIDORINA);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_FEMALE);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.8);
 		metap.setHeightStdDev(0.1);
 		metap.setBaseStamina(140);
@@ -1394,7 +1396,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2925);
 		metap.setPokedexWeightKg(20);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.1755);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1);
@@ -1427,7 +1429,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.NIDOQUEEN);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_FEMALE);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.GROUND);
+		metap.setType2(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setPokedexHeightM(1.3);
 		metap.setHeightStdDev(0.1625);
 		metap.setBaseStamina(180);
@@ -1438,7 +1440,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.455);
 		metap.setPokedexWeightKg(60);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.2275);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1);
@@ -1471,7 +1473,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.NIDORAN_MALE);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_MALE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.5);
 		metap.setHeightStdDev(0.0625);
 		metap.setBaseStamina(92);
@@ -1482,7 +1484,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.252);
 		metap.setPokedexWeightKg(9);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.1575);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(1);
@@ -1515,7 +1517,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.NIDORINO);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_MALE);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.9);
 		metap.setHeightStdDev(0.1125);
 		metap.setBaseStamina(122);
@@ -1526,7 +1528,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.297);
 		metap.setPokedexWeightKg(19.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.2475);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1);
@@ -1559,7 +1561,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.NIDOKING);
 		metap.setFamily(PokemonFamilyId.FAMILY_NIDORAN_MALE);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.GROUND);
+		metap.setType2(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setPokedexHeightM(1.4);
 		metap.setHeightStdDev(0.175);
 		metap.setBaseStamina(162);
@@ -1570,7 +1572,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.5481);
 		metap.setPokedexWeightKg(62);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.27405);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1);
@@ -1603,7 +1605,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.CLEFAIRY);
 		metap.setFamily(PokemonFamilyId.FAMILY_CLEFAIRY);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.6);
 		metap.setHeightStdDev(0.075);
 		metap.setBaseStamina(140);
@@ -1614,7 +1616,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.3125);
 		metap.setPokedexWeightKg(7.5);
 		metap.setMovementType(MovementType.NORMAL);
-		metap.setType1(PokemonType.FAIRY);
+		metap.setType1(PokemonType.POKEMON_TYPE_FAIRY);
 		metap.setCollisionHeadRadiusM(0.225);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1.25);
@@ -1647,7 +1649,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.CLEFABLE);
 		metap.setFamily(PokemonFamilyId.FAMILY_CLEFAIRY);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.3);
 		metap.setHeightStdDev(0.1625);
 		metap.setBaseStamina(190);
@@ -1658,7 +1660,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.445);
 		metap.setPokedexWeightKg(40);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FAIRY);
+		metap.setType1(PokemonType.POKEMON_TYPE_FAIRY);
 		metap.setCollisionHeadRadiusM(0.445);
 		metap.setMovementTimerS(4);
 		metap.setJumpTimeS(1.25);
@@ -1691,7 +1693,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.VULPIX);
 		metap.setFamily(PokemonFamilyId.FAMILY_VULPIX);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.6);
 		metap.setHeightStdDev(0.075);
 		metap.setBaseStamina(76);
@@ -1702,7 +1704,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.315);
 		metap.setPokedexWeightKg(9.9);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.252);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -1735,7 +1737,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.NINETALES);
 		metap.setFamily(PokemonFamilyId.FAMILY_VULPIX);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.1);
 		metap.setHeightStdDev(0.1375);
 		metap.setBaseStamina(146);
@@ -1746,7 +1748,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.36);
 		metap.setPokedexWeightKg(19.9);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.24);
 		metap.setMovementTimerS(5);
 		metap.setJumpTimeS(1.25);
@@ -1779,7 +1781,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.JIGGLYPUFF);
 		metap.setFamily(PokemonFamilyId.FAMILY_JIGGLYPUFF);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.FAIRY);
+		metap.setType2(PokemonType.POKEMON_TYPE_FAIRY);
 		metap.setPokedexHeightM(0.5);
 		metap.setHeightStdDev(0.0625);
 		metap.setBaseStamina(230);
@@ -1790,7 +1792,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.32);
 		metap.setPokedexWeightKg(5.5);
 		metap.setMovementType(MovementType.NORMAL);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.256);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(3);
@@ -1823,7 +1825,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.WIGGLYTUFF);
 		metap.setFamily(PokemonFamilyId.FAMILY_JIGGLYPUFF);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.FAIRY);
+		metap.setType2(PokemonType.POKEMON_TYPE_FAIRY);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(280);
@@ -1834,7 +1836,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.356);
 		metap.setPokedexWeightKg(12);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.2225);
 		metap.setMovementTimerS(4);
 		metap.setJumpTimeS(1.25);
@@ -1867,7 +1869,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ZUBAT);
 		metap.setFamily(PokemonFamilyId.FAMILY_ZUBAT);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(0.8);
 		metap.setHeightStdDev(0.1);
 		metap.setBaseStamina(80);
@@ -1878,7 +1880,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.0535);
 		metap.setPokedexWeightKg(7.5);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.1605);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -1911,7 +1913,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GOLBAT);
 		metap.setFamily(PokemonFamilyId.FAMILY_ZUBAT);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.6);
 		metap.setHeightStdDev(0.2);
 		metap.setBaseStamina(150);
@@ -1922,7 +1924,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.0355);
 		metap.setPokedexWeightKg(55);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.355);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1);
@@ -1955,7 +1957,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ODDISH);
 		metap.setFamily(PokemonFamilyId.FAMILY_ODDISH);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(0.5);
 		metap.setHeightStdDev(0.0625);
 		metap.setBaseStamina(90);
@@ -1966,7 +1968,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2025);
 		metap.setPokedexWeightKg(5.4);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.2025);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -1999,7 +2001,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GLOOM);
 		metap.setFamily(PokemonFamilyId.FAMILY_ODDISH);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(0.8);
 		metap.setHeightStdDev(0.1);
 		metap.setBaseStamina(120);
@@ -2010,7 +2012,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.4125);
 		metap.setPokedexWeightKg(8.6);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.2475);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -2043,7 +2045,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.VILEPLUME);
 		metap.setFamily(PokemonFamilyId.FAMILY_ODDISH);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1.2);
 		metap.setHeightStdDev(0.15);
 		metap.setBaseStamina(150);
@@ -2054,7 +2056,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(1.012);
 		metap.setPokedexWeightKg(18.6);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.552);
 		metap.setMovementTimerS(11);
 		metap.setJumpTimeS(1);
@@ -2087,7 +2089,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PARAS);
 		metap.setFamily(PokemonFamilyId.FAMILY_PARAS);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.GRASS);
+		metap.setType2(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setPokedexHeightM(0.3);
 		metap.setHeightStdDev(0.0375);
 		metap.setBaseStamina(70);
@@ -2098,7 +2100,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.192);
 		metap.setPokedexWeightKg(5.4);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.192);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(1.1);
@@ -2131,7 +2133,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PARASECT);
 		metap.setFamily(PokemonFamilyId.FAMILY_PARAS);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.GRASS);
+		metap.setType2(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(120);
@@ -2142,7 +2144,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.4545);
 		metap.setPokedexWeightKg(29.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.505);
 		metap.setMovementTimerS(17);
 		metap.setJumpTimeS(1.25);
@@ -2175,7 +2177,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.VENONAT);
 		metap.setFamily(PokemonFamilyId.FAMILY_VENONAT);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(120);
@@ -2186,7 +2188,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.355);
 		metap.setPokedexWeightKg(30);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.26625);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1.25);
@@ -2219,7 +2221,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.VENOMOTH);
 		metap.setFamily(PokemonFamilyId.FAMILY_VENONAT);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1.5);
 		metap.setHeightStdDev(0.1875);
 		metap.setBaseStamina(140);
@@ -2230,7 +2232,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.36);
 		metap.setPokedexWeightKg(12.5);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.288);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1);
@@ -2263,7 +2265,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.DIGLETT);
 		metap.setFamily(PokemonFamilyId.FAMILY_DIGLETT);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.2);
 		metap.setHeightStdDev(0.025);
 		metap.setBaseStamina(20);
@@ -2274,7 +2276,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.16);
 		metap.setPokedexWeightKg(0.8);
 		metap.setMovementType(MovementType.NORMAL);
-		metap.setType1(PokemonType.GROUND);
+		metap.setType1(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setCollisionHeadRadiusM(0.18);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(0);
@@ -2307,7 +2309,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.DUGTRIO);
 		metap.setFamily(PokemonFamilyId.FAMILY_DIGLETT);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.7);
 		metap.setHeightStdDev(0.0875);
 		metap.setBaseStamina(70);
@@ -2318,7 +2320,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.448);
 		metap.setPokedexWeightKg(33.3);
 		metap.setMovementType(MovementType.NORMAL);
-		metap.setType1(PokemonType.GROUND);
+		metap.setType1(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setCollisionHeadRadiusM(0.336);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(0);
@@ -2351,7 +2353,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MEOWTH);
 		metap.setFamily(PokemonFamilyId.FAMILY_MEOWTH);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.4);
 		metap.setHeightStdDev(0.05);
 		metap.setBaseStamina(80);
@@ -2362,7 +2364,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.128);
 		metap.setPokedexWeightKg(4.2);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.2);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(1);
@@ -2395,7 +2397,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PERSIAN);
 		metap.setFamily(PokemonFamilyId.FAMILY_MEOWTH);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(130);
@@ -2406,7 +2408,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.328);
 		metap.setPokedexWeightKg(32);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.164);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1.25);
@@ -2439,7 +2441,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PSYDUCK);
 		metap.setFamily(PokemonFamilyId.FAMILY_PSYDUCK);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.8);
 		metap.setHeightStdDev(0.1);
 		metap.setBaseStamina(100);
@@ -2450,7 +2452,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.291);
 		metap.setPokedexWeightKg(19.6);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.3395);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -2483,7 +2485,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GOLDUCK);
 		metap.setFamily(PokemonFamilyId.FAMILY_PSYDUCK);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.7);
 		metap.setHeightStdDev(0.2125);
 		metap.setBaseStamina(160);
@@ -2494,7 +2496,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2325);
 		metap.setPokedexWeightKg(76.6);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.2325);
 		metap.setMovementTimerS(5);
 		metap.setJumpTimeS(1);
@@ -2527,7 +2529,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MANKEY);
 		metap.setFamily(PokemonFamilyId.FAMILY_MANKEY);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.5);
 		metap.setHeightStdDev(0.0625);
 		metap.setBaseStamina(80);
@@ -2538,7 +2540,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.1935);
 		metap.setPokedexWeightKg(28);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIGHTING);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIGHTING);
 		metap.setCollisionHeadRadiusM(0.129);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(1);
@@ -2571,7 +2573,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PRIMEAPE);
 		metap.setFamily(PokemonFamilyId.FAMILY_MANKEY);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(130);
@@ -2582,7 +2584,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.46);
 		metap.setPokedexWeightKg(32);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIGHTING);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIGHTING);
 		metap.setCollisionHeadRadiusM(0.23);
 		metap.setMovementTimerS(17);
 		metap.setJumpTimeS(1);
@@ -2615,7 +2617,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GROWLITHE);
 		metap.setFamily(PokemonFamilyId.FAMILY_GROWLITHE);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.7);
 		metap.setHeightStdDev(0.0875);
 		metap.setBaseStamina(110);
@@ -2626,7 +2628,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.234);
 		metap.setPokedexWeightKg(19);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.1755);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -2659,7 +2661,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ARCANINE);
 		metap.setFamily(PokemonFamilyId.FAMILY_GROWLITHE);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.9);
 		metap.setHeightStdDev(0.2375);
 		metap.setBaseStamina(180);
@@ -2670,7 +2672,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.37);
 		metap.setPokedexWeightKg(155);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.333);
 		metap.setMovementTimerS(4);
 		metap.setJumpTimeS(1.25);
@@ -2703,7 +2705,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.POLIWAG);
 		metap.setFamily(PokemonFamilyId.FAMILY_POLIWAG);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.6);
 		metap.setHeightStdDev(0.075);
 		metap.setBaseStamina(80);
@@ -2714,7 +2716,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.3125);
 		metap.setPokedexWeightKg(12.4);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.3125);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -2747,7 +2749,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.POLIWHIRL);
 		metap.setFamily(PokemonFamilyId.FAMILY_POLIWAG);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(130);
@@ -2758,7 +2760,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.49);
 		metap.setPokedexWeightKg(20);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.3675);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(0.8);
@@ -2791,7 +2793,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.POLIWRATH);
 		metap.setFamily(PokemonFamilyId.FAMILY_POLIWAG);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.FIGHTING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FIGHTING);
 		metap.setPokedexHeightM(1.3);
 		metap.setHeightStdDev(0.1625);
 		metap.setBaseStamina(180);
@@ -2802,7 +2804,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.645);
 		metap.setPokedexWeightKg(54);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.344);
 		metap.setMovementTimerS(11);
 		metap.setJumpTimeS(1.05);
@@ -2835,7 +2837,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ABRA);
 		metap.setFamily(PokemonFamilyId.FAMILY_ABRA);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.9);
 		metap.setHeightStdDev(0.1125);
 		metap.setBaseStamina(50);
@@ -2846,7 +2848,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.28);
 		metap.setPokedexWeightKg(19.5);
 		metap.setMovementType(MovementType.PSYCHIC);
-		metap.setType1(PokemonType.PSYCHIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setCollisionHeadRadiusM(0.28);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(1);
@@ -2878,7 +2880,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.KADABRA);
 		metap.setFamily(PokemonFamilyId.FAMILY_ABRA);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.3);
 		metap.setHeightStdDev(0.1625);
 		metap.setBaseStamina(80);
@@ -2889,7 +2891,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.445);
 		metap.setPokedexWeightKg(56.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.PSYCHIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setCollisionHeadRadiusM(0.33375);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1.25);
@@ -2922,7 +2924,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ALAKAZAM);
 		metap.setFamily(PokemonFamilyId.FAMILY_ABRA);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.5);
 		metap.setHeightStdDev(0.1875);
 		metap.setBaseStamina(110);
@@ -2933,7 +2935,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.425);
 		metap.setPokedexWeightKg(48);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.PSYCHIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setCollisionHeadRadiusM(0.255);
 		metap.setMovementTimerS(4);
 		metap.setJumpTimeS(1);
@@ -2966,7 +2968,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MACHOP);
 		metap.setFamily(PokemonFamilyId.FAMILY_MACHOP);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.8);
 		metap.setHeightStdDev(0.1);
 		metap.setBaseStamina(140);
@@ -2977,7 +2979,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.22);
 		metap.setPokedexWeightKg(19.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIGHTING);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIGHTING);
 		metap.setCollisionHeadRadiusM(0.20625);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1);
@@ -3010,7 +3012,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MACHOKE);
 		metap.setFamily(PokemonFamilyId.FAMILY_MACHOP);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.5);
 		metap.setHeightStdDev(0.1875);
 		metap.setBaseStamina(160);
@@ -3021,7 +3023,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.54600012);
 		metap.setPokedexWeightKg(70.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIGHTING);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIGHTING);
 		metap.setCollisionHeadRadiusM(0.1365);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1);
@@ -3054,7 +3056,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MACHAMP);
 		metap.setFamily(PokemonFamilyId.FAMILY_MACHOP);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.6);
 		metap.setHeightStdDev(0.2);
 		metap.setBaseStamina(180);
@@ -3065,7 +3067,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.5785);
 		metap.setPokedexWeightKg(130);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIGHTING);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIGHTING);
 		metap.setCollisionHeadRadiusM(0.1335);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -3098,7 +3100,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.BELLSPROUT);
 		metap.setFamily(PokemonFamilyId.FAMILY_BELLSPROUT);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(0.7);
 		metap.setHeightStdDev(0.0875);
 		metap.setBaseStamina(100);
@@ -3109,7 +3111,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.1935);
 		metap.setPokedexWeightKg(4);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.22575);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1.2);
@@ -3142,7 +3144,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.WEEPINBELL);
 		metap.setFamily(PokemonFamilyId.FAMILY_BELLSPROUT);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(130);
@@ -3153,7 +3155,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.25);
 		metap.setPokedexWeightKg(6.4);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.25);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -3186,7 +3188,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.VICTREEBEL);
 		metap.setFamily(PokemonFamilyId.FAMILY_BELLSPROUT);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1.7);
 		metap.setHeightStdDev(0.2125);
 		metap.setBaseStamina(160);
@@ -3197,7 +3199,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.336);
 		metap.setPokedexWeightKg(15.5);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.273);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1);
@@ -3230,7 +3232,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.TENTACOOL);
 		metap.setFamily(PokemonFamilyId.FAMILY_TENTACOOL);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(0.9);
 		metap.setHeightStdDev(0.1125);
 		metap.setBaseStamina(80);
@@ -3241,7 +3243,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.21);
 		metap.setPokedexWeightKg(45.5);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.1575);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1);
@@ -3274,7 +3276,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.TENTACRUEL);
 		metap.setFamily(PokemonFamilyId.FAMILY_TENTACOOL);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1.6);
 		metap.setHeightStdDev(0.2);
 		metap.setBaseStamina(160);
@@ -3285,7 +3287,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.492);
 		metap.setPokedexWeightKg(55);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.246);
 		metap.setMovementTimerS(11);
 		metap.setJumpTimeS(1);
@@ -3318,7 +3320,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GEODUDE);
 		metap.setFamily(PokemonFamilyId.FAMILY_GEODUDE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.GROUND);
+		metap.setType2(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setPokedexHeightM(0.4);
 		metap.setHeightStdDev(0.05);
 		metap.setBaseStamina(80);
@@ -3329,7 +3331,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.3915);
 		metap.setPokedexWeightKg(20);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.ROCK);
+		metap.setType1(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setCollisionHeadRadiusM(0.19575);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -3362,7 +3364,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GRAVELER);
 		metap.setFamily(PokemonFamilyId.FAMILY_GEODUDE);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.GROUND);
+		metap.setType2(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(110);
@@ -3373,7 +3375,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.492);
 		metap.setPokedexWeightKg(105);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ROCK);
+		metap.setType1(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setCollisionHeadRadiusM(0.369);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1.2);
@@ -3406,7 +3408,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GOLEM);
 		metap.setFamily(PokemonFamilyId.FAMILY_GEODUDE);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.GROUND);
+		metap.setType2(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setPokedexHeightM(1.4);
 		metap.setHeightStdDev(0.175);
 		metap.setBaseStamina(160);
@@ -3417,7 +3419,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.63);
 		metap.setPokedexWeightKg(300);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ROCK);
+		metap.setType1(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setCollisionHeadRadiusM(0.315);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1.2);
@@ -3450,7 +3452,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PONYTA);
 		metap.setFamily(PokemonFamilyId.FAMILY_PONYTA);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(100);
@@ -3461,7 +3463,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2525);
 		metap.setPokedexWeightKg(30);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.202);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(0.95);
@@ -3494,7 +3496,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.RAPIDASH);
 		metap.setFamily(PokemonFamilyId.FAMILY_PONYTA);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.7);
 		metap.setHeightStdDev(0.2125);
 		metap.setBaseStamina(130);
@@ -3505,7 +3507,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.324);
 		metap.setPokedexWeightKg(95);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.243);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1);
@@ -3538,7 +3540,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SLOWPOKE);
 		metap.setFamily(PokemonFamilyId.FAMILY_SLOWPOKE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.PSYCHIC);
+		metap.setType2(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setPokedexHeightM(1.2);
 		metap.setHeightStdDev(0.15);
 		metap.setBaseStamina(180);
@@ -3549,7 +3551,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.316);
 		metap.setPokedexWeightKg(36);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.29625);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -3582,7 +3584,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SLOWBRO);
 		metap.setFamily(PokemonFamilyId.FAMILY_SLOWPOKE);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.PSYCHIC);
+		metap.setType2(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setPokedexHeightM(1.6);
 		metap.setHeightStdDev(0.2);
 		metap.setBaseStamina(190);
@@ -3593,7 +3595,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.425);
 		metap.setPokedexWeightKg(78.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.255);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1);
@@ -3626,7 +3628,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MAGNEMITE);
 		metap.setFamily(PokemonFamilyId.FAMILY_MAGNEMITE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.STEEL);
+		metap.setType2(PokemonType.POKEMON_TYPE_STEEL);
 		metap.setPokedexHeightM(0.3);
 		metap.setHeightStdDev(0.0375);
 		metap.setBaseStamina(50);
@@ -3637,7 +3639,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.456);
 		metap.setPokedexWeightKg(6);
 		metap.setMovementType(MovementType.ELECTRIC);
-		metap.setType1(PokemonType.ELECTRIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metap.setCollisionHeadRadiusM(0.228);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -3670,7 +3672,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MAGNETON);
 		metap.setFamily(PokemonFamilyId.FAMILY_MAGNEMITE);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.STEEL);
+		metap.setType2(PokemonType.POKEMON_TYPE_STEEL);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(100);
@@ -3681,7 +3683,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.44);
 		metap.setPokedexWeightKg(60);
 		metap.setMovementType(MovementType.ELECTRIC);
-		metap.setType1(PokemonType.ELECTRIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metap.setCollisionHeadRadiusM(0.22);
 		metap.setMovementTimerS(5);
 		metap.setJumpTimeS(1);
@@ -3714,7 +3716,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.FARFETCHD);
 		metap.setFamily(PokemonFamilyId.FAMILY_FARFETCHD);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(0.8);
 		metap.setHeightStdDev(0.1);
 		metap.setBaseStamina(104);
@@ -3725,7 +3727,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2825);
 		metap.setPokedexWeightKg(15);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.2825);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(1.25);
@@ -3758,7 +3760,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.DODUO);
 		metap.setFamily(PokemonFamilyId.FAMILY_DODUO);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.4);
 		metap.setHeightStdDev(0.175);
 		metap.setBaseStamina(70);
@@ -3769,7 +3771,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.352);
 		metap.setPokedexWeightKg(39.2);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.198);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -3802,7 +3804,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.DODRIO);
 		metap.setFamily(PokemonFamilyId.FAMILY_DODUO);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.8);
 		metap.setHeightStdDev(0.225);
 		metap.setBaseStamina(120);
@@ -3813,7 +3815,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.39);
 		metap.setPokedexWeightKg(85.2);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.2574);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1.25);
@@ -3846,7 +3848,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SEEL);
 		metap.setFamily(PokemonFamilyId.FAMILY_SEEL);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.1);
 		metap.setHeightStdDev(0.1375);
 		metap.setBaseStamina(130);
@@ -3857,7 +3859,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.275);
 		metap.setPokedexWeightKg(90);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.22);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(0.9);
@@ -3890,7 +3892,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.DEWGONG);
 		metap.setFamily(PokemonFamilyId.FAMILY_SEEL);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.ICE);
+		metap.setType2(PokemonType.POKEMON_TYPE_ICE);
 		metap.setPokedexHeightM(1.7);
 		metap.setHeightStdDev(0.2125);
 		metap.setBaseStamina(180);
@@ -3901,7 +3903,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.315);
 		metap.setPokedexWeightKg(120);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.13125);
 		metap.setMovementTimerS(5);
 		metap.setJumpTimeS(1);
@@ -3934,7 +3936,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GRIMER);
 		metap.setFamily(PokemonFamilyId.FAMILY_GRIMER);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.9);
 		metap.setHeightStdDev(0.1125);
 		metap.setBaseStamina(160);
@@ -3945,7 +3947,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.49);
 		metap.setPokedexWeightKg(30);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.294);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1);
@@ -3978,7 +3980,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MUK);
 		metap.setFamily(PokemonFamilyId.FAMILY_GRIMER);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.2);
 		metap.setHeightStdDev(0.15);
 		metap.setBaseStamina(210);
@@ -3989,7 +3991,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.76);
 		metap.setPokedexWeightKg(30);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.38);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1.25);
@@ -4022,7 +4024,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SHELLDER);
 		metap.setFamily(PokemonFamilyId.FAMILY_SHELLDER);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.3);
 		metap.setHeightStdDev(0.0375);
 		metap.setBaseStamina(60);
@@ -4033,7 +4035,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.336);
 		metap.setPokedexWeightKg(4);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.294);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1.2);
@@ -4066,7 +4068,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.CLOYSTER);
 		metap.setFamily(PokemonFamilyId.FAMILY_SHELLDER);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.ICE);
+		metap.setType2(PokemonType.POKEMON_TYPE_ICE);
 		metap.setPokedexHeightM(1.5);
 		metap.setHeightStdDev(0.1875);
 		metap.setBaseStamina(100);
@@ -4077,7 +4079,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.42);
 		metap.setPokedexWeightKg(132.5);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.54599988);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1);
@@ -4110,7 +4112,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GASTLY);
 		metap.setFamily(PokemonFamilyId.FAMILY_GASTLY);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1.3);
 		metap.setHeightStdDev(0.1625);
 		metap.setBaseStamina(60);
@@ -4121,7 +4123,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.25);
 		metap.setPokedexWeightKg(0.1);
 		metap.setMovementType(MovementType.PSYCHIC);
-		metap.setType1(PokemonType.GHOST);
+		metap.setType1(PokemonType.POKEMON_TYPE_GHOST);
 		metap.setCollisionHeadRadiusM(0.3);
 		metap.setMovementTimerS(29);
 		metap.setJumpTimeS(1);
@@ -4154,7 +4156,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.HAUNTER);
 		metap.setFamily(PokemonFamilyId.FAMILY_GASTLY);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1.6);
 		metap.setHeightStdDev(0.2);
 		metap.setBaseStamina(90);
@@ -4165,7 +4167,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.442);
 		metap.setPokedexWeightKg(0.1);
 		metap.setMovementType(MovementType.PSYCHIC);
-		metap.setType1(PokemonType.GHOST);
+		metap.setType1(PokemonType.POKEMON_TYPE_GHOST);
 		metap.setCollisionHeadRadiusM(0.442);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1);
@@ -4198,7 +4200,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GENGAR);
 		metap.setFamily(PokemonFamilyId.FAMILY_GASTLY);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.POISON);
+		metap.setType2(PokemonType.POKEMON_TYPE_POISON);
 		metap.setPokedexHeightM(1.5);
 		metap.setHeightStdDev(0.1875);
 		metap.setBaseStamina(120);
@@ -4209,7 +4211,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.462);
 		metap.setPokedexWeightKg(40.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GHOST);
+		metap.setType1(PokemonType.POKEMON_TYPE_GHOST);
 		metap.setCollisionHeadRadiusM(0.504);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1.3);
@@ -4242,7 +4244,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ONIX);
 		metap.setFamily(PokemonFamilyId.FAMILY_ONIX);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.GROUND);
+		metap.setType2(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setPokedexHeightM(8.8);
 		metap.setHeightStdDev(1.1);
 		metap.setBaseStamina(70);
@@ -4253,7 +4255,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.658);
 		metap.setPokedexWeightKg(210);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ROCK);
+		metap.setType1(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setCollisionHeadRadiusM(0.376);
 		metap.setMovementTimerS(17);
 		metap.setJumpTimeS(1);
@@ -4286,7 +4288,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.DROWZEE);
 		metap.setFamily(PokemonFamilyId.FAMILY_DROWZEE);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(120);
@@ -4297,7 +4299,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.3675);
 		metap.setPokedexWeightKg(32.4);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.PSYCHIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setCollisionHeadRadiusM(0.2625);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1.25);
@@ -4330,7 +4332,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.HYPNO);
 		metap.setFamily(PokemonFamilyId.FAMILY_DROWZEE);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.6);
 		metap.setHeightStdDev(0.2);
 		metap.setBaseStamina(170);
@@ -4341,7 +4343,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.332);
 		metap.setPokedexWeightKg(75.6);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.PSYCHIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setCollisionHeadRadiusM(0.332);
 		metap.setMovementTimerS(11);
 		metap.setJumpTimeS(0.8);
@@ -4374,7 +4376,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.KRABBY);
 		metap.setFamily(PokemonFamilyId.FAMILY_KRABBY);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.4);
 		metap.setHeightStdDev(0.05);
 		metap.setBaseStamina(60);
@@ -4385,7 +4387,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.522);
 		metap.setPokedexWeightKg(6.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.261);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1);
@@ -4418,7 +4420,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.KINGLER);
 		metap.setFamily(PokemonFamilyId.FAMILY_KRABBY);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.3);
 		metap.setHeightStdDev(0.1625);
 		metap.setBaseStamina(110);
@@ -4429,7 +4431,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.6525);
 		metap.setPokedexWeightKg(60);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.32625);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(0.8);
@@ -4462,7 +4464,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.VOLTORB);
 		metap.setFamily(PokemonFamilyId.FAMILY_VOLTORB);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.5);
 		metap.setHeightStdDev(0.0625);
 		metap.setBaseStamina(80);
@@ -4473,7 +4475,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.3375);
 		metap.setPokedexWeightKg(10.4);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ELECTRIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metap.setCollisionHeadRadiusM(0.16875);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1.2);
@@ -4506,7 +4508,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ELECTRODE);
 		metap.setFamily(PokemonFamilyId.FAMILY_VOLTORB);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.2);
 		metap.setHeightStdDev(0.15);
 		metap.setBaseStamina(120);
@@ -4517,7 +4519,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.552);
 		metap.setPokedexWeightKg(66.6);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ELECTRIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metap.setCollisionHeadRadiusM(0.276);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1.2);
@@ -4550,7 +4552,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.EXEGGCUTE);
 		metap.setFamily(PokemonFamilyId.FAMILY_EXEGGCUTE);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.PSYCHIC);
+		metap.setType2(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setPokedexHeightM(0.4);
 		metap.setHeightStdDev(0.05);
 		metap.setBaseStamina(120);
@@ -4561,7 +4563,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.515);
 		metap.setPokedexWeightKg(2.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.2575);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -4593,7 +4595,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.EXEGGUTOR);
 		metap.setFamily(PokemonFamilyId.FAMILY_EXEGGCUTE);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.PSYCHIC);
+		metap.setType2(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setPokedexHeightM(2);
 		metap.setHeightStdDev(0.25);
 		metap.setBaseStamina(190);
@@ -4604,7 +4606,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.507);
 		metap.setPokedexWeightKg(120);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.2535);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -4637,7 +4639,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.CUBONE);
 		metap.setFamily(PokemonFamilyId.FAMILY_CUBONE);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.4);
 		metap.setHeightStdDev(0.05);
 		metap.setBaseStamina(100);
@@ -4648,7 +4650,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.222);
 		metap.setPokedexWeightKg(6.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GROUND);
+		metap.setType1(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setCollisionHeadRadiusM(0.222);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -4681,7 +4683,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MAROWAK);
 		metap.setFamily(PokemonFamilyId.FAMILY_CUBONE);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(120);
@@ -4692,7 +4694,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.25);
 		metap.setPokedexWeightKg(45);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GROUND);
+		metap.setType1(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setCollisionHeadRadiusM(0.25);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(0.85);
@@ -4725,7 +4727,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.HITMONLEE);
 		metap.setFamily(PokemonFamilyId.FAMILY_HITMONLEE);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.5);
 		metap.setHeightStdDev(0.1875);
 		metap.setBaseStamina(100);
@@ -4736,7 +4738,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.415);
 		metap.setPokedexWeightKg(49.8);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIGHTING);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIGHTING);
 		metap.setCollisionHeadRadiusM(0.2075);
 		metap.setMovementTimerS(11);
 		metap.setJumpTimeS(0.8);
@@ -4769,7 +4771,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.HITMONCHAN);
 		metap.setFamily(PokemonFamilyId.FAMILY_HITMONCHAN);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.4);
 		metap.setHeightStdDev(0.175);
 		metap.setBaseStamina(100);
@@ -4780,7 +4782,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.3315);
 		metap.setPokedexWeightKg(50.2);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIGHTING);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIGHTING);
 		metap.setCollisionHeadRadiusM(0.255);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1.1);
@@ -4814,7 +4816,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.LICKITUNG);
 		metap.setFamily(PokemonFamilyId.FAMILY_LICKITUNG);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.2);
 		metap.setHeightStdDev(0.15);
 		metap.setBaseStamina(180);
@@ -4825,7 +4827,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.46);
 		metap.setPokedexWeightKg(65.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.253);
 		metap.setMovementTimerS(23);
 		metap.setJumpTimeS(1.25);
@@ -4858,7 +4860,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.KOFFING);
 		metap.setFamily(PokemonFamilyId.FAMILY_KOFFING);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.6);
 		metap.setHeightStdDev(0.075);
 		metap.setBaseStamina(80);
@@ -4869,7 +4871,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.36);
 		metap.setPokedexWeightKg(1);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.6);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -4902,7 +4904,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.WEEZING);
 		metap.setFamily(PokemonFamilyId.FAMILY_KOFFING);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.2);
 		metap.setHeightStdDev(0.15);
 		metap.setBaseStamina(130);
@@ -4913,7 +4915,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.682);
 		metap.setPokedexWeightKg(9.5);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.POISON);
+		metap.setType1(PokemonType.POKEMON_TYPE_POISON);
 		metap.setCollisionHeadRadiusM(0.465);
 		metap.setMovementTimerS(4);
 		metap.setJumpTimeS(1);
@@ -4946,7 +4948,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.RHYHORN);
 		metap.setFamily(PokemonFamilyId.FAMILY_RHYHORN);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.ROCK);
+		metap.setType2(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(160);
@@ -4957,7 +4959,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.5);
 		metap.setPokedexWeightKg(115);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GROUND);
+		metap.setType1(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setCollisionHeadRadiusM(0.3);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1.25);
@@ -4990,7 +4992,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.RHYDON);
 		metap.setFamily(PokemonFamilyId.FAMILY_RHYHORN);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.ROCK);
+		metap.setType2(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setPokedexHeightM(1.9);
 		metap.setHeightStdDev(0.2375);
 		metap.setBaseStamina(210);
@@ -5001,7 +5003,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.5925);
 		metap.setPokedexWeightKg(120);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GROUND);
+		metap.setType1(PokemonType.POKEMON_TYPE_GROUND);
 		metap.setCollisionHeadRadiusM(0.395);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -5034,7 +5036,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.CHANSEY);
 		metap.setFamily(PokemonFamilyId.FAMILY_CHANSEY);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.1);
 		metap.setHeightStdDev(0.1375);
 		metap.setBaseStamina(500);
@@ -5045,7 +5047,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.48);
 		metap.setPokedexWeightKg(34.6);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.24);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1);
@@ -5078,7 +5080,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.TANGELA);
 		metap.setFamily(PokemonFamilyId.FAMILY_TANGELA);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(130);
@@ -5089,7 +5091,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.5);
 		metap.setPokedexWeightKg(35);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.GRASS);
+		metap.setType1(PokemonType.POKEMON_TYPE_GRASS);
 		metap.setCollisionHeadRadiusM(0.365);
 		metap.setMovementTimerS(4);
 		metap.setJumpTimeS(1.25);
@@ -5121,7 +5123,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.KANGASKHAN);
 		metap.setFamily(PokemonFamilyId.FAMILY_KANGASKHAN);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(2.2);
 		metap.setHeightStdDev(0.275);
 		metap.setBaseStamina(210);
@@ -5132,7 +5134,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.504);
 		metap.setPokedexWeightKg(80);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.36);
 		metap.setMovementTimerS(11);
 		metap.setJumpTimeS(0.7);
@@ -5165,7 +5167,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.HORSEA);
 		metap.setFamily(PokemonFamilyId.FAMILY_HORSEA);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.4);
 		metap.setHeightStdDev(0.05);
 		metap.setBaseStamina(60);
@@ -5176,7 +5178,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.148);
 		metap.setPokedexWeightKg(8);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.185);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -5209,7 +5211,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SEADRA);
 		metap.setFamily(PokemonFamilyId.FAMILY_HORSEA);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.2);
 		metap.setHeightStdDev(0.15);
 		metap.setBaseStamina(110);
@@ -5220,7 +5222,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.322);
 		metap.setPokedexWeightKg(25);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.414);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1);
@@ -5253,7 +5255,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GOLDEEN);
 		metap.setFamily(PokemonFamilyId.FAMILY_GOLDEEN);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.6);
 		metap.setHeightStdDev(0.075);
 		metap.setBaseStamina(90);
@@ -5264,7 +5266,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.135);
 		metap.setPokedexWeightKg(15);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.16875);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1);
@@ -5297,7 +5299,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SEAKING);
 		metap.setFamily(PokemonFamilyId.FAMILY_GOLDEEN);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.3);
 		metap.setHeightStdDev(0.1625);
 		metap.setBaseStamina(160);
@@ -5308,7 +5310,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.044);
 		metap.setPokedexWeightKg(39);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.242);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1);
@@ -5341,7 +5343,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.STARYU);
 		metap.setFamily(PokemonFamilyId.FAMILY_STARYU);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.8);
 		metap.setHeightStdDev(0.1);
 		metap.setBaseStamina(60);
@@ -5352,7 +5354,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.4125);
 		metap.setPokedexWeightKg(34.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.20625);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1.35);
@@ -5385,7 +5387,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.STARMIE);
 		metap.setFamily(PokemonFamilyId.FAMILY_STARYU);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.PSYCHIC);
+		metap.setType2(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setPokedexHeightM(1.1);
 		metap.setHeightStdDev(0.1375);
 		metap.setBaseStamina(120);
@@ -5396,7 +5398,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.485);
 		metap.setPokedexWeightKg(80);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.2425);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1.6);
@@ -5429,7 +5431,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MR_MIME);
 		metap.setFamily(PokemonFamilyId.FAMILY_MR_MIME);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.FAIRY);
+		metap.setType2(PokemonType.POKEMON_TYPE_FAIRY);
 		metap.setPokedexHeightM(1.3);
 		metap.setHeightStdDev(0.1625);
 		metap.setBaseStamina(80);
@@ -5440,7 +5442,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.267);
 		metap.setPokedexWeightKg(54.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.PSYCHIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setCollisionHeadRadiusM(0.267);
 		metap.setMovementTimerS(5);
 		metap.setJumpTimeS(1);
@@ -5473,7 +5475,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SCYTHER);
 		metap.setFamily(PokemonFamilyId.FAMILY_SCYTHER);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.5);
 		metap.setHeightStdDev(0.1875);
 		metap.setBaseStamina(140);
@@ -5484,7 +5486,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.4);
 		metap.setPokedexWeightKg(56);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.2);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1);
@@ -5517,7 +5519,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.JYNX);
 		metap.setFamily(PokemonFamilyId.FAMILY_JYNX);
 		metap.setPokemonClass(PokemonClass.COMMON);
-		metap.setType2(PokemonType.PSYCHIC);
+		metap.setType2(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setPokedexHeightM(1.4);
 		metap.setHeightStdDev(0.175);
 		metap.setBaseStamina(130);
@@ -5528,7 +5530,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.435);
 		metap.setPokedexWeightKg(40.6);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ICE);
+		metap.setType1(PokemonType.POKEMON_TYPE_ICE);
 		metap.setCollisionHeadRadiusM(0.522);
 		metap.setMovementTimerS(4);
 		metap.setJumpTimeS(1.25);
@@ -5561,7 +5563,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ELECTABUZZ);
 		metap.setFamily(PokemonFamilyId.FAMILY_ELECTABUZZ);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.1);
 		metap.setHeightStdDev(0.1375);
 		metap.setBaseStamina(130);
@@ -5572,7 +5574,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.392);
 		metap.setPokedexWeightKg(30);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ELECTRIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metap.setCollisionHeadRadiusM(0.28175);
 		metap.setMovementTimerS(6);
 		metap.setJumpTimeS(1);
@@ -5605,7 +5607,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MAGMAR);
 		metap.setFamily(PokemonFamilyId.FAMILY_MAGMAR);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.3);
 		metap.setHeightStdDev(0.1625);
 		metap.setBaseStamina(130);
@@ -5616,7 +5618,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.44);
 		metap.setPokedexWeightKg(44.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.33);
 		metap.setMovementTimerS(14);
 		metap.setJumpTimeS(1.25);
@@ -5649,7 +5651,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PINSIR);
 		metap.setFamily(PokemonFamilyId.FAMILY_PINSIR);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.5);
 		metap.setHeightStdDev(0.1875);
 		metap.setBaseStamina(130);
@@ -5660,7 +5662,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.348);
 		metap.setPokedexWeightKg(55);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.BUG);
+		metap.setType1(PokemonType.POKEMON_TYPE_BUG);
 		metap.setCollisionHeadRadiusM(0.348);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1.25);
@@ -5693,7 +5695,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.TAUROS);
 		metap.setFamily(PokemonFamilyId.FAMILY_TAUROS);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.4);
 		metap.setHeightStdDev(0.175);
 		metap.setBaseStamina(150);
@@ -5704,7 +5706,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.435);
 		metap.setPokedexWeightKg(88.4);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.2871);
 		metap.setMovementTimerS(4);
 		metap.setJumpTimeS(1.2);
@@ -5737,7 +5739,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MAGIKARP);
 		metap.setFamily(PokemonFamilyId.FAMILY_MAGIKARP);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.9);
 		metap.setHeightStdDev(0.1125);
 		metap.setBaseStamina(40);
@@ -5748,7 +5750,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2675);
 		metap.setPokedexWeightKg(10);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.321);
 		metap.setMovementTimerS(3600);
 		metap.setJumpTimeS(1.3);
@@ -5778,7 +5780,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.GYARADOS);
 		metap.setFamily(PokemonFamilyId.FAMILY_MAGIKARP);
 		metap.setPokemonClass(PokemonClass.EPIC);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(6.5);
 		metap.setHeightStdDev(0.8125);
 		metap.setBaseStamina(190);
@@ -5789,7 +5791,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.24);
 		metap.setPokedexWeightKg(235);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.36);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -5822,7 +5824,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.LAPRAS);
 		metap.setFamily(PokemonFamilyId.FAMILY_LAPRAS);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.ICE);
+		metap.setType2(PokemonType.POKEMON_TYPE_ICE);
 		metap.setPokedexHeightM(2.5);
 		metap.setHeightStdDev(0.3125);
 		metap.setBaseStamina(260);
@@ -5833,7 +5835,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.525);
 		metap.setPokedexWeightKg(220);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.35);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1.2);
@@ -5866,7 +5868,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.DITTO);
 		metap.setFamily(PokemonFamilyId.FAMILY_DITTO);
 		metap.setPokemonClass(PokemonClass.EPIC);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.3);
 		metap.setHeightStdDev(0.0375);
 		metap.setBaseStamina(96);
@@ -5877,7 +5879,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.4025);
 		metap.setPokedexWeightKg(4);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.20125);
 		metap.setMovementTimerS(3600);
 		metap.setJumpTimeS(1);
@@ -5907,7 +5909,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.EEVEE);
 		metap.setFamily(PokemonFamilyId.FAMILY_EEVEE);
 		metap.setPokemonClass(PokemonClass.VERY_COMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.3);
 		metap.setHeightStdDev(0.0375);
 		metap.setBaseStamina(110);
@@ -5918,7 +5920,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.252);
 		metap.setPokedexWeightKg(6.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.252);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(1.35);
@@ -5951,7 +5953,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.VAPOREON);
 		metap.setFamily(PokemonFamilyId.FAMILY_EEVEE);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(260);
@@ -5962,7 +5964,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.21);
 		metap.setPokedexWeightKg(29);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.WATER);
+		metap.setType1(PokemonType.POKEMON_TYPE_WATER);
 		metap.setCollisionHeadRadiusM(0.2625);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1);
@@ -5994,7 +5996,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.JOLTEON);
 		metap.setFamily(PokemonFamilyId.FAMILY_EEVEE);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.8);
 		metap.setHeightStdDev(0.1);
 		metap.setBaseStamina(130);
@@ -6005,7 +6007,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.22);
 		metap.setPokedexWeightKg(24.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ELECTRIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metap.setCollisionHeadRadiusM(0.22);
 		metap.setMovementTimerS(4);
 		metap.setJumpTimeS(1.3);
@@ -6037,7 +6039,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.FLAREON);
 		metap.setFamily(PokemonFamilyId.FAMILY_EEVEE);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.9);
 		metap.setHeightStdDev(0.1125);
 		metap.setBaseStamina(130);
@@ -6048,7 +6050,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2175);
 		metap.setPokedexWeightKg(25);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.19575);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1.35);
@@ -6080,7 +6082,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.PORYGON);
 		metap.setFamily(PokemonFamilyId.FAMILY_PORYGON);
 		metap.setPokemonClass(PokemonClass.EPIC);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.8);
 		metap.setHeightStdDev(0.1);
 		metap.setBaseStamina(130);
@@ -6091,7 +6093,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.385);
 		metap.setPokedexWeightKg(36.5);
 		metap.setMovementType(MovementType.HOVERING);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.33);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1);
@@ -6124,7 +6126,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.OMANYTE);
 		metap.setFamily(PokemonFamilyId.FAMILY_OMANYTE);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.WATER);
+		metap.setType2(PokemonType.POKEMON_TYPE_WATER);
 		metap.setPokedexHeightM(0.4);
 		metap.setHeightStdDev(0.05);
 		metap.setBaseStamina(70);
@@ -6135,7 +6137,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.222);
 		metap.setPokedexWeightKg(7.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ROCK);
+		metap.setType1(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setCollisionHeadRadiusM(0.111);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1.3);
@@ -6168,7 +6170,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.OMASTAR);
 		metap.setFamily(PokemonFamilyId.FAMILY_OMANYTE);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.WATER);
+		metap.setType2(PokemonType.POKEMON_TYPE_WATER);
 		metap.setPokedexHeightM(1);
 		metap.setHeightStdDev(0.125);
 		metap.setBaseStamina(140);
@@ -6179,7 +6181,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.25);
 		metap.setPokedexWeightKg(35);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ROCK);
+		metap.setType1(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setCollisionHeadRadiusM(0.1875);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1.25);
@@ -6212,7 +6214,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.KABUTO);
 		metap.setFamily(PokemonFamilyId.FAMILY_KABUTO);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.WATER);
+		metap.setType2(PokemonType.POKEMON_TYPE_WATER);
 		metap.setPokedexHeightM(0.5);
 		metap.setHeightStdDev(0.0625);
 		metap.setBaseStamina(60);
@@ -6223,7 +6225,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.3375);
 		metap.setPokedexWeightKg(11.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ROCK);
+		metap.setType1(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setCollisionHeadRadiusM(0.16875);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(0.9);
@@ -6256,7 +6258,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.KABUTOPS);
 		metap.setFamily(PokemonFamilyId.FAMILY_KABUTO);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.WATER);
+		metap.setType2(PokemonType.POKEMON_TYPE_WATER);
 		metap.setPokedexHeightM(1.3);
 		metap.setHeightStdDev(0.1625);
 		metap.setBaseStamina(120);
@@ -6267,7 +6269,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.364);
 		metap.setPokedexWeightKg(40.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.ROCK);
+		metap.setType1(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setCollisionHeadRadiusM(0.3185);
 		metap.setMovementTimerS(11);
 		metap.setJumpTimeS(1);
@@ -6300,7 +6302,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.AERODACTYL);
 		metap.setFamily(PokemonFamilyId.FAMILY_AERODACTYL);
 		metap.setPokemonClass(PokemonClass.VERY_RARE);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.8);
 		metap.setHeightStdDev(0.225);
 		metap.setBaseStamina(160);
@@ -6311,7 +6313,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.285);
 		metap.setPokedexWeightKg(59);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.ROCK);
+		metap.setType1(PokemonType.POKEMON_TYPE_ROCK);
 		metap.setCollisionHeadRadiusM(0.285);
 		metap.setMovementTimerS(5);
 		metap.setJumpTimeS(1);
@@ -6344,7 +6346,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.SNORLAX);
 		metap.setFamily(PokemonFamilyId.FAMILY_SNORLAX);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(2.1);
 		metap.setHeightStdDev(0.2625);
 		metap.setBaseStamina(320);
@@ -6355,7 +6357,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.74);
 		metap.setPokedexWeightKg(460);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.NORMAL);
+		metap.setType1(PokemonType.POKEMON_TYPE_NORMAL);
 		metap.setCollisionHeadRadiusM(0.481);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1);
@@ -6388,7 +6390,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ARTICUNO);
 		metap.setFamily(PokemonFamilyId.FAMILY_ARTICUNO);
 		metap.setPokemonClass(PokemonClass.LEGENDARY);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.7);
 		metap.setHeightStdDev(0.2125);
 		metap.setBaseStamina(180);
@@ -6399,7 +6401,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.231);
 		metap.setPokedexWeightKg(55.4);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.ICE);
+		metap.setType1(PokemonType.POKEMON_TYPE_ICE);
 		metap.setCollisionHeadRadiusM(0.231);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1);
@@ -6431,7 +6433,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.ZAPDOS);
 		metap.setFamily(PokemonFamilyId.FAMILY_ZAPDOS);
 		metap.setPokemonClass(PokemonClass.LEGENDARY);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(1.6);
 		metap.setHeightStdDev(0.2);
 		metap.setBaseStamina(180);
@@ -6442,7 +6444,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.4485);
 		metap.setPokedexWeightKg(52.6);
 		metap.setMovementType(MovementType.ELECTRIC);
-		metap.setType1(PokemonType.ELECTRIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metap.setCollisionHeadRadiusM(0.276);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1);
@@ -6474,7 +6476,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MOLTRES);
 		metap.setFamily(PokemonFamilyId.FAMILY_MOLTRES);
 		metap.setPokemonClass(PokemonClass.LEGENDARY);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(2);
 		metap.setHeightStdDev(0.25);
 		metap.setBaseStamina(180);
@@ -6485,7 +6487,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.403);
 		metap.setPokedexWeightKg(60);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.FIRE);
+		metap.setType1(PokemonType.POKEMON_TYPE_FIRE);
 		metap.setCollisionHeadRadiusM(0.217);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1);
@@ -6517,7 +6519,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.DRATINI);
 		metap.setFamily(PokemonFamilyId.FAMILY_DRATINI);
 		metap.setPokemonClass(PokemonClass.UNCOMMON);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(1.8);
 		metap.setHeightStdDev(0.225);
 		metap.setBaseStamina(82);
@@ -6528,7 +6530,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.2775);
 		metap.setPokedexWeightKg(3.3);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.DRAGON);
+		metap.setType1(PokemonType.POKEMON_TYPE_DRAGON);
 		metap.setCollisionHeadRadiusM(0.19425);
 		metap.setMovementTimerS(10);
 		metap.setJumpTimeS(0.85);
@@ -6560,7 +6562,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.DRAGONAIR);
 		metap.setFamily(PokemonFamilyId.FAMILY_DRATINI);
 		metap.setPokemonClass(PokemonClass.RARE);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(4);
 		metap.setHeightStdDev(0.5);
 		metap.setBaseStamina(122);
@@ -6571,7 +6573,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.375);
 		metap.setPokedexWeightKg(16.5);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.DRAGON);
+		metap.setType1(PokemonType.POKEMON_TYPE_DRAGON);
 		metap.setCollisionHeadRadiusM(0.28125);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1.25);
@@ -6603,7 +6605,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.DRAGONITE);
 		metap.setFamily(PokemonFamilyId.FAMILY_DRATINI);
 		metap.setPokemonClass(PokemonClass.EPIC);
-		metap.setType2(PokemonType.FLYING);
+		metap.setType2(PokemonType.POKEMON_TYPE_FLYING);
 		metap.setPokedexHeightM(2.2);
 		metap.setHeightStdDev(0.275);
 		metap.setBaseStamina(182);
@@ -6614,7 +6616,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.42);
 		metap.setPokedexWeightKg(210);
 		metap.setMovementType(MovementType.FLYING);
-		metap.setType1(PokemonType.DRAGON);
+		metap.setType1(PokemonType.POKEMON_TYPE_DRAGON);
 		metap.setCollisionHeadRadiusM(0.245);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1);
@@ -6647,7 +6649,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MEWTWO);
 		metap.setFamily(PokemonFamilyId.FAMILY_MEWTWO);
 		metap.setPokemonClass(PokemonClass.LEGENDARY);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(2);
 		metap.setHeightStdDev(0.25);
 		metap.setBaseStamina(212);
@@ -6658,7 +6660,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.37);
 		metap.setPokedexWeightKg(122);
 		metap.setMovementType(MovementType.JUMP);
-		metap.setType1(PokemonType.PSYCHIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setCollisionHeadRadiusM(0.185);
 		metap.setMovementTimerS(8);
 		metap.setJumpTimeS(1.2);
@@ -6691,7 +6693,7 @@ final class PokemonMetaRegistry {
 		metap.setId(PokemonId.MEW);
 		metap.setFamily(PokemonFamilyId.FAMILY_MEWTWO);
 		metap.setPokemonClass(PokemonClass.MYTHIC);
-		metap.setType2(PokemonType.NONE);
+		metap.setType2(PokemonType.POKEMON_TYPE_NONE);
 		metap.setPokedexHeightM(0.4);
 		metap.setHeightStdDev(0.05);
 		metap.setBaseStamina(200);
@@ -6702,7 +6704,7 @@ final class PokemonMetaRegistry {
 		metap.setCollisionRadiusM(0.141);
 		metap.setPokedexWeightKg(4);
 		metap.setMovementType(MovementType.PSYCHIC);
-		metap.setType1(PokemonType.PSYCHIC);
+		metap.setType1(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metap.setCollisionHeadRadiusM(0.17625);
 		metap.setMovementTimerS(3);
 		metap.setJumpTimeS(1);

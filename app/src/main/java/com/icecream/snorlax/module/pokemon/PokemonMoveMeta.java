@@ -21,6 +21,7 @@ import java.util.List;
 
 import com.icecream.snorlax.common.Strings;
 
+import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,10 +41,10 @@ public final class PokemonMoveMeta {
 	private PokemonType mType;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
-	private int mPower;
+	private float mPower;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
-	private int mAccuracy;
+	private float mAccuracy;
 	@Getter
 	@Setter(AccessLevel.PACKAGE)
 	private double mCriticalChance;

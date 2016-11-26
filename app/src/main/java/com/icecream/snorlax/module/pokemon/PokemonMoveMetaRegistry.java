@@ -18,6 +18,8 @@ package com.icecream.snorlax.module.pokemon;
 
 import java.util.EnumMap;
 
+import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
+
 import static POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
 
 @SuppressWarnings({"unused", "FieldCanBeLocal", "WeakerAccess"})
@@ -30,7 +32,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BODY_SLAM);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(40);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -40,7 +42,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.CROSS_CHOP);
-		metam.setType(PokemonType.FIGHTING);
+		metam.setType(PokemonType.POKEMON_TYPE_FIGHTING);
 		metam.setPower(60);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.25);
@@ -50,7 +52,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DRAGON_CLAW);
-		metam.setType(PokemonType.DRAGON);
+		metam.setType(PokemonType.POKEMON_TYPE_DRAGON);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.25);
@@ -60,7 +62,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.PSYCHO_CUT_FAST);
-		metam.setType(PokemonType.PSYCHIC);
+		metam.setType(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metam.setPower(7);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -70,7 +72,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.MUD_SHOT_FAST);
-		metam.setType(PokemonType.GROUND);
+		metam.setType(PokemonType.POKEMON_TYPE_GROUND);
 		metam.setPower(6);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -80,7 +82,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.POWER_WHIP);
-		metam.setType(PokemonType.GRASS);
+		metam.setType(PokemonType.POKEMON_TYPE_GRASS);
 		metam.setPower(70);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.25);
@@ -90,7 +92,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.AQUA_TAIL);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(45);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -100,7 +102,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.IRON_HEAD);
-		metam.setType(PokemonType.STEEL);
+		metam.setType(PokemonType.POKEMON_TYPE_STEEL);
 		metam.setPower(30);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -110,7 +112,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.GUNK_SHOT);
-		metam.setType(PokemonType.POISON);
+		metam.setType(PokemonType.POKEMON_TYPE_POISON);
 		metam.setPower(65);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -120,7 +122,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.LICK_FAST);
-		metam.setType(PokemonType.GHOST);
+		metam.setType(PokemonType.POKEMON_TYPE_GHOST);
 		metam.setPower(5);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -130,7 +132,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SCRATCH_FAST);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(6);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -140,7 +142,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.WATER_GUN_FAST);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(6);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -150,7 +152,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.WATER_GUN_FAST_BLASTOISE);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(6);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -160,7 +162,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SLUDGE_BOMB);
-		metam.setType(PokemonType.POISON);
+		metam.setType(PokemonType.POKEMON_TYPE_POISON);
 		metam.setPower(55);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -170,7 +172,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.METAL_CLAW_FAST);
-		metam.setType(PokemonType.STEEL);
+		metam.setType(PokemonType.POKEMON_TYPE_STEEL);
 		metam.setPower(8);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -180,7 +182,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.HURRICANE);
-		metam.setType(PokemonType.FLYING);
+		metam.setType(PokemonType.POKEMON_TYPE_FLYING);
 		metam.setPower(80);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -190,7 +192,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BRICK_BREAK);
-		metam.setType(PokemonType.FIGHTING);
+		metam.setType(PokemonType.POKEMON_TYPE_FIGHTING);
 		metam.setPower(30);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.25);
@@ -200,7 +202,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.THUNDERBOLT);
-		metam.setType(PokemonType.ELECTRIC);
+		metam.setType(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metam.setPower(55);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -210,7 +212,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.PSYCHIC);
-		metam.setType(PokemonType.PSYCHIC);
+		metam.setType(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metam.setPower(55);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -220,7 +222,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.STONE_EDGE);
-		metam.setType(PokemonType.ROCK);
+		metam.setType(PokemonType.POKEMON_TYPE_ROCK);
 		metam.setPower(80);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.5);
@@ -230,7 +232,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SLUDGE_WAVE);
-		metam.setType(PokemonType.POISON);
+		metam.setType(PokemonType.POKEMON_TYPE_POISON);
 		metam.setPower(70);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -240,7 +242,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FLAMETHROWER);
-		metam.setType(PokemonType.FIRE);
+		metam.setType(PokemonType.POKEMON_TYPE_FIRE);
 		metam.setPower(55);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -250,7 +252,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.PLAY_ROUGH);
-		metam.setType(PokemonType.FAIRY);
+		metam.setType(PokemonType.POKEMON_TYPE_FAIRY);
 		metam.setPower(55);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -260,7 +262,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.MEGAHORN);
-		metam.setType(PokemonType.BUG);
+		metam.setType(PokemonType.POKEMON_TYPE_BUG);
 		metam.setPower(80);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -270,7 +272,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SHADOW_CLAW_FAST);
-		metam.setType(PokemonType.GHOST);
+		metam.setType(PokemonType.POKEMON_TYPE_GHOST);
 		metam.setPower(11);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -280,7 +282,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.THUNDER_PUNCH);
-		metam.setType(PokemonType.ELECTRIC);
+		metam.setType(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metam.setPower(40);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -290,7 +292,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.HYPER_FANG);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -300,7 +302,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.LEAF_BLADE);
-		metam.setType(PokemonType.GRASS);
+		metam.setType(PokemonType.POKEMON_TYPE_GRASS);
 		metam.setPower(55);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.25);
@@ -310,7 +312,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DISCHARGE);
-		metam.setType(PokemonType.ELECTRIC);
+		metam.setType(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -320,7 +322,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.WING_ATTACK_FAST);
-		metam.setType(PokemonType.FLYING);
+		metam.setType(PokemonType.POKEMON_TYPE_FLYING);
 		metam.setPower(9);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -330,7 +332,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.HEAT_WAVE);
-		metam.setType(PokemonType.FIRE);
+		metam.setType(PokemonType.POKEMON_TYPE_FIRE);
 		metam.setPower(80);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -340,7 +342,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.HYDRO_PUMP);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(90);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -350,7 +352,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.HYDRO_PUMP_BLASTOISE);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(90);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -360,7 +362,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.PETAL_BLIZZARD);
-		metam.setType(PokemonType.GRASS);
+		metam.setType(PokemonType.POKEMON_TYPE_GRASS);
 		metam.setPower(65);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -370,7 +372,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BLIZZARD);
-		metam.setType(PokemonType.ICE);
+		metam.setType(PokemonType.POKEMON_TYPE_ICE);
 		metam.setPower(100);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -380,7 +382,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.VINE_WHIP_FAST);
-		metam.setType(PokemonType.GRASS);
+		metam.setType(PokemonType.POKEMON_TYPE_GRASS);
 		metam.setPower(7);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -390,7 +392,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.THUNDER);
-		metam.setType(PokemonType.ELECTRIC);
+		metam.setType(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metam.setPower(100);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -400,7 +402,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.PSYSHOCK);
-		metam.setType(PokemonType.PSYCHIC);
+		metam.setType(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metam.setPower(40);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -410,7 +412,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FROST_BREATH_FAST);
-		metam.setType(PokemonType.ICE);
+		metam.setType(PokemonType.POKEMON_TYPE_ICE);
 		metam.setPower(9);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -420,7 +422,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.POUND_FAST);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(7);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -430,7 +432,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.MOONBLAST);
-		metam.setType(PokemonType.FAIRY);
+		metam.setType(PokemonType.POKEMON_TYPE_FAIRY);
 		metam.setPower(85);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -440,7 +442,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FIRE_BLAST);
-		metam.setType(PokemonType.FIRE);
+		metam.setType(PokemonType.POKEMON_TYPE_FIRE);
 		metam.setPower(100);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -450,7 +452,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.EARTHQUAKE);
-		metam.setType(PokemonType.GROUND);
+		metam.setType(PokemonType.POKEMON_TYPE_GROUND);
 		metam.setPower(100);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -460,7 +462,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SUBMISSION);
-		metam.setType(PokemonType.FIGHTING);
+		metam.setType(PokemonType.POKEMON_TYPE_FIGHTING);
 		metam.setPower(30);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -470,7 +472,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.X_SCISSOR);
-		metam.setType(PokemonType.BUG);
+		metam.setType(PokemonType.POKEMON_TYPE_BUG);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -480,7 +482,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.POISON_JAB_FAST);
-		metam.setType(PokemonType.POISON);
+		metam.setType(PokemonType.POKEMON_TYPE_POISON);
 		metam.setPower(12);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -490,7 +492,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ZEN_HEADBUTT_FAST);
-		metam.setType(PokemonType.PSYCHIC);
+		metam.setType(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metam.setPower(12);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -500,7 +502,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FLASH_CANNON);
-		metam.setType(PokemonType.STEEL);
+		metam.setType(PokemonType.POKEMON_TYPE_STEEL);
 		metam.setPower(60);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -510,7 +512,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.HYPER_BEAM);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(120);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -520,7 +522,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DRAGON_PULSE);
-		metam.setType(PokemonType.DRAGON);
+		metam.setType(PokemonType.POKEMON_TYPE_DRAGON);
 		metam.setPower(65);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -530,7 +532,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.POWER_GEM);
-		metam.setType(PokemonType.ROCK);
+		metam.setType(PokemonType.POKEMON_TYPE_ROCK);
 		metam.setPower(40);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -540,7 +542,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.PSYSTRIKE);
-		metam.setType(PokemonType.PSYCHIC);
+		metam.setType(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metam.setPower(70);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -550,7 +552,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ICE_BEAM);
-		metam.setType(PokemonType.ICE);
+		metam.setType(PokemonType.POKEMON_TYPE_ICE);
 		metam.setPower(65);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -560,7 +562,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.CROSS_POISON);
-		metam.setType(PokemonType.POISON);
+		metam.setType(PokemonType.POKEMON_TYPE_POISON);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.25);
@@ -570,7 +572,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BUG_BITE_FAST);
-		metam.setType(PokemonType.BUG);
+		metam.setType(PokemonType.POKEMON_TYPE_BUG);
 		metam.setPower(5);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -580,7 +582,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SOLAR_BEAM);
-		metam.setType(PokemonType.GRASS);
+		metam.setType(PokemonType.POKEMON_TYPE_GRASS);
 		metam.setPower(120);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -590,7 +592,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SHADOW_BALL);
-		metam.setType(PokemonType.GHOST);
+		metam.setType(PokemonType.POKEMON_TYPE_GHOST);
 		metam.setPower(45);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -600,7 +602,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DARK_PULSE);
-		metam.setType(PokemonType.DARK);
+		metam.setType(PokemonType.POKEMON_TYPE_DARK);
 		metam.setPower(45);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -610,7 +612,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ICE_PUNCH);
-		metam.setType(PokemonType.ICE);
+		metam.setType(PokemonType.POKEMON_TYPE_ICE);
 		metam.setPower(45);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -620,7 +622,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SEED_BOMB);
-		metam.setType(PokemonType.GRASS);
+		metam.setType(PokemonType.POKEMON_TYPE_GRASS);
 		metam.setPower(40);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -630,7 +632,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ROCK_SLIDE);
-		metam.setType(PokemonType.ROCK);
+		metam.setType(PokemonType.POKEMON_TYPE_ROCK);
 		metam.setPower(40);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -640,7 +642,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BONE_CLUB);
-		metam.setType(PokemonType.GROUND);
+		metam.setType(PokemonType.POKEMON_TYPE_GROUND);
 		metam.setPower(20);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -650,7 +652,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FIRE_PUNCH);
-		metam.setType(PokemonType.FIRE);
+		metam.setType(PokemonType.POKEMON_TYPE_FIRE);
 		metam.setPower(40);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -660,7 +662,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BITE_FAST);
-		metam.setType(PokemonType.DARK);
+		metam.setType(PokemonType.POKEMON_TYPE_DARK);
 		metam.setPower(6);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -670,7 +672,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DRAGON_BREATH_FAST);
-		metam.setType(PokemonType.DRAGON);
+		metam.setType(PokemonType.POKEMON_TYPE_DRAGON);
 		metam.setPower(6);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -680,7 +682,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FLAME_BURST);
-		metam.setType(PokemonType.FIRE);
+		metam.setType(PokemonType.POKEMON_TYPE_FIRE);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -690,7 +692,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.STOMP);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(30);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -700,7 +702,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DRILL_RUN);
-		metam.setType(PokemonType.GROUND);
+		metam.setType(PokemonType.POKEMON_TYPE_GROUND);
 		metam.setPower(50);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.25);
@@ -710,7 +712,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BUG_BUZZ);
-		metam.setType(PokemonType.BUG);
+		metam.setType(PokemonType.POKEMON_TYPE_BUG);
 		metam.setPower(75);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -720,7 +722,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FEINT_ATTACK_FAST);
-		metam.setType(PokemonType.DARK);
+		metam.setType(PokemonType.POKEMON_TYPE_DARK);
 		metam.setPower(12);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -730,7 +732,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SIGNAL_BEAM);
-		metam.setType(PokemonType.BUG);
+		metam.setType(PokemonType.POKEMON_TYPE_BUG);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -740,7 +742,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.REST);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -750,7 +752,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.STEEL_WING_FAST);
-		metam.setType(PokemonType.STEEL);
+		metam.setType(PokemonType.POKEMON_TYPE_STEEL);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -760,7 +762,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DRILL_PECK);
-		metam.setType(PokemonType.FLYING);
+		metam.setType(PokemonType.POKEMON_TYPE_FLYING);
 		metam.setPower(40);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -770,7 +772,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.LOW_SWEEP);
-		metam.setType(PokemonType.FIGHTING);
+		metam.setType(PokemonType.POKEMON_TYPE_FIGHTING);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -780,7 +782,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.TACKLE_FAST);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(12);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -790,7 +792,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DAZZLING_GLEAM);
-		metam.setType(PokemonType.FAIRY);
+		metam.setType(PokemonType.POKEMON_TYPE_FAIRY);
 		metam.setPower(55);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -800,7 +802,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.CUT_FAST);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(12);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -810,7 +812,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.POISON_STING_FAST);
-		metam.setType(PokemonType.POISON);
+		metam.setType(PokemonType.POKEMON_TYPE_POISON);
 		metam.setPower(6);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -820,7 +822,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.RAZOR_LEAF_FAST);
-		metam.setType(PokemonType.GRASS);
+		metam.setType(PokemonType.POKEMON_TYPE_GRASS);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -830,7 +832,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SUCKER_PUNCH_FAST);
-		metam.setType(PokemonType.DARK);
+		metam.setType(PokemonType.POKEMON_TYPE_DARK);
 		metam.setPower(7);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -840,7 +842,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SPARK_FAST);
-		metam.setType(PokemonType.ELECTRIC);
+		metam.setType(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metam.setPower(7);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -850,7 +852,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.GIGA_DRAIN);
-		metam.setType(PokemonType.GRASS);
+		metam.setType(PokemonType.POKEMON_TYPE_GRASS);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -860,7 +862,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SLUDGE);
-		metam.setType(PokemonType.POISON);
+		metam.setType(PokemonType.POKEMON_TYPE_POISON);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -870,7 +872,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.MUD_BOMB);
-		metam.setType(PokemonType.GROUND);
+		metam.setType(PokemonType.POKEMON_TYPE_GROUND);
 		metam.setPower(30);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -880,7 +882,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SHADOW_PUNCH);
-		metam.setType(PokemonType.GHOST);
+		metam.setType(PokemonType.POKEMON_TYPE_GHOST);
 		metam.setPower(20);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -890,7 +892,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.EMBER_FAST);
-		metam.setType(PokemonType.FIRE);
+		metam.setType(PokemonType.POKEMON_TYPE_FIRE);
 		metam.setPower(10);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -900,7 +902,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ACID_FAST);
-		metam.setType(PokemonType.POISON);
+		metam.setType(PokemonType.POKEMON_TYPE_POISON);
 		metam.setPower(10);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -910,7 +912,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.NIGHT_SLASH);
-		metam.setType(PokemonType.DARK);
+		metam.setType(PokemonType.POKEMON_TYPE_DARK);
 		metam.setPower(30);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.25);
@@ -920,7 +922,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.PSYBEAM);
-		metam.setType(PokemonType.PSYCHIC);
+		metam.setType(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -930,7 +932,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.WATER_PULSE);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -940,7 +942,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.HORN_ATTACK);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(20);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -950,7 +952,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.MAGNET_BOMB);
-		metam.setType(PokemonType.STEEL);
+		metam.setType(PokemonType.POKEMON_TYPE_STEEL);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -960,7 +962,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.STRUGGLE);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -970,7 +972,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BULLDOZE);
-		metam.setType(PokemonType.GROUND);
+		metam.setType(PokemonType.POKEMON_TYPE_GROUND);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -980,7 +982,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ROCK_THROW_FAST);
-		metam.setType(PokemonType.ROCK);
+		metam.setType(PokemonType.POKEMON_TYPE_ROCK);
 		metam.setPower(12);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -990,7 +992,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SCALD);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1000,7 +1002,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SCALD_BLASTOISE);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1010,7 +1012,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.PECK_FAST);
-		metam.setType(PokemonType.FLYING);
+		metam.setType(PokemonType.POKEMON_TYPE_FLYING);
 		metam.setPower(10);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1020,7 +1022,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.AERIAL_ACE);
-		metam.setType(PokemonType.FLYING);
+		metam.setType(PokemonType.POKEMON_TYPE_FLYING);
 		metam.setPower(30);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1030,7 +1032,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BUBBLE_BEAM);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(30);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1040,7 +1042,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ANCIENT_POWER);
-		metam.setType(PokemonType.ROCK);
+		metam.setType(PokemonType.POKEMON_TYPE_ROCK);
 		metam.setPower(35);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1050,7 +1052,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BRINE);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(20);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1060,7 +1062,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SWIFT);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1070,7 +1072,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.THUNDER_SHOCK_FAST);
-		metam.setType(PokemonType.ELECTRIC);
+		metam.setType(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metam.setPower(5);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1080,7 +1082,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.LOW_KICK_FAST);
-		metam.setType(PokemonType.FIGHTING);
+		metam.setType(PokemonType.POKEMON_TYPE_FIGHTING);
 		metam.setPower(5);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1090,7 +1092,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BULLET_PUNCH_FAST);
-		metam.setType(PokemonType.STEEL);
+		metam.setType(PokemonType.POKEMON_TYPE_STEEL);
 		metam.setPower(10);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1100,7 +1102,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FIRE_FANG_FAST);
-		metam.setType(PokemonType.FIRE);
+		metam.setType(PokemonType.POKEMON_TYPE_FIRE);
 		metam.setPower(10);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1110,7 +1112,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SPLASH_FAST);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(0);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1120,7 +1122,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.OMINOUS_WIND);
-		metam.setType(PokemonType.GHOST);
+		metam.setType(PokemonType.POKEMON_TYPE_GHOST);
 		metam.setPower(30);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1130,7 +1132,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.CONFUSION_FAST);
-		metam.setType(PokemonType.PSYCHIC);
+		metam.setType(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1140,7 +1142,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.HEART_STAMP);
-		metam.setType(PokemonType.PSYCHIC);
+		metam.setType(PokemonType.POKEMON_TYPE_PSYCHIC);
 		metam.setPower(20);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1150,7 +1152,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DIG);
-		metam.setType(PokemonType.GROUND);
+		metam.setType(PokemonType.POKEMON_TYPE_GROUND);
 		metam.setPower(70);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1160,7 +1162,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FLAME_WHEEL);
-		metam.setType(PokemonType.FIRE);
+		metam.setType(PokemonType.POKEMON_TYPE_FIRE);
 		metam.setPower(40);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1170,7 +1172,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.AIR_CUTTER);
-		metam.setType(PokemonType.FLYING);
+		metam.setType(PokemonType.POKEMON_TYPE_FLYING);
 		metam.setPower(30);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.25);
@@ -1180,7 +1182,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.QUICK_ATTACK_FAST);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(10);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1190,7 +1192,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FURY_CUTTER_FAST);
-		metam.setType(PokemonType.BUG);
+		metam.setType(PokemonType.POKEMON_TYPE_BUG);
 		metam.setPower(3);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1200,7 +1202,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.KARATE_CHOP_FAST);
-		metam.setType(PokemonType.FIGHTING);
+		metam.setType(PokemonType.POKEMON_TYPE_FIGHTING);
 		metam.setPower(6);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1210,7 +1212,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ROCK_TOMB);
-		metam.setType(PokemonType.ROCK);
+		metam.setType(PokemonType.POKEMON_TYPE_ROCK);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.25);
@@ -1220,7 +1222,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ICE_SHARD_FAST);
-		metam.setType(PokemonType.ICE);
+		metam.setType(PokemonType.POKEMON_TYPE_ICE);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1230,7 +1232,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.VICE_GRIP);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1240,7 +1242,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.PARABOLIC_CHARGE);
-		metam.setType(PokemonType.ELECTRIC);
+		metam.setType(PokemonType.POKEMON_TYPE_ELECTRIC);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1250,7 +1252,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.BUBBLE_FAST);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1260,7 +1262,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.FLAME_CHARGE);
-		metam.setType(PokemonType.FIRE);
+		metam.setType(PokemonType.POKEMON_TYPE_FIRE);
 		metam.setPower(20);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1270,7 +1272,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.AQUA_JET);
-		metam.setType(PokemonType.WATER);
+		metam.setType(PokemonType.POKEMON_TYPE_WATER);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1280,7 +1282,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.POISON_FANG);
-		metam.setType(PokemonType.POISON);
+		metam.setType(PokemonType.POKEMON_TYPE_POISON);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1290,7 +1292,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.TWISTER);
-		metam.setType(PokemonType.DRAGON);
+		metam.setType(PokemonType.POKEMON_TYPE_DRAGON);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1300,7 +1302,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DRAINING_KISS);
-		metam.setType(PokemonType.FAIRY);
+		metam.setType(PokemonType.POKEMON_TYPE_FAIRY);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1310,7 +1312,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.DISARMING_VOICE);
-		metam.setType(PokemonType.FAIRY);
+		metam.setType(PokemonType.POKEMON_TYPE_FAIRY);
 		metam.setPower(20);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1320,7 +1322,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.SHADOW_SNEAK);
-		metam.setType(PokemonType.GHOST);
+		metam.setType(PokemonType.POKEMON_TYPE_GHOST);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1330,7 +1332,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.MEGA_DRAIN);
-		metam.setType(PokemonType.GRASS);
+		metam.setType(PokemonType.POKEMON_TYPE_GRASS);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1340,7 +1342,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.MUD_SLAP_FAST);
-		metam.setType(PokemonType.GROUND);
+		metam.setType(PokemonType.POKEMON_TYPE_GROUND);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1350,7 +1352,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.WRAP_GREEN);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1360,7 +1362,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.WRAP_PINK);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1370,7 +1372,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ICY_WIND);
-		metam.setType(PokemonType.ICE);
+		metam.setType(PokemonType.POKEMON_TYPE_ICE);
 		metam.setPower(25);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1380,7 +1382,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.WRAP);
-		metam.setType(PokemonType.NORMAL);
+		metam.setType(PokemonType.POKEMON_TYPE_NORMAL);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
@@ -1390,7 +1392,7 @@ final class PokemonMoveMetaRegistry {
 
 		metam = new PokemonMoveMeta();
 		metam.setMove(PokemonMove.ROCK_SMASH_FAST);
-		metam.setType(PokemonType.FIGHTING);
+		metam.setType(PokemonType.POKEMON_TYPE_FIGHTING);
 		metam.setPower(15);
 		metam.setAccuracy(1);
 		metam.setCriticalChance(0.05);
