@@ -28,8 +28,9 @@ import com.icecream.snorlax.common.Decimals;
 import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
-import com.icecream.snorlax.module.pokemon.PokemonMoveMeta;
+import com.icecream.snorlax.module.pokemon.PokemonFormat;
 
+import POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
 
 import static POGOProtos.Data.PokemonDataOuterClass.PokemonData;
@@ -121,16 +122,16 @@ final class RenameFormat {
 			processed = processNick(target, pokemon.getName(), pokemon.getNickname());
 		}
 		else if (target.startsWith(BASE_MV1)) {
-			processed = processMove(target, pokemon.getMoveFast());
+			processed = processMove(target, pokemon.getMoveFast().getMovementId());
 		}
 		else if (target.startsWith(BASE_MV2)) {
-			processed = processMove(target, pokemon.getMoveCharge());
+			processed = processMove(target, pokemon.getMoveCharge().getMovementId());
 		}
 		else if (target.startsWith(BASE_MVT1)) {
-			processed = processMoveType(target, pokemon.getMoveFast().getType());
+			processed = processMoveType(target, pokemon.getMoveFast().getPokemonType());
 		}
 		else if (target.startsWith(BASE_MVT2)) {
-			processed = processMoveType(target, pokemon.getMoveCharge().getType());
+			processed = processMoveType(target, pokemon.getMoveCharge().getPokemonType());
 		}
 		else if (target.startsWith(BASE_MVP1)) {
 			processed = processMovePower(target, pokemon.getMoveFast().getPower());
@@ -192,16 +193,16 @@ final class RenameFormat {
 	}
 
 	@Nullable
-	private String processMove(String target, PokemonMoveMeta move) {
+	private String processMove(String target, PokemonMove move) {
 		final int length = target.length();
 		final int dot = target.indexOf('.') + 1;
 
 		if (length == BASE_MV1.length() || length == BASE_MV2.length()) {
-			return move.toString();
+			return PokemonFormat.formatMove(move);
 		}
 		else if (dot > 0 && length > dot) {
 			try {
-				return Strings.truncateAt(move.toString(), parseInt(target.substring(dot)));
+				return Strings.truncateAt(PokemonFormat.formatMove(move), parseInt(target.substring(dot)));
 			}
 			catch (NumberFormatException ignored) {
 			}
@@ -213,7 +214,7 @@ final class RenameFormat {
 	private String processMoveType(String target, PokemonType type) {
 		final int length = target.length();
 		final int dot = target.indexOf('.') + 1;
-		final String typeName = formatType(type);
+		final String typeName = PokemonFormat.formatType(type);
 
 		if (length == BASE_MVT1.length() || length == BASE_MVT2.length()) {
 			return typeName;
@@ -246,7 +247,7 @@ final class RenameFormat {
 	private String processType(String target, PokemonType type) {
 		final int length = target.length();
 		final int dot = target.indexOf('.') + 1;
-		final String typeName = formatType(type);
+		final String typeName = PokemonFormat.formatType(type);
 
 		if (length == BASE_MVT1.length() || length == BASE_MVT2.length()) {
 			return typeName;
@@ -376,13 +377,5 @@ final class RenameFormat {
 			return Decimals.format(cp, 2, 4, 0, 0);
 		}
 		return null;
-	}
-
-	private String formatType(PokemonType type) {
-		final String typeString = type.toString();
-		final int typeStringLastIndex = typeString.lastIndexOf('_');
-		final String typeName = typeStringLastIndex != -1 ? typeString.substring(typeStringLastIndex + 1) : typeString;
-
-		return typeName.charAt(0) + typeName.substring(1).toLowerCase();
 	}
 }

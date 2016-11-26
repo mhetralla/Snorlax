@@ -34,6 +34,7 @@ import com.icecream.snorlax.module.feature.mitm.Mitm;
 import com.icecream.snorlax.module.feature.mock.Mock;
 import com.icecream.snorlax.module.feature.rename.Rename;
 import com.icecream.snorlax.module.feature.safetynet.SafetyNet;
+import com.icecream.snorlax.module.feature.setting.Setting;
 import com.icecream.snorlax.module.feature.traffic.Traffic;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
@@ -50,6 +51,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	SafetyNet mSafetyNet;
 	@Inject
 	Mitm mMitm;
+	@Inject
+	Setting mSetting;
 	@Inject
 	Mock mMock;
 	@Inject
@@ -101,6 +104,7 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 				FeatureHelper.subscribe(
 					mSafetyNet,
 					mMitm,
+					mSetting,
 					mMock,
 					mCapture,
 					mEncounter,
@@ -120,6 +124,7 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 				FeatureHelper.unsubscribe(
 					mSafetyNet,
 					mMitm,
+					mSetting,
 					mMock,
 					mCapture,
 					mEncounter,

@@ -29,6 +29,7 @@ import com.icecream.snorlax.module.feature.mitm.MitmRelay;
 import com.icecream.snorlax.module.feature.mitm.MitmUtil;
 import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
+import com.icecream.snorlax.module.pokemon.PokemonFormat;
 import com.icecream.snorlax.module.pokemon.probability.PokemonProbability;
 import com.icecream.snorlax.module.pokemon.probability.PokemonProbabilityFactory;
 import com.icecream.snorlax.module.util.Log;
@@ -161,12 +162,8 @@ public final class Encounter implements Feature {
 			pokemon.getWeight(),
 			pokemon.getBaseHeight(),
 			pokemon.getHeight(),
-			pokemon.getMoveFast().toString(),
-			pokemon.getMoveFast().getType().toString(),
-			pokemon.getMoveFast().getPower(),
-			pokemon.getMoveCharge().toString(),
-			pokemon.getMoveCharge().getType().toString(),
-			pokemon.getMoveCharge().getPower(),
+			pokemon.getMoveFast(),
+			pokemon.getMoveCharge(),
 			pokemon.getFleeRate() * 100,
 			probability.getPokeball(),
 			probability.getGreatball(),

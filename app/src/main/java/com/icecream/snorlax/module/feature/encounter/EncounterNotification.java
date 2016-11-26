@@ -41,11 +41,13 @@ import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.module.NotificationId;
 import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
 import com.icecream.snorlax.module.context.snorlax.Snorlax;
+import com.icecream.snorlax.module.pokemon.PokemonFormat;
 import com.icecream.snorlax.module.util.Resource;
 import com.icecream.snorlax.module.util.Resource.MODIFIER;
 
 import POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
+import POGOProtos.Settings.Master.MoveSettingsOuterClass.MoveSettings;
 
 @Singleton
 final class EncounterNotification {
@@ -65,7 +67,7 @@ final class EncounterNotification {
 	}
 
 	@SuppressWarnings("deprecation")
-	void show(int pokemonNumber, String pokemonName, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, String move1, String move1Type, float move1Power, String move2, String move2Type, float move2Power, double fleeRate, double pokeRate, double greatRate, double ultraRate, String type1, String type2, String pokemonClass) {
+	void show(int pokemonNumber, String pokemonName, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, MoveSettings move1, MoveSettings move2, double fleeRate, double pokeRate, double greatRate, double ultraRate, String type1, String type2, String pokemonClass) {
 		final double weightRatio = weight / baseWeight;
 		final double heightRatio = height / baseHeight;
 		final MODIFIER resourceModifier = (pokemonNumber == PokemonId.PIKACHU_VALUE ? MODIFIER.FAN
@@ -92,8 +94,8 @@ final class EncounterNotification {
 					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_stats_content_iv, iv, attack, defense, stamina), symbols))
 					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_stats_content_hp, hp, fleeRate), symbols))
 					.addLine(EncounterFormat.bold(mContext.getString(R.string.notification_categoty_moves_title)))
-					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_moves_fast, move1, move1Type, move1Power), symbols))
-					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_moves_charge, move2, move2Type, move2Power), symbols))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_moves_fast, PokemonFormat.formatMove(move1.getMovementId()), move1.getPokemonType(), move1.getPower()), symbols))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_moves_charge, PokemonFormat.formatMove(move2.getMovementId()), move2.getPokemonType(), move2.getPower()), symbols))
 					.addLine(EncounterFormat.bold(mContext.getString(R.string.notification_categoty_catch_title)))
 					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_catch_content, pokeRate, greatRate, ultraRate), symbols))
 					.setSummaryText(getFooter(type1, type2, pokemonClass))

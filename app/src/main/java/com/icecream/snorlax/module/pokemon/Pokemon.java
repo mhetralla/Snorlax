@@ -19,6 +19,7 @@ package com.icecream.snorlax.module.pokemon;
 import java.util.List;
 
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
+import POGOProtos.Settings.Master.MoveSettingsOuterClass.MoveSettings;
 
 import static POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import static POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
@@ -131,12 +132,12 @@ public final class Pokemon {
 		return PokemonMetaRegistry.getMeta(mPokemonData.getPokemonId()).getNumber();
 	}
 
-	public PokemonMoveMeta getMoveFast() {
-		return PokemonMoveMetaRegistry.getMeta(mPokemonData.getMove1());
+	public MoveSettings getMoveFast() {
+		return MoveSettingsRegistry.getMeta(mPokemonData.getMove1());
 	}
 
-	public PokemonMoveMeta getMoveCharge() {
-		return PokemonMoveMetaRegistry.getMeta(mPokemonData.getMove2());
+	public MoveSettings getMoveCharge() {
+		return MoveSettingsRegistry.getMeta(mPokemonData.getMove2());
 	}
 
 	public PokemonType getType1() {

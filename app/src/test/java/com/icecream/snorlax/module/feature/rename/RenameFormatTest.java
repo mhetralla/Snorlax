@@ -20,7 +20,6 @@ import java.text.DecimalFormat;
 
 import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
-import com.icecream.snorlax.module.pokemon.PokemonMoveMeta;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -37,6 +36,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
+import POGOProtos.Settings.Master.MoveSettingsOuterClass.MoveSettings;
 
 import static POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import static POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
@@ -46,7 +46,7 @@ import static POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
 	Pokemon.class,
 	PokemonData.class,
 	PokemonFactory.class,
-	PokemonMoveMeta.class,
+	MoveSettings.class,
 	RenamePreferences.class
 })
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -69,7 +69,7 @@ public class RenameFormatTest {
 	@Mock
 	private PokemonData mProto;
 	@Mock
-	private PokemonMoveMeta mPokemonMoveMeta;
+	private MoveSettings mPokemonMoveMeta;
 
 	@InjectMocks
 	private RenameFormat mSut;
@@ -83,8 +83,8 @@ public class RenameFormatTest {
 		Mockito.doReturn(mPokemon).when(mPokemonFactory).with(mProto);
 
 		Mockito.doReturn(5f).when(mPokemonMoveMeta).getPower();
-		Mockito.doReturn(PokemonType.POKEMON_TYPE_PSYCHIC).when(mPokemonMoveMeta).getType();
-		Mockito.doReturn(PokemonMove.ZEN_HEADBUTT_FAST).when(mPokemonMoveMeta).getMove();
+		Mockito.doReturn(PokemonType.POKEMON_TYPE_PSYCHIC).when(mPokemonMoveMeta).getPokemonType();
+		Mockito.doReturn(PokemonMove.ZEN_HEADBUTT_FAST).when(mPokemonMoveMeta).getMovementId();
 		Mockito.doCallRealMethod().when(mPokemonMoveMeta).toString();
 
 		Mockito.doReturn(POKEMON_NAME).when(mPokemon).getName();
