@@ -16,6 +16,7 @@
 
 package com.icecream.snorlax.module.feature.rename;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -24,23 +25,24 @@ import javax.inject.Singleton;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.google.common.collect.ImmutableList;
 import com.icecream.snorlax.common.Decimals;
 import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
 import com.icecream.snorlax.module.pokemon.PokemonFormat;
+import com.icecream.snorlax.module.util.Log;
 
 import POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
+import POGOProtos.Settings.Master.MoveSettingsOuterClass.MoveSettings;
 
 import static POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import static java.lang.Integer.parseInt;
 
 @Singleton
 final class RenameFormat {
-
-	private static final Character DELIMITER_1 = '%';
-	private static final Character DELIMITER_2 = '℅';
+	private static final List<Character> DELIMITERS = ImmutableList.of('%', '℅');
 
 	private static final String BASE_NAME = "NAME";
 	private static final String BASE_NICK = "NICK";
@@ -70,38 +72,35 @@ final class RenameFormat {
 	}
 
 	@NonNull
-	String format(PokemonData pokemonData) throws NullPointerException, IllegalArgumentException {
+	String format(PokemonData pokemonData) {
 		final Pokemon pokemon = mPokemonFactory.with(pokemonData);
 		final String format = mRenamePreferences.getFormat();
 
 		StringBuilder builder = new StringBuilder();
 
 		for (int i = 0, len = format.length(); i < len; ) {
-			int nextDelimiter1 = format.indexOf(DELIMITER_1, i + 1);
-			int nextDelimiter2 = format.indexOf(DELIMITER_2, i + 1);
-			int nextDelimiter = nextDelimiter1 == -1 ? nextDelimiter2
-				: nextDelimiter2 == -1 ? nextDelimiter1
-				: Math.min(nextDelimiter1, nextDelimiter2);
+			int nextDelimiter = Integer.MAX_VALUE;
+			for (int j = 0; j < DELIMITERS.size(); j++) {
+				int nextDelimiterTmp = format.indexOf(DELIMITERS.get(j), i + 1);
+				if (nextDelimiterTmp == -1) {
+					continue;
+				}
 
-			if (format.charAt(i) != DELIMITER_1 && format.charAt(i) != DELIMITER_2) {
+				nextDelimiter = Math.min(nextDelimiter, nextDelimiterTmp);
+			}
+
+			if (!DELIMITERS.contains(format.charAt(i))) {
 				final int end = (nextDelimiter == -1) ? len : nextDelimiter;
 
 				builder.append(format.substring(i, end));
 				i = end;
-			}
-			else if (nextDelimiter == -1) {
+			} else if (nextDelimiter == Integer.MAX_VALUE) {
 				builder.append(format.substring(i));
 				i = len;
-			}
-			else if (format.substring(i + 1, nextDelimiter).contains(" ")) {
+			} else if (format.substring(i + 1, nextDelimiter).contains(" ") || format.substring(i, nextDelimiter).length() < 3) {
 				builder.append(format.substring(i, nextDelimiter));
 				i = nextDelimiter;
-			}
-			else if (format.substring(i, nextDelimiter).length() < 3) {
-				builder.append(format.substring(i, nextDelimiter));
-				i = nextDelimiter;
-			}
-			else {
+			} else {
 				builder.append(processFormat(pokemon, format.substring(i + 1, nextDelimiter)));
 				i = nextDelimiter + 1;
 			}
@@ -110,63 +109,46 @@ final class RenameFormat {
 		return builder.toString();
 	}
 
-	private String processFormat(Pokemon pokemon, String command) throws NullPointerException {
+	private String processFormat(Pokemon pokemon, String command) {
 		final String target = command.toUpperCase(Locale.getDefault());
 
 		String processed = null;
 
 		if (target.startsWith(BASE_NAME)) {
 			processed = processName(target, pokemon.getName());
-		}
-		else if (target.startsWith(BASE_NICK)) {
+		} else if (target.startsWith(BASE_NICK)) {
 			processed = processNick(target, pokemon.getName(), pokemon.getNickname());
-		}
-		else if (target.startsWith(BASE_MV1)) {
-			processed = processMove(target, pokemon.getMoveFast().getMovementId());
-		}
-		else if (target.startsWith(BASE_MV2)) {
-			processed = processMove(target, pokemon.getMoveCharge().getMovementId());
-		}
-		else if (target.startsWith(BASE_MVT1)) {
-			processed = processMoveType(target, pokemon.getMoveFast().getPokemonType());
-		}
-		else if (target.startsWith(BASE_MVT2)) {
-			processed = processMoveType(target, pokemon.getMoveCharge().getPokemonType());
-		}
-		else if (target.startsWith(BASE_MVP1)) {
-			processed = processMovePower(target, pokemon.getMoveFast().getPower());
-		}
-		else if (target.startsWith(BASE_MVP2)) {
-			processed = processMovePower(target, pokemon.getMoveCharge().getPower());
-		}
-
-		else if (target.startsWith(BASE_TYP1)) {
+		} else if (target.startsWith(BASE_MV1)) {
+			processed = processMove(target, pokemon.getMoveFast());
+		} else if (target.startsWith(BASE_MV2)) {
+			processed = processMove(target, pokemon.getMoveCharge());
+		} else if (target.startsWith(BASE_MVT1)) {
+			processed = processMoveType(target, pokemon.getMoveFast());
+		} else if (target.startsWith(BASE_MVT2)) {
+			processed = processMoveType(target, pokemon.getMoveCharge());
+		} else if (target.startsWith(BASE_MVP1)) {
+			processed = processMovePower(target, pokemon.getMoveFast());
+		} else if (target.startsWith(BASE_MVP2)) {
+			processed = processMovePower(target, pokemon.getMoveCharge());
+		} else if (target.startsWith(BASE_TYP1)) {
 			processed = processType(target, pokemon.getType1());
-		}
-		else if (target.startsWith(BASE_TYP2)) {
+		} else if (target.startsWith(BASE_TYP2)) {
 			processed = processType(target, pokemon.getType2());
-		}
-
-		else if (target.startsWith(BASE_LVL)) {
+		} else if (target.startsWith(BASE_LVL)) {
 			processed = processLevel(target, pokemon.getLevel());
-		}
-		else if (target.startsWith(BASE_IV)) {
+		} else if (target.startsWith(BASE_IV)) {
 			processed = processIv(target, pokemon.getIv() * 100);
-		}
-		else if (target.startsWith(BASE_ATT)) {
+		} else if (target.startsWith(BASE_ATT)) {
 			processed = processAttack(target, pokemon.getIVAttack());
-		}
-		else if (target.startsWith(BASE_DEF)) {
+		} else if (target.startsWith(BASE_DEF)) {
 			processed = processDefense(target, pokemon.getIVDefense());
-		}
-		else if (target.startsWith(BASE_STA)) {
+		} else if (target.startsWith(BASE_STA)) {
 			processed = processStamina(target, pokemon.getIVStamina());
-		}
-		else if (target.startsWith(BASE_CP)) {
+		} else if (target.startsWith(BASE_CP)) {
 			processed = processCP(target, pokemon);
 		}
 
-		return Strings.isNullOrEmpty(processed) ? DELIMITER_1 + command + DELIMITER_1 : processed;
+		return Strings.isNullOrEmpty(processed) ? DELIMITERS.get(0) + command + DELIMITERS.get(0) : processed;
 	}
 
 	@Nullable
@@ -176,14 +158,14 @@ final class RenameFormat {
 
 		if (length == BASE_NAME.length()) {
 			return name;
-		}
-		else if (dot > 0 && length > dot) {
+		} else if (dot > 0 && length > dot) {
 			try {
 				return Strings.truncateAt(name, parseInt(target.substring(dot)));
-			}
-			catch (NumberFormatException ignored) {
+			} catch (NumberFormatException e) {
+				Log.e(e);
 			}
 		}
+
 		return null;
 	}
 
@@ -193,53 +175,70 @@ final class RenameFormat {
 	}
 
 	@Nullable
-	private String processMove(String target, PokemonMove move) {
+	private String processMove(String target, MoveSettings moveSettings) {
+		if (moveSettings == null) {
+			return null;
+		}
+
 		final int length = target.length();
 		final int dot = target.indexOf('.') + 1;
+		final PokemonMove move = moveSettings.getMovementId();
 
 		if (length == BASE_MV1.length() || length == BASE_MV2.length()) {
 			return PokemonFormat.formatMove(move);
-		}
-		else if (dot > 0 && length > dot) {
+		} else if (dot > 0 && length > dot) {
 			try {
 				return Strings.truncateAt(PokemonFormat.formatMove(move), parseInt(target.substring(dot)));
-			}
-			catch (NumberFormatException ignored) {
+			} catch (NumberFormatException e) {
+				Log.e(e);
 			}
 		}
+
 		return null;
 	}
 
 	@Nullable
-	private String processMoveType(String target, PokemonType type) {
+	private String processMoveType(String target, MoveSettings moveSettings) {
+		if (moveSettings == null) {
+			return null;
+		}
+
 		final int length = target.length();
 		final int dot = target.indexOf('.') + 1;
+		final PokemonType type = moveSettings.getPokemonType();
 		final String typeName = PokemonFormat.formatType(type);
 
 		if (length == BASE_MVT1.length() || length == BASE_MVT2.length()) {
 			return typeName;
-		}
-		else if (dot > 0 && length > dot) {
+		} else if (dot > 0 && length > dot) {
 			try {
 				final int truncateLength = parseInt(target.substring(dot));
 				final String typeNameFormatted = (truncateLength == 2) ? typeName.charAt(0) + typeName.substring(2) : typeName;
 
 				return Strings.truncateAt(typeNameFormatted, truncateLength);
-			}
-			catch (NumberFormatException ignored) {
+			} catch (NumberFormatException e) {
+				Log.e(e);
 			}
 		}
+
 		return null;
 	}
 
 	@Nullable
-	private String processMovePower(String target, float power) {
+	private String processMovePower(String target, MoveSettings moveSettings) {
+		if (moveSettings == null) {
+			return null;
+		}
+
+		final float power = moveSettings.getPower();
+
 		if (target.equals(BASE_MVP1) || target.equals(BASE_MVP2)) {
 			return Decimals.format(power, 1, 3, 0, 0);
 		}
 		if (target.equals(BASE_MVP1.concat("P")) || target.equals(BASE_MVP2.concat("P"))) {
 			return Decimals.format(power, 3, 3, 0, 0);
 		}
+
 		return null;
 	}
 
@@ -251,17 +250,17 @@ final class RenameFormat {
 
 		if (length == BASE_MVT1.length() || length == BASE_MVT2.length()) {
 			return typeName;
-		}
-		else if (dot > 0 && length > dot) {
+		} else if (dot > 0 && length > dot) {
 			try {
 				final int truncateLength = parseInt(target.substring(dot));
 				final String typeNameFormatted = (truncateLength == 2) ? typeName.charAt(0) + typeName.substring(2) : typeName;
 
 				return Strings.truncateAt(typeNameFormatted, truncateLength);
-			}
-			catch (NumberFormatException ignored) {
+			} catch (NumberFormatException e) {
+				Log.e(e);
 			}
 		}
+
 		return null;
 	}
 
@@ -278,18 +277,19 @@ final class RenameFormat {
 			try {
 				final int decimals = Integer.parseInt(target.substring(target.indexOf('.') + 1));
 				return Decimals.format(level, 1, 2, decimals, decimals);
-			}
-			catch (NumberFormatException | IndexOutOfBoundsException ignored) {
+			} catch (NumberFormatException | IndexOutOfBoundsException e) {
+				Log.e(e);
 			}
 		}
 		if (target.startsWith(BASE_LVL.concat("P."))) {
 			try {
 				final int decimals = Integer.parseInt(target.substring(target.indexOf('.') + 1));
 				return Decimals.format(level, 2, 2, decimals, decimals);
-			}
-			catch (NumberFormatException | IndexOutOfBoundsException ignored) {
+			} catch (NumberFormatException | IndexOutOfBoundsException e) {
+				Log.e(e);
 			}
 		}
+
 		return null;
 	}
 
@@ -305,18 +305,19 @@ final class RenameFormat {
 			try {
 				final int decimals = Integer.parseInt(target.substring(target.indexOf('.') + 1));
 				return Decimals.format(iv, 1, 3, decimals, decimals);
-			}
-			catch (NumberFormatException | IndexOutOfBoundsException ignored) {
+			} catch (NumberFormatException | IndexOutOfBoundsException e) {
+				Log.e(e);
 			}
 		}
 		if (target.startsWith(BASE_IV.concat("P."))) {
 			try {
 				final int decimals = Integer.parseInt(target.substring(target.indexOf('.') + 1));
 				return Decimals.format(iv, 3, 3, decimals, decimals);
-			}
-			catch (NumberFormatException | IndexOutOfBoundsException ignored) {
+			} catch (NumberFormatException | IndexOutOfBoundsException e) {
+				Log.e(e);
 			}
 		}
+
 		return null;
 	}
 
@@ -331,6 +332,7 @@ final class RenameFormat {
 		if (target.equals(BASE_ATT.concat("H"))) {
 			return Integer.toHexString(attack).toUpperCase(Locale.getDefault());
 		}
+
 		return null;
 	}
 
@@ -345,6 +347,7 @@ final class RenameFormat {
 		if (target.equals(BASE_DEF.concat("H"))) {
 			return Integer.toHexString(defense).toUpperCase(Locale.getDefault());
 		}
+
 		return null;
 	}
 
@@ -359,6 +362,7 @@ final class RenameFormat {
 		if (target.equals(BASE_STA.concat("H"))) {
 			return Integer.toHexString(stamina).toUpperCase(Locale.getDefault());
 		}
+
 		return null;
 	}
 
@@ -376,6 +380,7 @@ final class RenameFormat {
 
 			return Decimals.format(cp, 2, 4, 0, 0);
 		}
+
 		return null;
 	}
 }

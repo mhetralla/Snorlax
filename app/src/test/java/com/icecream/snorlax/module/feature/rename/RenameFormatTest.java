@@ -20,6 +20,7 @@ import java.text.DecimalFormat;
 
 import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
+import com.icecream.snorlax.module.util.Log;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -32,6 +33,7 @@ import org.junit.runners.MethodSorters;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -47,7 +49,8 @@ import static POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
 	PokemonData.class,
 	PokemonFactory.class,
 	MoveSettings.class,
-	RenamePreferences.class
+	RenamePreferences.class,
+	Log.class
 })
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class RenameFormatTest {
@@ -69,7 +72,7 @@ public class RenameFormatTest {
 	@Mock
 	private PokemonData mProto;
 	@Mock
-	private MoveSettings mPokemonMoveMeta;
+	private MoveSettings mPokemonSettings;
 
 	@InjectMocks
 	private RenameFormat mSut;
@@ -80,12 +83,14 @@ public class RenameFormatTest {
 	@SuppressWarnings("ResultOfMethodCallIgnored")
 	public void setUp() throws Exception {
 		// Given
+		PowerMockito.mockStatic(Log.class);
+
 		Mockito.doReturn(mPokemon).when(mPokemonFactory).with(mProto);
 
-		Mockito.doReturn(5f).when(mPokemonMoveMeta).getPower();
-		Mockito.doReturn(PokemonType.POKEMON_TYPE_PSYCHIC).when(mPokemonMoveMeta).getPokemonType();
-		Mockito.doReturn(PokemonMove.ZEN_HEADBUTT_FAST).when(mPokemonMoveMeta).getMovementId();
-		Mockito.doCallRealMethod().when(mPokemonMoveMeta).toString();
+		Mockito.doReturn(5f).when(mPokemonSettings).getPower();
+		Mockito.doReturn(PokemonType.POKEMON_TYPE_PSYCHIC).when(mPokemonSettings).getPokemonType();
+		Mockito.doReturn(PokemonMove.ZEN_HEADBUTT_FAST).when(mPokemonSettings).getMovementId();
+		Mockito.doCallRealMethod().when(mPokemonSettings).toString();
 
 		Mockito.doReturn(POKEMON_NAME).when(mPokemon).getName();
 		Mockito.doReturn(POKEMON_NICKNAME).when(mPokemon).getNickname();
@@ -97,8 +102,8 @@ public class RenameFormatTest {
 		Mockito.doReturn(100).when(mPokemon).getLastEvolutionCp();
 		Mockito.doCallRealMethod().when(mPokemon).getIv();
 
-		Mockito.doReturn(mPokemonMoveMeta).when(mPokemon).getMoveFast();
-		Mockito.doReturn(mPokemonMoveMeta).when(mPokemon).getMoveCharge();
+		Mockito.doReturn(mPokemonSettings).when(mPokemon).getMoveFast();
+		Mockito.doReturn(mPokemonSettings).when(mPokemon).getMoveCharge();
 
 		Mockito.doReturn(PokemonType.POKEMON_TYPE_NORMAL).when(mPokemon).getType1();
 		Mockito.doReturn(PokemonType.POKEMON_TYPE_NONE).when(mPokemon).getType2();
@@ -472,9 +477,25 @@ public class RenameFormatTest {
 	}
 
 	@Test
+	public void testMoveFastNull() throws Exception {
+		Mockito.doReturn(null).when(mPokemon).getMoveFast();
+
+		mExpected = "%MV1%";
+		setRenameFormat("%MV1%");
+	}
+
+	@Test
 	public void testMoveUnknown() throws Exception {
 		mExpected = "%MV3%";
 		setRenameFormat("%MV3%");
+	}
+
+	@Test
+	public void testMoveChargeNull() throws Exception {
+		Mockito.doReturn(null).when(mPokemon).getMoveCharge();
+
+		mExpected = "%MV2%";
+		setRenameFormat("%MV2%");
 	}
 
 	@Test
@@ -525,6 +546,22 @@ public class RenameFormatTest {
 	public void testMoveTypeUnknown() throws Exception {
 		mExpected = "%MVT3%";
 		setRenameFormat("%MVT3%");
+	}
+
+	@Test
+	public void testMoveTypeFastNull() throws Exception {
+		Mockito.doReturn(null).when(mPokemon).getMoveFast();
+
+		mExpected = "%MVT1%";
+		setRenameFormat("%MVT1%");
+	}
+
+	@Test
+	public void testMoveTypeChargeNull() throws Exception {
+		Mockito.doReturn(null).when(mPokemon).getMoveCharge();
+
+		mExpected = "%MVT2%";
+		setRenameFormat("%MVT2%");
 	}
 
 	@Test
@@ -593,6 +630,22 @@ public class RenameFormatTest {
 	public void testMovePowerUnknown() throws Exception {
 		mExpected = "%MVP1W%";
 		setRenameFormat("%MVP1W%");
+	}
+
+	@Test
+	public void testMovePowerFastNull() throws Exception {
+		Mockito.doReturn(null).when(mPokemon).getMoveFast();
+
+		mExpected = "%MVP1%";
+		setRenameFormat("%MVP1%");
+	}
+
+	@Test
+	public void testMovePowerChargeNull() throws Exception {
+		Mockito.doReturn(null).when(mPokemon).getMoveCharge();
+
+		mExpected = "%MVP2%";
+		setRenameFormat("%MVP2%");
 	}
 	//endregion
 
