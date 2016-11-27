@@ -51,16 +51,16 @@ final class EjectNotification {
 		mNotificationManager = notificationManager;
 	}
 
-	void show(int pokemonNumber, String pokemonName) {
+	void show(final int pokemonNumber, final String pokemonName, final String gymName) {
 		new Handler(Looper.getMainLooper()).post(() -> {
-			Notification notification = createNotification(pokemonNumber, pokemonName);
+			Notification notification = createNotification(pokemonNumber, pokemonName, gymName);
 			hideIcon(notification);
 
 			mNotificationManager.notify(NotificationId.getID(), notification);
 		});
 	}
 
-	private Notification createNotification(final int pokemonNumber, final String pokemonName) {
+	private Notification createNotification(final int pokemonNumber, final String pokemonName, final String gymName) {
 		return new NotificationCompat.Builder(mContext)
 			.setSmallIcon(R.drawable.ic_eject)
 			.setLargeIcon(Bitmap.createScaledBitmap(
@@ -73,7 +73,7 @@ final class EjectNotification {
 				false
 			))
 			.setContentTitle(mContext.getString(R.string.notification_gym_eject_title, pokemonName))
-			.setContentText(mContext.getString(R.string.notification_gym_eject_content, pokemonName))
+			.setContentText(mContext.getString(R.string.notification_gym_eject_content, gymName))
 			.setColor(ContextCompat.getColor(mContext, R.color.red_700))
 			.setAutoCancel(true)
 			.setPriority(Notification.PRIORITY_MAX)

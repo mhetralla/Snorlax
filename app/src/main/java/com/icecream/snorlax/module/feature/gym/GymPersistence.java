@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.util.LongSparseArray;
 import android.util.Pair;
 
+import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
 import com.icecream.snorlax.module.feature.Feature;
@@ -43,12 +44,12 @@ public class GymPersistence implements Feature {
 		mSubscription = mGym
 			.getObservable()
 			.subscribe(pair -> {
-				final Pair<PokemonData, String> pokemonInfo = pair.second;
+				final Pair<PokemonData, GymData> pokemonInfo = pair.second;
 				final PokemonData pokemon = pokemonInfo.first;
-				final String gymId = pokemonInfo.second;
+				final GymData gymData = pokemonInfo.second;
 				switch (pair.first) {
 					case POKEMON_ADD:
-						savePokemonInGym(mContext, pokemon.getId(), gymId);
+						savePokemonInGym(mContext, pokemon.getId(), gymData);
 						break;
 					case POKEMON_REMOVE:
 						removePokemonInGym(mContext, pokemon.getId());
@@ -64,13 +65,13 @@ public class GymPersistence implements Feature {
 		RxFuncitons.unsubscribe(mSubscription);
 	}
 
-	private LongSparseArray<String> loadPokemonInGym(final Context context) {
+	private LongSparseArray<GymData> loadPokemonInGym(final Context context) {
 		final SharedPreferences settings = context.getSharedPreferences(PREF_POKEMON_IN_GYM, 0);
-		final LongSparseArray<String> pokemonsInGym = new LongSparseArray<>();
+		final LongSparseArray<GymData> pokemonsInGym = new LongSparseArray<>();
 		final Map<String, ?> pokemonsInGymRaw = settings.getAll();
 		for (final Map.Entry<String, ?> pokemonEntry : pokemonsInGymRaw.entrySet()) {
 			try {
-				pokemonsInGym.put(Long.decode(pokemonEntry.getKey()), (String) pokemonEntry.getValue());
+				pokemonsInGym.put(Long.decode(pokemonEntry.getKey()), new GymData(Strings.EMPTY, (String) pokemonEntry.getValue()));
 				Log.d(LOG_PREFIX + "Load : " + pokemonEntry.getKey() + ", " + pokemonEntry.getValue());
 			} catch (NumberFormatException e) {
 				Log.e(e);
@@ -80,15 +81,15 @@ public class GymPersistence implements Feature {
 		return pokemonsInGym;
 	}
 
-	private void savePokemonInGym(final Context context, final long pokemonUID, final String gymID) {
-		Log.d(LOG_PREFIX + "savePokemonInGym : " + pokemonUID + ", '" + gymID + "'");
+	private void savePokemonInGym(final Context context, final long pokemonUID, final GymData gymData) {
+		Log.d(LOG_PREFIX + "savePokemonInGym : " + pokemonUID + ", '" + gymData + "'");
 
 		final SharedPreferences settings = context.getSharedPreferences(PREF_POKEMON_IN_GYM, 0);
 		final SharedPreferences.Editor editor = settings.edit();
-		editor.putString(String.valueOf(pokemonUID), gymID);
+		editor.putString(String.valueOf(pokemonUID), gymData.name);
 		editor.apply();
 
-		mGymManager.savePokemonInGym(pokemonUID, gymID);
+		mGymManager.savePokemonInGym(pokemonUID, gymData);
 	}
 
 	private void removePokemonInGym(final Context context, final long pokemonUID) {

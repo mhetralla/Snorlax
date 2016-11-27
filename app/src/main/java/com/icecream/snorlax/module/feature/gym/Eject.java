@@ -38,6 +38,7 @@ public class Eject implements Feature {
 			.filter(pair -> pair.first == Gym.ACTION.POKEMON_REMOVE)
 			.subscribe(pair -> {
 				final Pokemon pokemon = mPokemonFactory.with(pair.second.first);
+				final GymData gymData = pair.second.second;
 				if (pokemon == null) {
 					Log.d(LOG_PREFIX + "Pokemon conversion failed");
 					return;
@@ -45,7 +46,8 @@ public class Eject implements Feature {
 
 				mEjectNotification.show(
 					pokemon.getNumber(),
-					pokemon.getName());
+					pokemon.getName(),
+					gymData.name);
 			});
 	}
 
