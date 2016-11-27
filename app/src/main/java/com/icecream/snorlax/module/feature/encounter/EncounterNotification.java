@@ -72,7 +72,7 @@ final class EncounterNotification {
 		final double heightRatio = height / baseHeight;
 		final MODIFIER resourceModifier = (pokemonNumber == PokemonId.PIKACHU_VALUE ? MODIFIER.FAN
 			: pokemonNumber == PokemonId.RATTATA_VALUE && heightRatio < 0.80 ? MODIFIER.YOUNGSTER
-			: pokemonNumber == PokemonId.MAGIKARP_VALUE && weightRatio > 1.25 ? MODIFIER.FISHERMAN
+			: pokemonNumber == PokemonId.MAGIKARP_VALUE && weightRatio > 1.30 ? MODIFIER.FISHERMAN
 			: MODIFIER.NO);
 
 		final Map<String, Pair<String, Integer>> symbols = getSymbolReplacementTable();
