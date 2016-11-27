@@ -16,6 +16,7 @@
 
 package com.icecream.snorlax.module.feature.rename;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -25,7 +26,6 @@ import javax.inject.Singleton;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.google.common.collect.ImmutableList;
 import com.icecream.snorlax.common.Decimals;
 import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.module.pokemon.Pokemon;
@@ -42,7 +42,7 @@ import static java.lang.Integer.parseInt;
 
 @Singleton
 final class RenameFormat {
-	private static final List<Character> DELIMITERS = ImmutableList.of('%', '℅');
+	private static final List<Character> DELIMITERS = Arrays.asList('%', '℅');
 
 	private static final String BASE_NAME = "NAME";
 	private static final String BASE_NICK = "NICK";
@@ -90,7 +90,7 @@ final class RenameFormat {
 			}
 
 			if (!DELIMITERS.contains(format.charAt(i))) {
-				final int end = (nextDelimiter == -1) ? len : nextDelimiter;
+				final int end = (nextDelimiter == Integer.MAX_VALUE) ? len : nextDelimiter;
 
 				builder.append(format.substring(i, end));
 				i = end;

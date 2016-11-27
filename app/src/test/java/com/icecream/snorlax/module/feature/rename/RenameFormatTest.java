@@ -17,6 +17,7 @@
 package com.icecream.snorlax.module.feature.rename;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 import com.icecream.snorlax.module.pokemon.Pokemon;
 import com.icecream.snorlax.module.pokemon.PokemonFactory;
@@ -170,6 +171,12 @@ public class RenameFormatTest {
 	public void testSomeOthersCommandCombined() throws Exception {
 		mExpected = POKEMON_NAME + " " + DecimalFormat.getInstance().format(6.7) + "%,1/1/1," + DecimalFormat.getInstance().format(8.5);
 		setRenameFormat("%NAME% %IV%%,%ATT%/%DEF%/%STA%,%LVL%");
+	}
+
+	@Test
+	public void testSomeOthers2CommandCombined() throws Exception {
+		mExpected = DecimalFormat.getInstance().format(6.7) + " 1/1/1 " + DecimalFormat.getInstance().format(8.5) + " (" + NumberFormat.getInstance().format(100) + ")";
+		setRenameFormat("%IV% %ATT%/%DEF%/%STA% %LVL% (%CPL%)");
 	}
 
 	@Test
