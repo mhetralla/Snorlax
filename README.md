@@ -1,8 +1,8 @@
 # Snorlax [![Build Status](https://travis-ci.org/alucas/Snorlax.svg?branch=master)](https://travis-ci.org/alucas/Snorlax) [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://github.com/alucas/Snorlax#donation) [![Github All Releases](https://img.shields.io/github/downloads/alucas/snorlax/total.svg)](https://github.com/alucas/Snorlax/releases) [![Github Releases](https://img.shields.io/github/downloads/alucas/snorlax/latest/total.svg)](https://github.com/alucas/Snorlax/releases/latest) [![GitHub release](https://img.shields.io/github/release/alucas/snorlax.svg)](https://github.com/alucas/Snorlax/releases/latest)
 
-Check pokemons stats. [Available through Xposed repository](http://repo.xposed.info/module/com.icecream.snorlax)
+Check pokemons stats and other stats.
   
-This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) on Pokémon Go's communications with the server, and allows us to add extra features to the game.
+This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) on Pokémon Go's communications with the server, and allows us to add extra *features* to the game.
 
 ### Features:
 - Prevent PokemonGo from detecting GPS is being spoofed (similar to Mock Mock Locations)
