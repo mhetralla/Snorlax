@@ -7,11 +7,13 @@ import java.util.Locale;
 import com.icecream.snorlax.common.Strings;
 
 import POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
+import POGOProtos.Enums.PokemonRarityOuterClass.PokemonRarity;
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
 
 public class PokemonFormat {
 	private static final String SEPARATOR = "_";
-	private static final String FAST = "FAST";
+	private static final String FAST_PREFIX = "FAST";
+	private static final String POKEMON_RARITY_PREFIX = "POKEMON_RARITY_";
 
 	private PokemonFormat() {
 		throw new AssertionError("No instances");
@@ -25,11 +27,11 @@ public class PokemonFormat {
 		return Strings.capitalize(typeName.toLowerCase(Locale.US));
 	}
 
-	public static String formatMove(PokemonMove move) {
-		List<String> moves = new ArrayList<>();
+	public static String formatMove(final PokemonMove move) {
+		final List<String> moves = new ArrayList<>();
 
 		for (String string : move.name().split(SEPARATOR)) {
-			if (string.equalsIgnoreCase(FAST)) {
+			if (string.equalsIgnoreCase(FAST_PREFIX)) {
 				continue;
 			}
 
@@ -37,5 +39,9 @@ public class PokemonFormat {
 		}
 
 		return Strings.capitalize(moves.toArray(new String[0]));
+	}
+
+	public static String formatRarity(final PokemonRarity pokemonRarity) {
+		return Strings.capitalize(pokemonRarity.toString().replace(POKEMON_RARITY_PREFIX, Strings.EMPTY).toLowerCase());
 	}
 }

@@ -46,6 +46,7 @@ import com.icecream.snorlax.module.util.Resource;
 import com.icecream.snorlax.module.util.Resource.MODIFIER;
 
 import POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
+import POGOProtos.Enums.PokemonRarityOuterClass.PokemonRarity;
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
 import POGOProtos.Settings.Master.MoveSettingsOuterClass.MoveSettings;
 
@@ -67,7 +68,7 @@ final class EncounterNotification {
 	}
 
 	@SuppressWarnings("deprecation")
-	void show(int pokemonNumber, String pokemonName, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, MoveSettings move1, MoveSettings move2, double fleeRate, double pokeRate, double greatRate, double ultraRate, String type1, String type2, String pokemonClass) {
+	void show(int pokemonNumber, String pokemonName, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, MoveSettings move1, MoveSettings move2, double fleeRate, double pokeRate, double greatRate, double ultraRate, PokemonType type1, PokemonType type2, PokemonRarity pokemonClass) {
 		final double weightRatio = weight / baseWeight;
 		final double heightRatio = height / baseHeight;
 		final MODIFIER resourceModifier = (pokemonNumber == PokemonId.PIKACHU_VALUE ? MODIFIER.FAN
@@ -126,12 +127,12 @@ final class EncounterNotification {
 	}
 
 	@SuppressWarnings("StringBufferReplaceableByString")
-	private String getFooter(String type1, String type2, String pokemonClass) {
+	private String getFooter(PokemonType type1, PokemonType type2, PokemonRarity pokemonClass) {
 		return new StringBuilder()
-			.append(type1)
-			.append(type2.equalsIgnoreCase(PokemonType.POKEMON_TYPE_NONE.toString()) ? Strings.EMPTY : String.format(Locale.US, "/%s", type2))
+			.append(PokemonFormat.formatType(type1))
+			.append(type2 == PokemonType.POKEMON_TYPE_NONE ? Strings.EMPTY : String.format(Locale.US, "/%s", PokemonFormat.formatType(type2)))
 			.append(" - ")
-			.append(pokemonClass)
+			.append(PokemonFormat.formatRarity(pokemonClass))
 			.toString();
 	}
 

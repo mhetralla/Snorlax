@@ -168,9 +168,9 @@ public final class Encounter implements Feature {
 			probability.getPokeball(),
 			probability.getGreatball(),
 			probability.getUltraball(),
-			pokemon.getType1().toString(),
-			pokemon.getType2().toString(),
-			pokemon.getPokemonClass().toString()
+			pokemon.getType1(),
+			pokemon.getType2(),
+			pokemon.getPokemonClass()
 		);
 	}
 
