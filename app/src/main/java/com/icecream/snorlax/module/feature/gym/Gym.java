@@ -158,7 +158,7 @@ public class Gym implements Feature {
 		final GymData gymData = pokemonInfo.second;
 
 		if (Strings.isNullOrEmpty(gymData.id) && mGymManager.wasPokemonInGym(pokemonData.getId())) {
-			return Observable.just(new Pair<>(ACTION.POKEMON_REMOVE, new Pair<>(pokemonData, gymData)));
+			return Observable.just(new Pair<>(ACTION.POKEMON_REMOVE, new Pair<>(pokemonData, mGymManager.getPokemonInGym(pokemonData.getId()))));
 		} else if (!Strings.isNullOrEmpty(gymData.id) && !mGymManager.wasPokemonInGym(pokemonData.getId())) {
 			return Observable.just(new Pair<>(ACTION.POKEMON_ADD, new Pair<>(pokemonData, gymData)));
 		}
