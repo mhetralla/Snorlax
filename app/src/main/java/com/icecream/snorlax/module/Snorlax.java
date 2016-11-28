@@ -32,9 +32,9 @@ import com.icecream.snorlax.module.feature.gym.GymPersistence;
 import com.icecream.snorlax.module.feature.lure.Lure;
 import com.icecream.snorlax.module.feature.mitm.Mitm;
 import com.icecream.snorlax.module.feature.mock.Mock;
+import com.icecream.snorlax.module.feature.pokemondata.PokemonData;
 import com.icecream.snorlax.module.feature.rename.Rename;
 import com.icecream.snorlax.module.feature.safetynet.SafetyNet;
-import com.icecream.snorlax.module.feature.setting.Setting;
 import com.icecream.snorlax.module.feature.traffic.Traffic;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
@@ -52,7 +52,7 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	@Inject
 	Mitm mMitm;
 	@Inject
-	Setting mSetting;
+	PokemonData mPokemonData;
 	@Inject
 	Mock mMock;
 	@Inject
@@ -104,7 +104,7 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 				FeatureHelper.subscribe(
 					mSafetyNet,
 					mMitm,
-					mSetting,
+					mPokemonData,
 					mMock,
 					mCapture,
 					mEncounter,
@@ -124,7 +124,7 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 				FeatureHelper.unsubscribe(
 					mSafetyNet,
 					mMitm,
-					mSetting,
+					mPokemonData,
 					mMock,
 					mCapture,
 					mEncounter,

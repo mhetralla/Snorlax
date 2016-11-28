@@ -1,4 +1,4 @@
-package com.icecream.snorlax.module.feature.setting;
+package com.icecream.snorlax.module.feature.pokemondata;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,8 +33,8 @@ import POGOProtos.Networking.Responses.DownloadRemoteConfigVersionResponseOuterC
 import rx.Subscription;
 
 @Singleton
-public class Setting implements Feature {
-	private static final String LOG_PREFIX = "[" + Setting.class.getCanonicalName() + "]";
+public class PokemonData implements Feature {
+	private static final String LOG_PREFIX = "[" + PokemonData.class.getCanonicalName() + "]";
 	private static final String REMOTE_CONFIG_CACHE_PATH = "remote_config_cache";
 	private static final String GAME_MASTER_SUFIX = "_GAME_MASTER";
 
@@ -44,7 +44,7 @@ public class Setting implements Feature {
 	private Subscription mSubscription;
 
 	@Inject
-	public Setting(@PokemonGo Context context, final MitmRelay mitmRelay) {
+	public PokemonData(@PokemonGo Context context, final MitmRelay mitmRelay) {
 		this.mContext = context;
 		this.mMitmRelay = mitmRelay;
 	}
