@@ -7,13 +7,13 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
 ### Features:
 - Prevent PokemonGo from detecting GPS is being spoofed (similar to Mock Mock Locations)
 - Replace pokemons name with custom formats ([details](https://github.com/igoticecream/Snorlax/wiki/Custom-formats)) :
-  - Nickname
+  - Name, Nickname
   - Level
   - Type
   - Moves (name, type, power)
   - IV (%, attack, defence, stamina)
   - HP (current, max)
-  - CP (current, evolution)
+  - CP (current, evolution, last evolution, min, max)
   - <img src="https://cloud.githubusercontent.com/assets/498613/20669445/8f9b44ec-b574-11e6-91f7-81c2036a79bd.png" width="300px">
   - <img src="https://cloud.githubusercontent.com/assets/498613/20310033/ad7431c4-ab4a-11e6-9ad2-e0c84b9f9b5a.png" width="300px">
 - Show pokemon stats as a system notification when you encounter them :
