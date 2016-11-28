@@ -8,7 +8,7 @@ public class NotificationId {
 
 	private static final AtomicInteger ATOMIC_INTEGER = new AtomicInteger(ID_MAX);
 
-	public static int getID() {
+	public static int getUniqueID() {
 		return ATOMIC_INTEGER.incrementAndGet();
 	}
 }

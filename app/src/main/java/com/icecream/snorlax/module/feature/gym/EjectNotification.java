@@ -56,7 +56,7 @@ final class EjectNotification {
 			Notification notification = createNotification(pokemonNumber, pokemonName, gymName);
 			hideIcon(notification);
 
-			mNotificationManager.notify(NotificationId.getID(), notification);
+			mNotificationManager.notify(NotificationId.getUniqueID(), notification);
 		});
 	}
 
