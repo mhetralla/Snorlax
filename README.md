@@ -19,7 +19,7 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
 - Show pokemon stats as a system notification when you encounter them :
   - <img src="https://cloud.githubusercontent.com/assets/498613/20669600/5f94c1a0-b575-11e6-98e3-6bc64f75851d.png" width="300px">
   - <img src="https://cloud.githubusercontent.com/assets/498613/20669603/62ad4cfe-b575-11e6-81c0-122492dd6f5f.png" width="300px">
-- Show catch results (Success, Missed, Flee) as soon as you throw your pokeball
+- Show catch results (*Success*, *Missed*, *Flee*) as soon as you throw your pokeball
 - Show lure's remaining time
   - <img src="https://cloud.githubusercontent.com/assets/498613/20309733/6732152e-ab49-11e6-9f8c-a7276da34080.png" width="300px">
 - Show notification when a pokemon is ejected from a Gym :
