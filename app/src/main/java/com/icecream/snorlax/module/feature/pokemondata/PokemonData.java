@@ -107,12 +107,11 @@ public class PokemonData implements Feature {
 	private File getValidGameMaster(final long lastTimestamp) {
 		final File filesDir = mContext.getExternalFilesDir(null);
 		final File remoteConfigCacheDir = new File(filesDir, REMOTE_CONFIG_CACHE_PATH);
-		final File[] gameMasterArray = remoteConfigCacheDir.listFiles((dir, name) -> {
-			return name.endsWith(GAME_MASTER_SUFIX);
-		});
+		final File[] gameMasterArray = remoteConfigCacheDir.listFiles((dir, name) -> name.endsWith(GAME_MASTER_SUFIX));
 		if (gameMasterArray == null) {
 			return null;
 		}
+
 		final List<File> gameMasterFiles = Arrays.asList(gameMasterArray);
 
 		File lastGameMasterFile = null;
