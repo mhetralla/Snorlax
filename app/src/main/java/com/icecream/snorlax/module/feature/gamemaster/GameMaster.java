@@ -1,23 +1,30 @@
-package com.icecream.snorlax.module.feature.pokemondata;
+package com.icecream.snorlax.module.feature.gamemaster;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import android.content.Context;
+import android.content.res.Resources;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.icecream.snorlax.common.Strings;
 import com.icecream.snorlax.common.rx.RxFuncitons;
 import com.icecream.snorlax.module.context.pokemongo.PokemonGo;
+import com.icecream.snorlax.module.context.snorlax.Snorlax;
 import com.icecream.snorlax.module.feature.Feature;
 import com.icecream.snorlax.module.feature.mitm.MitmMessages;
 import com.icecream.snorlax.module.feature.mitm.MitmRelay;
@@ -25,6 +32,7 @@ import com.icecream.snorlax.module.feature.mitm.MitmUtil;
 import com.icecream.snorlax.module.pokemon.MoveSettingsRegistry;
 import com.icecream.snorlax.module.pokemon.PokemonSettingsRegistry;
 import com.icecream.snorlax.module.util.Log;
+import com.icecream.snorlax.module.util.Storage;
 
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import POGOProtos.Networking.Responses.DownloadItemTemplatesResponseOuterClass.DownloadItemTemplatesResponse;
@@ -33,44 +41,46 @@ import POGOProtos.Networking.Responses.DownloadRemoteConfigVersionResponseOuterC
 import rx.Subscription;
 
 @Singleton
-public class PokemonData implements Feature {
-	private static final String LOG_PREFIX = "[" + PokemonData.class.getCanonicalName() + "]";
+public class GameMaster implements Feature {
+	private static final String LOG_PREFIX = "[" + GameMaster.class.getCanonicalName() + "]";
+	private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyMMddHHmmssSS", Locale.US);
 	private static final String REMOTE_CONFIG_CACHE_PATH = "remote_config_cache";
 	private static final String GAME_MASTER_SUFIX = "_GAME_MASTER";
 
 	private final Context mContext;
 	private final MitmRelay mMitmRelay;
+	private final GameMasterNotification mNotification;
 
-	private Subscription mSubscription;
+	private Subscription mSubConfigVersion;
+	private Subscription mSubItemTemplates;
+	private File mGameMasterDir;
 
 	@Inject
-	public PokemonData(@PokemonGo Context context, final MitmRelay mitmRelay) {
+	public GameMaster(@PokemonGo final Context context, @Snorlax final Resources resources, final MitmRelay mitmRelay, final GameMasterNotification notification) {
 		this.mContext = context;
 		this.mMitmRelay = mitmRelay;
+		this.mNotification = notification;
+
+		this.mGameMasterDir = new File(Storage.getPublicDirectory(resources), "game_master");
 	}
 
 	@Override
 	public void subscribe() throws Exception {
-		mSubscription = mMitmRelay
+		mSubConfigVersion = mMitmRelay
 			.getObservable()
-			.flatMap(MitmUtil.filterResponse(RequestType.DOWNLOAD_REMOTE_CONFIG_VERSION, RequestType.DOWNLOAD_ITEM_TEMPLATES))
-			.subscribe(messages -> {
-				switch (messages.requestType) {
-					case DOWNLOAD_REMOTE_CONFIG_VERSION:
-						onConfigVersionBytes(messages);
-						break;
-					case DOWNLOAD_ITEM_TEMPLATES:
-						onItemTemplateBytes(messages);
-						break;
-					default:
-						break;
-				}
-			}, Log::e);
+			.flatMap(MitmUtil.filterResponse(RequestType.DOWNLOAD_REMOTE_CONFIG_VERSION))
+			.subscribe(this::onConfigVersionBytes, Log::e);
+
+		mSubItemTemplates = mMitmRelay
+			.getObservable()
+			.flatMap(MitmUtil.filterResponse(RequestType.DOWNLOAD_ITEM_TEMPLATES))
+			.subscribe(this::onItemTemplateBytes, Log::e);
 	}
 
 	@Override
 	public void unsubscribe() throws Exception {
-		RxFuncitons.unsubscribe(mSubscription);
+		RxFuncitons.unsubscribe(mSubConfigVersion);
+		RxFuncitons.unsubscribe(mSubItemTemplates);
 	}
 
 	private void onConfigVersionBytes(final MitmMessages messages) {
@@ -143,6 +153,35 @@ public class PokemonData implements Feature {
 			decodeItemTemplate(DownloadItemTemplatesResponse.parseFrom(responseBytes));
 		} catch (InvalidProtocolBufferException | NullPointerException e) {
 			Log.d("DownloadItemTemplatesResponse failed: %s", e.getMessage());
+			Log.e(e);
+		}
+
+		doBackup(responseBytes);
+
+		mNotification.show();
+	}
+
+	private void doBackup(final ByteString gameMasterBytes) {
+		if (!Storage.isExternalStorageWritable(mContext)) {
+			return;
+		}
+
+		if (!mGameMasterDir.exists()) {
+			final boolean mkdirResult = mGameMasterDir.mkdirs();
+			if (!mkdirResult) {
+				Log.d("Failed to create directory : " + mGameMasterDir.getAbsolutePath());
+				return;
+			}
+		}
+
+		final String formattedDate = DATE_FORMAT.format(Calendar.getInstance().getTime());
+		final File logFile = new File(mGameMasterDir, formattedDate + "_GAME_MASTER.raw");
+
+		try (FileOutputStream fos = new FileOutputStream(logFile, true);
+			 FileChannel channel = fos.getChannel()
+		) {
+			channel.write(gameMasterBytes.asReadOnlyByteBuffer());
+		} catch (IOException e) {
 			Log.e(e);
 		}
 	}

@@ -18,8 +18,6 @@ package com.icecream.snorlax.module.pokemon;
 
 import java.util.EnumMap;
 
-import com.icecream.snorlax.module.util.Log;
-
 import POGOProtos.Settings.Master.MoveSettingsOuterClass.MoveSettings;
 
 import static POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
@@ -38,7 +36,6 @@ public final class MoveSettingsRegistry {
 	}
 
 	public static void registerMoveSetting(final MoveSettings moveSettings) {
-		Log.d("Register move " + moveSettings.getMovementId());
 		sMeta.put(moveSettings.getMovementId(), moveSettings);
 	}
 }
