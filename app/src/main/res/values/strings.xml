@@ -23,7 +23,7 @@
 	<string name="error_pokemon_missing">Install Pokemon Go to launch it</string>
 
 	<string name="notification_pokemondata_title">GAME_MASTER updated!</string>
-	<string name="notification_pokemondata_content">Backup done</string>
+	<string name="notification_pokemondata_content">%s</string>
 
 	<string name="notification_gym_eject_title">%1$s lost the battle!</string>
 	<string name="notification_gym_eject_content">Ejected from : %s</string>
@@ -170,8 +170,8 @@
 	<string name="preference_advanced_log_traffic_enable_summary"></string>
 
 	<string name="preference_advanced_gamemaster">Game Data</string>
-	<string name="preference_advanced_gamemaster_key">advanced_gamemaster_key</string>
-	<string name="preference_advanced_gamemaster_title">Alert on GAME_MASTER update</string>
-	<string name="preference_advanced_gamemaster_summary"></string>
+	<string name="preference_advanced_gamemaster_enable_key">advanced_gamemaster_key</string>
+	<string name="preference_advanced_gamemaster_enable_title">Alert on GAME_MASTER update</string>
+	<string name="preference_advanced_gamemaster_enable_summary"></string>
 
 </resources>

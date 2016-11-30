@@ -40,15 +40,14 @@ final class GameMasterPreferences {
 
 	boolean isEnabled() {
 		mPreferences.reload();
-		final boolean expected = getPreferenceDefaultValue();
-		return expected == getPreference(expected);
+		return getPreference(getPreferenceDefaultValue());
 	}
 
 	private boolean getPreferenceDefaultValue() {
-		return mResources.getBoolean(R.bool.preference_advanced_gamemaster_enable);
+		return mResources.getBoolean(R.bool.preference_advanced_gamemaster_enable_default);
 	}
 
 	private boolean getPreference(boolean defaultValue) {
-		return mPreferences.getBoolean(mResources.getString(R.string.preference_advanced_gamemaster_key), defaultValue);
+		return mPreferences.getBoolean(mResources.getString(R.string.preference_advanced_gamemaster_enable_key), defaultValue);
 	}
 }

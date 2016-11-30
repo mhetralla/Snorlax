@@ -34,10 +34,10 @@
 		>
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_advanced_gamemaster_default"
-			android:key="@string/preference_advanced_gamemaster_key"
-			android:summary="@string/preference_advanced_gamemaster_summary"
-			android:title="@string/preference_advanced_gamemaster_title"
+			android:defaultValue="@bool/preference_advanced_gamemaster_enable_default"
+			android:key="@string/preference_advanced_gamemaster_enable_key"
+			android:summary="@string/preference_advanced_gamemaster_enable_summary"
+			android:title="@string/preference_advanced_gamemaster_enable_title"
 			/>
 
 	</PreferenceCategory>

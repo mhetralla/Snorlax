@@ -1,5 +1,8 @@
 package com.icecream.snorlax.module.feature.gamemaster;
 
+import java.text.DateFormat;
+import java.util.Locale;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -19,6 +22,7 @@ import com.icecream.snorlax.module.util.Log;
 
 @Singleton
 public class GameMasterNotification {
+	private final DateFormat DATE_FORMAT = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT, Locale.US);
 	private final Context mContext;
 	private final NotificationManager mNotificationManager;
 
@@ -28,10 +32,10 @@ public class GameMasterNotification {
 		this.mNotificationManager = mNotificationManager;
 	}
 
-	void show() {
+	void show(final long timestampMs) {
 		new Handler(Looper.getMainLooper()).post(() -> {
 			try {
-				final Notification notification = createNotification();
+				final Notification notification = createNotification(timestampMs);
 
 				mNotificationManager.notify(NotificationId.getUniqueID(), notification);
 			} catch (Exception e) {
@@ -40,11 +44,11 @@ public class GameMasterNotification {
 		});
 	}
 
-	private Notification createNotification() {
+	private Notification createNotification(final long timestampMs) {
 		return new NotificationCompat.Builder(mContext)
 			.setSmallIcon(R.drawable.ic_pokeball)
 			.setContentTitle(mContext.getString(R.string.notification_pokemondata_title))
-			.setContentText(mContext.getString(R.string.notification_pokemondata_content))
+			.setContentText(mContext.getString(R.string.notification_pokemondata_content, DATE_FORMAT.format(timestampMs)))
 			.setColor(ContextCompat.getColor(mContext, R.color.red_700))
 			.setAutoCancel(true)
 			.setPriority(Notification.PRIORITY_MAX)

@@ -12,5 +12,5 @@
 	<bool name="preference_gymeject_notification_default">true</bool>
 	<bool name="preference_advanced_broadcast_map_enable">true</bool>
 	<bool name="preference_advanced_log_traffic_enable">false</bool>
-	<bool name="preference_advanced_gamemaster_enable">false</bool>
+	<bool name="preference_advanced_gamemaster_enable_default">false</bool>
 </resources>

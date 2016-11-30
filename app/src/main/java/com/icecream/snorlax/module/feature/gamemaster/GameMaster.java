@@ -152,22 +152,25 @@ public class GameMaster implements Feature {
 
 	private void onItemTemplateBytes(final MitmMessages messages) {
 		final ByteString responseBytes = messages.response;
+		long timestampMs;
 		try {
-			decodeItemTemplate(DownloadItemTemplatesResponse.parseFrom(responseBytes));
+			timestampMs = decodeItemTemplate(DownloadItemTemplatesResponse.parseFrom(responseBytes));
 		} catch (InvalidProtocolBufferException | NullPointerException e) {
 			Log.d("DownloadItemTemplatesResponse failed: %s", e.getMessage());
 			Log.e(e);
+
+			return;
 		}
 
 
 		if (mPreferences.isEnabled()) {
-			doBackup(responseBytes);
+			doBackup(responseBytes, timestampMs);
 
-			mNotification.show();
+			mNotification.show(timestampMs);
 		}
 	}
 
-	private void doBackup(final ByteString gameMasterBytes) {
+	private void doBackup(final ByteString gameMasterBytes, final long timestampMs) {
 		if (!Storage.isExternalStorageWritable(mContext)) {
 			return;
 		}
@@ -181,7 +184,7 @@ public class GameMaster implements Feature {
 		}
 
 		final String formattedDate = DATE_FORMAT.format(Calendar.getInstance().getTime());
-		final File logFile = new File(mGameMasterDir, formattedDate + "_GAME_MASTER.raw");
+		final File logFile = new File(mGameMasterDir, formattedDate + "_" + Long.toString(timestampMs) + GAME_MASTER_SUFIX + ".raw");
 
 		try (FileOutputStream fos = new FileOutputStream(logFile, true);
 			 FileChannel channel = fos.getChannel()
