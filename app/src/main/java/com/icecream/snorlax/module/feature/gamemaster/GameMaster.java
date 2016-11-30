@@ -43,12 +43,14 @@ import rx.Subscription;
 @Singleton
 public class GameMaster implements Feature {
 	private static final String LOG_PREFIX = "[" + GameMaster.class.getCanonicalName() + "]";
+
 	private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyMMddHHmmssSS", Locale.US);
 	private static final String REMOTE_CONFIG_CACHE_PATH = "remote_config_cache";
 	private static final String GAME_MASTER_SUFIX = "_GAME_MASTER";
 
 	private final Context mContext;
 	private final MitmRelay mMitmRelay;
+	private final GameMasterPreferences mPreferences;
 	private final GameMasterNotification mNotification;
 
 	private Subscription mSubConfigVersion;
@@ -56,9 +58,10 @@ public class GameMaster implements Feature {
 	private File mGameMasterDir;
 
 	@Inject
-	public GameMaster(@PokemonGo final Context context, @Snorlax final Resources resources, final MitmRelay mitmRelay, final GameMasterNotification notification) {
+	public GameMaster(@PokemonGo final Context context, @Snorlax final Resources resources, final MitmRelay mitmRelay, final GameMasterPreferences preferences, final GameMasterNotification notification) {
 		this.mContext = context;
 		this.mMitmRelay = mitmRelay;
+		this.mPreferences = preferences;
 		this.mNotification = notification;
 
 		this.mGameMasterDir = new File(Storage.getPublicDirectory(resources), "game_master");
@@ -156,9 +159,12 @@ public class GameMaster implements Feature {
 			Log.e(e);
 		}
 
-		doBackup(responseBytes);
 
-		mNotification.show();
+		if (mPreferences.isEnabled()) {
+			doBackup(responseBytes);
+
+			mNotification.show();
+		}
 	}
 
 	private void doBackup(final ByteString gameMasterBytes) {
@@ -186,7 +192,7 @@ public class GameMaster implements Feature {
 		}
 	}
 
-	private void decodeItemTemplate(final DownloadItemTemplatesResponse response) {
+	private long decodeItemTemplate(final DownloadItemTemplatesResponse response) {
 		for (final ItemTemplate itemTemplate : response.getItemTemplatesList()) {
 			if (itemTemplate.hasMoveSettings()) {
 				MoveSettingsRegistry.registerMoveSetting(itemTemplate.getMoveSettings());
@@ -196,5 +202,7 @@ public class GameMaster implements Feature {
 				PokemonSettingsRegistry.registerPokemonSetting(itemTemplate.getPokemonSettings());
 			}
 		}
+
+		return response.getTimestampMs();
 	}
 }

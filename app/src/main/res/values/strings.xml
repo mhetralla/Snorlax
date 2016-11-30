@@ -169,4 +169,9 @@
 	<string name="preference_advanced_log_traffic_enable_title">Log network traffic</string>
 	<string name="preference_advanced_log_traffic_enable_summary"></string>
 
+	<string name="preference_advanced_gamemaster">Game Data</string>
+	<string name="preference_advanced_gamemaster_key">advanced_gamemaster_key</string>
+	<string name="preference_advanced_gamemaster_title">Alert on GAME_MASTER update</string>
+	<string name="preference_advanced_gamemaster_summary"></string>
+
 </resources>
