@@ -2,11 +2,11 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	package="com.icecream.snorlax"
+	package="com.alucas.snorlax"
 	>
 
 	<application
-		android:name=".app.SnorlaxApp"
+		android:name="com.alucas.snorlax.app.SnorlaxApp"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
 		android:theme="@style/Snorlax"
@@ -26,7 +26,7 @@
 			/>
 
 		<activity
-			android:name=".app.home.HomeActivity"
+			android:name="com.alucas.snorlax.app.home.HomeActivity"
 			android:label="@string/app_name"
 			android:theme="@style/Snorlax.Activity"
 			>
@@ -37,7 +37,7 @@
 		</activity>
 
 		<receiver
-			android:name="com.icecream.snorlax.app.receiver.MapReceiver"
+			android:name="com.alucas.snorlax.app.receiver.MapReceiver"
 			android:enabled="true"
 			android:exported="true"
 			tools:ignore="ExportedReceiver"
