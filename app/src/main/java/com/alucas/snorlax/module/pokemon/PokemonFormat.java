@@ -42,6 +42,6 @@ public class PokemonFormat {
 	}
 
 	public static String formatRarity(final PokemonRarity pokemonRarity) {
-		return Strings.capitalize(pokemonRarity.toString().replace(POKEMON_RARITY_PREFIX, Strings.EMPTY).toLowerCase());
+		return Strings.capitalize(pokemonRarity.toString().replace(POKEMON_RARITY_PREFIX, Strings.EMPTY).toLowerCase(Locale.US));
 	}
 }
