@@ -96,7 +96,7 @@
 	<string name="preference_rename_format_enable_key">rename_format_key</string>
 	<string name="preference_rename_format_enable_title">Edit format</string>
 	<string name="preference_rename_format_enable_summary"/>
-	<string name="preference_rename_format_enable_default">%IVP.0% %ATT%/%DEF%/%STA% %LVL%</string>
+	<string name="preference_rename_format_enable_default">%IV% %ATT%/%DEF%/%STA% %LVL%</string>
 	<string name="preference_rename_format_enable_dialog_title">Enter a format</string>
 
 	<string name="preference_rename_format_name" formatted="false"><b>%NAME%</b> : Shows pokemon full name.\n<tt>%NAME% -> Snorlax</tt></string>
