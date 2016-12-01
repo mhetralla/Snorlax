@@ -25,6 +25,7 @@ import com.alucas.snorlax.R;
 import com.alucas.snorlax.module.context.snorlax.Snorlax;
 
 import de.robv.android.xposed.XSharedPreferences;
+import rx.Observable;
 
 @Singleton
 final class GameMasterPreferences {
@@ -38,9 +39,11 @@ final class GameMasterPreferences {
 		mPreferences = preferences;
 	}
 
-	boolean isEnabled() {
-		mPreferences.reload();
-		return getPreference(getPreferenceDefaultValue());
+	<T> Observable.Transformer<T, T> isEnabled() {
+		return observable -> observable
+			.doOnNext(t -> mPreferences.reload())
+			.filter(t -> getPreference(getPreferenceDefaultValue()))
+			;
 	}
 
 	private boolean getPreferenceDefaultValue() {
