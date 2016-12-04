@@ -48,7 +48,7 @@ public class CollectDefenderBonus implements Feature {
 			.compose(getCollectDefenderBonus())
 			.filter(response -> response.getResult() == Result.SUCCESS)
 			.subscribe(response -> {
-				final Intent intent = new Intent(ACTION_COLLECT_DEFENDER_BONUS);
+				final Intent intent = new Intent(ACTION_COLLECT_DEFENDER_BONUS).addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
 				alarmIntent = PendingIntent.getBroadcast(mContext, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 				mAlarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 1000 * 5, alarmIntent);
