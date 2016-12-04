@@ -20,16 +20,18 @@ import java.util.List;
 
 import javax.inject.Singleton;
 
+import android.app.AlarmManager;
 import android.app.Application;
+import android.content.Context;
 import android.util.LongSparseArray;
 
+import com.alucas.snorlax.common.rx.RxBus;
+import com.alucas.snorlax.module.feature.mitm.MitmRelay;
+import com.alucas.snorlax.module.util.GsonAdapterFactory;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapterFactory;
-import com.alucas.snorlax.common.rx.RxBus;
-import com.alucas.snorlax.module.feature.mitm.MitmRelay;
-import com.alucas.snorlax.module.util.GsonAdapterFactory;
 
 import dagger.Module;
 import dagger.Provides;
@@ -97,5 +99,11 @@ final class SnorlaxModule {
 			.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
 			.registerTypeAdapterFactory(typeAdapterFactory)
 			.create();
+	}
+
+	@Provides
+	@Singleton
+	AlarmManager provideAlarmManager() {
+		return (AlarmManager) mApplication.getSystemService(Context.ALARM_SERVICE);
 	}
 }

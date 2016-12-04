@@ -2,7 +2,13 @@ package com.alucas.snorlax.module.feature.collect;
 
 import javax.inject.Inject;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+
 import com.alucas.snorlax.common.rx.RxFuncitons;
+import com.alucas.snorlax.module.context.pokemongo.PokemonGo;
 import com.alucas.snorlax.module.feature.Feature;
 import com.alucas.snorlax.module.feature.mitm.MitmEnvelope;
 import com.alucas.snorlax.module.feature.mitm.MitmRelay;
@@ -16,12 +22,20 @@ import rx.Observable;
 import rx.Subscription;
 
 public class CollectDefenderBonus implements Feature {
+	private final String ACTION_COLLECT_DEFENDER_BONUS = "com.alucas.snorlax.BROADCAST_COLLECT_DEFENDER_BONUS";
+
 	private final MitmRelay mMitmRelay;
+
+	private final Context mContext;
+	private AlarmManager mAlarmManager;
+	private PendingIntent alarmIntent;
 
 	private Subscription mSubscriber;
 
 	@Inject
-	public CollectDefenderBonus(MitmRelay mMitmRelay) {
+	public CollectDefenderBonus(@PokemonGo final Context context, final AlarmManager alarmManager, final MitmRelay mMitmRelay) {
+		this.mContext = context;
+		this.mAlarmManager = alarmManager;
 		this.mMitmRelay = mMitmRelay;
 	}
 
@@ -34,7 +48,10 @@ public class CollectDefenderBonus implements Feature {
 			.compose(getCollectDefenderBonus())
 			.filter(response -> response.getResult() == Result.SUCCESS)
 			.subscribe(response -> {
-				// create alarm
+				final Intent intent = new Intent(ACTION_COLLECT_DEFENDER_BONUS);
+				alarmIntent = PendingIntent.getBroadcast(mContext, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+				mAlarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 1000 * 5, alarmIntent);
 			});
 	}
 

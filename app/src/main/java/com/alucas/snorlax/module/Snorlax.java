@@ -25,14 +25,15 @@ import com.alucas.snorlax.app.SnorlaxApp;
 import com.alucas.snorlax.module.feature.FeatureHelper;
 import com.alucas.snorlax.module.feature.broadcast.Broadcast;
 import com.alucas.snorlax.module.feature.capture.Capture;
+import com.alucas.snorlax.module.feature.collect.CollectDefenderBonus;
 import com.alucas.snorlax.module.feature.encounter.Encounter;
+import com.alucas.snorlax.module.feature.gamemaster.GameMaster;
 import com.alucas.snorlax.module.feature.gym.Eject;
 import com.alucas.snorlax.module.feature.gym.Gym;
 import com.alucas.snorlax.module.feature.gym.GymPersistence;
 import com.alucas.snorlax.module.feature.lure.Lure;
 import com.alucas.snorlax.module.feature.mitm.Mitm;
 import com.alucas.snorlax.module.feature.mock.Mock;
-import com.alucas.snorlax.module.feature.gamemaster.GameMaster;
 import com.alucas.snorlax.module.feature.rename.Rename;
 import com.alucas.snorlax.module.feature.safetynet.SafetyNet;
 import com.alucas.snorlax.module.feature.traffic.Traffic;
@@ -73,6 +74,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	GymPersistence mGymPersistence;
 	@Inject
 	Eject mEject;
+	@Inject
+	CollectDefenderBonus mCollectDefenderBonus;
 
 	private XSharedPreferences mXSharedPreferences;
 
@@ -114,7 +117,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mTraffic,
 					mGym,
 					mGymPersistence,
-					mEject
+					mEject,
+					mCollectDefenderBonus
 				);
 			}
 		});
@@ -133,7 +137,8 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mLure,
 					mTraffic,
 					mGym,
-					mEject
+					mEject,
+					mCollectDefenderBonus
 				);
 			}
 		});
