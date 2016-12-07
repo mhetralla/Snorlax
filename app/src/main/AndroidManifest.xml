@@ -5,14 +5,14 @@
 	package="com.alucas.snorlax"
 	>
 
+	<uses-permission android:name="android.permission.VIBRATE"/>
+
 	<application
 		android:name="com.alucas.snorlax.app.SnorlaxApp"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
 		android:theme="@style/Snorlax"
 		>
-
-		<uses-permission android:name="android.permission.VIBRATE"/>
 
 		<meta-data
 			android:name="xposedmodule"
