@@ -25,7 +25,7 @@ import com.alucas.snorlax.app.SnorlaxApp;
 import com.alucas.snorlax.module.feature.FeatureHelper;
 import com.alucas.snorlax.module.feature.broadcast.Broadcast;
 import com.alucas.snorlax.module.feature.capture.Capture;
-import com.alucas.snorlax.module.feature.collect.CollectDefenderBonus;
+import com.alucas.snorlax.module.feature.collect.CollectDefender;
 import com.alucas.snorlax.module.feature.encounter.Encounter;
 import com.alucas.snorlax.module.feature.gamemaster.GameMaster;
 import com.alucas.snorlax.module.feature.gym.Eject;
@@ -75,7 +75,7 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	@Inject
 	Eject mEject;
 	@Inject
-	CollectDefenderBonus mCollectDefenderBonus;
+	CollectDefender mCollectDefender;
 
 	private XSharedPreferences mXSharedPreferences;
 
@@ -118,7 +118,7 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mGym,
 					mGymPersistence,
 					mEject,
-					mCollectDefenderBonus
+					mCollectDefender
 				);
 			}
 		});
@@ -138,7 +138,7 @@ public class Snorlax implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 					mTraffic,
 					mGym,
 					mEject,
-					mCollectDefenderBonus
+					mCollectDefender
 				);
 			}
 		});

@@ -16,31 +16,17 @@
 
 package com.alucas.snorlax.app;
 
-import android.app.Application;
+import javax.inject.Singleton;
 
-import com.alucas.snorlax.BuildConfig;
+import com.alucas.snorlax.app.receiver.CollectDefenderReceiver;
 
-import timber.log.Timber;
+import dagger.Component;
 
-public class SnorlaxApp extends Application {
-
-	public static boolean isEnabled() {
-		return false;
-	}
-
-	@Override
-	public void onCreate() {
-		super.onCreate();
-
-		if (BuildConfig.DEBUG) {
-			Timber.plant(new Timber.DebugTree());
-		}
-	}
-
-	public SnorlaxAppComponent getComponent() {
-		return DaggerSnorlaxAppComponent
-			.builder()
-			.snorlaxAppModule(new SnorlaxAppModule(this))
-			.build();
-	}
+@FunctionalInterface
+@Singleton
+@Component(modules = {
+	SnorlaxAppModule.class
+})
+public interface SnorlaxAppComponent {
+	void inject(CollectDefenderReceiver receiver);
 }

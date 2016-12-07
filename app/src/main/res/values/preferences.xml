@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="preference_collect_defender_enable_key">collect_defender_enable_key</string>
+	<bool name="preference_collect_defender_enable_default">true</bool>
+	<string name="preference_collect_defender_enable_title">Enable defender bonus reminder</string>
+	<string name="preference_collect_defender_enable_description">Be notified when the defender bonus collection is available</string>
+</resources>

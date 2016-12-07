@@ -16,31 +16,34 @@
 
 package com.alucas.snorlax.app;
 
+import javax.inject.Singleton;
+
 import android.app.Application;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.res.Resources;
 
-import com.alucas.snorlax.BuildConfig;
+import dagger.Module;
+import dagger.Provides;
 
-import timber.log.Timber;
+@Module
+final class SnorlaxAppModule {
 
-public class SnorlaxApp extends Application {
+	private final Application mApplication;
 
-	public static boolean isEnabled() {
-		return false;
+	SnorlaxAppModule(final Application application) {
+		this.mApplication = application;
 	}
 
-	@Override
-	public void onCreate() {
-		super.onCreate();
-
-		if (BuildConfig.DEBUG) {
-			Timber.plant(new Timber.DebugTree());
-		}
+	@Provides
+	@Singleton
+	Resources provideResources() {
+		return mApplication.getResources();
 	}
 
-	public SnorlaxAppComponent getComponent() {
-		return DaggerSnorlaxAppComponent
-			.builder()
-			.snorlaxAppModule(new SnorlaxAppModule(this))
-			.build();
+	@Provides
+	@Singleton
+	NotificationManager provideNotificationManager() {
+		return (NotificationManager) mApplication.getSystemService(Context.NOTIFICATION_SERVICE);
 	}
 }

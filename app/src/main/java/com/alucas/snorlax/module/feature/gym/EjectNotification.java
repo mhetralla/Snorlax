@@ -76,6 +76,7 @@ final class EjectNotification {
 			.setContentText(mContext.getString(R.string.notification_gym_eject_content, gymName))
 			.setColor(ContextCompat.getColor(mContext, R.color.red_700))
 			.setAutoCancel(true)
+			.setVibrate(new long[]{0, 1000})
 			.setPriority(Notification.PRIORITY_MAX)
 			.setCategory(NotificationCompat.CATEGORY_ALARM)
 			.build();

@@ -106,5 +106,12 @@
 			android:title="@string/preference_gymeject_notification_enable_title"
 			/>
 
+		<SwitchPreference
+			android:defaultValue="@bool/preference_collect_defender_enable_default"
+			android:key="@string/preference_collect_defender_enable_key"
+			android:summary="@string/preference_collect_defender_enable_description"
+			android:title="@string/preference_collect_defender_enable_title"
+			/>
+
 	</PreferenceCategory>
 </PreferenceScreen>

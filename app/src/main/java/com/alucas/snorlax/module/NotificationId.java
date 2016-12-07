@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class NotificationId {
 	public static final int ID_ENCOUNTER = 100;
+	public static final int ID_COLLECT_DEFENDER_BONUS = 101;
 	public static final int ID_MAX = 1000;
 
 	private static final AtomicInteger ATOMIC_INTEGER = new AtomicInteger(ID_MAX);

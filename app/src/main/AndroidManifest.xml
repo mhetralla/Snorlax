@@ -12,6 +12,8 @@
 		android:theme="@style/Snorlax"
 		>
 
+		<uses-permission android:name="android.permission.VIBRATE"/>
+
 		<meta-data
 			android:name="xposedmodule"
 			android:value="true"
@@ -47,7 +49,7 @@
 		</receiver>
 
 		<receiver
-			android:name="com.alucas.snorlax.module.feature.collect.CollectDefenderReceiver"
+			android:name="com.alucas.snorlax.app.receiver.CollectDefenderReceiver"
 			android:enabled="true">
 			<intent-filter>
 				<action android:name="com.alucas.snorlax.BROADCAST_COLLECT_DEFENDER_BONUS"/>
