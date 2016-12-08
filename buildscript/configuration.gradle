@@ -18,7 +18,7 @@ ext {
             intentCollectDefender     : "com.alucas.snorlax.BROADCAST_COLLECT_DEFENDER_BONUS",
 
             // Project build
-            package                   : 'com.icecream.snorlax',
+            package                   : 'com.alucas.snorlax',
             minSdkVersion             : 19,
             versionCode               : version.count,
             versionName               : version.tag,

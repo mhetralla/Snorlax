@@ -5,8 +5,8 @@
 -keepattributes *Annotation*
 
 ## Xposed and Snorlax Module
--keep class com.icecream.snorlax.module.Snorlax{*;}
--keep class com.icecream.snorlax.app.SnorlaxApp{*;}
+-keep class com.alucas.snorlax.module.Snorlax{*;}
+-keep class com.alucas.snorlax.app.SnorlaxApp{*;}
 -keep class de.robv.android.xposed.**{*;}
 
 ## RxJava
