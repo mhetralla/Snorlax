@@ -75,7 +75,6 @@ To install directly to the phone connected via ADB
   - Create your feature branch: `git checkout -b my-new-feature`
   - Commit your changes: `git commit -am 'Useful information about your new features'`
   - Push to the branch: `git push origin my-new-feature`
-  - Submit a pull request on the `dev` (all pull request on master branch will be rejected)
 
 ## Special thanks
 Snorlax would not have been possible without:
