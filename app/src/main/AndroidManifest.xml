@@ -44,7 +44,7 @@
 			tools:ignore="ExportedReceiver"
 			>
 			<intent-filter>
-				<action android:name="com.icecream.snorlax.BROADCAST_MAP"/>
+				<action android:name="com.alucas.snorlax.BROADCAST_MAP"/>
 			</intent-filter>
 		</receiver>
 

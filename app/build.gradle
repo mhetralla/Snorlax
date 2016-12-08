@@ -34,6 +34,8 @@ android {
         buildConfigField 'String', 'INTENT_MAP', "\"${config.intentMap}\""
         buildConfigField 'String', 'INTENT_MAP_DATA', "\"${config.intentMapData}\""
 
+        buildConfigField 'String', 'INTENT_COLLECT_DEFENDER', "\"${config.intentCollectDefender}\""
+
         archivesBaseName = project.name.toLowerCase()
     }
     buildTypes {

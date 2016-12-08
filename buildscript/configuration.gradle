@@ -11,8 +11,11 @@ ext {
             xposedId                  : 'de.robv.android.xposed.installer',
 
             // Broadcast intents
-            intentMap                 : "com.icecream.snorlax.BROADCAST_MAP",
+            intentMap                 : "com.alucas.snorlax.BROADCAST_MAP",
             intentMapData             : "MAP_DATA",
+
+            // Collect defender intents
+            intentCollectDefender     : "com.alucas.snorlax.BROADCAST_COLLECT_DEFENDER_BONUS",
 
             // Project build
             package                   : 'com.icecream.snorlax',
