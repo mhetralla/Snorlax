@@ -52,9 +52,7 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
 ## Build source
 Clone the repository (you must have Git installed)
 ```
-git clone https://github.com/alucas/Snorlax.git
-cd .\Snorlax\
-git submodule update --init
+git clone --recursive https://github.com/alucas/Snorlax.git; cd Snorlax
 ```
 
 Build
