@@ -21,10 +21,13 @@ import javax.inject.Singleton;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.content.ContextCompat;
@@ -40,42 +43,49 @@ import com.alucas.snorlax.module.util.Resource;
 @Singleton
 final class EjectNotification {
 
-	private final Context mContext;
+	private final Context mSnorlaxContext;
+	private final Context mPokemonGoContext;
 	private final Resources mResources;
 	private final NotificationManager mNotificationManager;
 
 	@Inject
-	EjectNotification(@Snorlax Context context, @Snorlax Resources resources, @PokemonGo NotificationManager notificationManager) {
-		mContext = context;
+	EjectNotification(@Snorlax Context snorlaxContext, @PokemonGo Context pokemonGoContext, @Snorlax Resources resources, @PokemonGo NotificationManager notificationManager) {
+		mSnorlaxContext = snorlaxContext;
+		mPokemonGoContext = pokemonGoContext;
 		mResources = resources;
 		mNotificationManager = notificationManager;
 	}
 
-	void show(final int pokemonNumber, final String pokemonName, final String gymName) {
+	void show(final int pokemonNumber, final String pokemonName, final String gymName, final Double gymLatitude, final Double gymLongitude) {
 		new Handler(Looper.getMainLooper()).post(() -> {
-			Notification notification = createNotification(pokemonNumber, pokemonName, gymName);
+			Notification notification = createNotification(pokemonNumber, pokemonName, gymName, gymLatitude, gymLongitude);
 			hideIcon(notification);
 
 			mNotificationManager.notify(NotificationId.getUniqueID(), notification);
 		});
 	}
 
-	private Notification createNotification(final int pokemonNumber, final String pokemonName, final String gymName) {
-		return new NotificationCompat.Builder(mContext)
+	private Notification createNotification(final int pokemonNumber, final String pokemonName, final String gymName, final Double gymLatitude, final Double gymLongitude) {
+		final Uri posURI = Uri.parse("geo:" + gymLatitude + "," + gymLongitude + "?q=" + gymLatitude + "," + gymLongitude + "(" + gymName + ")");
+		final Intent posIntent = new Intent(Intent.ACTION_VIEW, posURI).setPackage("com.google.android.apps.maps");
+		final PendingIntent posPendingIntent = PendingIntent.getActivity(mPokemonGoContext, 0, posIntent, 0);
+
+		return new NotificationCompat.Builder(mSnorlaxContext)
 			.setSmallIcon(R.drawable.ic_eject)
 			.setLargeIcon(Bitmap.createScaledBitmap(
 				BitmapFactory.decodeResource(
 					mResources,
-					Resource.getPokemonResourceId(mContext, mResources, pokemonNumber)
+					Resource.getPokemonResourceId(mSnorlaxContext, mResources, pokemonNumber)
 				),
 				Resource.getLargeIconWidth(mResources),
 				Resource.getLargeIconHeight(mResources),
 				false
 			))
-			.setContentTitle(mContext.getString(R.string.notification_gym_eject_title, pokemonName))
-			.setContentText(mContext.getString(R.string.notification_gym_eject_content, gymName))
-			.setColor(ContextCompat.getColor(mContext, R.color.red_700))
+			.setContentTitle(mSnorlaxContext.getString(R.string.notification_gym_eject_title, pokemonName))
+			.setContentText(mSnorlaxContext.getString(R.string.notification_gym_eject_content, gymName))
+			.setColor(ContextCompat.getColor(mSnorlaxContext, R.color.red_700))
 			.setAutoCancel(true)
+			.setContentIntent(posPendingIntent)
 			.setVibrate(new long[]{0, 1000})
 			.setPriority(Notification.PRIORITY_MAX)
 			.setCategory(NotificationCompat.CATEGORY_ALARM)

@@ -47,7 +47,9 @@ public class Eject implements Feature {
 				mEjectNotification.show(
 					pokemon.getNumber(),
 					pokemon.getName(),
-					gymData.name);
+					gymData.name,
+					gymData.latitude,
+					gymData.longitude);
 			});
 	}
 

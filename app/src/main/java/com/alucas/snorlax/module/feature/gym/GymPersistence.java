@@ -10,11 +10,12 @@ import android.content.SharedPreferences;
 import android.util.LongSparseArray;
 import android.util.Pair;
 
-import com.alucas.snorlax.common.Strings;
 import com.alucas.snorlax.common.rx.RxFuncitons;
 import com.alucas.snorlax.module.context.pokemongo.PokemonGo;
 import com.alucas.snorlax.module.feature.Feature;
 import com.alucas.snorlax.module.util.Log;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
 import POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 import rx.Subscription;
@@ -22,17 +23,20 @@ import rx.Subscription;
 @Singleton
 public class GymPersistence implements Feature {
 	private static final String LOG_PREFIX = "[" + GymPersistence.class.getSimpleName() + "] ";
+
 	private static final String PREF_POKEMON_IN_GYM = "pokemonInGym";
 
 	private final Context mContext;
+	private final Gson mGson;
 	private final Gym mGym;
 	private final GymManager mGymManager;
 
 	private Subscription mSubscription;
 
 	@Inject
-	public GymPersistence(@PokemonGo final Context context, final Gym gym, final GymManager gymManager) {
+	public GymPersistence(@PokemonGo final Context context, final Gson gson, final Gym gym, final GymManager gymManager) {
 		this.mContext = context;
+		this.mGson = gson;
 		this.mGym = gym;
 		this.mGymManager = gymManager;
 
@@ -70,12 +74,26 @@ public class GymPersistence implements Feature {
 		final LongSparseArray<GymData> pokemonsInGym = new LongSparseArray<>();
 		final Map<String, ?> pokemonsInGymRaw = settings.getAll();
 		for (final Map.Entry<String, ?> pokemonEntry : pokemonsInGymRaw.entrySet()) {
+			final String gymIdString = pokemonEntry.getKey();
+			Long gymId;
 			try {
-				pokemonsInGym.put(Long.decode(pokemonEntry.getKey()), new GymData(Strings.EMPTY, (String) pokemonEntry.getValue()));
-				Log.d(LOG_PREFIX + "Load : " + pokemonEntry.getKey() + ", " + pokemonEntry.getValue());
-			} catch (NumberFormatException e) {
+				gymId = Long.decode(gymIdString);
+			} catch (JsonSyntaxException | NumberFormatException e) {
 				Log.e(e);
+				continue;
 			}
+
+			GymData gymData = null;
+			try {
+				gymData = mGson.fromJson((String) pokemonEntry.getValue(), GymData.class);
+			} catch (JsonSyntaxException e) {
+				Log.e(e);
+				gymData = new GymData(pokemonEntry.getKey());
+			}
+
+			pokemonsInGym.put(gymId, gymData);
+
+			Log.d(LOG_PREFIX + "Load : " + gymData.id + ", " + gymData.name);
 		}
 
 		return pokemonsInGym;
@@ -86,7 +104,7 @@ public class GymPersistence implements Feature {
 
 		final SharedPreferences settings = context.getSharedPreferences(PREF_POKEMON_IN_GYM, 0);
 		final SharedPreferences.Editor editor = settings.edit();
-		editor.putString(String.valueOf(pokemonUID), gymData.name);
+		editor.putString(String.valueOf(pokemonUID), mGson.toJson(gymData));
 		editor.apply();
 
 		mGymManager.savePokemonInGym(pokemonUID, gymData);

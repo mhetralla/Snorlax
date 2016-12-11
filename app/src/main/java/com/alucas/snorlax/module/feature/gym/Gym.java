@@ -8,13 +8,13 @@ import javax.inject.Singleton;
 
 import android.util.Pair;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.alucas.snorlax.common.Strings;
 import com.alucas.snorlax.module.feature.Feature;
 import com.alucas.snorlax.module.feature.mitm.MitmMessages;
 import com.alucas.snorlax.module.feature.mitm.MitmRelay;
 import com.alucas.snorlax.module.feature.mitm.MitmUtil;
 import com.alucas.snorlax.module.util.Log;
+import com.google.protobuf.InvalidProtocolBufferException;
 
 import POGOProtos.Data.Gym.GymMembershipOuterClass.GymMembership;
 import POGOProtos.Data.Gym.GymStateOuterClass.GymState;
@@ -33,7 +33,7 @@ import rx.Observable;
 @Singleton
 public class Gym implements Feature {
 	private static final String LOG_PREFIX = "[" + Gym.class.getSimpleName() + "] ";
-	private static final String GYM_NAME_UNKNOWN = "?";
+
 
 	private final MitmRelay mMitmRelay;
 	private final GymManager mGymManager;
@@ -113,10 +113,16 @@ public class Gym implements Feature {
 			}
 
 			final FortDetailsResponse gymDetails = response.getFortDetails();
-			final String gymName = gymDetails != null ? gymDetails.getName() : GYM_NAME_UNKNOWN;
-			final String gymId = gymDetails.getFortId();
+			if (gymDetails == null) {
+				continue;
+			}
 
-			return Observable.just(new Pair<>(pokemonData, new GymData(gymId, gymName)));
+			final String gymId = gymDetails.getFortId();
+			final String gymName = gymDetails.getName();
+			final Double gymLatitude = gymDetails.getLatitude();
+			final Double gymLongitude = gymDetails.getLongitude();
+
+			return Observable.just(new Pair<>(pokemonData, new GymData(gymId, gymName, gymLatitude, gymLongitude)));
 		}
 
 		return Observable.empty();
@@ -146,7 +152,7 @@ public class Gym implements Feature {
 				continue;
 			}
 
-			pokemons.add(new Pair<>(pokemonData, new GymData(pokemonData.getDeployedFortId(), GYM_NAME_UNKNOWN)));
+			pokemons.add(new Pair<>(pokemonData, new GymData(pokemonData.getDeployedFortId())));
 		}
 
 		return Observable.from(pokemons);
