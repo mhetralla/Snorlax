@@ -16,6 +16,7 @@
 
 package com.alucas.snorlax.module.feature.encounter;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -55,6 +56,28 @@ final class EncounterNotification {
 	private final Context mContext;
 	private final Resources mResources;
 	private final NotificationManager mNotificationManager;
+	private static final Map<PokemonType, Integer> TYPE_SYMBOL = new EnumMap<>(PokemonType.class);
+
+	static {
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_BUG, R.string.symbol_type_bug);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_DARK, R.string.symbol_type_dark);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_DRAGON, R.string.symbol_type_dragon);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_ELECTRIC, R.string.symbol_type_electric);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_FAIRY, R.string.symbol_type_fairy);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_FIGHTING, R.string.symbol_type_fighting);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_FIRE, R.string.symbol_type_fire);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_FLYING, R.string.symbol_type_flying);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_GHOST, R.string.symbol_type_ghost);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_GRASS, R.string.symbol_type_grass);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_GROUND, R.string.symbol_type_ground);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_ICE, R.string.symbol_type_ice);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_NORMAL, R.string.symbol_type_normal);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_POISON, R.string.symbol_type_poison);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_PSYCHIC, R.string.symbol_type_psychic);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_ROCK, R.string.symbol_type_rock);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_STEEL, R.string.symbol_type_steel);
+		TYPE_SYMBOL.put(PokemonType.POKEMON_TYPE_WATER, R.string.symbol_type_water);
+	}
 
 	@Inject
 	EncounterNotification(@Snorlax Context context, @Snorlax Resources resources, @PokemonGo NotificationManager notificationManager) {
@@ -68,13 +91,20 @@ final class EncounterNotification {
 	}
 
 	@SuppressWarnings("deprecation")
-	void show(int pokemonNumber, String pokemonName, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, MoveSettings move1, MoveSettings move2, double fleeRate, double pokeRate, double greatRate, double ultraRate, PokemonType type1, PokemonType type2, PokemonRarity pokemonClass) {
+	void show(int pokemonNumber, String pokemonName, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, MoveSettings fastMove, MoveSettings chargeMove, double fleeRate, double pokeRate, double greatRate, double ultraRate, PokemonType type1, PokemonType type2, PokemonRarity pokemonClass) {
 		final double weightRatio = weight / baseWeight;
 		final double heightRatio = height / baseHeight;
 		final MODIFIER resourceModifier = (pokemonNumber == PokemonId.PIKACHU_VALUE ? MODIFIER.FAN
 			: pokemonNumber == PokemonId.RATTATA_VALUE && heightRatio < 0.80 ? MODIFIER.YOUNGSTER
 			: pokemonNumber == PokemonId.MAGIKARP_VALUE && weightRatio > 1.30 ? MODIFIER.FISHERMAN
 			: MODIFIER.NO);
+
+		final String fastMoveName = PokemonFormat.formatMove(fastMove.getMovementId());
+		final String chargeMoveName = PokemonFormat.formatMove(chargeMove.getMovementId());
+		final String fastMoveTypeName = PokemonFormat.formatType(fastMove.getPokemonType());
+		final String chargeMoveTypeName = PokemonFormat.formatType(chargeMove.getPokemonType());
+		final String fastMoveTypeSymbol = TYPE_SYMBOL.containsKey(fastMove.getPokemonType()) ? mResources.getString(TYPE_SYMBOL.get(fastMove.getPokemonType())) : "?";
+		final String chargeMoveTypeSymbol = TYPE_SYMBOL.containsKey(chargeMove.getPokemonType()) ? mResources.getString(TYPE_SYMBOL.get(chargeMove.getPokemonType())) : "?";
 
 		final Map<String, Pair<String, Integer>> symbols = getSymbolReplacementTable();
 		new Handler(Looper.getMainLooper()).post(() -> {
@@ -92,11 +122,11 @@ final class EncounterNotification {
 				.setContentTitle(EncounterFormat.format(mContext.getString(R.string.notification_title, pokemonName, cp, level), symbols))
 				.setContentText(EncounterFormat.format(mContext.getString(R.string.notification_content, iv, fleeRate, pokeRate, greatRate, ultraRate), symbols))
 				.setStyle(new NotificationCompat.InboxStyle()
-					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_stats_content_iv, iv, attack, defense, stamina), symbols))
-					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_stats_content_hp, hp, fleeRate), symbols))
-					.addLine(EncounterFormat.bold(mContext.getString(R.string.notification_categoty_moves_title)))
-					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_moves_fast, PokemonFormat.formatMove(move1.getMovementId()), PokemonFormat.formatType(move1.getPokemonType()), move1.getPower()), symbols))
-					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_moves_charge, PokemonFormat.formatMove(move2.getMovementId()), PokemonFormat.formatType(move2.getPokemonType()), move2.getPower()), symbols))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_category_stats_content_iv, iv, attack, defense, stamina), symbols))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_category_stats_content_hp, hp, fleeRate), symbols))
+					.addLine(EncounterFormat.bold(mContext.getString(R.string.notification_category_moves_title)))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_category_moves_fast, fastMoveName, fastMoveTypeName, fastMove.getPower()), symbols))
+					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_category_moves_charge, chargeMoveName, chargeMoveTypeName, chargeMove.getPower()), symbols))
 					.addLine(EncounterFormat.bold(mContext.getString(R.string.notification_categoty_catch_title)))
 					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_categoty_catch_content, pokeRate, greatRate, ultraRate), symbols))
 					.setSummaryText(getFooter(type1, type2, pokemonClass))

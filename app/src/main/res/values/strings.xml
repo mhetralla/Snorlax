@@ -62,4 +62,23 @@
 	<string name="rename_format_typ2." formatted="false"><b>%TYP2.#%</b> : Trims pokemon second type by #.\n<tt>%TYP2.3% -> Ele</tt></string>
 	<string name="rename_format_note" formatted="false">Note: Snorlax wont format other that the above commands. This means that you could add a ‘%’ next to the Iv like this:\n<tt>%IV%% -> 6.7%</tt></string>
 
+	<string name="symbol_type_bug">🐞</string>
+	<string name="symbol_type_dark">🌒</string>
+	<string name="symbol_type_dragon">🐲</string>
+	<string name="symbol_type_electric">⚡</string>
+	<string name="symbol_type_fairy">🟏</string>
+	<string name="symbol_type_fighting">✊</string>
+	<string name="symbol_type_fire">🔥</string>
+	<string name="symbol_type_flying">༄</string>
+	<string name="symbol_type_ghost">👻</string>
+	<string name="symbol_type_grass">🍂</string>
+	<string name="symbol_type_ground">⛰</string>
+	<string name="symbol_type_ice">❄</string>
+	<string name="symbol_type_normal">⦿</string>
+	<string name="symbol_type_poison">💀</string>
+	<string name="symbol_type_psychic">ത</string>
+	<string name="symbol_type_rock">💎</string>
+	<string name="symbol_type_steel">⬢</string>
+	<string name="symbol_type_water">💧</string>
+
 </resources>

@@ -9,13 +9,13 @@
 	<string name="notification_title">%1$s - CP %2$d - Lvl %3$3.1f</string>
 	<string name="notification_content">{iv} %1$2.0f%% {flee} %2$2.0f%% {pokeball} %3$2.0f%% {greatball} %4$2.0f%% {ultraball} %5$2.0f%%</string>
 
-	<string name="notification_categoty_stats_title">Stats</string>
-	<string name="notification_categoty_stats_content_iv" tools:ignore="PluralsCandidate">{iv} %1$4.1f%% [%2$d att, %3$d def, %4$d sta]</string>
-	<string name="notification_categoty_stats_content_hp">{hp} %1$d - {flee} flee %2$2.0f%%</string>
+	<string name="notification_category_stats_title">Stats</string>
+	<string name="notification_category_stats_content_iv" tools:ignore="PluralsCandidate">{iv} %1$4.1f%% [%2$d att, %3$d def, %4$d sta]</string>
+	<string name="notification_category_stats_content_hp">{hp} %1$d - {flee} flee %2$2.0f%%</string>
 
-	<string name="notification_categoty_moves_title">Moves</string>
-	<string name="notification_categoty_moves_fast">%1$s (%2$s %3$3.1f)</string>
-	<string name="notification_categoty_moves_charge">%1$s (%2$s %3$3.1f)</string>
+	<string name="notification_category_moves_title">Moves</string>
+	<string name="notification_category_moves_fast">%1$s (%2$s %3$3.1f)</string>
+	<string name="notification_category_moves_charge">%1$s (%2$s %3$3.1f)</string>
 
 	<string name="notification_categoty_catch_title">Catch Rate</string>
 	<string name="notification_categoty_catch_content">{pokeball} Poké %1$2.0f%% - {greatball} Great %2$2.0f%% - {ultraball} Ultra %3$2.0f%%</string>
