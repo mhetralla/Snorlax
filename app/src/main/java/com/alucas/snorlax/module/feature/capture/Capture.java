@@ -21,20 +21,21 @@ import java.util.Locale;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import com.google.protobuf.ByteString;
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.alucas.snorlax.common.rx.RxBus;
 import com.alucas.snorlax.common.rx.RxFuncitons;
 import com.alucas.snorlax.module.feature.Feature;
-import com.alucas.snorlax.module.feature.mitm.MitmMessages;
+import com.alucas.snorlax.module.feature.mitm.MitmEnvelope;
 import com.alucas.snorlax.module.feature.mitm.MitmRelay;
 import com.alucas.snorlax.module.feature.mitm.MitmUtil;
 import com.alucas.snorlax.module.util.Log;
 
+import rx.Observable;
+import rx.Observable.Transformer;
 import rx.Subscription;
 
 import static POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import static POGOProtos.Networking.Responses.CatchPokemonResponseOuterClass.CatchPokemonResponse;
+import static POGOProtos.Networking.Responses.CatchPokemonResponseOuterClass.CatchPokemonResponse.CatchStatus;
 
 @Singleton
 public final class Capture implements Feature {
@@ -54,47 +55,48 @@ public final class Capture implements Feature {
 		mRxBus = rxBus;
 	}
 
-	private void onCapture(final MitmMessages messages) {
-		final ByteString bytes = messages.response;
-
-		try {
-			CatchPokemonResponse response = CatchPokemonResponse.parseFrom(bytes);
-
-			final CatchPokemonResponse.CatchStatus status = response.getStatus();
-
-			if (mPreferences.isEnabled() && !status.equals(CatchPokemonResponse.CatchStatus.CATCH_MISSED)) {
-				mCaptureNotification.show(formatCapture(response.getStatus().name()));
-			}
-			mRxBus.post(new CaptureEvent(status));
-		} catch (InvalidProtocolBufferException e) {
-			Log.d("CatchPokemonResponse failed: %s" + e.getMessage());
-			Log.e(e);
-		}
-	}
-
-	private String formatCapture(String status) {
-		StringBuilder builder = new StringBuilder();
-		for (String part : status.split("_")) {
-			builder
-				.append(part.charAt(0))
-				.append(part.substring(1).toLowerCase(Locale.US))
-				.append(" ");
-		}
-		return builder.toString().trim();
-	}
-
 	@Override
 	public void subscribe() {
 		unsubscribe();
 
 		mSubscription = mMitmRelay
 			.getObservable()
-			.flatMap(MitmUtil.filterResponse(RequestType.CATCH_POKEMON))
-			.subscribe(this::onCapture, Log::e);
+			.compose(mPreferences.isEnabled())
+			.compose(getCatchPokemon())
+			.filter(t -> !CatchStatus.CATCH_MISSED.equals(t.getStatus()))
+			.subscribe(this::onCatchPokemon, Log::e)
+		;
 	}
 
 	@Override
 	public void unsubscribe() {
 		RxFuncitons.unsubscribe(mSubscription);
+	}
+
+	private Transformer<MitmEnvelope, CatchPokemonResponse> getCatchPokemon() {
+		return observable -> observable
+			.flatMap(MitmUtil.filterResponse(RequestType.CATCH_POKEMON))
+			.flatMap(messages -> Observable.fromCallable(() -> CatchPokemonResponse.parseFrom(messages.response)))
+			.doOnError(Log::e)
+			.onErrorResumeNext(Observable.empty())
+			;
+	}
+
+	@SuppressWarnings("unused")
+	private void onCatchPokemon(final CatchPokemonResponse response) {
+		mCaptureNotification.show(formatCapture(response.getStatus().name()));
+		mRxBus.post(new CaptureEvent(response.getStatus()));
+	}
+
+	private String formatCapture(String status) {
+		final StringBuilder builder = new StringBuilder();
+		for (String part : status.split("_")) {
+			builder
+				.append(part.charAt(0))
+				.append(part.substring(1).toLowerCase(Locale.US))
+				.append(" ");
+		}
+
+		return builder.toString().trim();
 	}
 }

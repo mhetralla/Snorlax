@@ -23,8 +23,10 @@ import android.content.res.Resources;
 
 import com.alucas.snorlax.R;
 import com.alucas.snorlax.module.context.snorlax.Snorlax;
+import com.alucas.snorlax.module.feature.PreferencesUtil;
 
 import de.robv.android.xposed.XSharedPreferences;
+import rx.Observable.Transformer;
 
 @Singleton
 final class CapturePreferences {
@@ -38,17 +40,7 @@ final class CapturePreferences {
 		mPreferences = preferences;
 	}
 
-	boolean isEnabled() {
-		mPreferences.reload();
-		final boolean expected = getPreferenceDefaultValue();
-		return expected == getPreference(expected);
-	}
-
-	private boolean getPreferenceDefaultValue() {
-		return mResources.getBoolean(R.bool.preference_catch_notification_enable);
-	}
-
-	private boolean getPreference(boolean defaultValue) {
-		return mPreferences.getBoolean(mResources.getString(R.string.preference_catch_notification_enable_key), defaultValue);
+	<T> Transformer<T, T> isEnabled() {
+		return PreferencesUtil.isEnabled(mPreferences, mResources, R.bool.preference_catch_notification_enable, R.string.preference_catch_notification_enable_key);
 	}
 }
