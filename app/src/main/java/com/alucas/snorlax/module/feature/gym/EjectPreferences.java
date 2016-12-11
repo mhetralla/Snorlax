@@ -23,6 +23,7 @@ import android.content.res.Resources;
 
 import com.alucas.snorlax.R;
 import com.alucas.snorlax.module.context.snorlax.Snorlax;
+import com.alucas.snorlax.module.feature.PreferencesUtil;
 
 import de.robv.android.xposed.XSharedPreferences;
 import rx.Observable;
@@ -40,16 +41,6 @@ final class EjectPreferences {
 	}
 
 	<T> Observable.Transformer<T, T> isEnabled() {
-		return observable -> observable
-			.doOnNext(t -> mPreferences.reload())
-			.filter(t -> getPreference(getPreferenceDefaultValue()));
-	}
-
-	private boolean getPreferenceDefaultValue() {
-		return mResources.getBoolean(R.bool.preference_catch_notification_enable_default);
-	}
-
-	private boolean getPreference(boolean defaultValue) {
-		return mPreferences.getBoolean(mResources.getString(R.string.preference_catch_notification_enable_key), defaultValue);
+		return PreferencesUtil.isEnabled(mPreferences, mResources, R.bool.preference_gym_eject_notification_enable_default, R.string.preference_gym_eject_notification_enable_key);
 	}
 }
