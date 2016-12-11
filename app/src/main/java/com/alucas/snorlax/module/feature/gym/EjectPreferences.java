@@ -46,7 +46,7 @@ final class EjectPreferences {
 	}
 
 	private boolean getPreferenceDefaultValue() {
-		return mResources.getBoolean(R.bool.preference_catch_notification_enable);
+		return mResources.getBoolean(R.bool.preference_catch_notification_enable_default);
 	}
 
 	private boolean getPreference(boolean defaultValue) {

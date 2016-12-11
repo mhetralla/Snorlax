@@ -40,7 +40,7 @@ final class LurePreferences {
 
 	boolean isEnabled() {
 		mPreferences.reload();
-		final boolean expected = mResources.getBoolean(R.bool.preference_lure_enable);
+		final boolean expected = mResources.getBoolean(R.bool.preference_lure_enable_default);
 		return expected == mPreferences.getBoolean(mResources.getString(R.string.preference_lure_enable_key), expected);
 	}
 }

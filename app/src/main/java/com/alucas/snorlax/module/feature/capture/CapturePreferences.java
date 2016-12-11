@@ -41,6 +41,6 @@ final class CapturePreferences {
 	}
 
 	<T> Transformer<T, T> isEnabled() {
-		return PreferencesUtil.isEnabled(mPreferences, mResources, R.bool.preference_catch_notification_enable, R.string.preference_catch_notification_enable_key);
+		return PreferencesUtil.isEnabled(mPreferences, mResources, R.bool.preference_catch_notification_enable_default, R.string.preference_catch_notification_enable_key);
 	}
 }

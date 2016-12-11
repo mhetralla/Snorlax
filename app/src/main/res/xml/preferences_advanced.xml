@@ -4,40 +4,40 @@
 	>
 
 	<PreferenceCategory
-		android:title="@string/preference_advanced_broadcast"
+		android:title="@string/preference_broadcast_group"
 		>
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_advanced_broadcast_map_enable"
-			android:key="@string/preference_advanced_broadcast_map_enable_key"
-			android:summary="@string/preference_advanced_broadcast_map_enable_summary"
-			android:title="@string/preference_advanced_broadcast_map_enable_title"
+			android:defaultValue="@bool/preference_broadcast_map_enable_default"
+			android:key="@string/preference_broadcast_map_enable_key"
+			android:summary="@string/preference_broadcast_map_enable_summary"
+			android:title="@string/preference_broadcast_map_enable_title"
 			/>
 
 	</PreferenceCategory>
 
 	<PreferenceCategory
-		android:title="@string/preference_advanced_log"
+		android:title="@string/preference_log_group"
 		>
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_advanced_log_traffic_enable"
-			android:key="@string/preference_advanced_log_traffic_enable_key"
-			android:summary="@string/preference_advanced_log_traffic_enable_summary"
-			android:title="@string/preference_advanced_log_traffic_enable_title"
+			android:defaultValue="@bool/preference_log_traffic_enable_default"
+			android:key="@string/preference_log_traffic_enable_key"
+			android:summary="@string/preference_log_traffic_enable_summary"
+			android:title="@string/preference_log_traffic_enable_title"
 			/>
 
 	</PreferenceCategory>
 
 	<PreferenceCategory
-		android:title="@string/preference_advanced_gamemaster"
+		android:title="@string/preference_gamemaster_group"
 		>
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_advanced_gamemaster_enable_default"
-			android:key="@string/preference_advanced_gamemaster_enable_key"
-			android:summary="@string/preference_advanced_gamemaster_enable_summary"
-			android:title="@string/preference_advanced_gamemaster_enable_title"
+			android:defaultValue="@bool/preference_gamemaster_enable_default"
+			android:key="@string/preference_gamemaster_enable_key"
+			android:summary="@string/preference_gamemaster_enable_summary"
+			android:title="@string/preference_gamemaster_enable_title"
 			/>
 
 	</PreferenceCategory>

@@ -23,6 +23,7 @@ import android.content.res.Resources;
 
 import com.alucas.snorlax.R;
 import com.alucas.snorlax.module.context.snorlax.Snorlax;
+import com.alucas.snorlax.module.feature.PreferencesUtil;
 
 import de.robv.android.xposed.XSharedPreferences;
 import rx.Observable;
@@ -40,28 +41,10 @@ final class EncounterPreferences {
 	}
 
 	<T> Observable.Transformer<T, T> isDismissEnabled() {
-		return observable -> observable
-			.doOnNext(t -> mPreferences.reload())
-			.filter(t -> {
-				final boolean expected = mResources.getBoolean(R.bool.preference_encounter_dismiss_notification_enable);
-				return expected == mPreferences.getBoolean(mResources.getString(R.string.preference_encounter_dismiss_notification_enable_key), expected);
-			});
+		return PreferencesUtil.isEnabled(mPreferences, mResources, R.bool.preference_encounter_dismiss_notification_enable_default, R.string.preference_encounter_dismiss_notification_enable_key);
 	}
 
 	<T> Observable.Transformer<T, T> isEnabled() {
-		return observable -> observable
-			.doOnNext(t -> mPreferences.reload())
-			.filter(t -> {
-				final boolean expected = getPreferenceDefaultValue();
-				return expected == getPreference(expected);
-			});
-	}
-
-	private boolean getPreferenceDefaultValue() {
-		return mResources.getBoolean(R.bool.preference_encounter_notification_enable);
-	}
-
-	private boolean getPreference(boolean defaultValue) {
-		return mPreferences.getBoolean(mResources.getString(R.string.preference_encounter_notification_enable_key), defaultValue);
+		return PreferencesUtil.isEnabled(mPreferences, mResources, R.bool.preference_encounter_notification_enable_default, R.string.preference_encounter_notification_enable_key);
 	}
 }

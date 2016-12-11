@@ -1,7 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="preference_general_group">General</string>
+
+	<bool name="preference_general_mock_enable_default">true</bool>
+	<string name="preference_general_mock_enable_key">general_mock_key</string>
+	<string name="preference_general_mock_enable_title">Enable mock location</string>
+	<string name="preference_general_mock_enable_summary">Prevent detection of mocking locations apps</string>
+
+
+	<string name="preference_rename_group">Show pokemons stats</string>
+
+	<bool name="preference_rename_enable_default">true</bool>
+	<string name="preference_rename_enable_key">rename_key</string>
+	<string name="preference_rename_enable_title">Enable pokemons stats</string>
+	<string name="preference_rename_enable_summary">Show pokemons stats on their name at the inventory</string>
+
+	<bool name="preference_rename_favorite_enable_default">true</bool>
+	<string name="preference_rename_favorite_enable_key">rename_favorite_key</string>
+	<string name="preference_rename_favorite_enable_title">Show favorite pokemon stats</string>
+	<string name="preference_rename_favorite_enable_summary">Rename your favorite pokemons with their stats</string>
+
+	<bool name="preference_rename_already_enable_default">false</bool>
+	<string name="preference_rename_already_enable_key">rename_already_key</string>
+	<string name="preference_rename_already_enable_title">Show nicknamed pokemon stats</string>
+	<string name="preference_rename_already_enable_summary">Rename your already nicknamed pokemons with their stats</string>
+
+	<string name="preference_rename_format_default">%IV% [%ATT%/%DEF%/%STA% %LVL%]</string>
+	<string name="preference_rename_format_key">rename_format_key</string>
+	<string name="preference_rename_format_title">Edit format</string>
+	<string name="preference_rename_format_summary"/>
+	<string name="preference_rename_format_dialog_title">Enter a format</string>
+	<string name="preference_rename_format_button_help">Info</string>
+
+
+	<string name="preference_encounter_group">Encounter Notifications</string>
+
+	<bool name="preference_encounter_notification_enable_default">true</bool>
+	<string name="preference_encounter_notification_enable_key">encounter_notification_key</string>
+	<string name="preference_encounter_notification_enable_title">Enable encounter notifications</string>
+	<string name="preference_encounter_notification_enable_summary">Show encounter pokemons stats via system notification</string>
+
+	<bool name="preference_encounter_dismiss_notification_enable_default">true</bool>
+	<string name="preference_encounter_dismiss_notification_enable_key">encounter_dismiss_notification_key</string>
+	<string name="preference_encounter_dismiss_notification_enable_title">Enable dismiss notifications</string>
+	<string name="preference_encounter_dismiss_notification_enable_summary">Automatically dismiss notifications when catch status is success or flee</string>
+
+
+	<string name="preference_catch_group">Catch Notifications</string>
+
+	<bool name="preference_catch_notification_enable_default">true</bool>
+	<string name="preference_catch_notification_enable_key">catch_notification_key</string>
+	<string name="preference_catch_notification_enable_title">Enable catch notifications</string>
+	<string name="preference_catch_notification_enable_summary">Show catch result via system toast</string>
+
+
+	<string name="preference_lure_group">Lure</string>
+
+	<bool name="preference_lure_enable_default">true</bool>
+	<string name="preference_lure_enable_key">lure_enable_key</string>
+	<string name="preference_lure_enable_title">Show lure remaining time</string>
+	<string name="preference_lure_enable_summary">Show lure remaining time after the owner name</string>
+
+
+	<string name="preference_gym_group">Gym</string>
+
+	<bool name="preference_gym_eject_notification_enable_default">true</bool>
+	<string name="preference_gym_eject_notification_enable_key">gym_eject_notification_key</string>
+	<string name="preference_gym_eject_notification_enable_title">Alert on gym ejection</string>
+	<string name="preference_gym_eject_notification_enable_summary">Show a notification when a pokemon is ejected from a gym</string>
+
+	<bool name="preference_collect_defender_enable_default">false</bool>
 	<string name="preference_collect_defender_enable_key">collect_defender_enable_key</string>
-	<bool name="preference_collect_defender_enable_default">true</bool>
 	<string name="preference_collect_defender_enable_title">Enable defender bonus reminder</string>
 	<string name="preference_collect_defender_enable_description">Be notified when the defender bonus collection is available</string>
+
+	<!-- Advanced -->
+
+	<string name="preference_broadcast_group">Broadcast</string>
+
+	<bool name="preference_broadcast_map_enable_default">false</bool>
+	<string name="preference_broadcast_map_enable_key">map_enable_key</string>
+	<string name="preference_broadcast_map_enable_title">Broadcast map pokemons</string>
+	<string name="preference_broadcast_map_enable_summary">Send an intent with data about wild, map, nearby and disk pokemons around</string>
+
+
+	<string name="preference_log_group">Log</string>
+
+	<bool name="preference_log_traffic_enable_default">false</bool>
+	<string name="preference_log_traffic_enable_key">log_traffic_enable_key</string>
+	<string name="preference_log_traffic_enable_title">Log network traffic</string>
+	<string name="preference_log_traffic_enable_summary"/>
+
+
+	<string name="preference_gamemaster_group">Game Data</string>
+
+	<bool name="preference_gamemaster_enable_default">false</bool>
+	<string name="preference_gamemaster_enable_key">gamemaster_enable_key</string>
+	<string name="preference_gamemaster_enable_title">Alert on GAME_MASTER update</string>
+	<string name="preference_gamemaster_enable_summary"/>
 </resources>

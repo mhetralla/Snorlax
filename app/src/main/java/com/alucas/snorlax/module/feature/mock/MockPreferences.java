@@ -45,7 +45,7 @@ final class MockPreferences {
 	}
 
 	private boolean getPreferenceDefaultValue() {
-		return mResources.getBoolean(R.bool.preference_general_mock_enable);
+		return mResources.getBoolean(R.bool.preference_general_mock_enable_default);
 	}
 
 	private boolean getPreference(boolean defaultValue) {

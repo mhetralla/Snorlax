@@ -4,11 +4,11 @@
 	>
 
 	<PreferenceCategory
-		android:title="@string/preference_general"
+		android:title="@string/preference_general_group"
 		>
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_general_mock_enable"
+			android:defaultValue="@bool/preference_general_mock_enable_default"
 			android:key="@string/preference_general_mock_enable_key"
 			android:summary="@string/preference_general_mock_enable_summary"
 			android:title="@string/preference_general_mock_enable_title"
@@ -17,25 +17,25 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory
-		android:title="@string/preference_rename"
+		android:title="@string/preference_rename_group"
 		>
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_rename_enable"
+			android:defaultValue="@bool/preference_rename_enable_default"
 			android:key="@string/preference_rename_enable_key"
 			android:summary="@string/preference_rename_enable_summary"
 			android:title="@string/preference_rename_enable_title"
 			/>
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_rename_favorite_enable"
+			android:defaultValue="@bool/preference_rename_favorite_enable_default"
 			android:key="@string/preference_rename_favorite_enable_key"
 			android:summary="@string/preference_rename_favorite_enable_summary"
 			android:title="@string/preference_rename_favorite_enable_title"
 			/>
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_rename_already_enable"
+			android:defaultValue="@bool/preference_rename_already_enable_default"
 			android:key="@string/preference_rename_already_enable_key"
 			android:summary="@string/preference_rename_already_enable_summary"
 			android:title="@string/preference_rename_already_enable_title"
@@ -43,28 +43,28 @@
 
 		<!--suppress AndroidElementNotAllowed -->
 		<com.alucas.snorlax.app.widget.SummaryEditTextPreference
-			android:defaultValue="@string/preference_rename_format_enable_default"
-			android:dialogTitle="@string/preference_rename_format_enable_dialog_title"
-			android:key="@string/preference_rename_format_enable_key"
-			android:summary="@string/preference_rename_format_enable_summary"
-			android:title="@string/preference_rename_format_enable_title"
+			android:defaultValue="@string/preference_rename_format_default"
+			android:dialogTitle="@string/preference_rename_format_dialog_title"
+			android:key="@string/preference_rename_format_key"
+			android:summary="@string/preference_rename_format_summary"
+			android:title="@string/preference_rename_format_title"
 			/>
 
 	</PreferenceCategory>
 
 	<PreferenceCategory
-		android:title="@string/preference_encounter_notification"
+		android:title="@string/preference_encounter_group"
 		>
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_encounter_notification_enable"
+			android:defaultValue="@bool/preference_encounter_notification_enable_default"
 			android:key="@string/preference_encounter_notification_enable_key"
 			android:summary="@string/preference_encounter_notification_enable_summary"
 			android:title="@string/preference_encounter_notification_enable_title"
 			/>
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_encounter_dismiss_notification_enable"
+			android:defaultValue="@bool/preference_encounter_dismiss_notification_enable_default"
 			android:key="@string/preference_encounter_dismiss_notification_enable_key"
 			android:summary="@string/preference_encounter_dismiss_notification_enable_summary"
 			android:title="@string/preference_encounter_dismiss_notification_enable_title"
@@ -73,10 +73,10 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory
-		android:title="@string/preference_catch_notification">
+		android:title="@string/preference_catch_group">
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_catch_notification_enable"
+			android:defaultValue="@bool/preference_catch_notification_enable_default"
 			android:key="@string/preference_catch_notification_enable_key"
 			android:summary="@string/preference_catch_notification_enable_summary"
 			android:title="@string/preference_catch_notification_enable_title"
@@ -85,10 +85,10 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory
-		android:title="@string/preference_lure">
+		android:title="@string/preference_lure_group">
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_lure_enable"
+			android:defaultValue="@bool/preference_lure_enable_default"
 			android:key="@string/preference_lure_enable_key"
 			android:summary="@string/preference_lure_enable_summary"
 			android:title="@string/preference_lure_enable_title"
@@ -97,13 +97,13 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory
-		android:title="@string/preference_gym">
+		android:title="@string/preference_gym_group">
 
 		<SwitchPreference
-			android:defaultValue="@bool/preference_gymeject_notification_default"
-			android:key="@string/preference_gymeject_notification_enable_key"
-			android:summary="@string/preference_gymeject_notification_enable_summary"
-			android:title="@string/preference_gymeject_notification_enable_title"
+			android:defaultValue="@bool/preference_gym_eject_notification_enable_default"
+			android:key="@string/preference_gym_eject_notification_enable_key"
+			android:summary="@string/preference_gym_eject_notification_enable_summary"
+			android:title="@string/preference_gym_eject_notification_enable_title"
 			/>
 
 		<SwitchPreference

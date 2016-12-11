@@ -7,6 +7,7 @@ import android.content.res.Resources;
 
 import com.alucas.snorlax.R;
 import com.alucas.snorlax.module.context.snorlax.Snorlax;
+import com.alucas.snorlax.module.feature.PreferencesUtil;
 
 import de.robv.android.xposed.XSharedPreferences;
 import rx.Observable;
@@ -23,11 +24,6 @@ final class CollectDefenderPreferences {
 	}
 
 	<T> Observable.Transformer<T, T> isEnabled() {
-		return observable -> observable
-			.doOnNext(t -> mPreferences.reload())
-			.filter(t -> {
-				final boolean defaultValue = mResources.getBoolean(R.bool.preference_collect_defender_enable_default);
-				return mPreferences.getBoolean(mResources.getString(R.string.preference_collect_defender_enable_key), defaultValue);
-			});
+		return PreferencesUtil.isEnabled(mPreferences, mResources, R.bool.preference_collect_defender_enable_default, R.string.preference_collect_defender_enable_key);
 	}
 }

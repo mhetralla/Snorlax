@@ -11,7 +11,7 @@
 		android:id="@+id/help"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="@string/preference_edittext_help"
+		android:text="@string/preference_rename_format_button_help"
 		style="@style/Widget.AppCompat.Button.Colored"
 		/>
 </LinearLayout>
