@@ -24,12 +24,14 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
   - <img src="https://cloud.githubusercontent.com/assets/498613/20309733/6732152e-ab49-11e6-9f8c-a7276da34080.png" width="300px">
 - Show notification when a pokemon is ejected from a Gym :
   - <img src="https://cloud.githubusercontent.com/assets/498613/21016969/f58cdc70-bd67-11e6-995d-940f47e11507.png" width="300px">
+  - <img src="https://cloud.githubusercontent.com/assets/498613/21093558/cb89eefc-c052-11e6-9ea2-a3d3e386ddb2.png" width="300px">
+- Show a notification when it's time to collect your defender bonus :
+  - *add image*
 
 ### Dev features:
 - Broadcast [Intent](https://developer.android.com/reference/android/content/Intent.html) with nearby pokemon informations
 - Log network traffic (use Protobuf's ```protoc``` to decode it)
-
-
+- Track and notify update of the GAME_MASTER file
 
 ## Libraries and tools
 - Android's support libraries
