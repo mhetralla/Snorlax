@@ -1,8 +1,10 @@
 # Snorlax [![Build Status](https://travis-ci.org/alucas/Snorlax.svg?branch=master)](https://travis-ci.org/alucas/Snorlax) [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://github.com/alucas/Snorlax#donation) [![Github All Releases](https://img.shields.io/github/downloads/alucas/snorlax/total.svg)](https://github.com/alucas/Snorlax/releases) [![Github Releases](https://img.shields.io/github/downloads/alucas/snorlax/latest/total.svg)](https://github.com/alucas/Snorlax/releases/latest) [![GitHub release](https://img.shields.io/github/release/alucas/snorlax.svg)](https://github.com/alucas/Snorlax/releases/latest)
 
-Check pokemons stats and other stats.
-  
 This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) on Pokémon Go's communications with the server, and allows us to add extra *features* to the game.
+
+- It does not require your account or any information about you.
+- It does not communicate with the server at any time, so it's pretty safe against detection.
+- It doet not require any right (no data usage, ...)
 
 ### Features:
 - Prevent PokemonGo from detecting GPS is being spoofed (similar to Mock Mock Locations)
@@ -33,6 +35,18 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
 - Log network traffic (use Protobuf's ```protoc``` to decode it)
 - Track and notify update of the GAME_MASTER file
 
+# For users:
+## Installation requirements
+- Android (4.4 or +, Nougat is not supported for the moment)
+- Your device must be rooted
+- Xposed framekwork must be installed. You can download it [here](http://repo.xposed.info/module/de.robv.android.xposed.installer).
+- You need to hide Xposed and root to Pokemon Go to be able to play. It's the hard part and it's different for every devices, so Google is your friend. It can be done with tools like *suhide*, *root switch*, ...
+
+## Installation
+ - From the Xposed installer, look for the [*Snorlax Reloaded*](http://repo.xposed.info/module/com.alucas.snorlax) module
+ - OR manually install [the latest APK](https://github.com/alucas/Snorlax/releases/latest)
+
+# For devs:
 ## Libraries and tools
 - Android's support libraries
 - Reactive extensions: [RxJava](https://github.com/ReactiveX/RxJava), [RxAndroid](https://github.com/ReactiveX/RxAndroid), [RxBinding](https://github.com/JakeWharton/RxBinding) and [RxRelay](https://github.com/JakeWharton/RxRelay)
@@ -78,6 +92,7 @@ To install directly to the phone connected via ADB
   - Commit your changes: `git commit -am 'Useful information about your new features'`
   - Push to the branch: `git push origin my-new-feature`
 
+# Epilogue:
 ## Special thanks
 Snorlax would not have been possible without:
 - [chuparCh0pper](https://github.com/chuparCh0pper/PoGoIV_xposed) for his awesome [module](https://github.com/chuparCh0pper/PoGoIV_xposed) which Snorlax is inspired on
