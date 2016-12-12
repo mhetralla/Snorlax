@@ -4,7 +4,7 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
 
 - It does not require your account or any information about you.
 - It does not communicate with the server at any time, so it's pretty safe against detection.
-- It doet not require any right (no data usage, ...)
+- It does not require any right (no data usage, ...)
 
 ### Features:
 - Prevent PokemonGo from detecting GPS is being spoofed (similar to Mock Mock Locations)
@@ -63,7 +63,7 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
 - Android N [(API 24) ](http://developer.android.com/tools/revisions/platforms.html)
 - Latest Android SDK Tools and build tools
 - Lombok plugin for Android Studio / IntelliJ IDEA
-- Your device must be rooted and the xposed framekwork must be installed. You can download the xposed framework [here](http://repo.xposed.info/module/de.robv.android.xposed.installer).
+- Your device must be rooted and the xposed framekwork must be installed. You can download it [here](http://repo.xposed.info/module/de.robv.android.xposed.installer).
 
 ## Build source
 Clone the repository (you must have Git installed)
