@@ -4,7 +4,7 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
 
 - It does not require your account or any information about you.
 - It does not communicate with the server at any time, so it's pretty safe against detection.
-- It does not require any right (no data usage, ...)
+- It only require the right to read external storage (no network usage, ...)
 
 ### Features:
 - Prevent PokemonGo from detecting GPS is being spoofed (similar to Mock Mock Locations)
