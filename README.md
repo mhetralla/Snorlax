@@ -28,7 +28,7 @@ This module acts as a [man in the middle](https://en.wikipedia.org/wiki/Man-in-t
   - <img src="https://cloud.githubusercontent.com/assets/498613/21016969/f58cdc70-bd67-11e6-995d-940f47e11507.png" width="300px">
   - <img src="https://cloud.githubusercontent.com/assets/498613/21093558/cb89eefc-c052-11e6-9ea2-a3d3e386ddb2.png" width="300px">
 - Show a notification when it's time to collect your defender bonus :
-  - *add image*
+  - <img src="https://cloud.githubusercontent.com/assets/498613/21306223/35616030-c5d0-11e6-950f-8232058c8dea.png" width="300px">
 
 ### Dev features:
 - Broadcast [Intent](https://developer.android.com/reference/android/content/Intent.html) with nearby pokemon informations
