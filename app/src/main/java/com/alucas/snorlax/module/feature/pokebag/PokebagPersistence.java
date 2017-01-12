@@ -34,7 +34,7 @@ class PokebagPersistence {
 
 	private static final String INVENTORY_DIRECTORY_NAME = "inventory";
 	private static final String POKEMON_FILE_NAME = "pokebag.json";
-	private static final Type TYPE_POKEMON = new TypeToken<Set<PokebagData>>() {
+	private static final Type TYPE_POKEMON = new TypeToken<Set<Pokebag>>() {
 	}.getType();
 
 	private final Context mContext;
@@ -71,8 +71,10 @@ class PokebagPersistence {
 	}
 
 	private static void saveInventoryPokemon(final Context context, final Resources resources, final Gson gson, final Set<PokebagData> inventoryPokemon) {
+		Timber.d("saveInventoryPokemon");
 		final File inventoryPokemonFile = getInventoryPokemonFile(resources);
 		if (inventoryPokemonFile == null || !Storage.isExternalStorageWritable(context)) {
+			Timber.d("saveInventoryPokemon failed");
 			return;
 		}
 
@@ -80,6 +82,11 @@ class PokebagPersistence {
 	}
 
 	private static void saveInventoryPokemonFile(final Gson gson, final File inventoryPokemonFile, final Set<PokebagData> inventoryPokemon) {
+		Timber.d("saveInventoryPokemonFile");
+		for (PokebagData data : inventoryPokemon) {
+			Timber.d(String.valueOf(data.pokemonId()));
+		}
+
 		try (final Writer writer = new FileWriter(inventoryPokemonFile)) {
 			gson.toJson(inventoryPokemon, TYPE_POKEMON, writer);
 		} catch (IOException | JsonIOException | JsonSyntaxException e) {

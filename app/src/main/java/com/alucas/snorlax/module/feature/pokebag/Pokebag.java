@@ -24,13 +24,15 @@ import rx.Subscription;
 @Singleton
 public class Pokebag implements Feature {
 	private final MitmRelay mMitmRelay;
+	private final PokebagPreferences mPreferences;
 	private final PokebagPersistence mPokebagPersistence;
 
 	private Subscription mSubscription;
 
 	@Inject
-	public Pokebag(final MitmRelay mitmRelay, final PokebagPersistence pokebagPersistence) {
+	public Pokebag(final MitmRelay mitmRelay, final PokebagPreferences preferences, final PokebagPersistence pokebagPersistence) {
 		this.mMitmRelay = mitmRelay;
+		this.mPreferences = preferences;
 		this.mPokebagPersistence = pokebagPersistence;
 	}
 
@@ -40,6 +42,7 @@ public class Pokebag implements Feature {
 
 		mSubscription = mMitmRelay
 			.getObservable()
+			.compose(mPreferences.isEnabled())
 			.compose(getInventoryResponse())
 			.compose(onInventoryResponse())
 			.subscribe(mPokebagPersistence::addPokemons)
@@ -68,7 +71,7 @@ public class Pokebag implements Feature {
 			.map(InventoryItem::getInventoryItemData)
 			.map(InventoryItemData::getPokemonData)
 			.filter(pokemonData -> pokemonData.getPokemonId() != PokemonIdOuterClass.PokemonId.MISSINGNO)
-			.map(PokebagData::new)
+			.map(PokebagData::create)
 			.buffer(5, TimeUnit.SECONDS)
 			.filter(datas -> !datas.isEmpty())
 			;

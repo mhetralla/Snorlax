@@ -2,24 +2,36 @@ package com.alucas.snorlax.module.feature.pokebag;
 
 import java.io.Serializable;
 
+import com.google.auto.value.AutoValue;
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import POGOProtos.Data.PokemonDataOuterClass.PokemonData;
 
-public class PokebagData implements Serializable {
-	@SerializedName("pokemonId")
-	public final long pokemonId;
-	@SerializedName("pokemonPokedexId")
-	public final int pokemonPokedexId;
-	@SerializedName("pokemonHeight")
-	public final float pokemonHeight;
-	@SerializedName("pokemonWeight")
-	public final float pokemonWeight;
-
-	PokebagData(final PokemonData pokemonData) {
-		this.pokemonId = pokemonData.getId();
-		this.pokemonPokedexId = pokemonData.getPokemonIdValue();
-		this.pokemonHeight = pokemonData.getHeightM();
-		this.pokemonWeight = pokemonData.getWeightKg();
+@AutoValue
+public abstract class PokebagData implements Serializable {
+	static PokebagData create(final PokemonData pokemonData) {
+		return new AutoValue_PokebagData(
+			pokemonData.getId(),
+			pokemonData.getPokemonIdValue(),
+			pokemonData.getHeightM(),
+			pokemonData.getWeightKg());
 	}
+
+	public static TypeAdapter<PokebagData> typeAdapter(Gson gson) {
+		return new AutoValue_PokebagData.GsonTypeAdapter(gson);
+	}
+
+	@SerializedName("pokemonId")
+	abstract long pokemonId();
+
+	@SerializedName("pokemonPokedexId")
+	abstract int pokemonPokedexId();
+
+	@SerializedName("pokemonHeight")
+	abstract float pokemonHeight();
+
+	@SerializedName("pokemonWeight")
+	abstract float pokemonWeight();
 }
