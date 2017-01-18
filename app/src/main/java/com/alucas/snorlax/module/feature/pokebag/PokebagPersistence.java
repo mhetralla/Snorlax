@@ -119,13 +119,14 @@ class PokebagPersistence {
 			}
 		}
 
-		if (!pokemonFile.setReadable(true, false)) {
-			Timber.d("Failed to set read permission");
-		}
-
-		if (!pokemonFile.setWritable(true, false)) {
-			Timber.d("Failed to set write permission");
-		}
+//		TODO
+//		if (!pokemonFile.setReadable(true, false)) {
+//			Timber.d("Failed to set read permission");
+//		}
+//
+//		if (!pokemonFile.setWritable(true, false)) {
+//			Timber.d("Failed to set write permission");
+//		}
 
 		return pokemonFile;
 	}

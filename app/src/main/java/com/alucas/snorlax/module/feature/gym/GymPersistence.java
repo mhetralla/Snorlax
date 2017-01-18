@@ -177,13 +177,14 @@ public class GymPersistence implements Feature {
 			}
 		}
 
-		if (!pokemonInGymFile.setReadable(true, false)) {
-			Timber.d("Failed to set read permission");
-		}
-
-		if (!pokemonInGymFile.setWritable(true, false)) {
-			Timber.d("Failed to set write permission");
-		}
+//		TODO
+//		if (!pokemonInGymFile.setReadable(true, false)) {
+//			Timber.d("Failed to set read permission");
+//		}
+//
+//		if (!pokemonInGymFile.setWritable(true, false)) {
+//			Timber.d("Failed to set write permission");
+//		}
 
 		return pokemonInGymFile;
 	}
