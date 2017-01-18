@@ -82,7 +82,7 @@
 
 	<bool name="preference_bag_pokemon_enable_default">false</bool>
 	<string name="preference_bag_pokemon_enable_key">bag_pokemon_key</string>
-	<string name="preference_bag_pokemon_enable_title">Track trainer's pokemons</string>
+	<string name="preference_bag_pokemon_enable_title">Track trainer\'s pokemons</string>
 	<string name="preference_bag_pokemon_enable_summary"></string>
 
 	<!-- Advanced -->
