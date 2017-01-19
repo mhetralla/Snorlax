@@ -12,7 +12,7 @@ ext {
             powermock: '1.6.5'
     ]
     libraryVersions = [
-            supportLib          : '24.2.1',
+            supportLib          : '25.1.0',
             xposed              : '82',
             rxJava              : '1.2.1',
             rxAndroid           : '1.2.1',
@@ -29,7 +29,8 @@ ext {
             timber              : '4.3.1',
             superuser           : '1.0.0.201608240809',
             lombok              : '1.12.6',
-            gson                : '2.7'
+            gson                : '2.7',
+            gms                 : '10.0.1'
     ]
 
     pluginLibraries = [
@@ -98,6 +99,7 @@ ext {
             timber              : "com.jakewharton.timber:timber:${libraryVersions.timber}",
             superuser           : "eu.chainfire:libsuperuser:${libraryVersions.superuser}",
             lombok              : "org.projectlombok:lombok:${libraryVersions.lombok}",
-            gson                : "com.google.code.gson:gson:${libraryVersions.gson}"
+            gson                : "com.google.code.gson:gson:${libraryVersions.gson}",
+            gms                 : "com.google.android.gms:play-services:${libraryVersions.gms}"
     ]
 }
