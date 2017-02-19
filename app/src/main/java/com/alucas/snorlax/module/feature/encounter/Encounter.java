@@ -139,7 +139,7 @@ public final class Encounter implements Feature {
 	}
 
 	private void onEncounter(PokemonData pokemonData, CaptureProbability captureProbability) {
-		Pokemon pokemon = mPokemonFactory.with(pokemonData);
+		final Pokemon pokemon = mPokemonFactory.with(pokemonData);
 		if (pokemon == null) {
 			Log.d(LOG_PREFIX + "Failed to create Pokemon from PokemonData");
 			return;
@@ -150,6 +150,7 @@ public final class Encounter implements Feature {
 		mEncounterNotification.show(
 			pokemon.getNumber(),
 			pokemon.getName(),
+			pokemon.getGender(),
 			pokemon.getIv() * 100,
 			pokemon.getIVAttack(),
 			pokemon.getIVDefense(),

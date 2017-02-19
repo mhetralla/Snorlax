@@ -18,6 +18,7 @@ package com.alucas.snorlax.module.pokemon;
 
 import java.util.List;
 
+import POGOProtos.Enums.GenderOuterClass.Gender;
 import POGOProtos.Enums.PokemonRarityOuterClass.PokemonRarity;
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
 import POGOProtos.Settings.Master.MoveSettingsOuterClass.MoveSettings;
@@ -132,6 +133,10 @@ public final class Pokemon {
 
 	public int getNumber() {
 		return mPokemonData.getPokemonId().getNumber();
+	}
+
+	public Gender getGender() {
+		return mPokemonData.getPokemonDisplay().getGender();
 	}
 
 	public MoveSettings getMoveFast() {

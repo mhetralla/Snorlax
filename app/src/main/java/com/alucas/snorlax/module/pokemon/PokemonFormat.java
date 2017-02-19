@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import android.content.res.Resources;
+
+import com.alucas.snorlax.R;
 import com.alucas.snorlax.common.Strings;
 
+import POGOProtos.Enums.GenderOuterClass.Gender;
 import POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
 import POGOProtos.Enums.PokemonRarityOuterClass.PokemonRarity;
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
@@ -43,5 +47,12 @@ public class PokemonFormat {
 
 	public static String formatRarity(final PokemonRarity pokemonRarity) {
 		return Strings.capitalize(pokemonRarity.toString().replace(POKEMON_RARITY_PREFIX, Strings.EMPTY).toLowerCase(Locale.US));
+	}
+
+	public static String formatGender(final Resources resources, final Gender gender) {
+		return gender == Gender.FEMALE ? resources.getString(R.string.symbol_gender_female)
+			: gender == Gender.MALE ? resources.getString(R.string.symbol_gender_male)
+			: resources.getString(R.string.symbol_gender_genderless)
+			;
 	}
 }
