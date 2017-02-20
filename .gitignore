@@ -8,7 +8,6 @@ buildscript/signing/*
 *.iml
 Thumbs.db
 local.properties
-gradle.properties
 !buildscript/signing/sign.gradle
 !buildscript/signing/debug.keystore
 app/src/debug/res/values/google_maps_api.xml
