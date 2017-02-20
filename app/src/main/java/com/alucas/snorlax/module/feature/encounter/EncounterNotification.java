@@ -101,8 +101,12 @@ final class EncounterNotification {
 			: pokemonNumber == PokemonId.MAGIKARP_VALUE && weightRatio > 1.30 ? MODIFIER.FISHERMAN
 			: MODIFIER.NO);
 
+		final String genderSymbol =
+			(pokemonNumber != PokemonId.NIDORAN_MALE_VALUE && pokemonNumber != PokemonId.NIDORAN_FEMALE_VALUE)
+				? PokemonFormat.formatGender(mResources, gender)
+				: "";
+
 		final String encounterTypeName = PokemonFormat.formatEncounterType(encounterType);
-		final String genderSymbol = PokemonFormat.formatGender(mResources, gender);
 		final String fastMoveName = PokemonFormat.formatMove(fastMove.getMovementId());
 		final String chargeMoveName = PokemonFormat.formatMove(chargeMove.getMovementId());
 		final String fastMoveTypeName = PokemonFormat.formatType(fastMove.getPokemonType());
