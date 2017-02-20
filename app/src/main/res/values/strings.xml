@@ -64,7 +64,6 @@
 
 	<string name="symbol_gender_male">♂</string>
 	<string name="symbol_gender_female">♀</string>
-	<string name="symbol_gender_genderless">⚪</string>
 
 	<string name="symbol_type_bug">🐞</string>
 	<string name="symbol_type_dark">🌒</string>

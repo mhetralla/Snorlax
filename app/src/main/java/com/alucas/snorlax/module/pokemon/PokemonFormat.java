@@ -13,6 +13,7 @@ import POGOProtos.Enums.GenderOuterClass.Gender;
 import POGOProtos.Enums.PokemonMoveOuterClass.PokemonMove;
 import POGOProtos.Enums.PokemonRarityOuterClass.PokemonRarity;
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
+import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 
 public class PokemonFormat {
 	private static final String SEPARATOR = "_";
@@ -52,7 +53,23 @@ public class PokemonFormat {
 	public static String formatGender(final Resources resources, final Gender gender) {
 		return gender == Gender.FEMALE ? resources.getString(R.string.symbol_gender_female)
 			: gender == Gender.MALE ? resources.getString(R.string.symbol_gender_male)
-			: resources.getString(R.string.symbol_gender_genderless)
+			: Strings.EMPTY
 			;
+	}
+
+	/**
+	 * @author https://github.com/alexcheveau
+	 */
+	public static String formatEncounterType(final RequestType encounterType) {
+		switch (encounterType) {
+			case ENCOUNTER:
+				return "[Wild]";
+			case DISK_ENCOUNTER:
+				return "[Disk]";
+			case INCENSE_ENCOUNTER:
+				return "[Incense]";
+			default:
+				return "[]";
+		}
 	}
 }

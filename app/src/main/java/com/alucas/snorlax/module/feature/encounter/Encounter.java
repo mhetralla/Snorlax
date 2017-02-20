@@ -19,8 +19,6 @@ package com.alucas.snorlax.module.feature.encounter;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import com.google.protobuf.ByteString;
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.alucas.snorlax.common.rx.RxBus;
 import com.alucas.snorlax.common.rx.RxFuncitons;
 import com.alucas.snorlax.module.feature.Feature;
@@ -32,6 +30,8 @@ import com.alucas.snorlax.module.pokemon.PokemonFactory;
 import com.alucas.snorlax.module.pokemon.probability.PokemonProbability;
 import com.alucas.snorlax.module.pokemon.probability.PokemonProbabilityFactory;
 import com.alucas.snorlax.module.util.Log;
+import com.google.protobuf.ByteString;
+import com.google.protobuf.InvalidProtocolBufferException;
 
 import POGOProtos.Networking.Responses.CatchPokemonResponseOuterClass.CatchPokemonResponse.CatchStatus;
 import rx.Subscription;
@@ -101,8 +101,8 @@ public final class Encounter implements Feature {
 
 	private void onWildEncounter(ByteString bytes) {
 		try {
-			EncounterResponse response = EncounterResponse.parseFrom(bytes);
-			onEncounter(response.getWildPokemon().getPokemonData(), response.getCaptureProbability());
+			final EncounterResponse response = EncounterResponse.parseFrom(bytes);
+			onEncounter(RequestType.ENCOUNTER, response.getWildPokemon().getPokemonData(), response.getCaptureProbability());
 		} catch (InvalidProtocolBufferException | NullPointerException e) {
 			Log.d("EncounterResponse failed: %s", e.getMessage());
 			Log.e(e);
@@ -114,8 +114,8 @@ public final class Encounter implements Feature {
 
 	private void onDiskEncounter(ByteString bytes) {
 		try {
-			DiskEncounterResponse response = DiskEncounterResponse.parseFrom(bytes);
-			onEncounter(response.getPokemonData(), response.getCaptureProbability());
+			final DiskEncounterResponse response = DiskEncounterResponse.parseFrom(bytes);
+			onEncounter(RequestType.DISK_ENCOUNTER, response.getPokemonData(), response.getCaptureProbability());
 		} catch (InvalidProtocolBufferException | NullPointerException e) {
 			Log.d("DiskEncounterResponse failed: %s", e.getMessage());
 			Log.e(e);
@@ -127,8 +127,8 @@ public final class Encounter implements Feature {
 
 	private void onIncenseEncounter(ByteString bytes) {
 		try {
-			IncenseEncounterResponse response = IncenseEncounterResponse.parseFrom(bytes);
-			onEncounter(response.getPokemonData(), response.getCaptureProbability());
+			final IncenseEncounterResponse response = IncenseEncounterResponse.parseFrom(bytes);
+			onEncounter(RequestType.INCENSE_ENCOUNTER, response.getPokemonData(), response.getCaptureProbability());
 		} catch (InvalidProtocolBufferException | NullPointerException e) {
 			Log.d("IncenseEncounterResponse failed: %s", e.getMessage());
 			Log.e(e);
@@ -138,7 +138,7 @@ public final class Encounter implements Feature {
 		}
 	}
 
-	private void onEncounter(PokemonData pokemonData, CaptureProbability captureProbability) {
+	private void onEncounter(final RequestType encounterType, final PokemonData pokemonData, final CaptureProbability captureProbability) {
 		final Pokemon pokemon = mPokemonFactory.with(pokemonData);
 		if (pokemon == null) {
 			Log.d(LOG_PREFIX + "Failed to create Pokemon from PokemonData");
@@ -148,6 +148,7 @@ public final class Encounter implements Feature {
 		PokemonProbability probability = mPokemonProbabilityFactory.with(captureProbability);
 
 		mEncounterNotification.show(
+			encounterType,
 			pokemon.getNumber(),
 			pokemon.getName(),
 			pokemon.getGender(),

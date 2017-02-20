@@ -50,6 +50,7 @@ import POGOProtos.Enums.GenderOuterClass.Gender;
 import POGOProtos.Enums.PokemonIdOuterClass.PokemonId;
 import POGOProtos.Enums.PokemonRarityOuterClass.PokemonRarity;
 import POGOProtos.Enums.PokemonTypeOuterClass.PokemonType;
+import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import POGOProtos.Settings.Master.MoveSettingsOuterClass.MoveSettings;
 
 @Singleton
@@ -92,7 +93,7 @@ final class EncounterNotification {
 	}
 
 	@SuppressWarnings("deprecation")
-	void show(int pokemonNumber, String pokemonName, Gender gender, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, MoveSettings fastMove, MoveSettings chargeMove, double fleeRate, double pokeRate, double greatRate, double ultraRate, PokemonType type1, PokemonType type2, PokemonRarity pokemonClass) {
+	void show(final RequestType encounterType, int pokemonNumber, String pokemonName, Gender gender, double iv, int attack, int defense, int stamina, int cp, double level, int hp, double baseWeight, double weight, double baseHeight, double height, MoveSettings fastMove, MoveSettings chargeMove, double fleeRate, double pokeRate, double greatRate, double ultraRate, PokemonType type1, PokemonType type2, PokemonRarity pokemonClass) {
 		final double weightRatio = weight / baseWeight;
 		final double heightRatio = height / baseHeight;
 		final MODIFIER resourceModifier = (pokemonNumber == PokemonId.PIKACHU_VALUE ? MODIFIER.FAN
@@ -100,6 +101,7 @@ final class EncounterNotification {
 			: pokemonNumber == PokemonId.MAGIKARP_VALUE && weightRatio > 1.30 ? MODIFIER.FISHERMAN
 			: MODIFIER.NO);
 
+		final String encounterTypeName = PokemonFormat.formatEncounterType(encounterType);
 		final String genderSymbol = PokemonFormat.formatGender(mResources, gender);
 		final String fastMoveName = PokemonFormat.formatMove(fastMove.getMovementId());
 		final String chargeMoveName = PokemonFormat.formatMove(chargeMove.getMovementId());
@@ -121,7 +123,7 @@ final class EncounterNotification {
 					Resource.getLargeIconHeight(mResources),
 					false
 				))
-				.setContentTitle(EncounterFormat.format(mContext.getString(R.string.notification_title, genderSymbol, pokemonName, cp, level), symbols))
+				.setContentTitle(EncounterFormat.format(mContext.getString(R.string.notification_title, pokemonName, genderSymbol, cp, level, encounterTypeName), symbols))
 				.setContentText(EncounterFormat.format(mContext.getString(R.string.notification_content, iv, fleeRate, pokeRate, greatRate, ultraRate), symbols))
 				.setStyle(new NotificationCompat.InboxStyle()
 					.addLine(EncounterFormat.format(mContext.getString(R.string.notification_category_stats_content_iv, iv, attack, defense, stamina), symbols))
