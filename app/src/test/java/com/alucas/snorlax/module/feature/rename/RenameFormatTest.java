@@ -113,7 +113,7 @@ public class RenameFormatTest {
 	@After
 	public void tearDown() throws Exception {
 		// When
-		final String formatted = mSut.format(mProto);
+		final String formatted = mSut.format(mProto, null);
 
 		// Then
 		Mockito.verify(mPokemonFactory).with(mProto);
